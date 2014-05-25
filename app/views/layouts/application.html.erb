@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>
+  <%= "Custom Shop" +  ( " - " + yield(:title) + " - Todd Ramirez" unless
+      yield(:title).blank?).to_s.html_safe %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<script type="text/javascript">
+$('a.image').fancybox({
+  padding: 0,
+showNavArrows: true,
+  helpers: {
+    overlay: {
+      locked: false
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  document.oncontextmenu = function() {return false;};
+
+  $(document).mousedown(function(e){
+    if( e.button == 2 ) {
+      dispHandle("dash");
+      return false;
+    }
+    return true;
+  });
+});
+</script>
+<div id="container">
+<div id="dash"  style="display: none">
+<a onclick="dispHandle('dash')" class="close_button">X</a>
+<br><br>
+<div class="centered">
+<table id="actual-table">
+<tr>
+<td> <%= lx('home.png', home_path, 'home' ) %></td>
+<td> <%= lx('custom_rifles.png', custom_rifles_path, 'custom_rifles' ) %></td>
+<td> <%= lx('synthetic_rifles.png', synthetic_rifles_path, 'synthetic_rifles' )%></td>
+<td> <%= lx('signature_rifle.png', signature_rifle_path, 'signature_rifle' )%></td>
+<td> <%= lx('gun_fitting.png', gun_fitting_path, 'gun_fitting' ) %></td>
+</tr><tr>
+<td> <%= lx('shotguns.png', shotguns_path, 'shotguns' ) %></td>
+<td> <%= lx('oil_finishes.png', oil_finishes_path, 'oil_finishes' ) %></td>
+<td> <%= lx('leather_wrap_pads.png', leather_wrap_pads_path, 'leather_wrap_pads' ) %></td>
+<td> <%= lx('stock_work.png', stock_work_path, 'stock_work' ) %></td>
+<td> <%= lx('restoration.png', restoration_path, 'restoration' ) %></td>
+</tr><tr>
+<td> <%= lx('double_rifles.png', double_rifles_path, 'double_rifles' ) %></td>
+<td> <%= lx('custom_work.png', custom_work_path, 'custom_work' ) %></td>
+<td> <%= lx('metal_finishes.png', metal_finishes_path, 'metal_finishes') %></td>
+<td> <%= lx('metal_work.png', metal_work_path, 'metal_work' ) %></td>
+<td> <%= lx('engraving.png', engraving_path, 'engraving' ) %></td>
+</tr><tr>
+<td> <%= lx('boddington_rifle_project.png', boddington_rifle_project_path, 'boddington_rifle_project' ) %></td>
+<td> <%= lx('boddington_trophy.png', boddington_trophy_path, 'boddington_trophy' ) %></td>
+<td> <%= lx('photo_gallery.png', photo_gallery_path, 'photo_gallery' ) %></td>
+<td> <%= lx('gun_parts.png', gun_parts_path, 'gun_parts' ) %></td>
+<td> <%= lx('guns_for_sale.png', guns_for_sale_path, 'guns_for_sale' ) %></td>
+</tr><tr>
+<td> <%= lx('payment_and_shipping.png', payment_and_shipping_path, 'payment_and_shipping_html' ) %></td>
+<td> <%= lx('media.png', media_path, 'media' ) %></td>
+<td> <%= lx('contact.png', contact_path, 'contact' ) %></td>
+<td> <%= lx('about_us.png', about_us_path, 'about_us' ) %></td>
+<td> <%= lx('show_schedule.png', show_schedule_path, 'show_schedule' ) %></td>
+</tr><tr>
+<td> <%= lx('taylors_pens_and_gifts.png', taylors_pens_and_gifts_path, 'taylors_pens_and_gifts_html' ) %></td>
+<td> <%= lx('pens.png', pens_path, 'pens' ) %></td>
+<td> <%= lx('bottle_stoppers.png', wine_stoppers_path, 'wine_stoppers' ) %></td>
+<td> <%= lx('key_chains.png', key_chains_path, 'key_chains' ) %></td>
+<td> <%= lx('bracelet_helpers.png', bracelet_helpers_path, 'bracelet_helpers' ) %></td>
+</tr>
+</table>
+<br>
+</div>
+</div>
+ <div id="menu" onclick="dispHandle('dash')">
+  <%= image_tag 'theme/default/tr.svg'%>
+<%= t('main_menu') %></div>
+<div id="box">
+<br>
+<div id="page-title"> <%= t(yield(:header)) %> </div>
+<%= yield %>
+</div>
+<div id="footer"> <%= t('copyright')%></div>
+</div>
+</body>
+</html>

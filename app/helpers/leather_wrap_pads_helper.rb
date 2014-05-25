@@ -1,0 +1,2 @@
+module LeatherWrapPadsHelper
+end

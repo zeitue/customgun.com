@@ -1,0 +1,23 @@
+<% content_for :title,  t( 'home') %>
+<% content_for :header, t('home_header') %>
+
+<div id="content">
+<%= ptext('home_text0')%>
+<%= ttext('home_text1') + brn(3)%>
+<%= photo_text_s('570.jpeg', 'home_text2')%>
+<%= photo_text_s('954.jpeg', 'home_text3')%>
+<%= photo_text_s('749.jpeg', 'home_text4')%>
+<%= photo_text_s('539.jpeg', 'home_text5')%>
+<%= qtext('home_text6') + brn(3)%>
+
+<a href="mailto:customgun.tr@gmail.com">
+<img alt="Mail"
+     onmouseout="this.src='/assets/theme/default/email.png';"
+     onmouseover="this.src='/assets/theme/default/email_mouseover.png';"
+     src="/assets/theme/default/email.png"
+     style="border: 0px solid;
+            width: 128px;
+            height: 128px;">
+</a>
+<%= brn(3)%>
+</div>

@@ -1,0 +1,2 @@
+module WineStoppersHelper
+end

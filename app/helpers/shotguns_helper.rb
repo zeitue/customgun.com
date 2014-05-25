@@ -1,0 +1,2 @@
+module ShotgunsHelper
+end

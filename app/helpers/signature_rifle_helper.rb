@@ -1,0 +1,2 @@
+module SignatureRifleHelper
+end

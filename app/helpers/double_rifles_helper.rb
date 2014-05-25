@@ -1,0 +1,2 @@
+module DoubleRiflesHelper
+end

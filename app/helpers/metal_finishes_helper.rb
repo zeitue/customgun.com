@@ -1,0 +1,2 @@
+module MetalFinishesHelper
+end

@@ -1,0 +1,2 @@
+module GunsForSaleHelper
+end

@@ -1,0 +1,2 @@
+module GunPartsHelper
+end
