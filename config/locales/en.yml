@@ -60,7 +60,7 @@ en:
 
 
 
-  home_text0: "Todd is a Master Gunsmith with a thorough knowledge of the finest American and European rifles, shotguns, double rifles .  Over 30 years experience he specializes in custom rifles, restoration,  and stock making.  For all of your gunsmithing needs, stock bending and specialty items such as leather wrap pads.   Todd is one of the best  in the country."
+  home_text0: "Todd is a Master Gunsmith with a thorough knowledge of the finest American and European rifles, shotguns, and double rifles.  With over 30 years of experience, he specializes in custom rifles, restoration, and stock making.  For all of your gunsmithing needs, stock bending and specialty items, such as leather wrap pads, Todd is one of the best in the country."
   home_text1: "Premium Rifle Builder - Todd Ramirez M.G.S. - Gunsmithing Since 1976"
   home_text2: "7mm STW"
   home_text3: "416 Rigby"
@@ -70,12 +70,15 @@ en:
   home_text7: "Check Out the New Rifles on Custom Rifle Page"
 
   contact_text0: "Email: customgun.tr@gmail.com"
-  contact_text1_html: "Mailing Address:<br><br>Custom Shop, LLC<br>7680 North U.S. Hwy. 69<br>Alba, Texas 75410"
+  contact_text1_html: "Mailing Address:<br><br>
+  Custom Shop, LLC<br>
+  7680 North U.S. Hwy. 69<br>
+  Alba, Texas 75410"
   contact_text2: "Phone: (903)-768-2948"
   contact_text3: "Fax: (903)-768-3163"
 
 
-  about_us_text0: "Todd Ramirez Has 30 years experience in all phases of gunsmithing.  He graduated the Colorado School Of Trades in 1978.  He apprenticed under James Palmer Moore.  Todd is Italian trained and has over 9 years experience working on Beretta's and other fine Italian Guns.  He started riflemaking back in the late 70's and has been improving his techniques to make his rifles one of a kind show pieces.  Todd's passion is to make all of his custom work a reflection and personalize it for the person it is built for.  Restoration and Stock Building is a passion of Todd's."
+  about_us_text0: "Todd Ramirez has 30 years experience in all phases of gunsmithing.  He graduated the Colorado School Of Trades in 1978.  He apprenticed under James Palmer Moore.  Todd is Italian trained and has over 9 years experience working on Beretta's and other fine Italian guns.  He started rifle making back in the late 70's and has been improving his techniques to make his rifles one of a kind show pieces.  Todd's passion is to make all of his custom work a reflection and personalize it for the person it is built for.  Restoration and Stock Building is a passion of Todd's."
 
 
   show_schedule_text0_html: "Dallas Safari Club 2014 Generations<br>Dallas Convention Center - Halls C,D,E & F<br>January 9-12, 2014"
@@ -88,16 +91,16 @@ en:
   leather_wrap_pads_text1_html: "Choice of Leather:<br>Cow Hide<br>Pig Skin<br>Goat Skin"
   leather_wrap_pads_text2_html: "Thickness Available:  .500\" to 1.00\"<br>Larger Pad Widths Available (extra charge) 1.25\" and 1.50\""
 
-  payment_and_shipping_text0: "How Do I Ship My Firearm to the Custom Shop?"
-  payment_and_shipping_text1: "It is legal for any gun owner to ship their gun by UPS, Federal Express or other private carriers to a gunsmith, dealer or manufacturer for repair or alterations.  The gun be directly returned to the owner by Fedex or other carriers.  Be sure when shipping a firearm you insure for full value, make sure the firearm is properly packed to prevent damage in shipping.  Please provide us with full details, including your name, address, phone number, home number, type of gun, serial number and clear instructions of work you would like done. "
+  payment_and_shipping_text0: "How Do I Ship My Firearm To The Custom Shop?"
+  payment_and_shipping_text1: "It is legal for any gun owner to ship their gun by UPS, Federal Express or other private carriers to a gunsmith, dealer or manufacturer for repair or alterations.  The gun will be directly returned to the owner by FedEx or other carriers.  When shipping a firearm, be sure you insure for full value; also make sure the firearm is properly packed to prevent damage during shipping.  Please provide us with full details, including your name, address, phone number, home number, type of gun, serial number and clear instructions of work you would like done. "
   payment_and_shipping_text2: "Where Do I Ship My Gun?"
   payment_and_shipping_text3_html: "Custom Shop - Todd Ramirez<br>7680 North U.S. Hwy. 69<br>Alba, Texas 75410"
-  payment_and_shipping_text4: "Shipping & Handling Cost ?"
-  payment_and_shipping_text5: "Unless otherwise requested return shipment will be by Fed-ex.  Minimum shipping charges will be $50.00 for firearms.  Additional charges may be added to guarantee the packages are insured for full replacement value."
-  payment_and_shipping_text6: "How and when do I Pay?"
-  payment_and_shipping_text7_html: "A deposit of one third of purchase price is required  to confirm and schedule your custom rifle project.  One third when the job is near completion and the final third payment when the work is finished.  When work is completed you will receive an invoice.  Shipment of gun will be made after funds clear the bank.   There are no refunds on custom rifles or custom work.<br><br>Time Frame on Rifles start after all material necessary is complete or received.  Example:  action, barrel, and wood.<br><br>For all gunsmithing work - Payment is due before firearms are shipped back to customer.  A invoice will be E-mailed, mailed or faxed to gun owner."
+  payment_and_shipping_text4: "Shipping & Handling Cost?"
+  payment_and_shipping_text5: "Unless otherwise requested, return shipment will be by FedEx.  Minimum shipping charges will be $50.00 for firearms.  Additional charges may be added to guarantee the packages are insured for full replacement value."
+  payment_and_shipping_text6: "How And When Do I Pay?"
+  payment_and_shipping_text7_html: "A deposit of one third of purchase price is required to confirm and schedule your custom rifle project.  One third when the job is near completion and the final third payment when the work is finished.  When work is completed you will receive an invoice.  Shipment of gun will be made after funds clear the bank.   There are no refunds on custom rifles or custom work.<br><br>Time Frame on Rifles start after all material necessary is complete or received.  Example:  action, barrel, and wood.<br><br>For all gunsmithing work - Payment is due before firearms are shipped back to customer.  An invoice will be E-mailed, mailed or faxed to the gun owner."
   payment_and_shipping_text8: "Non Payment Policy?"
-  payment_and_shipping_text9: "Complete Gun Invoices must be paid within 15 days of the invoice date.  Nonpayment will result in the loss of the deposit and firearm will be  sold for charges due.  Finance charges will accrue on any invoice past due 30 days."
+  payment_and_shipping_text9: "Complete Gun Invoices must be paid within 15 days of the invoice date.  Nonpayment will result in the loss of the deposit and the firearm will be sold for charges due.  Finance charges will accrue on any invoice past due 30 days."
   payment_and_shipping_text10: "Contact Information"
   payment_and_shipping_text11_html: "Phone:  903-768-2948<br>Fax:  903-768-3163<br>"
   payment_and_shipping_text12: "Email:  customgun.tr@gmail.com"
@@ -106,18 +109,18 @@ en:
 
   photo_gallery_text0: "Please visit Boddington Trophy"
   photo_gallery_text1: "SCI'S Expedition Safari - Mike Rogers used this 375  in Africa"
-  photo_gallery_text2: "Ken Shot this elephant with his John Rigby .470 Restocked by Todd"
-  photo_gallery_text3: "10 ft. 450 lb. Lion killed in Africa with a 375 H & H Magnum built by Todd Ramirez"
+  photo_gallery_text2: "Ken Shot this elephant with his John Rigby .470 Restocked by Todd Ramirez"
+  photo_gallery_text3: "10 ft. 450 lbs. Lion killed in Africa with a 375 H & H Magnum built by Todd Ramirez"
   photo_gallery_text4_html: "Official Weight of the tusks are:<br>Right Tusk - 42 kgs (93 lbs).<br>Left Tusk - 39.5 kgs (87 lbs).<br><br>Ray Paolucci shot this huge elephant with his .500 Jeffery's built by Todd Ramirez"
-  photo_gallery_text5_html: "Trophy Imperial 7 x 7 Elk    B&C 385 , Ken got this elk with one shot using 7mm STW built by Todd Ramirez"
-  photo_gallery_text6_html: "Todd, \"So many thanks for a great job building my 7mm STW rifle.  You can see what one shot at 300 yards did !   The result a trophy Imperial 7 x 7 elk.  B&C 385 .  Not to shabby.  He took one jump and died.  Your careful craftsmanship on my gun is very much appreciated.  The Schmidt & Bender scope is tops.\"<br>Best Regards<br>Ken"
+  photo_gallery_text5_html: "Trophy Imperial 7 x 7 Elk    B&C 385, Ken got this elk with one shot using 7mm STW built by Todd Ramirez"
+  photo_gallery_text6_html: "Todd, \"So many thanks for a great job building my 7mm STW rifle.  You can see what one shot at 300 yards did!   The result a trophy Imperial 7 x 7 elk.  B&C 385.  Not too shabby.  He took one jump and died.  Your careful craftsmanship on my gun is very much appreciated.  The Schmidt & Bender scope is tops.\"<br>Best Regards<br>Ken"
   photo_gallery_text7: "Todd shot this Fallow Deer at the Cullen Ranch"
   photo_gallery_text8: "Jeryl Story shot this elephant with his double rifle restocked by Todd Ramirez"
-  photo_gallery_text9: "Hansen shot this deer with his 280 built by Todd"
-  photo_gallery_text10: "Jones,  375 Todd Ramirez  Rifle got him all these trophy's"
-  photo_gallery_text11: "2GW's Trophy's taken with a 300 win. mag.  &  375  Rifles  built by Todd"
+  photo_gallery_text9: "Hansen shot this deer with his 280 built by Todd Ramirez"
+  photo_gallery_text10: "Jones,  375 Todd Ramirez  Rifle got him all these trophies"
+  photo_gallery_text11: "2GW's Trophies taken with a 300 win. mag.  &  375  Rifles  built by Todd Ramirez"
 
-  boddington_trophy_text0: "Craig's Trophy's shot with his 7 x 57 built by Todd Ramirez"
+  boddington_trophy_text0: "Craig's Trophies shot with his 7 x 57 built by Todd Ramirez"
   boddington_trophy_text1: "All Quotes by Craig"
   boddington_trophy_text2: "\"Checking Zero in Nambia\""
   boddington_trophy_text3: "\"Checking Zero in Victoria state, Australia\""
@@ -135,9 +138,9 @@ en:
 
   metal_work_text0_html: "Parts Duplicating<br>1/4 Ribs<br>Square Bridging<br>Bottom Metal<br>Barrel Work<br>Site Making<br>Double Rifle Regulating and Site Work<br>Forcing Cones<br>Screw in Chokes<br>Back Boring
   Barrel Patterning and Choke Work<br>Site-In<br>Welding<br>Claw Mounts<br>Converting Pistol Grip Trigger Guard to Straight Stock Trigger Guard"
-  metal_work_text1: "All Custom Metal Work by Quote"
+  metal_work_text1: "All Custom Metal Work Is By Quote"
 
-  metal_finishes_text0_html: "All Metal Work Prices are a Start Price.<br>Depending on Condition of Gun Prices May Vary."
+  metal_finishes_text0_html: "All Metal Work Prices Are A Start Price.<br>Prices May Vary Depending on Condition of Gun."
   metal_finishes_text1: "Rust Blue"
   metal_finishes_text2_html: "Doubles & O/U        $ 400.00<br>Re-Solder (per rib)   $ 100.00<br>Double Rifles           $ 600.00<br>Bolt Actions             $ 600.00"
   metal_finishes_text3: "Salt Blue"
@@ -148,34 +151,34 @@ en:
   metal_finishes_text8: "On Quote - Prices start at $550.00"
 
 
-  engraving_text0: "All Engraving is by Quote:"
+  engraving_text0: "All Engraving Is By Quote:"
   engraving_text1: "Left handed 7mm stw square bridged mauser action in the white.  Celtic engraving pattern with elk."
-  engraving_text2: "See complete rifle Custom Rifles"
+  engraving_text2: "See complete rifle at Custom Rifles"
   engraving_text3: "Left Handed 7mm STW with Leopard and Celtic Engraving"
   engraving_text4: "Additional examples of engraving"
-  custom_work_text0: "All Custom Work is by Quote  "
+  custom_work_text0: "All Custom Work Is By Quote  "
   custom_work_text1_html: "Specialize in Right and Left Hand Stocks<br>Custom Barrel Work<br>Metal Checkering<br>Bolt Checkering - Two Panel<br>Bolt Checkering - Three Panel<br>Cross Bolts - Without Ebony Plugs<br>Cross Bolts - With Ebony Plugs<br>Bolt Jewelling<br>1/4 Ribs with Standing Site and Banded Front Site Hood<br>Express Sights<br>Custom Trigger<br>Inletted Swivels<br>Muzzle Brakes<br>Magna Porting<br>Barrel Band<br>Recoil Reducers<br>Talley Custom Bases and Rings<br>Ovals (Gold or Silver)"
   custom_work_text2: "prince of wales"
   custom_work_text3: "Other Custom Options:"
   custom_work_text4_html: "Custom Butt Plate<br>Heal & Toe Plates<br>Installing Extra Barrel for Shotguns<br>Checkered Butt Stock<br>Leather Wrapped Pads<br>Custom Engraving<br>Custom Checkering<br>Point Pattern<br>Fleur-de-lis"
-  custom_work_text5: "The Custom Shop specializes in many different types of jobs and these are to name just a few.  You may have and idea or something special in mind that you would like done to your gun.  Please call us or email us and we may be able to accommodate your request.  I try to make every rifle job and custom job a reflection and personalize it for the person it is built for.  Restoration and Stock Building is a passion of mine."
+  custom_work_text5: "The Custom Shop specializes in many different types of jobs and these are to name just a few.  You may have an idea or something special in mind that you would like done to your gun.  Please call us or email us and we may be able to accommodate your request.  Todd tries to make every rifle job and custom job a reflection of and personalize it for the person it is built for.  Restoration and Stock Building is a passion of his."
   custom_work_text6: "see the complete rifle at Custom Rifles"
 
-  gun_parts_text0: "Keep checking back we will be adding more items."
+  gun_parts_text0: "Keep checking back. We will be adding more items soon."
   gun_parts_text1: "Wood"
   gun_parts_text2: "Barrels - All Barrels must be fit by a qualified gunsmith."
   gun_parts_text3_html: "Beretta 687 410 30\" Barrel - Fits 28 ga. frame.<br>Comes with Full Choke, Improved Modify, Modify and Choke Wrench.<br>Retail Price $1803.99 Sale Price $1200.00<br><br><br> Beretta 687 28 ga. 28\" Field Barrel  will fit 20 ga. guns<br>Comes with Full Choke, Improved Cylinder, Modify and Choke Wrench<br>Retail Price $1110.99<br>Sale Price $950.00"
   gun_parts_text4: "Parts"
-  gun_parts_text5_html: "We have many parts for Remington, Winchester, Beretta, Sauer, S&W, Colt, Browning,  Mossberg.  We will be listing them periodically.<br><br>
+  gun_parts_text5_html: "We have many parts for Remington, Winchester, Beretta, Sauer, S&W, Colt, Browning, and  Mossberg.  We will list them periodically.<br><br>
   #1 (687) 28 GA. 26 ½ “ - 20 ga. Frame - Field Barrel - Modifed and Full Choke - **No Ejectors or Wrench $ 500<br><br>
-  #2 687 28 ga. 28” Flat Rib – 20 ga. Frame – Steel bead – Chokes(full, Modify, Imp) with wrench & ejectors $950<br><br>
+  #2 687 28 ga. 28” Flat Rib – 20 ga. Frame – Steel bead – Chokes (full, mod, Imp) with wrench & ejectors $950<br><br>
   #5 Beretta Extrema -12 ga. 28” - 3 ½ steel shot, Optimal Plus Chokes – modifided cylinder, and cylinder & wrench $750<br><br>
-  #6 687 EELL 28 ga. 28” Field barrel, small frame, 687eell, (chokes full, modify, imp) with wrench $950.00<br><br>
-  #7 686 SP 20 ga. Sporter, 28” , Chokes ( full, modify, imp) with wrench (Matte Finish) 20 ga. frame $950<br><br>
+  #6 687 EELL 28 ga. 28” Field barrel, small frame, 687eell, (chokes full, mod, imp) with wrench $950.00<br><br>
+  #7 686 SP 20 ga. Sporter, 28”, Chokes (full, mod, imp) with wrench (Matte Finish) 20 ga. frame $950<br><br>
   #8 687 28 ga. 30” wide rib, sporter, white bead, 20 ga. Frame, ejectors, choke, (3) and wrench $1100<br><br>
-  #9 687 28 ga. 28” , 20 ga. Frame, field barrel, Chokes (full & modify) *** no wrench $950<br><br>
-  #11 687 28 ga. 26 ½ “ Field , Chokes (full & Mod) **No ejectors or wrench - Small Frame works on .410 $500<br><br>
-  #12 687 28 ga. 28” Field, 20 ga. Frame, choke (full & Mod) **No ejectors or wrench $500<br><br>
+  #9 687 28 ga. 28”, 20 ga. Frame, field barrel, Chokes (full & mod) *** no wrench $950<br><br>
+  #11 687 28 ga. 26 ½ “ Field , Chokes (full & mod) **No ejectors or wrench - Small Frame works on .410 $500<br><br>
+  #12 687 28 ga. 28” Field, 20 ga. Frame, choke (full & mod) **No ejectors or wrench $500<br><br>
   #13 687EELL 28 ga. 28” Field, flat rib, steel bead, chokes (full, mod, imp) with wrench & ejectors 20 ga. Frame $950<br><br>
   #23 687 410 30” sporting, wide rib, white bead, ejectors, wrench , chokes, (full, imp, cyl, modified) $ 1200<br><br>
   #24 687 410 26 1/2” Field, Steel Frame, front bead steel, Chokes (full, mod, imp) ejectors and wrench $925<br><br>
@@ -185,26 +188,26 @@ en:
   Colt Sauer Trigger Assembly Complete with safety part $445<br><br>
   NEAR picatinny scope rail with four screws 8-40. This is steel and made for the Winchester Model 70 short action.<br><br>
   6 1/4 \" in length and 3/4\" in width. $175<br><br>
-  Beretta DT10 Buttstock & Forend Left Handed 12 ga., Sporter, 12 ga., Left Handed, Recoil Pad, Unfitted, Has minor dings and blemishes. $1000<br><br>
-  Beretta Jubilee 20 ga. Buttstock & Forend with tang, 20 ga. Grade 5 Wood Buttstock with Original Trigger Guard & Screws Forend Non Snobel PB Shield Wood Butt Plate Unfitted This stock can be fitted to any 20 ga. frame 687EELL, 687EL or Jubilee . $4000<br><br>
+  Beretta DT10 Buttstock & Forend Left Handed 12 ga., Sporter, 12 ga., Left Handed, Recoil Pad, Unfitted, has minor dings and blemishes. $1000<br><br>
+  Beretta Jubilee 20 ga. Buttstock & Forend with tang, 20 ga. Grade 5 Wood Buttstock with Original Trigger Guard & Screws Forend Non Snobel PB Shield Wood Butt Plate Unfitted. This stock can be fitted to any 20 ga. frame 687EELL, 687EL or Jubilee . $4000<br><br>
   We have many forearms for all gauges available."
 
-  gun_fitting_text0: "Todd has over 30 years experience including 9 years for Beretta fitting shotguns to shooters.    Todd can fit your gun to you so that if feels like it was custom made for you."
-  gun_fitting_text1_html: "For Left Hand Shooters, we can convert any  right hand gun to a left hand gun for you.<br>
+  gun_fitting_text0: "Todd has over 30 years experience, including 9 years for Beretta fitting shotguns to shooters. Todd can fit your gun to you so it feels like it was custom made for you."
+  gun_fitting_text1_html: "For Left Hand Shooters, we can convert any  right hand gun to a left hand gun.<br>
   Hot Oil Bending<br>
   New Stock built to your Dimensions<br>
   The most preferred way is a personal fitting."
-  gun_fitting_text2: "How do I know if I need a gun fitting?"
-  gun_fitting_text3_html: "If with all of your practice your scores have not improved<br>
+  gun_fitting_text2: "How Do I Know If I Need A Gun Fitting?"
+  gun_fitting_text3_html: "If, with all of your practice, your scores have not improved<br>
   If you have a desire to improve your shooting.<br>
   If you are getting bruises on your shoulder or cheek.<br>
   If you're tired of your friends beating you."
-  gun_fitting_text4: "If you answer yes to any of these questions then you need a gun fitting."
-  gun_fitting_text5: "Personal Fitting - Includes one on one consultation.  I check for length of pull, pitch, cast and drop.  Length of Pull will be adjusted with pitch.  Castoff at heel and toe will be adjusted.  Then after those procedures are done we will shoot it on the pattern board.  After we shoot on the pattern board then the drop will be adjusted per customers point of impact desires."
-  gun_fitting_text6_html: "Length of Pull - this is the distance between the trigger and the center of the gun butt.  On doubles the distance is measured from front trigger.<br>
+  gun_fitting_text4: "If you answer yes to any of these questions, you need a gun fitting."
+  gun_fitting_text5: "Personal Fitting - Includes one on one consultation.  I check for length of pull, pitch, cast and drop.  Length of Pull will be adjusted with pitch.  Castoff at heel and toe will be adjusted.  After those procedures are done, we will shoot it on the pattern board.  After we shoot on the pattern board then the drop will be adjusted per customers point of impact desires."
+  gun_fitting_text6_html: "Length of Pull - is the distance between the trigger and the center of the gun butt.  On doubles, the distance is measured from front trigger.<br>
   Pitch - is the angle of the butt in relation to top of barrel.  Pitch is important because you want 100% of the butt to fit snugly in shoulder pocket.<br>
   Cast - is the distance the centerline of stock is offset to one side or another of the centerline of the barrel.<br>
-  Drop - is the distance from top of the barrel or rib to the top edge of stock at the comb and heel.  Drop is measured both and the comb and heel."
+  Drop - is the distance from top of the barrel or rib to the top edge of stock at the comb and heel.  Drop is measured both at the comb and heel."
   gun_fitting_text7: "Fitting Cost"
   gun_fitting_text8_html: "
   Consultation                                             $100.00<br>
@@ -213,17 +216,17 @@ en:
   Drop - Second Bend                                       $100.00<br>
   Pattern Board                                            $100.00<br>
   Complete Fitting Package                                 $550.00"
-  gun_fitting_text9: "All fittings are done by appointment only.  Turn around is one week.  If you are coming from out of town  special arrangements can be made for same day service."
-  pens_text0: "Copper Slimlines - Macassar Ebony, Cocobolo Macassar Dymondwood, Figured Maple, Bamboo. - $ 20.00"
+  gun_fitting_text9: "All fittings are done by appointment only.  Turn around is one week.  If you are coming from out of town, special arrangements can be made for same day service."
+  pens_text0: "Copper Slimlines - Macassar Ebony, Cocobolo Macassar Dymondwood, Figured Maple, Bamboo. - $20.00"
   pens_text1: "Father Sing Pen - Figured Maple - $40.00"
-  pens_text2: "Polaris Pens - Rapala Lace, Yellow Boxelder Burl, Blue Boxedler Burl, Yellow/Blue Boxelder Burl, Brown Boxleder Burl,  Black Boxelder Burl - $ 35.00"
-  pens_text3: "Polaris Pens- Mesquite, Purple Boxedler Burl, Purple Boxedler Burl, Macassar Ebony, Boxelder Burl, Black Boxelder Burl - $ 35.00"
-  pens_text4: "Black Slimlines - Camo Supreme, Figured Maple, Rosewood Macassar Dymondwood, Red Palm, Bubblegum Dymondwood, Gemwood Dymondwood, Outdoor Camo Dymondwood - $ 22.00"
-  pens_text5: "Black Slimlines - Tropical Passion Dymondwood, Santos Zebrawood Dymondwood, Gemwood Dymondwood,  Camo Supreme Dymondwood, Charcoal Silvertone Dymondwood, Desert Camo Dymondwood, Gemwood Dymondwood - $ 22.00"
+  pens_text2: "Polaris Pens - Rapala Lace, Yellow Boxelder Burl, Blue Boxedler Burl, Yellow/Blue Boxelder Burl, Brown Boxelder Burl,  Black Boxelder Burl - $35.00"
+  pens_text3: "Polaris Pens- Mesquite, Purple Boxedler Burl, Purple Boxedler Burl, Macassar Ebony, Boxelder Burl, Black Boxelder Burl - $35.00"
+  pens_text4: "Black Slimlines - Camo Supreme, Figured Maple, Rosewood Macassar Dymondwood, Red Palm, Bubblegum Dymondwood, Gemwood Dymondwood, Outdoor Camo Dymondwood - $22.00"
+  pens_text5: "Black Slimlines - Tropical Passion Dymondwood, Santos Zebrawood Dymondwood, Gemwood Dymondwood,  Camo Supreme Dymondwood, Charcoal Silvertone Dymondwood, Desert Camo Dymondwood, Gemwood Dymondwood - $22.00"
   pens_text6_html: "Jr. Statesmen Pens<br>
-  1.  Purple Boxedler Burl Jr. Statesmen Pen - Rhodium and Black Titanium   $ 125.00<br>
-  2.  Double Dyed Red Boxelder Burl Jr. Statesmen Pen - Rhodium and Black Titanium   $ 125.00<br>
-  3.  Double Dyed Green Boxelder Burl Jr. Statesmen Pen - Rhodium and 22k Gold   $ 125.00<br>"
+  1.  Purple Boxedler Burl Jr. Statesmen Pen - Rhodium and Black Titanium   $125.00<br>
+  2.  Double Dyed Red Boxelder Burl Jr. Statesmen Pen - Rhodium and Black Titanium   $125.00<br>
+  3.  Double Dyed Green Boxelder Burl Jr. Statesmen Pen - Rhodium and 22k Gold   $125.00<br>"
 
   bracelet_helpers_text0_html: "1. Buckeye Burl<br>
   2.  Charcoal Silvertone Dymondwood<br>
@@ -235,12 +238,12 @@ en:
   8. Forest Camo Dymondwood<br>
   - $25.00 - "
   key_chains_text0_html: "Left to Right Clockwise<br>1. Figured Maple<br>2. Macassar Ebony<br>3. Marblewood<br><br> 4. Osage Orange<br>5. Macassar Ebony<br>6 & 7. Bamboo<br>Toothpick Holders  - $ 25.00"
-  key_chains_text1_html: "left to right<br>1. Ebony<br>2. Macassar Ebony<br>3. Ebony with Black and White spacers BoxElder Burl<br>4. Santafe Laminate with Red spacer<br>Keyrings - $ 12.00"
-  key_chains_text2_html: "left to right<br>
-  1. Osage Orange<br>2. Osage Orange<br>3. Ebony<br>4. BoxElder Burl<br>5. Figured Maple<br>6. Back Figured Maple<br>7. Cocobola Macassar Dymondwood<br>Detachable key chain - $ 18.00"
+  key_chains_text1_html: "Left to Right<br>1. Ebony<br>2. Macassar Ebony<br>3. Ebony with Black and White Spacers Boxelder Burl<br>4. Santafe Laminate with Red Spacer<br>Keyrings - $ 12.00"
+  key_chains_text2_html: "Left to Right<br>
+  1. Osage Orange<br>2. Osage Orange<br>3. Ebony<br>4. Boxelder Burl<br>5. Figured Maple<br>6. Back Figured Maple<br>7. Cocobola Macassar Dymondwood<br>Detachable Key Chain - $ 18.00"
   wine_stoppers_text0: "Horn Stoppers $50.00"
   wine_stoppers_text1: "Horn T Handles  $ 50.00"
-  wine_stoppers_text2: "Quark bottle stoppers $ 25.00"
+  wine_stoppers_text2: "Quark Bottle Stoppers $ 25.00"
   wine_stoppers_text3_html: "1. Osage Orange<br>2. Blue Boxedler Burl<br>3. Yellow Boxedler Burl<br>4. Purple Boxedler Burl<br>5. Boxelder Burl<br>6. Pink Ivory<br>Bottle Stoppers - $ 35.00"
   wine_stoppers_text4_html: "1. Hollywood<br>
   2. Hollywood<br>
@@ -265,7 +268,7 @@ en:
   7. Magnum<br>
   8. Indidgo Royalwood<br>
   9. Cocobolo Macassar<br>
-  T handles - $ 45.00"
+  T Handles - $ 45.00"
   wine_stoppers_text7_html: "1. Bocote wood<br>
   2. Santos Zebrawood<br>
   3. Tapestry<br>
@@ -275,7 +278,7 @@ en:
   7. Royal Jarcanda<br>
   8. Olympic<br>
   9. Emeraldwood<br>
-  T handles - $ 45.00"
+  T Handles - $ 45.00"
 
   oil_finishes_text0: "Oil Finishes:  Include clean up, checkering and minor crack repairs."
   oil_finishes_text1_html: "Satin Oil Finish - 100 % Pore Filled<br>
@@ -288,15 +291,12 @@ en:
   High Shine    $1,000.00"
   oil_finishes_text4: "Example of High Gloss Finish"
   oil_finishes_text5: "Example of Semi-Gloss Finish"
-  oil_finishes_text6_html: "Additional Charges May Occur:<br>
-  Difficult Stock Pattern<br>
-  Special Stain<br>
-  Bad Condition of Original Stock"
+  oil_finishes_text6_html: "Additional charges may occur for difficult stock patterns, special stains, or bad condition of original stocks."
 
   custom_rifles_text0: "Custom Premium High Grade Rifles"
-  custom_rifles_text1: "A Custom Treasure Of A Lifetime, Technically and Artistically Constructed. To Your Dimensions and Desires.  All Prices On Custom Rifles Are By Quote"
-  custom_rifles_text2: "New Leopard and Plains Game Rifle"
-  custom_rifles_text3_html: "30-06 Exhibition Turkish Walnut with a touch of red, High Gloss Oil Finish.<br>
+  custom_rifles_text1: "A Custom Treasure Of A Lifetime, Technically and Artistically Constructed To Your Dimensions and Desires.  All Prices On Custom Rifles Are By Quote"
+  custom_rifles_text2: "New Leopard & Plains Game Rifle"
+  custom_rifles_text3_html: "30-06 Exhibition Turkish Walnut with a touch of red and a high gloss oil finish.<br>
   Full Integral Barrel, Square Bridged Mauser 98 with Custom Lever Rings.<br>
   Skeleton Grip Cap, Heal & Toe Butt Plate<br>
   Finished with High End Blue, Nitre Blue and Color Casing.<br>
@@ -304,17 +304,17 @@ en:
   Engraving By Robert Strosin"
   custom_rifles_text4: "Left Handed  7mm STW Premium Rifle with Celtic Engraving"
   custom_rifles_text5: "Jones Rifle - Custom 375 Rifle"
-  custom_rifles_text6: "Check out photo gallery for trophy's from this gun"
+  custom_rifles_text6: "Check out the photo gallery for trophies from this gun"
   custom_rifles_text7: "Weaver  375 Rifle"
   custom_rifles_text8: "Premium 500 Jeffery Rifle"
-  custom_rifles_text9: "This Rifle is Available for Sale   - For more information"
+  custom_rifles_text9: "This Rifle is Available for Sale   - Click for more information"
   custom_rifles_text10: "Hansen Left Handed 280"
   custom_rifles_text11: "Mauser Square Bridged 416 Rigby Premium Rifle"
   custom_rifles_text12: "Mauser Square Bridged 416 Rigby Premium Rifle  - Exhibition Grade French Walnut"
   custom_rifles_text13: "Premium Rifles"
   custom_rifles_text14_html: "Action - Square Bridged Mauser Action<br>
   Barrel - Match Grade or Premium<br>
-  Stock - Your Choice Wood and Style<br>
+  Stock - Your Choice of Wood and Style<br>
   Classic Wood - English, Bastone, or French Exhibition<br>
   Flawless Wood to Metal"
   custom_rifles_text15: "Customer Choices:"
@@ -340,32 +340,32 @@ en:
   Ribs or Quarter Ribs<br>
   Cross Bolts<br>
   Express Sights"
-  custom_rifles_text19: "Boddington 7 x 57 Left Handed Premium Rifle - built for Craig Boddington"
-  custom_rifles_text20: "Premium 300 Winchester Magnum Mauser Action Square Bridged with Quarter Rib & Long Tangs, with slight Red Stain with 20 coats of Oil Finish."
+  custom_rifles_text19: "Boddington 7 x 57 Left Handed Premium Rifle - Built for Craig Boddington"
+  custom_rifles_text20: "Premium 300 Winchester Magnum Mauser Action Square Bridged with Quarter Rib & Long Tangs, and slight Red Stain with 20 coats of Oil Finish."
   custom_rifles_text21: "375  Premium Rifle Built for a Petite Woman to her specifications, with mauser Action Square Bridged with Long Tangs"
   custom_rifles_text22: "Mauser Action Square Bridged .270 Premium Rifle with Express Sights, finished off with Todd's Schnabel Forearm Design"
   custom_rifles_text23: "Examples of Wood"
   custom_rifles_text24: "1 - 4 French Walnut,  5 Clarol Walnut"
   custom_rifles_text25: "Left Handed 7 mm STW Premium Rifle"
-  custom_rifles_text26: "Todd - Enhanced this Leopard through a special process."
+  custom_rifles_text26: "Todd enhanced this Leopard through a special process."
   custom_rifles_text27: ".378 Square Bridged Mauser Action with English Walnut Premium Rifle"
   custom_rifles_text28_html: "Actions Available in Five Lengths with Drop Bottom Metal.<br>
   Three Position Safety and All Square Bridged.<br>
   Available in Right and Left Handed.<br>
-  These are a Few Examples of Magazine Lengths."
-  custom_rifles_text29: "African Cartridges with Magazine Size for these Cartridges"
+  These are a few examples of magazine lengths:"
+  custom_rifles_text29: "African cartridges with magazine size for these cartridges"
   custom_rifles_text30_html: "416 Rigby<br>
   505 Gibbs<br>
   585 GMA"
-  custom_rifles_text31: "Express Magnum with Magazine Size for these Cartridges"
+  custom_rifles_text31: "Express magnum with magazine size for these cartridges"
   custom_rifles_text32_html: "375 H & H<br>
   416 Remington Magnum<br>
   458 Lott"
-  custom_rifles_text33: "Standard Length Action with Magazine Size for these Cartridges"
+  custom_rifles_text33: "Standard length action with magazine size for these cartridges"
   custom_rifles_text34_html: ".06 Family<br>
   7 x 57<br>
   280"
-  custom_rifles_text35: "Short Action with Magazine Size  for these Cartridges"
+  custom_rifles_text35: "Short action with magazine size  for these cartridges:"
   custom_rifles_text36_html: "243<br>
   308<br>
   Short Mags"
@@ -380,12 +380,12 @@ en:
   Fleur-de-Lis Checkering Pattern<br>
   Hi-Grade Bluing<br>
   Winchester Style Safety - Mauser, Sako, Remington or Ruger<br>
-  Scope of your Choice (quote)<br>
+  Scope of your choice (quote)<br>
   Barrel Make - Pac-Nor  - (Stainless or Chrome Moly) - (Fluted) -- Quote<br>
   Wood - Exhibition Grade - English, French, Bastone -- Quote<br>
   High Polish Oil Finish<br>
   Barrel Band<br>
-  Engraving Options : Animals on Floor plate<br>
+  Engraving Options: Animals on Floor plate<br>
   Gold or Silver Inlay"
   custom_rifles_text43: "See custom metal work for custom rifles at Custom Work"
   custom_rifles_text44: "square bridged, custom rings, long tangs, scope mounts, bottom metal, checkered bolt handle, jeweled bolt, release and much more"
@@ -399,22 +399,22 @@ en:
   Refinishing<br>
   Rust Bluing<br>
   Tighten Up and Bring Back to Face"
-  double_rifles_text2: "see more pictures in Restoration"
+  double_rifles_text2: "See more pictures in Restoration"
   double_rifles_text1: "470 Nitro"
   synthetic_rifles_text0: "SynFle Rifle"
   synthetic_rifles_text1: "It would be synfle not to have this rifle on your hunt. Beauty, Accuracy, Simply SynFle."
-  synthetic_rifles_text2: "The New SynFle Rifle was built with the same steps as we build our premium signature rifle.  All but the synthetic stock which is patterned around the Todd Ramirez Signature Rifle stock."
+  synthetic_rifles_text2: "The New SynFle Rifle was built with the same steps used to build our premium signature rifle; except for the synthetic stock, which is patterned around the Todd Ramirez Signature Rifle stock."
   synthetic_rifles_text3: "Available in Calibers : Standard to 458 Lott"
-  synthetic_rifles_text4: "Standard on Rifle :"
+  synthetic_rifles_text4: "Standard on Rifle:"
   synthetic_rifles_text5_html: "Reworked Winchester 70 Action<br>
   Custom Style Tang<br>
   Custom Bolt Release<br>
   Match Grade Barrel Fluted<br>
   One Piece Bottom Metal<br>
   EAW Mounts & Rings or Recknagel<br>
-  Duracoat - Your  Choice of Colors - Black, Tan, Hunter Brown, Green and many more options.<br>
+  Duracoat - Your  Choice of Colors - Black, Tan, Hunter Brown, Green, and many more options.<br>
   Custom Synthetic Stock with Custom  Cheek Piece - No Checkering<br>
-  Stock Colors: Desert Tan, Hunter Brown, Graphite Black, Forest Green<br>
+  Stock Colors: Desert Tan, Hunter Brown, Graphite Black, and Forest Green<br>
   Pillar and Custom Bedded.<br>
   Prices Start at $15,000"
   synthetic_rifles_text6: "Options:"
@@ -425,7 +425,7 @@ en:
   synthetic_rifles_text9: "Rugged, Tough and on Target"
   synthetic_rifles_text10: "The Tac-Hunter is built for the long range hunter.  The build takes advantage of the high quality after market parts available for Remington 700 and custom additions using Remington parts.  Better then 1/2\" accuracy.  Available in all standard calibers up to 338 Lapua."
   synthetic_rifles_text11: "Stock Colors: Desert Tan, Hunter Brown, Graphite Black, Forest Green"
-  synthetic_rifles_text12: "Standard on Rifle :"
+  synthetic_rifles_text12: "Standard on Rifle:"
   synthetic_rifles_text13_html: "Reworked Remington 700 Action or Stellar Action<br>
   Warne Ring - Picatiny Rail Mount<br>
   Duracoat Paint<br>
@@ -435,10 +435,10 @@ en:
   synthetic_rifles_text15_html: "Triggers<br>
   Bolt Knobs<br>
   Classic Style Aluminum Bed"
-  signature_rifle_text0: "New American Classic Rifle Available in All Standard Calibers up to 458 Lott"
-  signature_rifle_text1: "This American Classic Rifle is built on a Winchester Action in Caliber .308"
+  signature_rifle_text0: "New American Classic Rifle Available In All Standard Calibers Up To 458 Lott"
+  signature_rifle_text1: "This American Classic Rifle Is Built On A Winchester Action In Caliber .308"
   signature_rifle_text2: "This rifle has added options of skeleton buttplate and gripcap."
-  signature_rifle_text3: "Winchester Model 70 Action Available in all Standard Calibers up to 458 Lott"
+  signature_rifle_text3: "Winchester Model 70 Action is available in all standard calibers up to 458 Lott"
   signature_rifle_text4: "Options included"
   signature_rifle_text5_html: "Reworked &  Blueprinted Action<br>
   Custom Bottom Metal<br>
@@ -458,9 +458,9 @@ en:
   Available with 30mm or 1\" rings<br>
   All Metal Deep Hot Blued - semigloss<br>
   Bolt - Hand Jewelled<br>
-  As always 1/2\" group with Factory ammo or ammo worked up by Todd<br>
-  Price :  $30,000.00 without options"
-  signature_rifle_text6: "Options: Not included inprice"
+  As always, 1/2\" group with Factory ammo or ammo worked up by Todd<br>
+  Price:  $30,000.00 without options"
+  signature_rifle_text6: "Options not included in price"
   signature_rifle_text7_html: "Express Sights<br>
   Barrel Band<br>
   Scope<br>
@@ -474,11 +474,11 @@ en:
   Engraving<br>
   Many Other Options Available"
   signature_rifle_text8: "Premium Signature Rifle"
-  signature_rifle_text9: "Rifle shown is a right handed 375 Signature with Added Options."
+  signature_rifle_text9: "Rifle shown is a right handed 375 Signature with added options."
   signature_rifle_text10: "Gold Oval, Express Sights, Barrel Band,  Drop Magazine, and Scope"
-  signature_rifle_text11: "Winchester Model 70 Action
-Available in all Standard Calibers up to 458 Lott"
-  signature_rifle_text12: "Optioned included"
+  signature_rifle_text11: "Winchester Model 70 Action is
+available in all standard calibers up to 458 Lott"
+  signature_rifle_text12: "Options included"
   signature_rifle_text13_html: "Reworked &  Blueprinted Action<br>
   Custom Bottom Metal<br>
   Custom Bolt Release<br>
@@ -497,7 +497,7 @@ Available in all Standard Calibers up to 458 Lott"
   Available with 30mm or 1\" rings<br>
   All Metal Deep Hot Blued - semi gloss<br>
   Bolt - Hand Jewelled<br>
-  As always 1/2\" group with Factory ammo or ammo worked up by Todd<br>
+  As always, 1/2\" group with Factory ammo or ammo worked up by Todd<br>
   Price :  $30,000.00 without options"
   signature_rifle_text14: "Options:  Not included in price"
   signature_rifle_text15_html: "Express Sights<br>
@@ -515,8 +515,8 @@ Available in all Standard Calibers up to 458 Lott"
   signature_rifle_text16: "Winchester Action Pre-64 Premium Signature Rifle"
   signature_rifle_text17: "Standard Magnum Action opened up to 375."
   signature_rifle_text18: "375 on  Safari"
-  signature_rifle_text19_html: "The wood is exhibition grade French walnut.  Barrel is #3 contour, 24\" length.  The rifle has express sights.  Ebony forend tip, ebony cross bolt plugs.  Golden Brown Stain, 20 coats of finish, hand polish.  Checkering Point Pattern 26 l.p.i.   Drop Magazine.  Trap Door Grip Cap.  Pig Skin Black Leather Wrapped Pad.  Drop Ivory Front Sight.  Bolt Handle Four Panel Checkering.  Bolt - Jewelled.  Two Button  Quick Detach Mount Square Bridged Action.  Stock Style  is English Classic.  Schmidt & Bender 1.25 x 4 Flash dot Scope.   Trigger Breaks - 3 3/4 lbs."
-  restoration_text0: "Specializing in Premium Gun Restoration, Including Shotguns, Double Rifles, and High Grade Rifles. Prices by Quote on All Restoration Work"
+  signature_rifle_text19_html: "The wood is exhibition grade French walnut.  Barrel is #3 contour, 24\" length.  The rifle has express sights.  Ebony forend tip, ebony cross bolt plugs.  Golden Brown Stain, 20 coats of finish, hand polish.  Checkering point pattern 26 l.p.i.   drop magazine.  Trap door grip cap.  Pig skin black leather wrapped pad.  Drop ivory front sight.  Bolt handle four panel checkering.  Bolt - Jewelled.  Two button  quick detach mount square bridged action.  Stock style  is English Classic.  Schmidt & Bender 1.25 x 4 flash dot Scope.   Trigger breaks - 3 3/4 lbs."
+  restoration_text0: "Specializing In Premium Gun Restoration, Including Shotguns, Double Rifles, And High Grade Rifles. Prices By Quote On All Restoration Work"
   restoration_text1_html: "Metal<br>
   Wood<br>
   Part Duplicating<br>
@@ -540,16 +540,16 @@ Available in all Standard Calibers up to 458 Lott"
   restoration_text14: "Restocked, Color Cased, Reblued, Regulated, Action Tightened."
   stock_work_text0: "ASL 20 Ga. Prince of Wales  -  Restocked, Restored Metal"
   stock_work_text1: "Ruger # 1 Restocking Job"
-  stock_work_text2: "Labor only   - Wood is Additional Charge"
-  stock_work_text3: "Box Locks Forearm         $1200.00 "
+  stock_work_text2: "Labor only  - Wood is Additional Charge"
+  stock_work_text3: "Box Locks Forearm         $1,200.00 "
   stock_work_text4_html: "Includes Inletting, Satin Finish, Point Pattern Checkering<br>
   Upgrades:  Finish & Checkering (extra charge)"
-  stock_work_text5: "Side Locks Forearm       $1500.00"
+  stock_work_text5: "Side Locks Forearm       $1,500.00"
   stock_work_text6: "Includes: Satin Finish, Point Pattern Checkering."
-  stock_work_text7: "Side Lock Butt Stock         $3,600.00"
+  stock_work_text7: "Side Lock Butt Stock     $3,600.00"
   stock_work_text8_html: "Includes: Satin Finish and Point Pattern Checkering<br>
   Upgrades:  Finish & Checkering (extra charge)"
-  stock_work_text9: "Box Lock Butt Stock           $2,600.00"
+  stock_work_text9: "Box Lock Butt Stock       $2,600.00"
   stock_work_text10_html: "Includes Inletting, Satin Finish, Point Pattern Checkering<br>
   Upgrades:  Finish & Checkering (extra charge)"
   stock_work_text11: "Other Options Available: "
@@ -559,39 +559,39 @@ Available in all Standard Calibers up to 458 Lott"
   Recoil Pad<br>
   Leather Wrap Pad"
   stock_work_text13: "Rifle Stocks"
-  stock_work_text14: "Restocking a Rifle with Customer Providing all Materials on a Semi-Inletted Stock on Customer's Barreled Action starts at  $4,800.00"
+  stock_work_text14: "Restocking a rifle with customer providing all materials on a Semi-Inletted Stock on customer's Barreled Action starts at  $4,800.00"
   stock_work_text15: "Includes:"
   stock_work_text16_html: "Recoil Pad<br>
   Satin Finish<br>
   Cheek Piece with Shadow Line<br>
   Point Pattern Checkering"
   stock_work_text17: "Other Options: Extra Charge"
-  stock_work_text18_html: "All Stock Work does not Include Wood<br>
+  stock_work_text18_html: "All Stock work does not include wood<br>
   Available Wood :  Clarol, English, French and Bastone"
   stock_work_text19: "Ken shot this Elephant with his restocked John Rigby .470"
-  stock_work_text20: "view rifle at Restoration"
-  stock_work_text21: "This rifle is a pre-64 Winchester that was built for a customer who provided action, wood from his home in France, Horn from a animal that he hunted and a piece of Ebony for the forend tip that he found in Africa.  The horn was cut shape and molded to fit the skeleton grip and butt plate."
+  stock_work_text20: "View rifle in Restoration"
+  stock_work_text21: "This rifle is a pre-64 Winchester that was built for a customer who provided action, wood from his home in France, horn from an animal that he hunted, and a piece of Ebony that he found in Africa for the forend tip.  The horn was cut shape and molded to fit the skeleton grip and butt plate."
   boddington_rifle_project_text0: "See More Results of Completed Rifle at Bottom of Page."
   boddington_rifle_project_text1: "\"My Todd Ramirez 7 x 57 is by far the nicest rifle I've ever owned... and to my thinking it's designed and built the way a fine bolt action rifle should be.  In the field it's a joy to carry, and it handles like a dream.  It has not yet failed me, and I'm sure it never will.\"  Craig Boddington"
-  boddington_rifle_project_text2: "Todd built Craig this 7 x 57.  It is a left handed square bridged rifle.  The wood is Bastone with a red stain and a oil finish.  Craig has hunted various parts of the world using this gun."
+  boddington_rifle_project_text2: "Todd built Craig this 7 x 57.  It is a left handed square bridged rifle.  The wood is Bastone with a red stain and an oil finish.  Craig has hunted various parts of the world using this gun."
   boddington_rifle_project_text3: "Check out his trophies on the Boddington Trophy  page."
-  boddington_rifle_project_text4: "Planning Phase of Rifle:"
+  boddington_rifle_project_text4: "Planning Phase of Rifle"
   boddington_rifle_project_text5: "Discussing Action, Caliber, Barrel Length, Twist of Barrel,  Hardware, Scope, Scope Mounts, Finish on Wood and Metal, Wood Choice, Rifle Style, and Regulating Distance."
-  boddington_rifle_project_text6: "Planning of Pattern :"
-  boddington_rifle_project_text7: "Wood Work:"
-  boddington_rifle_project_text8: "Checkering - Setting Pattern for Point Checkering"
-  boddington_rifle_project_text9: "Metal Work:"
-  boddington_rifle_project_text10: "Lap Rings:"
-  boddington_rifle_project_text11: "Sight Work:"
-  boddington_rifle_project_text12: "Final Phases:"
-  boddington_rifle_project_text13: "Finished Product:"
-  shotguns_text0: "Todd is a Shotgun Specialist.  Including Nine Years of Italian Training on Beretta Guns and other Italian Guns.  He works on a lot of High End Premium Shotguns, which parts are not available.  Todd specializes in hand making those parts and refitting back to original specs.  This includes heat treating."
+  boddington_rifle_project_text6: "Planning of Pattern"
+  boddington_rifle_project_text7: "Wood Work"
+  boddington_rifle_project_text8: "Checkering - Setting Pattern For Point Checkering"
+  boddington_rifle_project_text9: "Metal Work"
+  boddington_rifle_project_text10: "Lap Rings"
+  boddington_rifle_project_text11: "Sight Work"
+  boddington_rifle_project_text12: "Final Phases"
+  boddington_rifle_project_text13: "Finished Product"
+  shotguns_text0: "Todd is a Shotgun Specialist with over 30 years of experience in fine shotguns and 9 years of Italian training on Berettas and other Italian guns. Todd specializes in hand making parts and refitting back to original specs on High End Premium Shotguns when parts are not available; this includes heat treating."
   shotguns_text1: "This is a SO4 Beretta that was fully restored.  New custom stock and forearm.  Restored metal and color cased.  Custom 32 Inch DT10 Barrel custom fitted."
-  shotguns_text2: "Cleaning and Maintenance should be once a year depending on the gun, maker, and amount of shooting by the customer."
+  shotguns_text2: "Cleaning and Maintenance should be once a year, depending on the gun, maker, and amount of shooting."
   shotguns_text3: "Cleaning & Maintenance - Includes:"
   shotguns_text4_html: "Complete Disassembly<br>
-  Inspection of all parts - (Especially Springs & Wear Areas)<br>
-  Includes: Restoration of Original Timing & Part Relationship"
+  Inspection of all parts (especially springs & wear areas)<br>
+  Includes: restoration of original timing & part relationship"
   shotguns_text5: "Cleaning Prices: "
   shotguns_text6_html: "Semi  Automatic    $55.00 - $85.00<br>
   Pump Shotguns      $55.00 - $85.00<br>
@@ -602,41 +602,41 @@ Available in all Standard Calibers up to 458 Lott"
   Side Lock O/U   $225.00 - $325.00<br>
   Side Lock S/S   $225.00 - $325.00<br>
   (i.e. Beretta S05 $225.00 , Purdy $325.00)"
-  shotguns_text7: "Trigger Work is by Quote"
+  shotguns_text7: "Trigger Work Is By Quote"
   shotguns_text8: "Trigger work varies depending on make of gun"
   shotguns_text9: "Bead Installation - Minimum Charge"
-  shotguns_text10: "Mid  Rib Bead - Minimum Charge or $15.00 when combined with another job."
+  shotguns_text10: "Mid  Rib Bead - Minimum charge, or $15.00 when combined with another job."
   shotguns_text11: "Barrel Work:"
   shotguns_text12_html: "Choke work on fixed choked guns.  $85.00
-  Using the Preferred method:  cut & shoot, count percentage or customer's specs.<br><br>
+  using the preferred method:  cut & shoot, count percentage or customer's specs.<br><br>
   Screw in Chokes start at $495.00  (Includes three chokes)<br><br>
   Lengthening Forcing Cones:  $85.00 per barrel<br>
-  Any work done on chrome lined barrel ($15.00 additional charge)"
+  Any work done on chrome lined barrel: $15.00 additional charge"
   shotguns_text13: "Relay Ribs & Solder (Includes re-rust blue)"
   shotguns_text14_html: "1 Rib - $500.00<br>
   2 Rib - $600.00<br>
   This is a starting price.  Barrels in poor condition with a lot of pitting that need more prep work may have additional charges."
   shotguns_text15: "New Barrels Installed - Per Quote  (Determined by Maker)"
   shotguns_text16: "Work in Progress - Pistol Grip gun being converted to Prince of Wales"
-  shotguns_text17: "Example of a conversion of a pistol grip to a prince of wales"
+  shotguns_text17: "Example of a conversion of a Pistol Grip to a Prince of Wales"
   shotguns_text18: "Stock Work:"
-  shotguns_text19: "We do every aspect of stock work  Stock Work"
+  shotguns_text19: "We do every aspect of stock work"
   shotguns_text20_html: "Finishes<br>
   Crack & Stock Repair<br>
   Brand New Stocks<br>
   Please call with specific needs as this is a broad subject.<br>
   Minor Forearm Repairs- Start at $100.00 (includes finish match up)<br>
   Minor Buttstock Repairs - Start at $150.00 (includes finish match up)"
-  shotguns_text21: "We do three oil finishes:"
+  shotguns_text21: "We Do Three Oil Finishes:"
   shotguns_text22_html: "Satin Filled Oil<br>
   Semi-Polish Satin rubbed with Rotstone<br>
   High Polish - Hand rubbed finish built up with coats."
-  shotguns_text23: "Please refer to Oil Finishes to see example of finishes."
+  shotguns_text23: "Please refer to Oil Finishes to see examples of finishes."
   shotguns_text24: "Recoil Pad"
   shotguns_text25_html: "Recoil Pad installed with customer's request in length. $150.00<br>
   Recoil Pad installed with fitting.  $150.00<br>
   Includes: Gunsmith determining length, pull, and pitch."
-  shotguns_text26: "Stock Bending - After Stock Dimensions per stock Bending"
+  shotguns_text26: "Stock Bending - After Stock Dimensions Per Stock Bending"
   shotguns_text27_html: "1st Bend  - $250.00<br>
   2nd Bend - $100.00<br>
   Pattern Board Testing - $100.00<br>
@@ -645,7 +645,7 @@ Available in all Standard Calibers up to 458 Lott"
   shotguns_text28: "Leather Wrap Recoil Pad"
   shotguns_text29: "Leather Wrap Recoil Pad  $450.00"
   shotguns_text30: "See Leather Wrap Pads"
-  shotguns_text31: "Work done by Quote:"
+  shotguns_text31: "Work Done By Quote:"
   shotguns_text32_html: "Ejector Work<br>
   Restoration of Gun Being Off Face (Headspace Adjust)<br>
   Lock Work<br>

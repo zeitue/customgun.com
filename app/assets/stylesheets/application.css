@@ -230,3 +230,11 @@ qtext{
 itext{
     display: inline-block;
 }
+
+#social{
+    border-collapse: collapse;
+}
+#social td {
+    vertical-align: top;
+    text-align: center;
+}

@@ -2,12 +2,15 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
+  <link rel="canonical" href="http://customgun.com">
   <title>
   <%= "Custom Shop" +  ( " - " + yield(:title) + " - Todd Ramirez" unless
       yield(:title).blank?).to_s.html_safe %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<%= favicon_link_tag 'theme/default/favicon.png' %>
 </head>
 <body>
 <script type="text/javascript">
@@ -34,10 +37,30 @@ $(document).ready(function(){
   });
 });
 </script>
+
+
 <div id="container">
 <div id="dash"  style="display: none">
 <a onclick="dispHandle('dash')" class="close_button">X</a>
-<br><br>
+<div class="centered">
+<table id="social"><tr>
+<td>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></td>
+<td><a href="https://twitter.com/Todd_Ramirez_CS" class="twitter-follow-button" data-show-count="false">Follow @Todd_Ramirez_CS</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
+<td>
+<div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
+</td>
+</tr></table></div>
+<br>
 <div class="centered">
 <table id="actual-table">
 <tr>

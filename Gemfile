@@ -37,3 +37,4 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug'
+gem 'passenger',   '~> 3.0.12'
