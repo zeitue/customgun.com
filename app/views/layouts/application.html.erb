@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 <div id="container">
 <div id="dash"  style="display: none">
-<a onclick="dispHandle('dash')" class="close_button">X</a>
+<a onclick="dispHandle('dash')" class="close_button" title="<%=t('close_button_text')%>">X</a>
 <div class="centered">
 <table id="social"><tr>
 <td>
@@ -105,7 +105,7 @@ $(document).ready(function(){
 </div>
 </div>
  <div id="menu" onclick="dispHandle('dash')">
-  <%= image_tag 'theme/default/tr.svg'%>
+  <%= image_tag('theme/default/tr.svg', :title => t('menu_button_text'))%>
 <%= t('main_menu') %></div>
 <div id="box">
 <br>
