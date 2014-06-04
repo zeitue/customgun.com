@@ -1,6 +1,11 @@
 <% content_for :title,  t('engraving') %>
 <% content_for :header,  t('engraving') %>
 <div id="content">
+<% content_for :head do %>
+  <meta name="Keywords" content="Todd Ramirez, Custom Rifles, Premium Rifle Maker, custom actions,
+custom gunmaker, shotguns, gun engraving, gunsmith, custom work">
+  <meta name="Description" content="Todd Ramirez, Premium Rifle Builder, Custom Bolt Action Rifles, Engraving on Premium Guns">
+<% end %>
 <%= xtext('engraving_text0')%>
 <%= ptext('engraving_text1')%>
 <%= link_to(ptext('engraving_text2'), custom_rifles_path) + brn(2)%>

@@ -1,7 +1,10 @@
 <% content_for :title,  t('wine_stoppers') %>
 <% content_for :header,  t('wine_stoppers') %>
 <div id="content">
-
+<% content_for :head do %>
+<meta name="Keywords" content="taylor ramirez, pen maker, slimline pens, polaris pens, todd ramirez, safari club international, dallas safari club, beretta, todd ramirez, gunsmith, gun maker, custom rifles, gentlemens pens, wine stoppers, keychains, burl, diamondwood, elk horn, deer horn, handmade pens, great gifts, wedding gifts, graduation gifts">
+<meta name="Description" content="Taylor Ramirez makes unique wine stoppers out of horn and exotic woods.">
+<% end %>
 <%= br() +  photo('935.jpeg')%>
 <%= brn(3) + lightbox_text('125.jpeg','g0', 'wine_stoppers_text0') + brn(3)%>
 <%= gallery('47.jpeg 535.jpeg', 'g1') + itext('wine_stoppers_text1')%>
@@ -11,5 +14,4 @@
 <%= brn(3) + lightbox_text('123.jpeg','g5', 'wine_stoppers_text5_html') + brn(3)%>
 <%= brn(3) + lightbox_text('100.jpeg','g6', 'wine_stoppers_text6_html') + brn(3)%>
 <%= brn(3) + lightbox_text('414.jpeg','g7', 'wine_stoppers_text7_html') + brn(8)%>
-
 </div>

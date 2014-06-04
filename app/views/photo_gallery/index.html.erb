@@ -1,5 +1,9 @@
 <% content_for :title,  t('photo_gallery') %>
 <% content_for :header,  t('photo_gallery') %>
+<% content_for :head do %>
+<meta name="Keywords" content="Todd Ramirez, Custom Rifles, Premium Rifle Maker, bolt action rifles, custom gunmaker, shotguns, custom work. Craig Boddington, Safari Club, Gunsmith, Synthetic Rifles, African Rifles, Deer Hunting Rifles, gun fitter, leather wrap pads.">
+<meta name="Description" content="Todd Ramirez Premium Rifles.  Todd's customer's share their trophys.">
+<% end %>
 <div id="content">
 <%= link_to xtext('photo_gallery_text0'),  boddington_trophy_path%>
 <%= brn(3) + gallery('929.jpeg 689.jpeg', "g1") %>
