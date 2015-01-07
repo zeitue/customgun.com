@@ -1,0 +1,105 @@
+#!/bin/bash
+# atool to simplify the management of websites hosted on site5 and using rails
+
+CONFIG_FILE="$HOME/.config/site5"
+ARGS=$#
+OPTION=$1
+
+help(){
+    echo "Usage: $0 [OPTION]"
+    echo "Options:"
+    echo -e " -h, --help\t\tdisplay this help information"
+    echo -e " -c, --configure\treconfigure the program"
+    echo -e " -r, --reload\t\treload site5 web server"
+    echo -e " -s, --sync\t\tsync website data to the web server"
+    echo -e " -p, --push\t\tpush website code to source repository"
+    echo -e " -u, --update\t\tupdate the website on the web server"
+    echo -e " -f, --fullupdate\tdo a full update of the website"
+}
+set_config(){
+    read -p "Enter your Site5 user name: " SITE5_USERNAME
+    read -p "Enter your website's name: " SITE_NAME
+    read -p "Enter the path where the website is stored: " PROJECT_ROOT
+    echo "export PROJECT_ROOT=$PROJECT_ROOT" > $CONFIG_FILE
+    echo "export SITE5_USERNAME=$SITE5_USERNAME" >> $CONFIG_FILE
+    echo "export SITE_NAME=$SITE_NAME" >> $CONFIG_FILE
+}
+
+read_config(){
+    . $CONFIG_FILE
+}
+
+reload_webserver(){
+    echo "Reloading Site5 Web sever"
+    ssh $SITE5_USERNAME@$SITE_NAME -t "touch ~/$SITE_NAME/tmp/restart.txt"
+}
+
+sync_website(){
+    echo "Rebuilding static website files"
+    cd $PROJECT_ROOT
+    rake assets:precompile
+    echo "Uploading static website files"
+    rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress $PROJECT_ROOT/public/* $SITE5_USERNAME@$SITE_NAME:/home/$SITE5_USERNAME/$SITE_NAME/public/
+}
+push_website(){
+    cd $PROJECT_ROOT
+    git push
+}
+
+
+update_website(){
+    echo "Updating website"
+    ssh $SITE5_USERNAME@$SITE_NAME -t "cd $SITE_NAME && git pull"
+}
+
+full_update(){
+    echo "Doing complete update of website"
+    push_website
+    update_website
+    sync_website
+    reload_webserver
+}
+
+init(){
+    if [ ! -f $CONFIG_FILE ];
+    then
+        set_config
+    else
+        read_config
+    fi
+
+    if [ $ARGS -gt 0 ]; then
+        while [ "$OPTION" != "" ]; do
+            case $OPTION in
+                -c | --configure )
+                    set_config
+                    exit;;
+                -p | --push )
+                    push_website
+                    exit;;
+                -s | --sync )
+                    sync_website
+                    exit;;
+                -f | --fullupdate )
+                    full_update
+                    exit;;
+                -u | --update )
+                    update_website
+                    exit;;
+                -r | --reload )
+                    reload_webserver
+                    exit;;
+                -h | --help )
+                    help
+                    exit;;
+                * )
+                    help
+                    exit 1
+            esac
+        done
+    else
+        help
+    fi
+}
+
+init
