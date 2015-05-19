@@ -4,8 +4,8 @@
 <head>
   <link rel="canonical" href="http://customgun.com">
   <title>
-  <%= "Custom Shop" +  ( " - " + yield(:title) + " - Todd Ramirez" unless
-      yield(:title).blank?).to_s.html_safe %></title>
+  <%= (yield(:title) + " - Todd Ramirez - " unless
+      yield(:title).blank?).to_s.html_safe + "Custom Shop" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>

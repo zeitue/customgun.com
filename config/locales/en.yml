@@ -64,9 +64,9 @@ en:
 
   home_text0: "Todd is a Master Gunsmith with a thorough knowledge of the finest American and European rifles, shotguns, and double rifles.  With over 30 years of experience, he specializes in custom rifles, restoration, and stock making.  For all of your gunsmithing needs, stock bending and specialty items, such as leather wrap pads, Todd is one of the best in the country."
   home_text1: "Premium Rifle Builder - Todd Ramirez M.G.S. - Gunsmithing Since 1976"
-  home_text2: "7mm STW"
-  home_text3: "416 Rigby"
-  home_text4: "Boddington 7 x 57"
+  home_text2: "7mm STW Custom Rifle"
+  home_text3: "416 Rigby Custom Rifle"
+  home_text4: "Boddington 7 x 57 Custom Rifle"
   home_text5: "Todd Ramirez (left) Craig Boddington (right)"
   home_text6: "\"My Todd Ramirez 7 x 57 is by far the nicest rifle I've ever owned... and to my thinking it's designed and built the way a fine bolt action rifle should be.  In the field it's a joy to carry, and it handles like a dream.  It has not yet failed me, and I'm sure it never will.\"  Craig Boddington"
   home_text7: "Check Out the New Rifles on Custom Rifle Page"
@@ -83,14 +83,14 @@ en:
   about_us_text0: "Todd Ramirez has been a full-time gun-maker since 1980. He began his education in gun-smithing at Colorado School of Trades, expanded that knowledge while apprenticing under an English gunsmith, and has been perfecting his craft for thirty years. For nine years, Todd also worked for Beretta Gun Company, doing  premium gun-smithing, stock making, and gun fitting for the Galleries. Todd is a one-man operation, building six to ten rifles a year in his shop. They're all high quality and one of a kind, built on Mauser actions in caliber up to 505 Gibbs and Winchester Model 70 action in caliber up to 458 Lott. The wood used is exhibition to museum quality. Built with the finest craftsmanship in the world, Todd's rifles reflect English or American Classic style, with clean lines and elegance, as well as a perfect balance between wood and metal. His specialty is his highly polished oil finish, which makes his rifles truly unique and unmatched in beauty. Each rifle is fine tuned to meet customer's specifications, desires, and dimensions. The rifles aren't only aesthetically beautiful, designed for fit and functionality, they are accurate as well. Craig Boddington has shot on four continents with his Ramirez rifle and says, “My Todd Ramirez 7x57 is by far the nicest rifle I've ever owned . . . and to my thinking it's designed and built the way a fine bolt action rifle should be. In the field it's a joy to carry, and it handles like a dream. It has not yet failed me, and I'm sure it never will.” Whether you are building a rifle to hunt elk, plains games or specifically for dangerous game, you will always be right on target. Todd is one of the best Master Gunsmiths, with a thorough knowledge of the finest American and Europeans rifles, shotguns, and double rifles. For all your gun-smithing needs, including restoration, stock making, stock fitting, and specialty items such as leather wrap pads."
 
 
-  show_schedule_text0_html: "Dallas Safari Club 2015 Traditions<br>Dallas Convention Center - Halls C,D,E & F<br>January 15-18, 2015"
-  show_schedule_text1: "Booth #3344"
-  show_schedule_text2_html: "Safari Club International<br>2015 Annual Hunters' Convention<br>Las Vegas, Nevada<br>February 4-7, 2015"
-  show_schedule_text3: "Booth #977"
+  show_schedule_text0_html: "Dallas Safari Club 2016 Conservation<br>Kay Bailey Hutchison Convention Center - Halls C,D,E & F<br>January 7-10, 2016"
+  show_schedule_text1: "Booth #TBA"
+  show_schedule_text2_html: "Safari Club International<br>2016 Annual Hunters' Convention<br>Mandaley Bay, Las Vegas, Nevada<br>February 3-6, 2016"
+  show_schedule_text3: "Booth #4081"
 
 
-  leather_wrap_pads_text0_html: "Choice of Colors:<br>Brown<br>Chocolate Brown<br>Black<br>Saddle Tan<br>Burgundy"
-  leather_wrap_pads_text1_html: "Choice of Leather:<br>Cow Hide<br>Pig Skin<br>Goat Skin"
+  leather_wrap_pads_text0_html: "Leather Wrap Pads<br>Choice of Colors:<br>Brown<br>Chocolate Brown<br>Black<br>Saddle Tan<br>Burgundy"
+  leather_wrap_pads_text1_html: "Leather Wrap Pads<br>Choice of Leather:<br>Cow Hide<br>Pig Skin<br>Goat Skin"
   leather_wrap_pads_text2_html: "Thickness Available:  .500\" to 1.00\"<br>Larger Pad Widths Available (extra charge) 1.25\" and 1.50\""
 
   payment_and_shipping_text0: "How Do I Ship My Firearm To The Custom Shop?"
@@ -286,31 +286,31 @@ en:
   oil_finishes_text1_html: "Satin Oil Finish - 100 % Pore Filled<br>
   Semi - Gloss Oil<br>
   High Shine Polished Oil"
-  oil_finishes_text2: "Example of Satin Finish"
+  oil_finishes_text2: "Example of Satin Oil Finish"
   oil_finishes_text3_html: "Shotguns:<br>
   Satin             $   500.00<br>
   Semi-Gloss   $   750.00<br>
   High Shine    $1,000.00"
-  oil_finishes_text4: "Example of High Gloss Finish"
-  oil_finishes_text5: "Example of Semi-Gloss Finish"
+  oil_finishes_text4: "Example of High Gloss Oil Finish"
+  oil_finishes_text5: "Example of Semi-Gloss Oil Finish"
   oil_finishes_text6_html: "Additional charges may occur for difficult stock patterns, special stains, or bad condition of original stocks."
 
-  custom_rifles_text0: "Custom Premium High Grade Rifles"
+  custom_rifles_text0: "Premium High Grade Custom Rifles"
   custom_rifles_text1: "A Custom Treasure Of A Lifetime, Technically and Artistically Constructed To Your Dimensions and Desires.  All Prices On Custom Rifles Are By Quote"
-  custom_rifles_text2: "New Leopard & Plains Game Rifle"
+  custom_rifles_text2: "New Leopard & Plains Game Custom Rifle"
   custom_rifles_text3_html: "30-06 Exhibition Turkish Walnut with a touch of red and a high gloss oil finish.<br>
   Full Integral Barrel, Square Bridged Mauser 98 with Custom Lever Rings.<br>
   Skeleton Grip Cap, Heal & Toe Butt Plate<br>
   Finished with High End Blue, Nitre Blue and Color Casing.<br>
   Engraved with African Plains Game Theme and African Leopard.<br>
   Engraving By Robert Strosin"
-  custom_rifles_text4: "Left Handed  7mm STW Premium Rifle with Celtic Engraving"
-  custom_rifles_text5: "Jones Rifle - Custom 375 Rifle"
-  custom_rifles_text6: "Check out the photo gallery for trophies from this gun"
-  custom_rifles_text7: "Weaver  375 Rifle"
-  custom_rifles_text8: "Premium 500 Jeffery Rifle"
+  custom_rifles_text4: "Left Handed  7mm STW Premium Custom Rifle with Celtic Engraving"
+  custom_rifles_text5: "Jones Rifle - 375 Custom Rifle"
+  custom_rifles_text6: "Check out the photo gallery for trophies from this custom rifle"
+  custom_rifles_text7: "Weaver  375 Custom Rifle"
+  custom_rifles_text8: "Premium 500 Jeffery Custom Rifle"
   custom_rifles_text9: "This Rifle is Available for Sale   - Click for more information"
-  custom_rifles_text10: "Hansen Left Handed 280"
+  custom_rifles_text10: "Hansen Left Handed 280 Custom Rifle"
   custom_rifles_text11: "Mauser Square Bridged 416 Rigby Premium Rifle"
   custom_rifles_text12: "Mauser Square Bridged 416 Rigby Premium Rifle  - Exhibition Grade French Walnut"
   custom_rifles_text13: "Premium Rifles"
@@ -392,7 +392,8 @@ en:
   custom_rifles_text43: "See custom metal work for custom rifles at Custom Work"
   custom_rifles_text44: "square bridged, custom rings, long tangs, scope mounts, bottom metal, checkered bolt handle, jeweled bolt, release and much more"
   custom_rifles_text45: "R. Jones Premium 7mm Weatherby Left Handed Magnum"
-  double_rifles_text0_html: "Claw Mounts<br>
+  double_rifles_text0_html: "Double Rifle Work:<br>
+  Claw Mounts<br>
   Site Work<br>
   Regulating<br>
   Ejector Work<br>
@@ -403,12 +404,12 @@ en:
   Rust Bluing<br>
   Tighten Up and Bring Back to Face"
   double_rifles_text2: "See more pictures in Restoration"
-  double_rifles_text1: "470 Nitro"
-  synthetic_rifles_text0: "SynFle Rifle"
+  double_rifles_text1: "470 Nitro Double Rifle"
+  synthetic_rifles_text0: "SynFle Synthetic Rifle"
   synthetic_rifles_text1: "It would be synfle not to have this rifle on your hunt. Beauty, Accuracy, Simply SynFle."
   synthetic_rifles_text2: "The New SynFle Rifle was built with the same steps used to build our premium signature rifle; except for the synthetic stock, which is patterned around the Todd Ramirez Signature Rifle stock."
   synthetic_rifles_text3: "Available in Calibers : Standard to 458 Lott"
-  synthetic_rifles_text4: "Standard on Rifle:"
+  synthetic_rifles_text4: "Standard on Synthetic Rifle:"
   synthetic_rifles_text5_html: "Reworked Winchester 70 Action<br>
   Custom Style Tang<br>
   Custom Bolt Release<br>
@@ -424,11 +425,11 @@ en:
   synthetic_rifles_text7_html: "Drop Box Metal<br>
   Express Sights<br>
   Bluing or Stainless"
-  synthetic_rifles_text8: "New Tac-Hunter Rifle"
+  synthetic_rifles_text8: "New Tac-Hunter Synthetic Rifle"
   synthetic_rifles_text9: "Rugged, Tough and on Target"
   synthetic_rifles_text10: "The Tac-Hunter is built for the long range hunter.  The build takes advantage of the high quality after market parts available for Remington 700 and custom additions using Remington parts.  Better then 1/2\" accuracy.  Available in all standard calibers up to 338 Lapua."
-  synthetic_rifles_text11: "Stock Colors: Desert Tan, Hunter Brown, Graphite Black, Forest Green"
-  synthetic_rifles_text12: "Standard on Rifle:"
+  synthetic_rifles_text11: "Synthetic Stock Colors: Desert Tan, Hunter Brown, Graphite Black, Forest Green"
+  synthetic_rifles_text12: "Standard on Synthetic Rifle:"
   synthetic_rifles_text13_html: "Reworked Remington 700 Action or Stellar Action<br>
   Warne Ring - Picatiny Rail Mount<br>
   Duracoat Paint<br>
@@ -438,7 +439,7 @@ en:
   synthetic_rifles_text15_html: "Triggers<br>
   Bolt Knobs<br>
   Classic Style Aluminum Bed"
-  signature_rifle_text0: "New American Classic Rifle Available In All Standard Calibers Up To 458 Lott"
+  signature_rifle_text0: "New American Classic Custom Rifles Available In All Standard Calibers Up To 458 Lott"
   signature_rifle_text1: "This American Classic Rifle Is Built On A Winchester Action In Caliber .308"
   signature_rifle_text2: "This rifle has added options of skeleton buttplate and gripcap."
   signature_rifle_text3: "Winchester Model 70 Action is available in all standard calibers up to 458 Lott"
@@ -530,7 +531,7 @@ available in all standard calibers up to 458 Lott"
   Re-Lettering"
   restoration_text2: "Restoration on Fox 20 ga. - Two Barrel"
   restoration_text3: "Jeffrey's 475 Double Rifle - Stock Broken - restocked, rust blued barrels, action work, regulating, complete restoration of gun."
-  restoration_text4: "ASL 20 Ga. Prince of Wales  -  Restocked, Restored Metal"
+  restoration_text4: "ASL 20 Ga. Prince of Wales Shotgun  -  Restocked, Restored Metal"
   restoration_text5: "J.P. Sauer Drilling - Restored 100% Including Using Original Wood"
   restoration_text6: "Restored Westley Richards"
   restoration_text7: "Holland & Holland - Back to Face Restored"
@@ -543,7 +544,7 @@ available in all standard calibers up to 458 Lott"
   restoration_text14: "Restocked, Color Cased, Reblued, Regulated, Action Tightened."
   restoration_text15: "Restored Anshutz, 1927 Drilling 16 ga. and 8 x 57 cal."
   restoration_text16: "Colt 1878 Double Barrel 12 ga. Hammer Gun"
-  stock_work_text0: "ASL 20 Ga. Prince of Wales  -  Restocked, Restored Metal"
+  stock_work_text0: "ASL 20 Ga. Prince of Wales Shotgun  -  Restocked, Restored Metal"
   stock_work_text1: "Ruger # 1 Restocking Job"
   stock_work_text2: "Labor only  - Wood is an Additional Charge"
   stock_work_text3: "Box Locks Forearm         $1,200.00 "
