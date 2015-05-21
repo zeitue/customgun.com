@@ -5,7 +5,7 @@ def lx(image, path, text)
 end
 
 def ptext(text)
-  tag(:br) + content_tag(:ptext, t(text)) + tag(:br)
+  tag(:br) + content_tag(:p, t(text)) + tag(:br)
 end
 
 def qtext(text)
