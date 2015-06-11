@@ -169,3 +169,26 @@
         flashVersion: flashVersion
     };
 }(this));
+
+/*
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+setSize = function() {
+    w = window.innerWidth;
+    h = window.innerHeight;
+};
+
+var addEvent = function(elem, type, eventHandle) {
+    if (elem == null || typeof(elem) == 'undefined') return;
+    if ( elem.addEventListener ) {
+        elem.addEventListener( type, eventHandle, false );
+    } else if ( elem.attachEvent ) {
+        elem.attachEvent( "on" + type, eventHandle );
+    } else {
+        elem["on"+type]=eventHandle;
+    }
+};
+
+addEvent(window, "resize", setSize);
+*/
