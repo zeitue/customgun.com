@@ -1,18 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-<head>
-  <link rel="canonical" href="http://customgun.com">
-  <title>
-  <%= (yield(:title) + " | Todd Ramirez | " unless
-      yield(:title).blank?).to_s.html_safe + "Custom Shop" %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-<meta name="robots" content="index, follow">
-<% if content_for?(:head) %>
-  <%= yield(:head) %>
-<% end %>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="language" content="english"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="revisit-after" content="20 days"/>
+    <meta name="distribution" content="global"/>
+    <meta name="copyright" content=" <%= t('copyright')%>"/>
+    <link rel="canonical" href="http://customgun.com">
+      <title>
+        <%= (yield(:title) + " | Todd Ramirez | " unless
+            yield(:title).blank?).to_s.html_safe + "Custom Shop" %></title>
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+      <% if content_for?(:head) %>
+      <%= yield(:head) %>
+      <% end %>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <%= favicon_link_tag 'theme/default/favicon.png' %>
 </head>
