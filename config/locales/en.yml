@@ -62,7 +62,7 @@ en:
 
 
 
-  home_text0: "Todd is a Master Gunsmith with a thorough knowledge of the finest American and European rifles, shotguns, and double rifles.  With over 30 years of experience, he specializes in custom rifles, restoration, and stock making.  For all of your gunsmithing needs, stock bending and specialty items, such as leather wrap pads, Todd is one of the best in the country."
+  home_text0_html: "Welcome to our Website.  Todd Ramirez Rifles are built with the finest craftsmanship in the world.  His rifles reflect English  or American Classic style with clean lines and elegance. His rifles are balanced and built to the highest standards, with flaweless details from metal to finishes.  Todd Ramirez Rifles are truly unique and one of a kind. Todd is a Master Gunsmith with a thorough knowledge of the finest American and European rifles, shotguns, and double rifles.  With over 30 years of experience, he specializes in custom rifles, restoration, and stock making.  For all of your gunsmithing needs, stock bending and specialty items, such as leather wrap pads, Todd is one of the best in the country. Please browse our site and we thank you for visiting."
   home_text1: "Premium Rifle Builder - Todd Ramirez M.G.S. - Gunsmithing Since 1976"
   home_text2: "7mm STW Custom Rifle"
   home_text3: "416 Rigby Custom Rifle"
@@ -86,7 +86,7 @@ en:
   show_schedule_text0_html: "Dallas Safari Club 2016 Conservation<br>Kay Bailey Hutchison Convention Center - Halls C,D,E & F<br>January 7-10, 2016"
   show_schedule_text1: "Booth #TBA"
   show_schedule_text2_html: "Safari Club International<br>2016 Annual Hunters' Convention<br>Mandaley Bay, Las Vegas, Nevada<br>February 3-6, 2016"
-  show_schedule_text3: "Booth #4081"
+  show_schedule_text3: "Booth #4269"
 
 
   leather_wrap_pads_text0_html: "Leather Wrap Pads<br>Choice of Colors:<br>Brown<br>Chocolate Brown<br>Black<br>Saddle Tan<br>Burgundy"
@@ -119,9 +119,10 @@ en:
   photo_gallery_text7: "Todd shot this Fallow Deer at the Cullen Ranch"
   photo_gallery_text8: "Jeryl Story shot this elephant with his double rifle restocked by Todd Ramirez"
   photo_gallery_text9: "Hansen shot this deer with his 280 built by Todd Ramirez"
-  photo_gallery_text10: "Jones,  375 Todd Ramirez  Rifle got him all these trophies"
+  photo_gallery_text10: "Jones, Trophies taken with his 375 Todd Ramirez  Rifle."
   photo_gallery_text11: "2GW's Trophies taken with a 300 win. mag.  &  375  Rifles  built by Todd Ramirez"
   photo_gallery_text12: "Weaver's Trophies, shot with his 375 built by Todd Ramirez"
+  photo_gallery_text13: "Welcome to our photo gallery of our customers' trophies that were taken with custom rifles built by Todd."
   boddington_trophy_text0: "Craig's Trophies shot with his 7 x 57 built by Todd Ramirez"
   boddington_trophy_text1: "All Quotes by Craig"
   boddington_trophy_text2: "\"Checking Zero in Nambia\""
@@ -194,7 +195,7 @@ en:
   Beretta Jubilee 20 ga. Buttstock & Forend with tang, 20 ga. Grade 5 Wood Buttstock with Original Trigger Guard & Screws Forend Non Snobel PB Shield Wood Butt Plate Unfitted. This stock can be fitted to any 20 ga. frame 687EELL, 687EL or Jubilee . $4000<br><br>
   We have many forearms for all gauges available."
 
-  gun_fitting_text0: "Todd has over 30 years experience, including 9 years for Beretta fitting shotguns to shooters. Todd can fit your gun to you so it feels like it was custom made for you."
+  gun_fitting_text0: "Todd has over 30 years of experience, including 9 years for Beretta fitting shotguns to shooters. Todd can fit your gun to you so it feels and fits like it was custom made. He uses the hot oil bend method.  You can be fitted for length of pull, pitch and cast.  A pattern board is on site for determining drop.  Todd can also change those right hand cast off guns to left hand shooter cast on guns."
   gun_fitting_text1_html: "For Left Hand Shooters, we can convert any  right hand gun to a left hand gun.<br>
   Hot Oil Bending<br>
   New Stock built to your Dimensions<br>
@@ -283,17 +284,17 @@ en:
   T Handles - $ 45.00"
 
   oil_finishes_text0: "Oil Finishes:  Include clean up, checkering and minor crack repairs."
-  oil_finishes_text1_html: "Satin Oil Finish - 100 % Pore Filled<br>
+  oil_finishes_text1_html: "Satin Oil Finish - 100 % Pore Filled <br>
   Semi - Gloss Oil<br>
   High Shine Polished Oil"
   oil_finishes_text2: "Example of Satin Oil Finish"
   oil_finishes_text3_html: "Shotguns:<br>
-  Satin             $   500.00<br>
-  Semi-Gloss   $   750.00<br>
-  High Shine    $1,000.00"
+  Satin starts at $500.00<br>
+  Semi-Gloss starts at  $750.00<br>
+  High Shine starts at $1,000.00"
   oil_finishes_text4: "Example of High Gloss Oil Finish"
   oil_finishes_text5: "Example of Semi-Gloss Oil Finish"
-  oil_finishes_text6_html: "Additional charges may occur for difficult stock patterns, special stains, or bad condition of original stocks."
+  oil_finishes_text6_html: "Additional charges may occur for difficult stock patterns, special stains, or bad condition of original stocks.  Satin Oil Finish consist of a pore filled soft oil finish with no build up, Semi-gloss Oil finsih which is pore filled with 15 coats of finish of hand rubbed oil.  High Gloss oil finish is between 20 or 30 coats of hand rubbed oil finish and then polished."
 
   custom_rifles_text0: "Premium High Grade Custom Rifles"
   custom_rifles_text1: "A Custom Treasure Of A Lifetime, Technically and Artistically Constructed To Your Dimensions and Desires.  All Prices On Custom Rifles Are By Quote"
@@ -391,7 +392,8 @@ en:
   Gold or Silver Inlay"
   custom_rifles_text43: "See custom metal work for custom rifles at Custom Work"
   custom_rifles_text44: "square bridged, custom rings, long tangs, scope mounts, bottom metal, checkered bolt handle, jeweled bolt, release and much more"
-  custom_rifles_text45: "R. Jones Premium 7mm Weatherby Left Handed Magnum"
+  custom_rifles_text45: "R. Jones Premium Custom Rifle 7mm Weatherby Left Handed Magnum"
+  custom_rifles_text46: "Todd Ramirez rifles are built with the finest craftsmanship in the world.  His rifles reflect English or American Classic style, with clean lines and elegance.  Perfectly balanced and built to the highest standards with flawless details from metal to finishes.  On each rifle the metal is hand polished and fitted, which gives a perfect balance between wood and metal.  His specialty red stain with hand rubbed, highly polished oil finish makes his rifles truly unique and unmatched in beauty.  Each rifle is fine tuned to meet customer's specifications, desires and dimensions.  The rifles are built not only for aesthetic beauty, fit and function, but for accuracy as well.  Todd strives to build the finest custom handmade rifles possible.  Whether you are building a rifle to hunt Elk, Plains Game, or specifically for Dangerous Game you will be right on target with a Ramirez rifle. Truly custom and one of a kind. "
   double_rifles_text0_html: "Double Rifle Work:<br>
   Claw Mounts<br>
   Site Work<br>
@@ -405,11 +407,12 @@ en:
   Tighten Up and Bring Back to Face"
   double_rifles_text2: "See more pictures in Restoration"
   double_rifles_text1: "470 Nitro Double Rifle"
+  double_rifles_text3: "Double Rifle work consists of re-regulation, repairs, new sights, claw mounts, stocks and restoration.  "
   synthetic_rifles_text0: "SynFle Synthetic Rifle"
   synthetic_rifles_text1: "It would be synfle not to have this rifle on your hunt. Beauty, Accuracy, Simply SynFle."
   synthetic_rifles_text2: "The New SynFle Rifle was built with the same steps used to build our premium signature rifle; except for the synthetic stock, which is patterned around the Todd Ramirez Signature Rifle stock."
   synthetic_rifles_text3: "Available in Calibers : Standard to 458 Lott"
-  synthetic_rifles_text4: "Standard on Synthetic Rifle:"
+  synthetic_rifles_text4: "Standard on Synthetic Syn-Fle Rifle:"
   synthetic_rifles_text5_html: "Reworked Winchester 70 Action<br>
   Custom Style Tang<br>
   Custom Bolt Release<br>
@@ -424,12 +427,13 @@ en:
   synthetic_rifles_text6: "Options:"
   synthetic_rifles_text7_html: "Drop Box Metal<br>
   Express Sights<br>
-  Bluing or Stainless"
+  Bluing or Stainless<br>
+Grip Cap"
   synthetic_rifles_text8: "New Tac-Hunter Synthetic Rifle"
   synthetic_rifles_text9: "Rugged, Tough and on Target"
   synthetic_rifles_text10: "The Tac-Hunter is built for the long range hunter.  The build takes advantage of the high quality after market parts available for Remington 700 and custom additions using Remington parts.  Better then 1/2\" accuracy.  Available in all standard calibers up to 338 Lapua."
   synthetic_rifles_text11: "Synthetic Stock Colors: Desert Tan, Hunter Brown, Graphite Black, Forest Green"
-  synthetic_rifles_text12: "Standard on Synthetic Rifle:"
+  synthetic_rifles_text12: "Standard on Tac-Hunter Synthetic Rifle:"
   synthetic_rifles_text13_html: "Reworked Remington 700 Action or Stellar Action<br>
   Warne Ring - Picatiny Rail Mount<br>
   Duracoat Paint<br>
@@ -439,11 +443,12 @@ en:
   synthetic_rifles_text15_html: "Triggers<br>
   Bolt Knobs<br>
   Classic Style Aluminum Bed"
-  signature_rifle_text0: "New American Classic Custom Rifles Available In All Standard Calibers Up To 458 Lott"
+  synthetic_rifles_text16: "Todd Ramirez's synthetic rifle line is based off of his premium wood rifles. The Syn-Fle rifle can be ordered with the classic or signature synthetic stock and is built on a Winchester action. This rifle can be made for all standard calibers up to 458 Lott. The Tac-Hunter is a rugged, tough and on target rifle built for the long range hunter.  It is built on a Stellar action or a Remington action. They are both asthetically pleasing to the ey.  They consistently shoot 1/2\" or better at 100 yards with factory ammo. Ramirez uses the best components in making his synthetic line of rifles. Super match grade Pac-Nor barrels are used and all actions are blue printed.  Standard bluing or Duracoat finish in a choice of colors: matte black, gray parkerized, matte green, and desert tan are used to finish the metal.  Stock design is with or without a cheek piece and painted to compliment the metal.  All rifles include 3-position safety, custom bottom metal, select action tuning, aluminum blocks bedded, custom trigger work, and jeweled bolts."
+  signature_rifle_text0: "New American Classic custom rifle available in all standard calibers up to 458 Lott.  The American Classic is built identical to the Premium Signature Rifle.  The only difference is in the stock design.  It is styled American Classic with a full cheek piece and a slightly fuller forearm and a round forend tip."
   signature_rifle_text1: "This American Classic Rifle Is Built On A Winchester Action In Caliber .308"
   signature_rifle_text2: "This rifle has added options of skeleton buttplate and gripcap."
   signature_rifle_text3: "Winchester Model 70 Action is available in all standard calibers up to 458 Lott"
-  signature_rifle_text4: "Options included"
+  signature_rifle_text4: "American Classic Rifle Options included"
   signature_rifle_text5_html: "Reworked &  Blueprinted Action<br>
   Custom Bottom Metal<br>
   Custom Bolt Release<br>
@@ -464,7 +469,7 @@ en:
   Bolt - Hand Jewelled<br>
   As always, 1/2\" group with Factory ammo or ammo worked up by Todd<br>
   Price:  $30,000.00 without options"
-  signature_rifle_text6: "Options not included in price"
+  signature_rifle_text6: "American Classic Rifle Options not included in price"
   signature_rifle_text7_html: "Express Sights<br>
   Barrel Band<br>
   Scope<br>
@@ -482,7 +487,7 @@ en:
   signature_rifle_text10: "Gold Oval, Express Sights, Barrel Band,  Drop Magazine, and Scope"
   signature_rifle_text11: "Winchester Model 70 Action is
 available in all standard calibers up to 458 Lott"
-  signature_rifle_text12: "Options included"
+  signature_rifle_text12: "Signature Rifle Options included"
   signature_rifle_text13_html: "Reworked &  Blueprinted Action<br>
   Custom Bottom Metal<br>
   Custom Bolt Release<br>
@@ -503,7 +508,7 @@ available in all standard calibers up to 458 Lott"
   Bolt - Hand Jewelled<br>
   As always, 1/2\" group with Factory ammo or ammo worked up by Todd<br>
   Price :  $30,000.00 without options"
-  signature_rifle_text14: "Options:  Not included in price"
+  signature_rifle_text14: "Signature Rifle Options:  Not included in price"
   signature_rifle_text15_html: "Express Sights<br>
   Barrel Band<br>
   Scope<br>
@@ -594,8 +599,8 @@ available in all standard calibers up to 458 Lott"
   boddington_rifle_project_text11: "Sight Work"
   boddington_rifle_project_text12: "Final Phases"
   boddington_rifle_project_text13: "Finished Product"
-  shotguns_text0: "Todd is a Shotgun Specialist with over 30 years of experience in fine shotguns and 9 years of Italian training on Berettas and other Italian guns. Todd specializes in hand making parts and refitting back to original specs on High End Premium Shotguns when parts are not available; this includes heat treating."
-  shotguns_text1: "This is a SO4 Beretta that was fully restored.  New custom stock and forearm.  Restored metal and color cased.  Custom 32 Inch DT10 Barrel custom fitted."
+  shotguns_text0: "Todd is a Shotgun Specialist with over 30 years of experience in fine shotguns and 9 years of Italian training on Berettas and other Italian guns. Todd offers custom shotgun work and has a vast knowledge of American, English and Italian guns.  Todd can restock your shotgun whether it be a sidelock or boxlock.  He can also fit your shotgun using a hot oil bend method.  You can be fitted for length of pull, pitch and cast.  A pattern board is on site to determine drop.  Todd can also change those right hand cast off guns to left hand shooter cast on.  Some of the repairs he works on are timing issues, ejector work, trigger work, back to face, resoldering and relaying loose ribs just to name a few.  He also has a vast knowledge for making parts and refitting back to original specs on High End Premium Shotguns when parts are not available, this includes heat treating."
+  shotguns_text1: "This is a SO4 Beretta shotgun that was fully restored.  New custom stock and forearm.  Restored metal and color cased.  Custom 32 Inch DT10 Barrel custom fitted."
   shotguns_text2: "Cleaning and Maintenance should be once a year, depending on the gun, maker, and amount of shooting."
   shotguns_text3: "Cleaning & Maintenance - Includes:"
   shotguns_text4_html: "Complete Disassembly<br>
