@@ -1,0 +1,2 @@
+module TrophyRoomHelper
+end

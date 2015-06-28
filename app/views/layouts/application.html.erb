@@ -20,8 +20,8 @@
       <% end %>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <%= favicon_link_tag 'theme/default/favicon.png' %>
-</head>
-<body>
+    </head>
+    <body>
 <script type="text/javascript">
 $('a.image').fancybox({
   padding: 0,
@@ -49,9 +49,9 @@ $(document).ready(function(){
 
 
 <div id="container">
-<div id="dash"  style="display: none">
-<a onclick="dispHandle('dash')" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
-<div class="centered">
+  <div id="dash"  style="display: none">
+    <a onclick="dispHandle('dash')" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
+    <div class="centered">
 <table id="social"><tr>
 <td>
 <div id="fb-root"></div>
@@ -68,51 +68,51 @@ $(document).ready(function(){
 <td>
 <div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
 </td>
-</tr></table></div>
+    </tr></table></div>
 <br>
-<div class="centered">
-<table id="actual-table">
-<tr>
-<td> <%= lx('home.png', 'home', 'home' ) %></td>
-<td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
-<td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
-<td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
-<td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
-</tr><tr>
-<td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
-<td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
-<td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
-<td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
-<td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
-</tr><tr>
-<td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
-<td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
-<td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
-<td> <%= lx('metal_work.png', 'metal-work', 'metal_work' ) %></td>
-<td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
-</tr><tr>
-<td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
-<td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
-<td> <%= lx('photo_gallery.png', 'photo-gallery', 'photo_gallery' ) %></td>
-<td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
-<td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
-</tr><tr>
-<td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
-<td> <%= lx('media.png', 'media', 'media' ) %></td>
-<td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
-<td> <%= lx('about_us.png', 'about-us', 'about_us' ) %></td>
-<td> <%= lx('show_schedule.png', 'show-schedule', 'show_schedule' ) %></td>
-</tr><tr>
-<td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
-<td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
-<td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
-<td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
-<td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
-</tr>
-</table>
-<br>
-</div>
-</div>
+  <div class="centered">
+    <table id="actual-table">
+      <tr>
+        <td> <%= lx('home.png', 'home', 'home' ) %></td>
+        <td> <%= lx('about.png', 'about', 'about' ) %></td>
+        <td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
+        <td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
+        <td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
+      </tr><tr>
+        <td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
+        <td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
+        <td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
+        <td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
+        <td> <%= lx('events.png', 'events', 'events' ) %></td>
+      </tr><tr>
+        <td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
+        <td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
+        <td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
+        <td> <%= lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' ) %></td>
+        <td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
+      </tr><tr>
+        <td> <%= lx('media.png', 'media', 'media' ) %></td>
+        <td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
+        <td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
+        <td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
+        <td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
+      </tr><tr>
+        <td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
+        <td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
+        <td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
+        <td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
+        <td> <%= lx('trophy_room.png', 'trophy-room', 'trophy_room' ) %></td>
+      </tr><tr>
+        <td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
+        <td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
+        <td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
+        <td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
+        <td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
+      </tr>
+    </table>
+    <br>
+    </div>
+  </div>
  <div id="menu" onclick="dispHandle('dash')">
   <%= image_tag('theme/default/tr.svg', :title => t('menu_button_text'), :alt => 'TR')%>
   <abbr title="<%=t('menu_button_text')%>"><%=t('main_menu')%></abbr>
