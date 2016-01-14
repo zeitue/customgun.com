@@ -84,7 +84,7 @@ en:
 
 
   events_text0_html: "Dallas Safari Club 2016 Conservation<br>Kay Bailey Hutchison Convention Center - Halls C,D,E & F<br>January 7-10, 2016"
-  events_text1: "Booth #TBA"
+  events_text1: "Booth #4332"
   events_text2_html: "Safari Club International<br>2016 Annual Hunters' Convention<br>Mandaley Bay, Las Vegas, Nevada<br>February 3-6, 2016"
   events_text3: "Booth #4269"
 
@@ -394,6 +394,31 @@ en:
   custom_rifles_text44: "square bridged, custom rings, long tangs, scope mounts, bottom metal, checkered bolt handle, jeweled bolt, release and much more"
   custom_rifles_text45: "R. Jones Premium Custom Rifle 7mm Weatherby Left Handed Magnum"
   custom_rifles_text46: "Todd Ramirez rifles are built with the finest craftsmanship in the world.  His rifles reflect English or American Classic style, with clean lines and elegance.  Perfectly balanced and built to the highest standards with flawless details from metal to finishes.  On each rifle the metal is hand polished and fitted, which gives a perfect balance between wood and metal.  His specialty red stain with hand rubbed, highly polished oil finish makes his rifles truly unique and unmatched in beauty.  Each rifle is fine tuned to meet customer's specifications, desires and dimensions.  The rifles are built not only for aesthetic beauty, fit and function, but for accuracy as well.  Todd strives to build the finest custom handmade rifles possible.  Whether you are building a rifle to hunt Elk, Plains Game, or specifically for Dangerous Game you will be right on target with a Ramirez rifle. Truly custom and one of a kind. "
+  custom_rifles_text47: "Miller Premium 30.06 Custom Rifle"
+  custom_rifles_text48_html: "Left Handed 30.06 built on a Square Bridged Mauser Action<br>
+  Exhibition Turkish Walnut wood<br>
+  Express Sights<br>
+  Custom Fittings<br>
+  Point Pattern Checkering<br>
+  Color Case Shroud<br>
+  Custom Checkered Bolt Handle - Two Panels<br>
+  Leather Wrapped Pad<br>
+  Schmidt & Bender 3 x 12 x 42 Illuminate and turret scope<br>"
+  custom_rifles_text49: "Corrigan 338 Win Mag Premium Custom Rifle"
+  custom_rifles_text50_html: "Square Bridged Mauser Action<br>
+  Museum English Walnut Blank<br>
+  Trap Door Grip Cap<br>
+  Second Cross Bolt<br>
+  Express Sights<br>
+  Inletted Rear Swivel<br>
+  Point Pattern Checkering<br>
+  Leather Wrapped Pad<br>
+  Mosaic Gold and Silver Inlays in Crossbolts Screw Heads<br>
+  Mosaid Gold and Silver Inlays in Action Screws<br>
+  Color Case Shroud<br>
+  Nitre Blue - Screws, Extractor, Extractor Collar<br>
+  Border Engraving
+  Schmidt & Bender 3 x 12 x 42 Illuminate Scope"
   double_rifles_text0_html: "Double Rifle Work:<br>
   Claw Mounts<br>
   Site Work<br>
@@ -525,6 +550,17 @@ available in all standard calibers up to 458 Lott"
   signature_rifle_text17: "Standard Magnum Action opened up to 375."
   signature_rifle_text18: "375 on  Safari"
   signature_rifle_text19_html: "The wood is exhibition grade French walnut.  Barrel is #3 contour, 24\" length.  The rifle has express sights.  Ebony forend tip, ebony cross bolt plugs.  Golden Brown Stain, 20 coats of finish, hand polish.  Checkering point pattern 26 l.p.i.   drop magazine.  Trap door grip cap.  Pig skin black leather wrapped pad.  Drop ivory front sight.  Bolt handle four panel checkering.  Bolt - Jewelled.  Two button  quick detach mount square bridged action.  Stock style  is English Classic.  Schmidt & Bender 1.25 x 4 flash dot Scope.   Trigger breaks - 3 3/4 lbs."
+  signature_rifle_text20: "308 Winchester American Classic Signature Rifle"
+  signature_rifle_text21_html: "308 Winchester<br>
+  Ebony Tip<br>
+  Turkish Walnut Stock<br>
+  Color Case Shroud, Grip Cap, and Skeleton Butt Plate<br>
+  Nitre Blue Extractor<br>
+  Mosaic Cross Bolts<br>
+  Skelton Grip Cap<br>
+  Skelton Butt Plate<br>
+  Border Engraving and Engraving of Deer on Floor Plate<br>
+  Leupold Scope with Detachable Mounts"
   restoration_text0: "Specializing In Premium Gun Restoration, Including Shotguns, Double Rifles, And High Grade Rifles. Prices By Quote On All Restoration Work"
   restoration_text1_html: "Metal<br>
   Wood<br>
@@ -670,24 +706,14 @@ available in all standard calibers up to 458 Lott"
   guns_for_sale_text1: "Email: customgun.tr@gmail.com"
   guns_for_sale_text2: "or call 903-768-2948"
   guns_for_sale_text3: "Custom Premium Rifle in 500 Jeffery's Available"
-  guns_for_sale_text4_html: "Action - Prechtl Action - Square Bridged and Machined for Recknagel Rings<br>
-  Caliber - 500 - Made Specifically in Length for this Caliber<br>
-  Barrel - Integral with 1/4 Rib One Standing and Two Folding<br>
-  Express Holland Style Front Ramp Sight with White Sight<br>
-  Stock - Made from Exhibition Grade Turkish Walnut<br>
-  Leather Wrap Pad<br>
-  Four Round Magazine with Rigby Floor Plate<br>
-  European Style Cocking Piece Peep Sight<br>
-  Leupold Scope 1x6 with Firedot 4 Reticle ** Note - Rifle is shown with Schmidt & Bender Scope<br>
-  Call for pricing and additional information"
-  guns_for_sale_text5_html: "Todd Ramriez Tac-Hunter, 338 Lapua Stiller Action, Pac-nor Barrel<br>
+  guns_for_sale_text4_html: "Todd Ramriez Tac-Hunter, 338 Lapua Stiller Action, Pac-nor Barrel<br>
   Price w/out Scope $ 12,500<br>
-  Price w/ Scope $ 15,950<br><br>
-  Todd Ramirez Syn-fle Rifle, Premium Synthetic Stock, Pac-nor Barrel, Custom Action Work, Recknagel Mounts<br>
+  Price w/ Scope $ 15,950<br><br>"
+  guns_for_sale_text5_html: "Todd Ramirez Syn-fle Rifle, Premium Synthetic Stock, Pac-nor Barrel, Custom Action Work, Recknagel Mounts<br>
   Price w/out Scope $15,000<br>
-  Price w/ Scope $17,500<br><br>
-  Todd Ramirez Tac-Hunter, 308 Winchester FN Action, Pac-nor Barrel<br>
-  Price$12,000<br><br>
-  Beretta 687 EELL 12 ga., 28” Sporter Barrel, Optima Chokes Price $6,000.00<br><br>
+  Price w/ Scope $17,500<br><br>"
+  guns_for_sale_text6_html: "Todd Ramirez Tac-Hunter, 308 Winchester FN Action, Pac-nor Barrel<br>
+  Price$12,000<br>"
+  guns_for_sale_text7_html: "Beretta 687 EELL 12 ga., 28” Sporter Barrel, Optima Chokes Price $6,000.00<br><br>
   Beretta SO10 engraved by L. Casari, Brand New Never Fired with Case. $83,000<br><br>
   Pair of ASEL’s, D. Zanetti is the engraver, Brand New, Never Fired with Case. $63,000"
