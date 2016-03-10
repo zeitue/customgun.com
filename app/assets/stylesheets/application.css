@@ -161,13 +161,11 @@ html, body {
     display: inline-block;
 }
 
-div.centered
-{
+div.centered{
     text-align: center;
 }
 
-div.centered table
-{
+div.centered table{
     text-align:center;
     margin: auto;
 }
@@ -180,9 +178,6 @@ table{
     margin-right: 2em
 }
 
-table td {
-    text-align: center;
-}
 
 #actual-table {
     border-collapse: collapse;
@@ -250,4 +245,34 @@ itext{
 #social td {
     vertical-align: top;
     text-align: center;
+}
+
+table.pricetab{
+    width: 96%;
+    background: rgba(256, 256, 256, 0.10);
+}
+
+
+.pricetab td:nth-child(1){
+    width:80%;
+    text-align: left;
+    padding-right: 1em;
+}
+
+.pricetab td:nth-child(2){
+    width:20%;
+    text-align:left;
+}
+
+.pricetab th:nth-child(1){
+    width:80%;
+    text-align:left;
+    padding-right: 1em;
+    font-weight:bold;
+}
+
+.pricetab th:nth-child(2){
+    width:20%;
+    text-align:left;
+    font-weight:bold;
 }

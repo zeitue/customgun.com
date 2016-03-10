@@ -10,205 +10,224 @@
     <meta name="distribution" content="global"/>
     <meta name="copyright" content=" <%= t('copyright')%>"/>
     <link rel="canonical" href="http://customgun.com">
-      <title>
-        <%= (yield(:title) + " | Todd Ramirez | " unless
-            yield(:title).blank?).to_s.html_safe + "Custom Shop" %></title>
-      <%= stylesheet_link_tag    "application", :media => "all" %>
-      <%= javascript_include_tag "application" %>
-      <%= csrf_meta_tags %>
-      <% if content_for?(:head) %>
+    <title>
+      <%= (yield(:title) + " | Todd Ramirez | " unless
+           yield(:title).blank?).to_s.html_safe + "Custom Shop" %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <% if content_for?(:head) %>
       <%= yield(:head) %>
-      <% end %>
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-<%= favicon_link_tag 'theme/default/favicon.png' %>
-    </head>
-    <body>
-<script type="text/javascript">
-$('a.image').fancybox({
-  padding: 0,
-showNavArrows: true,
-  helpers: {
-    overlay: {
-      locked: false
-    }
-  }
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-  document.oncontextmenu = function() {return false;};
+    <% end %>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <%= favicon_link_tag 'theme/default/favicon.png' %>
+  </head>
+  <body>
+    <script type="text/javascript">
+ $('a.image').fancybox({
+       padding: 0,
+       showNavArrows: true,
+       helpers: {
+         overlay: {
+           locked: false
+         }
+       }
+     });
+    </script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+       document.oncontextmenu = function() {return false;};
 
-  $(document).mousedown(function(e){
-    if( e.button == 2 ) {
-      doDash();
-      return false;
-    }
-    return true;
-  });
-});
-</script>
+       $(document).mousedown(function(e){
+         if( e.button == 2 ) {
+           doDash();
+           return false;
+         }
+         return true;
+       });
+     });
+    </script>
 
 
-<div id="container">
-  <div id="dash"  style="display: none">
-    <a onclick="doDash()" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
-    <div class="centered">
-<table id="social"><tr>
-<td>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like" data-href="https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></td>
-<td><a href="https://twitter.com/Todd_Ramirez_CS" class="twitter-follow-button" data-show-count="false">Follow @Todd_Ramirez_CS</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
-<td>
-<div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
-</td>
-    </tr></table></div>
-<br>
-  <div class="centered">
-    <table id="actual-table" style="table-layout: fixed; width: 100%;">
-      <tr>
-        <td> <%= lx('home.png', 'home', 'home' ) %></td>
-        <td> <%= lx('about.png', 'about', 'about' ) %></td>
-        <td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
-        <td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
-        <td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
-      </tr><tr>
-        <td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
-        <td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
-        <td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
-        <td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
-        <td> <%= lx('events.png', 'events', 'events' ) %></td>
-      </tr><tr>
-        <td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
-        <td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
-        <td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
-        <td> <%= lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' ) %></td>
-        <td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
-      </tr><tr>
-        <td> <%= lx('media.png', 'media', 'media' ) %></td>
-        <td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
-        <td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
-        <td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
-        <td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
-      </tr><tr>
-        <td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
-        <td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
-        <td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
-        <td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
-        <td> <%= lx('trophy_room.png', 'trophy-room', 'trophy_room' ) %></td>
-      </tr><tr>
-        <td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
-        <td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
-        <td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
-        <td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
-        <td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
-      </tr>
-    </table>
-    <br>
+    <div id="container">
+      <div id="dash"  style="display: none">
+        <a onclick="doDash()" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
+        <div class="centered">
+          <table id="social"><tr>
+            <td>
+              <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                 var js, fjs = d.getElementsByTagName(s)[0];
+                 if (d.getElementById(id)) return;
+                 js = d.createElement(s); js.id = id;
+                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                 fjs.parentNode.insertBefore(js, fjs);
+               }(document, 'script', 'facebook-jssdk'));</script>
+              <div class="fb-like" data-href="https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></td>
+            <td><a href="https://twitter.com/Todd_Ramirez_CS" class="twitter-follow-button" data-show-count="false">Follow @Todd_Ramirez_CS</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
+            <td>
+              <div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
+            </td>
+          </tr></table></div>
+        <br>
+        <div class="centered">
+          <table id="actual-table" style="table-layout: fixed; width: 100%;">
+            <tr>
+              <td> <%= lx('home.png', 'home', 'home' ) %></td>
+              <td> <%= lx('about.png', 'about', 'about' ) %></td>
+              <td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
+              <td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
+              <td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
+            </tr>
+            <tr>
+              <td> <%= lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' ) %></td>
+              <td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
+              <td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
+              <td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
+              <td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
+            </tr>
+            <tr>
+              <td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
+              <td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
+              <td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
+              <td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
+              <td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
+              <td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
+              <td> <%= lx('trophy_room.png', 'trophy-room', 'trophy_room' ) %></td>
+              <td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
+              <td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
+              <td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
+              <td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
+              <td> <%= lx('events.png', 'events', 'events' ) %></td>
+              <td> <%= lx('media.png', 'media', 'media' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
+              <td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
+              <td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
+              <td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
+              <td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </div>
+
+
+
+      <div id="vdash"  style="display: none">
+        <a onclick="doDash()" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
+        <br>
+        <br>
+        <br>
+        <div class="centered">
+          <table id="actual-table" style="table-layout: fixed; width: 100%;">
+            <tr>
+              <td> <%= lx('home.png', 'home', 'home' ) %></td>
+              <td> <%= lx('about.png', 'about', 'about' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
+              <td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
+              <td> <%= lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
+              <td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
+              <td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
+            </tr>
+            <tr>
+              <td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
+              <td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
+              <td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
+              <td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
+              <td> <%= lx('trophy_room.png', 'trophy-room', 'trophy_room' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
+              <td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
+              <td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
+              <td> <%= lx('events.png', 'events', 'events' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('media.png', 'media', 'media' ) %></td>
+              <td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
+              <td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
+            </tr>
+            <tr>
+              <td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
+              <td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
+            </tr>
+          </table>
+          <br>
+          <div class="centered">
+            <table id="social"><tr>
+              <td>
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                   var js, fjs = d.getElementsByTagName(s)[0];
+                   if (d.getElementById(id)) return;
+                   js = d.createElement(s); js.id = id;
+                   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                   fjs.parentNode.insertBefore(js, fjs);
+                 }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like" data-href="https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></td>
+              <td><a href="https://twitter.com/Todd_Ramirez_CS" class="twitter-follow-button" data-show-count="false">Follow @Todd_Ramirez_CS</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
+              <td>
+                <div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
+              </td>
+            </tr></table></div>
+          <br>
+        </div>
+      </div>
+
+
+
+      <div id="box" style="display: block">
+        <div id="menu" onclick="doDash()">
+          <%= image_tag('theme/default/tr.svg', :title => t('menu_button_text'), :alt => 'TR')%>
+          <abbr title="<%=t('menu_button_text')%>"><%=t('main_menu')%></abbr>
+        </div>
+
+        <br>
+        <div id="cbox">
+          <div id="page-title"> <%= yield(:header) %> </div>
+          <%= yield %>
+        </div>
+        <div id="footer"> <%= t('copyright')%></div>
+      </div>
     </div>
-  </div>
-
-
-
-  <div id="vdash"  style="display: none">
-    <a onclick="doDash()" class="close_button" title="<%=t('close_button_text')%>" alt=>X</a>
-  <br>
-  <br>
-  <br>
-  <div class="centered">
-    <table id="actual-table" style="table-layout: fixed; width: 100%;">
-      <tr>
-        <td> <%= lx('home.png', 'home', 'home' ) %></td>
-        <td> <%= lx('about.png', 'about', 'about' ) %></td>
-      </tr><tr>
-        <td> <%= lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' ) %></td>
-        <td> <%= lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' ) %></td>
-        </tr><tr>
-        <td> <%= lx('contact.png', 'contact', 'contact' ) %></td>
-        <td> <%= lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' ) %></td>
-        </tr><tr>
-        <td> <%= lx('custom_work.png', 'custom-work', 'custom_work' ) %></td>
-        <td> <%= lx('double_rifles.png', 'double-rifles', 'double_rifles' ) %></td>
-        </tr><tr>
-        <td> <%= lx('engraving.png', 'engraving', 'engraving' ) %></td>
-        <td> <%= lx('events.png', 'events', 'events' ) %></td>
-      </tr><tr>
-        <td> <%= lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' ) %></td>
-        <td> <%= lx('gun_parts.png', 'gun-parts', 'gun_parts' ) %></td>
-        </tr><tr>
-        <td> <%= lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' ) %></td>
-        <td> <%= lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' ) %></td>
-        </tr><tr>
-        <td> <%= lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' ) %></td>
-        <td> <%= lx('media.png', 'media', 'media' ) %></td>
-        </tr><tr>
-        <td> <%= lx('metal_finishes.png', 'metal-finishes', 'metal_finishes') %></td>
-        <td> <%= lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' ) %></td>
-        </tr><tr>
-        <td> <%= lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' ) %></td>
-        <td> <%= lx('restoration.png', 'restoration', 'restoration' ) %></td>
-      </tr><tr>
-        <td> <%= lx('shotguns.png', 'shotguns', 'shotguns' ) %></td>
-        <td> <%= lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )%></td>
-        </tr><tr>
-        <td> <%= lx('stock_work.png', 'stock-work', 'stock_work' ) %></td>
-        <td> <%= lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )%></td>
-        </tr><tr>
-        <td> <%= lx('trophy_room.png', 'trophy-room', 'trophy_room' ) %></td>
-        <td> <%= lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' ) %></td>
-        </tr><tr>
-        <td> <%= lx('pens.png', 'pens', 'pens' ) %></td>
-        <td> <%= lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' ) %></td>
-        </tr><tr>
-        <td> <%= lx('key_chains.png', 'key-chains', 'key_chains' ) %></td>
-        <td> <%= lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' ) %></td>
-      </tr>
-    </table>
-    <br>
-    <div class="centered">
-  <table id="social"><tr>
-  <td>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="fb-like" data-href="https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></td>
-  <td><a href="https://twitter.com/Todd_Ramirez_CS" class="twitter-follow-button" data-show-count="false">Follow @Todd_Ramirez_CS</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></td>
-  <td>
-  <div class="g-plusone" data-size="standard" data-annotation="bubble"></div>
-  </td>
-    </tr></table></div>
-    <br>
-    </div>
-  </div>
-
-
-
-<div id="box" style="display: block">
- <div id="menu" onclick="doDash()">
-  <%= image_tag('theme/default/tr.svg', :title => t('menu_button_text'), :alt => 'TR')%>
-  <abbr title="<%=t('menu_button_text')%>"><%=t('main_menu')%></abbr>
-  </div>
-
-<br>
-<div id="cbox">
-<div id="page-title"> <%= yield(:header) %> </div>
-<%= yield %>
-</div>
-<div id="footer"> <%= t('copyright')%></div>
-</div>
-</div>
-</body>
+  </body>
 </html>
