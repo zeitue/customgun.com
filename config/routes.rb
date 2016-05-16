@@ -1,77 +1,42 @@
 Rails.application.routes.draw do
-  root :to => 'home#index'
-
-  get 'about/index'
-  get 'restoration/index'
-  get 'gun-parts/index'
-  get 'trophy-room/index'
-  get 'gun-fitting/index'
-  get 'wine-stoppers/index'
-  get 'pens/index'
-  get 'engraving/index'
-  get 'taylors-pens-and-gifts/index'
-  get 'payment-and-shipping/index'
-  get 'double-rifles/index'
-  get 'synthetic-rifles/index'
-  get 'oil-finishes/index'
-  get 'custom-work/index'
-  get 'stock-work/index'
-  get 'gunsmithing/index'
-  get 'custom-rifles/index'
-  get 'sitemap-page-order/index'
-  get 'metal-finishes/index'
-  get 'contact/index'
-  get 'media/index'
-  get 'guns-for-sale/index'
-  get 'signature-rifle/index'
-  get 'leather-wrap-pads/index'
-  get 'bracelet-helpers/index'
-  get 'events/index'
-  get 'key-chains/index'
-  get 'boddington-trophy/index'
-  get 'shotguns/index'
-  get 'boddington-rifle-project/index'
-  get 'home/index'
-
-
-get '/boddington-rifle-project' => 'boddington-rifle-project#index'
-get '/home' => 'home#index'
-get '/restoration' => 'restoration#index'
-get '/boddington-trophy' => 'boddington-trophy#index'
-get '/key-chains' => 'key-chains#index'
-get '/shotguns' => 'shotguns#index'
-get '/bracelet-helpers' => 'bracelet-helpers#index'
-get '/events' => 'events#index'
-get '/contact' => 'contact#index'
-get '/leather-wrap-pads' => 'leather-wrap-pads#index'
-get '/signature-rifle' => 'signature-rifle#index'
-get '/custom-rifles' => 'custom-rifles#index'
-get '/media' => 'media#index'
-get '/about' => 'about#index'
-get '/custom-work' => 'custom-work#index'
-get '/metal-finishes' => 'metal-finishes#index'
-get '/double-rifles' => 'double-rifles#index'
-get '/gunsmithing' => 'gunsmithing#index'
-get '/stock-work' => 'stock-work#index'
-get '/engraving' => 'engraving#index'
-get '/oil-finishes' => 'oil-finishes#index'
-get '/synthetic-rifles' => 'synthetic-rifles#index'
-get '/gun-fitting' => 'gun_fitting#index'
-get '/payment-and-shipping' => 'payment-and-shipping#index'
-get '/taylors-pens-and-gifts' => 'taylors-pens-and-gifts#index'
-get '/gun-parts' => 'gun-parts#index'
-get '/pens' => 'pens#index'
-get '/wine-stoppers' => 'wine-stoppers#index'
-get '/guns-for-sale' => 'guns-for-sale#index'
-get '/trophy-room' => 'trophy-room#index'
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+  get 'about' => 'about#index', :as => :about
+  get 'boddington-rifle-project' => 'boddington_rifle_project#index', :as => :boddington_rifle_project
+  get 'boddington-trophy' => 'boddington_trophy#index', :as => :boddington_trophy
+  get 'bracelet-helpers' => 'bracelet_helpers#index', :as => :bracelet_helpers
+  get 'contact' => 'contact#index', :as => :contact
+  get 'custom-rifles' => 'custom_rifles#index', :as => :custom_rifles
+  get 'custom-work' => 'custom_work#index', :as => :custom_work
+  get 'double-rifles' => 'double_rifles#index', :as => :double_rifles
+  get 'engraving' => 'engraving#index', :as => :engraving
+  get 'events' => 'events#index', :as => :events
+  get 'gun-fitting' => 'gun_fitting#index', :as => :gun_fitting
+  get 'gun-parts' => 'gun_parts#index', :as => :gun_parts
+  get 'guns-for-sale' => 'guns_for_sale#index', :as => :guns_for_sale
+  get 'gunsmithing' => 'gunsmithing#index', :as => :gunsmithing
+  get 'home' => 'home#index', :as => :home
+  get 'key-chains' => 'key_chains#index', :as => :key_chains
+  get 'layouts' => 'layouts#index', :as => :layouts
+  get 'leather-wrap-pads' => 'leather_wrap_pads#index', :as => :leather_wrap_pads
+  get 'media' => 'media#index', :as => :media
+  get 'metal-finishes' => 'metal_finishes#index', :as => :metal_finishes
+  get 'oil-finishes' => 'oil_finishes#index', :as => :oil_finishes
+  get 'payment-and-shipping' => 'payment_and_shipping#index', :as => :payment_and_shipping
+  get 'pens' => 'pens#index', :as => :pens
+  get 'restoration' => 'restoration#index', :as => :restoration
+  get 'shotguns' => 'shotguns#index', :as => :shotguns
+  get 'signature-rifle' => 'signature_rifle#index', :as => :signature_rifle
+  get 'stock-work' => 'stock_work#index', :as => :stock_work
+  get 'store' => 'store#index', :as => :store
+  get 'synthetic-rifles' => 'synthetic_rifles#index', :as => :synthetic_rifles
+  get 'taylors-pens-and-gifts' => 'taylors_pens_and_gifts#index', :as => :taylors_pens_and_gifts
+  get 'trophy-room' => 'trophy_room#index', :as => :trophy_room
+  get 'wine-stoppers' => 'wine_stoppers#index', :as => :wine_stoppers
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -121,5 +86,4 @@ get '/trophy-room' => 'trophy-room#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
 end
