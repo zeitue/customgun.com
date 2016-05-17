@@ -1,0 +1,14 @@
+- content_for :title,  t('contact')
+- content_for :header,  t('contact')
+- content_for :head do
+  %meta{content: "todd ramirez, custom, premium, gunsmith, rifles, deer, hunting, rifles", name: "Keywords"}/
+  %meta{content: "Todd Ramirez Premium Rifles, Custom Shop, LLC", name: "Description"}/
+#content
+  %br/
+  %a{href: "mailto:customgun.tr@gmail.com"}
+    %img{alt: "Mail", onmouseout: "this.src='/assets/theme/default/email.png';", onmouseover: "this.src='/assets/theme/default/email_mouseover.png';", src: "/assets/theme/default/email.png", style: "border: 0px solid;\n            width: 128px;\n            height: 128px;"}/
+  = brn(2)
+  = link_to ttext('contact_text0'),  "mailto:customgun.tr@gmail.com"
+  = brn(2) + ptext('contact_text1_html') + br()
+  = ptext('contact_text2')
+  = ptext('contact_text3') + brn(25)

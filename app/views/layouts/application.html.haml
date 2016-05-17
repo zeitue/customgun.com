@@ -1,0 +1,252 @@
+!!! Strict
+%html
+  %head
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "english", name: "language"}/
+    %meta{content: "index,follow", name: "robots"}/
+    %meta{content: "20 days", name: "revisit-after"}/
+    %meta{content: "global", name: "distribution"}/
+    %meta{content: "#{t('copyright')}", name: "copyright"}/
+    %link{href: "http://customgun.com", rel: "canonical"}/
+    %title
+      = (yield(:title) + " | Todd Ramirez | " unless         |
+        yield(:title).blank?).to_s.html_safe + "Custom Shop" |
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    - if content_for?(:head)
+      = yield(:head)
+    %script{src: "https://apis.google.com/js/plusone.js", type: "text/javascript"}
+    = favicon_link_tag 'theme/default/favicon.png'
+  %body
+    :javascript
+      $('a.image').fancybox({
+            padding: 0,
+            showNavArrows: true,
+            helpers: {
+              overlay: {
+                locked: false
+              }
+            }
+          });
+    :javascript
+      $(document).ready(function(){
+        document.oncontextmenu = function() {return false;};
+
+        $(document).mousedown(function(e){
+          if( e.button == 2 ) {
+            doDash();
+            return false;
+          }
+          return true;
+        });
+      });
+    #container
+      #dash{style: "display: none"}
+        %a.close_button{alt: "", onclick: "doDash()", title: "#{t('close_button_text')}"} X
+        .centered
+          %table#social
+            %tr
+              %td
+                #fb-root
+                :javascript
+                  (function(d, s, id) {
+                                   var js, fjs = d.getElementsByTagName(s)[0];
+                                   if (d.getElementById(id)) return;
+                                   js = d.createElement(s); js.id = id;
+                                   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                                   fjs.parentNode.insertBefore(js, fjs);
+                                 }(document, 'script', 'facebook-jssdk'));
+                .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+              %td
+                %a.twitter-follow-button{"data-show-count" => "false", href: "https://twitter.com/Todd_Ramirez_CS"} Follow @Todd_Ramirez_CS
+                :javascript
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+              %td
+                .g-plusone{"data-annotation" => "bubble", "data-size" => "standard"}
+        %br/
+        .centered
+          %table#actual-table{style: "table-layout: fixed; width: 100%;"}
+            %tr
+              %td
+                = lx('home.png', 'home', 'home' )
+              %td
+                = lx('about.png', 'about', 'about' )
+              %td
+                = lx('contact.png', 'contact', 'contact' )
+              %td
+                = lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' )
+              %td
+                = lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )
+            %tr
+              %td
+                = lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' )
+              %td
+                = lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' )
+              %td
+                = lx('shotguns.png', 'shotguns', 'shotguns' )
+              %td
+                = lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' )
+              %td
+                = lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )
+            %tr
+              %td
+                = lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' )
+              %td
+                = lx('restoration.png', 'restoration', 'restoration' )
+              %td
+                = lx('custom_work.png', 'custom-work', 'custom_work' )
+              %td
+                = lx('stock_work.png', 'stock-work', 'stock_work' )
+              %td
+                = lx('double_rifles.png', 'double-rifles', 'double_rifles' )
+            %tr
+              %td
+                = lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' )
+              %td
+                = lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' )
+              %td
+                = lx('trophy_room.png', 'trophy-room', 'trophy_room' )
+              %td
+                = lx('engraving.png', 'engraving', 'engraving' )
+              %td
+                = lx('metal_finishes.png', 'metal-finishes', 'metal_finishes')
+            %tr
+              %td
+                = lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' )
+              %td
+                = lx('gun_parts.png', 'gun-parts', 'gun_parts' )
+              %td
+                = lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' )
+              %td
+                = lx('events.png', 'events', 'events' )
+              %td
+                = lx('media.png', 'media', 'media' )
+            %tr
+              %td
+                = lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' )
+              %td
+                = lx('pens.png', 'pens', 'pens' )
+              %td
+                = lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' )
+              %td
+                = lx('key_chains.png', 'key-chains', 'key_chains' )
+              %td
+                = lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' )
+          %br/
+      #vdash{style: "display: none"}
+        %a.close_button{alt: "", onclick: "doDash()", title: "#{t('close_button_text')}"} X
+        %br/
+        %br/
+        %br/
+        .centered
+          %table#actual-table{style: "table-layout: fixed; width: 100%;"}
+            %tr
+              %td
+                = lx('home.png', 'home', 'home' )
+              %td
+                = lx('about.png', 'about', 'about' )
+            %tr
+              %td
+                = lx('contact.png', 'contact', 'contact' )
+              %td
+                = lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' )
+            %tr
+              %td
+                = lx('signature_rifle.png', 'signature-rifle', 'signature_rifle' )
+              %td
+                = lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' )
+            %tr
+              %td
+                = lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' )
+              %td
+                = lx('shotguns.png', 'shotguns', 'shotguns' )
+            %tr
+              %td
+                = lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' )
+              %td
+                = lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )
+            %tr
+              %td
+                = lx('oil_finishes.png', 'oil-finishes', 'oil_finishes' )
+              %td
+                = lx('restoration.png', 'restoration', 'restoration' )
+            %tr
+              %td
+                = lx('custom_work.png', 'custom-work', 'custom_work' )
+              %td
+                = lx('stock_work.png', 'stock-work', 'stock_work' )
+            %tr
+              %td
+                = lx('double_rifles.png', 'double-rifles', 'double_rifles' )
+              %td
+                = lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' )
+            %tr
+              %td
+                = lx('boddington_trophy.png', 'boddington-trophy', 'boddington_trophy' )
+              %td
+                = lx('trophy_room.png', 'trophy-room', 'trophy_room' )
+            %tr
+              %td
+                = lx('engraving.png', 'engraving', 'engraving' )
+              %td
+                = lx('metal_finishes.png', 'metal-finishes', 'metal_finishes')
+            %tr
+              %td
+                = lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' )
+              %td
+                = lx('gun_parts.png', 'gun-parts', 'gun_parts' )
+            %tr
+              %td
+                = lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' )
+              %td
+                = lx('events.png', 'events', 'events' )
+            %tr
+              %td
+                = lx('media.png', 'media', 'media' )
+              %td
+                = lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' )
+            %tr
+              %td
+                = lx('pens.png', 'pens', 'pens' )
+              %td
+                = lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' )
+            %tr
+              %td
+                = lx('key_chains.png', 'key-chains', 'key_chains' )
+              %td
+                = lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' )
+          %br/
+          .centered
+            %table#social
+              %tr
+                %td
+                  #fb-root
+                  :javascript
+                    (function(d, s, id) {
+                                       var js, fjs = d.getElementsByTagName(s)[0];
+                                       if (d.getElementById(id)) return;
+                                       js = d.createElement(s); js.id = id;
+                                       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                                       fjs.parentNode.insertBefore(js, fjs);
+                                     }(document, 'script', 'facebook-jssdk'));
+                  .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+                %td
+                  %a.twitter-follow-button{"data-show-count" => "false", href: "https://twitter.com/Todd_Ramirez_CS"} Follow @Todd_Ramirez_CS
+                  :javascript
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                %td
+                  .g-plusone{"data-annotation" => "bubble", "data-size" => "standard"}
+          %br/
+      #box{style: "display: block"}
+        #menu{onclick: "doDash()"}
+          = image_tag('theme/default/tr.svg', :title => t('menu_button_text'), :alt => 'TR')
+          %abbr{title: "#{t('menu_button_text')}"}= t('main_menu')
+        %br/
+        #cbox
+          #page-title
+            = yield(:header)
+          = yield
+        #footer
+          = t('copyright0') + Time.now.year.to_s + t('copyright1')

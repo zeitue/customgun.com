@@ -1,0 +1,12 @@
+- content_for :title,  t('gun_parts')
+- content_for :header,  t('gun_parts')
+- content_for :head do
+  %meta{content: "", name: "Keywords"}/
+  %meta{content: "Todd Ramirez, Premium Rifle builder, gunsmith, parts, barrels  and replacement wood for various guns, such as Berettas, Winchesters, Browning, Mausers, etc.", name: "Description"}/
+#content
+  = ttext('gun_parts_text0') + brn(2)
+  = ttext('gun_parts_text1')+ brn(5)
+  = ttext('gun_parts_text2')
+  = ptext('gun_parts_text3_html') + brn(3)
+  = ttext('gun_parts_text4')
+  = ptext('gun_parts_text5_html') + brn(10)

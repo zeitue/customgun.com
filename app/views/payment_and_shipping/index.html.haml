@@ -1,0 +1,19 @@
+- content_for :title,  t('payment_and_shipping_html')
+- content_for :header,  t('payment_and_shipping_html')
+- content_for :head do
+  %meta{content: "todd ramirez,custom premium rifle maker,synthetic rifle, big bore guns, safar, deer hunting, rifles, gunsmith, beretta specialist", name: "Keywords"}/
+  %meta{content: "Todd Ramirez Custom Rifles, Payment & Shipping information", name: "Description"}/
+#content
+  = ttext('payment_and_shipping_text0')
+  = ptext('payment_and_shipping_text1') + brn(2)
+  = ttext('payment_and_shipping_text2')
+  = ptext('payment_and_shipping_text3_html') + brn(2)
+  = ttext('payment_and_shipping_text4')
+  = ptext('payment_and_shipping_text5') + brn(3)
+  = ttext('payment_and_shipping_text6')
+  = ptext('payment_and_shipping_text7_html') + brn(2)
+  = ttext('payment_and_shipping_text8')
+  = ptext('payment_and_shipping_text9') + brn(2)
+  = ttext('payment_and_shipping_text10') + br()
+  = link_to(t('payment_and_shipping_text12'), "mailto:customgun.tr@gmail.com")
+  = ptext('payment_and_shipping_text11_html') + brn(5)
