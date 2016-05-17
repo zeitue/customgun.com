@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,14 +7,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about' => 'about#index', :as => :about
   get 'boddington-rifle-project' => 'boddington_rifle_project#index', :as => :boddington_rifle_project
-  get 'boddington-trophy' => 'boddington_trophy#index', :as => :boddington_trophy
   get 'bracelet-helpers' => 'bracelet_helpers#index', :as => :bracelet_helpers
   get 'contact' => 'contact#index', :as => :contact
   get 'custom-rifles' => 'custom_rifles#index', :as => :custom_rifles
-  get 'custom-work' => 'custom_work#index', :as => :custom_work
-  get 'double-rifles' => 'double_rifles#index', :as => :double_rifles
   get 'engraving' => 'engraving#index', :as => :engraving
   get 'events' => 'events#index', :as => :events
+  get 'finishes' => 'finishes#index', :as => :finishes
   get 'gun-fitting' => 'gun_fitting#index', :as => :gun_fitting
   get 'gun-parts' => 'gun_parts#index', :as => :gun_parts
   get 'guns-for-sale' => 'guns_for_sale#index', :as => :guns_for_sale
@@ -23,13 +22,11 @@ Rails.application.routes.draw do
   get 'layouts' => 'layouts#index', :as => :layouts
   get 'leather-wrap-pads' => 'leather_wrap_pads#index', :as => :leather_wrap_pads
   get 'media' => 'media#index', :as => :media
-  get 'metal-finishes' => 'metal_finishes#index', :as => :metal_finishes
-  get 'oil-finishes' => 'oil_finishes#index', :as => :oil_finishes
   get 'payment-and-shipping' => 'payment_and_shipping#index', :as => :payment_and_shipping
+  get 'pistols' => 'pistols#index', :as => :pistols
   get 'pens' => 'pens#index', :as => :pens
   get 'restoration' => 'restoration#index', :as => :restoration
   get 'shotguns' => 'shotguns#index', :as => :shotguns
-  get 'signature-rifle' => 'signature_rifle#index', :as => :signature_rifle
   get 'stock-work' => 'stock_work#index', :as => :stock_work
   get 'store' => 'store#index', :as => :store
   get 'synthetic-rifles' => 'synthetic_rifles#index', :as => :synthetic_rifles
