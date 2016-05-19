@@ -18,6 +18,7 @@
 public/assets/**
 config/initializers/secret_token.rb
 /public/system
+/public/uploads/*
 /spec/tmp
 **.orig
 rerun.txt
