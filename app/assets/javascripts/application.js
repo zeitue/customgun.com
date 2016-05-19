@@ -11,6 +11,8 @@
 // about supported directives.
 //
 // require_tree .
+//= require jquery
+//= require jquery_ujs
 //= require dash
 //= require detect
 // Vendor Files

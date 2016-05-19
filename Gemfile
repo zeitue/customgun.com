@@ -11,6 +11,8 @@ gem 'haml-rails'
 gem 'passenger', '~> 4.0.60'
 gem 'execjs'
 gem 'therubyracer'
+gem 'jquery-rails'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'html2haml'

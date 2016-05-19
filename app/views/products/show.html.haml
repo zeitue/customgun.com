@@ -1,0 +1,54 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @product.title
+%p
+  %b Manufacturer:
+  = @product.manufacturer
+%p
+  %b Model:
+  = @product.model
+%p
+  %b Part number:
+  = @product.part_number
+%p
+  %b Price:
+  = @product.price
+%p
+  %b Quantity:
+  = @product.quantity
+%p
+  %b Description:
+  = @product.description
+%p
+  %b Images:
+  = @product.images
+%p
+  %b Schematic:
+  = @product.schematic
+%p
+  %b Weight:
+  = @product.weight
+%p
+  %b Height:
+  = @product.height
+%p
+  %b Width:
+  = @product.width
+%p
+  %b Length:
+  = @product.length
+%p
+  %b Tags:
+  = @product.tags
+%p
+  %b Categories:
+  = @product.categories
+%p
+  %b Exclusive:
+  = @product.exclusive
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

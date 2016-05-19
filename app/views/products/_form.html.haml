@@ -1,0 +1,58 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :manufacturer
+    = f.text_field :manufacturer
+  .field
+    = f.label :model
+    = f.text_field :model
+  .field
+    = f.label :part_number
+    = f.text_field :part_number
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :quantity
+    = f.number_field :quantity
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :images
+    = f.text_field :images
+  .field
+    = f.label :schematic
+    = f.text_field :schematic
+  .field
+    = f.label :weight
+    = f.text_field :weight
+  .field
+    = f.label :height
+    = f.text_field :height
+  .field
+    = f.label :width
+    = f.text_field :width
+  .field
+    = f.label :length
+    = f.text_field :length
+  .field
+    = f.label :tags
+    = f.text_field :tags
+  .field
+    = f.label :categories
+    = f.text_field :categories
+  .field
+    = f.label :exclusive
+    = f.check_box :exclusive
+  .actions
+    = f.submit 'Save'

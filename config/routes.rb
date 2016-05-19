@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :products, path: 'store'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
   get 'restoration' => 'restoration#index', :as => :restoration
   get 'shotguns' => 'shotguns#index', :as => :shotguns
   get 'stock-work' => 'stock_work#index', :as => :stock_work
-  get 'store' => 'store#index', :as => :store
   get 'synthetic-rifles' => 'synthetic_rifles#index', :as => :synthetic_rifles
   get 'taylors-pens-and-gifts' => 'taylors_pens_and_gifts#index', :as => :taylors_pens_and_gifts
   get 'trophy-room' => 'trophy_room#index', :as => :trophy_room
@@ -81,6 +81,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end
