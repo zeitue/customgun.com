@@ -13,7 +13,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'jquery-rails'
 gem 'friendly_id'
-
+gem 'carrierwave'
 group :development, :test do
   gem 'html2haml'
 end

@@ -48,6 +48,9 @@
 %p
   %b Exclusive:
   = @product.exclusive
+-@photos.each do |p|
+  = image_tag p.image
+
 
 = link_to 'Edit', edit_product_path(@product)
 \|
