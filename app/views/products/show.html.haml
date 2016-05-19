@@ -2,16 +2,16 @@
 
 %p
   %b Title:
-  = @product.title
+  = @product.title.titleize
 %p
   %b Manufacturer:
-  = @product.manufacturer
+  = @product.manufacturer.titleize
 %p
   %b Model:
-  = @product.model
+  = @product.model.titleize
 %p
   %b Part number:
-  = @product.part_number
+  = @product.part_number.titleize
 %p
   %b Price:
   = @product.price
@@ -22,8 +22,8 @@
   %b Description:
   = @product.description
 %p
-  %b Images:
-  = @product.images
+  -@photos.each do |p|
+    = image_tag p.image.thumb
 %p
   %b Schematic:
   = @product.schematic
@@ -48,8 +48,7 @@
 %p
   %b Exclusive:
   = @product.exclusive
--@photos.each do |p|
-  = image_tag p.image
+
 
 
 = link_to 'Edit', edit_product_path(@product)
