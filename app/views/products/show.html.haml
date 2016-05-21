@@ -1,8 +1,16 @@
 %p#notice= notice
 
+%h2= @product.title.titleize
+
 %p
-  %b Title:
-  = @product.title.titleize
+  .slider
+    -count = 1
+    -@photos.each do |p|
+      %input{:type => "radio", :name => "slide_switch", :id => p.id, :checked => ((count > 1) ? nil : "checked") }
+      %label{:for => p.id}= image_tag p.image.thumb, style: 'width:100%;'
+      =image_tag p.image.hdpi
+      -count += 1
+
 %p
   %b Manufacturer:
   = @product.manufacturer.titleize
@@ -22,32 +30,14 @@
   %b Description:
   = @product.description
 %p
-  -@photos.each do |p|
-    = image_tag p.image.thumb
-%p
   %b Schematic:
   = @product.schematic
 %p
   %b Weight:
-  = @product.weight
+  = @product.weight.to_s
 %p
-  %b Height:
-  = @product.height
-%p
-  %b Width:
-  = @product.width
-%p
-  %b Length:
-  = @product.length
-%p
-  %b Tags:
-  = @product.tags
-%p
-  %b Categories:
-  = @product.categories
-%p
-  %b Exclusive:
-  = @product.exclusive
+  %b Dimensions:
+  = @product.length.to_s + ' x ' + @product.width.to_s + ' x ' + @product.height.to_s
 
 
 
