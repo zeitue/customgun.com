@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519163832) do
+ActiveRecord::Schema.define(version: 20160521165207) do
 
   create_table "images", force: :cascade do |t|
     t.string   "file_id"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160519163832) do
     t.float    "price"
     t.integer  "quantity"
     t.text     "description"
-    t.string   "images"
     t.string   "schematic"
     t.float    "weight"
     t.float    "height"
