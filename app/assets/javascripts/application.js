@@ -17,3 +17,5 @@
 //= require detect
 // Vendor Files
 //= require_tree ../../../vendor/assets/javascripts/.
+//= require bootstrap
+

@@ -15,7 +15,7 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'bootstrap'
 group :development, :test do
   gem 'html2haml'
 end

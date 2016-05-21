@@ -16,7 +16,7 @@
  *= require theme
  */
 
-
+@import "bootstrap";
 
 #container{
     min-height: 100%;
@@ -120,6 +120,7 @@ html, body {
     cursor: pointer;
 }
 .close_button:hover {
+    text-decoration: none;
     position: absolute;
     left: 0;
 }
@@ -128,6 +129,7 @@ html, body {
     top:1px;
     position: absolute;
     left: 0;
+    text-decoration: none;
 }
 
 .menu_button {
