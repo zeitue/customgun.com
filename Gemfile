@@ -15,7 +15,9 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'bootstrap'
+gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
