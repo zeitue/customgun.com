@@ -1,6 +1,6 @@
-%h1 Listing products
+%h1 Store
 
-%table
+%table.table.table-hover
   %thead
     %tr
       %th Title
@@ -10,39 +10,29 @@
       %th Price
       %th Quantity
       %th Description
-      %th Schematic
       %th Weight
       %th Height
       %th Width
       %th Length
-      %th Tags
-      %th Categories
-      %th Exclusive
-      %th
       %th
       %th
 
   %tbody
     - @products.each do |product|
       %tr
-        %td= product.title
-        %td= product.manufacturer
-        %td= product.model
-        %td= product.part_number
+        %td= link_to product.title.titleize, product
+        %td= product.manufacturer.titleize
+        %td= product.model.titleize
+        %td= product.part_number.titleize
         %td= product.price
         %td= product.quantity
         %td= product.description
-        %td= product.schematic
         %td= product.weight
         %td= product.height
         %td= product.width
         %td= product.length
-        %td= product.tags
-        %td= product.categories
-        %td= product.exclusive
-        %td= link_to 'Show', product
         %td= link_to 'Edit', edit_product_path(product), class: "btn btn-primary"
-        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
 
 %br
 

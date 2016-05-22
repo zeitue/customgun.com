@@ -16,6 +16,11 @@ gem 'friendly_id'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bootstrap'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 group :development, :test do
   gem 'html2haml'
 end

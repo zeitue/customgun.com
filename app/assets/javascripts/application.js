@@ -17,5 +17,6 @@
 //= require detect
 // Vendor Files
 //= require_tree ../../../vendor/assets/javascripts/.
+//= require tether
 //= require bootstrap
 

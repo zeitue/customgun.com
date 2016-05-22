@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+
+layout "store"
+
+
   # GET /products
   def index
     @products = Product.all
