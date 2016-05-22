@@ -7,7 +7,7 @@
     %meta{content: "index,follow", name: "robots"}/
     %meta{content: "20 days", name: "revisit-after"}/
     %meta{content: "global", name: "distribution"}/
-    %meta{content: "#{t('copyright')}", name: "copyright"}/
+    %meta{content: "#{t('copyright0') + Time.now.year.to_s + t('copyright1')}", name: "copyright"}/
     %link{href: "http://customgun.com", rel: "canonical"}/
     %title
       = (yield(:title) + " | Todd Ramirez | " unless         |

@@ -4,16 +4,7 @@
   %thead
     %tr
       %th Title
-      %th Manufacturer
-      %th Model
-      %th Part number
       %th Price
-      %th Quantity
-      %th Description
-      %th Weight
-      %th Height
-      %th Width
-      %th Length
       %th
       %th
 
@@ -21,19 +12,10 @@
     - @products.each do |product|
       %tr
         %td= link_to product.title.titleize, product
-        %td= product.manufacturer.titleize
-        %td= product.model.titleize
-        %td= product.part_number.titleize
-        %td= product.price
-        %td= product.quantity
-        %td= product.description
-        %td= product.weight
-        %td= product.height
-        %td= product.width
-        %td= product.length
-        %td= link_to 'Edit', edit_product_path(product), class: "btn btn-primary"
-        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
+        %td= number_to_currency product.price
+        %td= link_to 'Edit', edit_product_path(product), class: "btn btn-danger"
+        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
 
 %br
 
-= link_to 'New Product', new_product_path
+= link_to 'New Product', new_product_path, class: "btn btn-danger"

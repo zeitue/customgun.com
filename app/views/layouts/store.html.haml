@@ -3,9 +3,25 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{content: "english", name: "language"}/
+    %meta{content: "index,follow", name: "robots"}/
+    %meta{content: "20 days", name: "revisit-after"}/
+    %meta{content: "global", name: "distribution"}/
+    %meta{content: "#{t('copyright0') + Time.now.year.to_s + t('copyright1')}", name: "copyright"}/
+    %link{href: "http://customgun.com", rel: "canonical"}/
+    %title
+      ="Todd Ramirez | Custom Shop | Store" + (": " + yield(:title) unless |
+        yield(:title).blank?).to_s.html_safe |
+    = favicon_link_tag 'theme/default/favicon.png'
     = javascript_include_tag "application"
     = stylesheet_link_tag    "store"
     = csrf_meta_tags
+    - if content_for?(:head)
+      = yield(:head)
+
+
+
+  %body
   =render :partial => "nav"
   .container=yield
        
