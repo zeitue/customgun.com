@@ -12,7 +12,7 @@
     %title
       ="Todd Ramirez | Custom Shop | Store" + (": " + yield(:title) unless |
         yield(:title).blank?).to_s.html_safe |
-    = favicon_link_tag 'theme/default/favicon.png'
+    = favicon_link_tag 'theme/store_default/favicon.png'
     = javascript_include_tag "application"
     = stylesheet_link_tag    "store"
     = csrf_meta_tags
