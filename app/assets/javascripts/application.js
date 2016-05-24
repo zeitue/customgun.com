@@ -19,4 +19,5 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require tether
 //= require bootstrap
+//= require wice_grid
 

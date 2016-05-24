@@ -51,6 +51,10 @@
   .field
     = f.label :exclusive
     = f.check_box :exclusive
+  .field
+    = f.label :store
+    = f.text_field :store
+
     = f.fields_for :photos do |p|
       .field
         = p.label :image

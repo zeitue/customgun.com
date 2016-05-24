@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521165207) do
+ActiveRecord::Schema.define(version: 20160524023250) do
 
   create_table "images", force: :cascade do |t|
     t.string   "file_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160521165207) do
     t.boolean  "exclusive"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "store"
   end
 
 end
