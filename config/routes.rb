@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   resources :photos
+  get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
+  get '/store/wood' => 'products#wood', :as => :wood
+  get '/store/barrels' => 'products#barrels', :as => :barrels
+  get '/store/optics' => 'products#optics', :as => :optics
+  get '/store/gifts' => 'products#gifts', :as => :gifts
+  get '/store/jewlery' => 'products#jewelry', :as => :jewelry
+  get '/store/decor' => 'products#decor', :as => :decor
+  get '/store/gun-cases' => 'products#gun_cases', :as => :gun_cases
   resources :products, path: 'store'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

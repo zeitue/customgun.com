@@ -25,7 +25,7 @@
           %select.form-control
             =options_for_select(1..@product.quantity)
       %tr
-        %td= link_to "Add to Cart", "#", class: "btn btn-danger"
+        %td= link_to "Add to Cart", "#", class: "btn btn-primary"
             
 
 
@@ -57,5 +57,5 @@
 
 
 
-= link_to 'Edit', edit_product_path(@product), class: "btn btn-danger"
-= link_to 'Back', products_path, class: "btn btn-danger"
+= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
+= link_to 'Back', products_path, class: "btn btn-primary"

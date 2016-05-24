@@ -7,8 +7,40 @@ layout "store"
 
   # GET /products
   def index
-    @products_grid = initialize_grid(Product.where(:store => "gun_parts"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @products_grid = initialize_grid(Product.where(:store => "gun_parts"), include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
     @products = Product.all
+  end
+
+  def gun_parts
+    @gun_parts_grid = initialize_grid(Product.where(:store => "gun_parts"), order: 'products.title', order_direction: 'asc', per_page: 20)
+  end
+
+  def wood
+
+  end
+
+  def barrels
+
+  end
+
+  def optics
+
+  end
+
+  def gifts
+
+  end
+
+  def jewelry
+
+  end
+
+  def decor
+
+  end
+
+  def gun_cases
+
   end
 
   # GET /products/1
