@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-
+  layout "store"
   # GET /photos
   def index
     @photos = Photo.all

@@ -45,28 +45,43 @@
           %td= @product.manufacturer.titleize
       -if(!@product.model.empty?)
         %tr
-          %td Model:
+          -if(@product.store == 'jewelry')
+            %td Type:
+          -else
+            %td Model:
           %td= @product.model.titleize
       -if(!@product.part_number.empty?)
         %tr
-          %td Part number:
+          -if(@product.store == 'gun_cases')
+            %td Type:
+          -elsif (@product.store == 'wood')
+            %td Style
+          -else
+            %td Part Number:
           %td= @product.part_number.titleize
       -if(!@product.material.nil? && !@product.material.empty?)
         %tr
-          %td Material:
+          -if(@product.store == 'wood')
+            %td Type:
+          -else
+            %td Material:
           %td= @product.material.titleize
       -if(!@product.caliber.nil? && !@product.caliber.empty?)
         %tr
-          %td Caliber/Guage:
+          %td Caliber/Gauge:
           %td= @product.caliber
       -if(!@product.schematic.nil? && !@product.schematic.empty?)
         %tr
           %td Schematic:
           %td= @product.schematic
+      -if(!@product.length.nil? && @product.store == 'jewelry')
+        %tr
+          %td Length:
+          %td= @product.length.to_s + " cm. / " + (@product.length/2.54).round(2).to_s + " in."
       -if(!@product.barrel_length.nil? && !@product.barrel_length.empty?)
         %tr
           %td Berrel Length:
-          %td= @product.barrel_length
+          %td= @product.barrel_length.to_s + " in."
       -if(!@product.height.nil? && !@product.width.nil? && !@product.length.nil?)
         %tr
           %td Dimensions (L x W x H):

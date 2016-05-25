@@ -1,2 +1,50 @@
 - content_for :title,  "Barrels"
 %h1 Barrels
+
+= render   'barrels_grid'
+
+
+.row
+  .col-md-2
+    Product:
+  .col-md-10
+    = grid_filter @barrels_grid, :title_filter
+
+
+.row
+  .col-md-2
+    Manufacturer:
+  .col-md-10
+    = grid_filter @barrels_grid, :manufacturer_filter
+
+
+.row
+  .col-md-2
+    Model:
+  .col-md-10
+    = grid_filter @barrels_grid, :model_filter
+
+.row
+  .col-md-2
+    Caliber/Gauge:
+  .col-md-10
+    = grid_filter @barrels_grid, :caliber_filter
+
+.row
+  .col-md-2
+    Barrel Length:
+  .col-md-10
+    = grid_filter @barrels_grid, :barrel_length_filter
+
+
+%br
+.row-fluid
+  .col-md-12
+    .external-buttons
+      %button.btn.btn-primary.wg-external-submit-button{'data-grid-name' => 'grid'} Submit
+      %button.btn.btn-primary.wg-external-reset-button{'data-grid-name' => 'grid'} Reset
+
+.row-fluid
+  .col-md-12
+
+    = render_grid(@barrels_grid)

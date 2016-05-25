@@ -5,7 +5,7 @@
 
 .row
   .col-md-2
-    Title:
+    Product:
   .col-md-10
     = grid_filter @gun_parts_grid, :title_filter
 
@@ -29,12 +29,8 @@
   .col-md-10
     = grid_filter @gun_parts_grid, :part_number_filter
 
-.row
-  .col-md-2
-    Price:
-  .col-md-10
-    = grid_filter @gun_parts_grid, :price_filter
 
+%br
 .row-fluid
   .col-md-12
     .external-buttons

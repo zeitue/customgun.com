@@ -1,23 +1,25 @@
 %h1 Listing photos
-
-%table
+= link_to 'New Photo', new_photo_path, :class => "btn btn-primary"
+%br
+%table.table.table-hover
   %thead
     %tr
+      %th ID
       %th Product
       %th Image
-      %th
-      %th
       %th
 
   %tbody
     - @photos.each do |photo|
       %tr
         %td= photo.product_id
-        %td= photo.image
-        %td= link_to 'Show', photo
-        %td= link_to 'Edit', edit_photo_path(photo)
-        %td= link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= Product.find(photo.product_id).title.titleize
+        %td= link_to image_tag(photo.image.thumb), photo
+        %td
+          = link_to 'Edit', edit_photo_path(photo), :class => "btn btn-primary"
+          %br
+          = link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-primary"
 
 %br
 
-= link_to 'New Photo', new_photo_path
+

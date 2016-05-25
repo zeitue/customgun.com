@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
-
-layout "store"
+  layout "store"
 
 
   # GET /products
@@ -16,31 +14,31 @@ layout "store"
   end
 
   def wood
-
+    @wood_grid = initialize_grid(Product.where(:store => "wood"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def barrels
-
+    @barrels_grid = initialize_grid(Product.where(:store => "barrels"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def optics
-
+    @optics_grid = initialize_grid(Product.where(:store => "optics"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gifts
-
+    @gifts_grid = initialize_grid(Product.where(:store => "gifts"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def jewelry
-
+    @jewelry_grid = initialize_grid(Product.where(:store => "jewelry"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def decor
-
+    @decor_grid = initialize_grid(Product.where(:store => "decor"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_cases
-
+    @gun_cases_grid = initialize_grid(Product.where(:store => "gun_cases"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   # GET /products/1
@@ -58,52 +56,28 @@ layout "store"
   def edit
   end
 
-
-def create
-  @product = Product.new(product_params)
-  if @product.save
-    save_attachments if params[:photos]
-    redirect_to @product, notice: 'Product was successfully created.'
-  else
-    render :new
-  end
-end
-
-
-def update
-  update_attachments if params[:photos]
-  if @product.update(product_params)
-    redirect_to @product, notice: 'Product was successfully updated.'
-  else
-   render :edit
-  end
-end
-
-
   # POST /products
-#  def create
-#    @product = Product.new(product_params)
-#
-#    if @product.save
-#     if !params[:photos].nil?
-#         params[:photos]['image'].each do |a|
-#        @photo = @product.photos.create!(:image => a, :product_id => @product.id)
-#     end
-#    end
-#      redirect_to @product, notice: 'Product was successfully created.'
-#    else
-#      render :new
-#    end
-#  end
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      save_attachments if params[:photos]
+      redirect_to @product, notice: 'Product was successfully created.'
+    else
+      render :new
+    end
+  end
 
   # PATCH/PUT /products/1
-#  def update
-#    if @product.update(product_params)
-#      redirect_to @product, notice: 'Product was successfully updated.'
-#    else
-#      render :edit
-#    end
-#  end
+  def update
+    update_attachments if params[:photos]
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Product was successfully updated.'
+    else
+     render :edit
+    end
+  end
+
+
 
   # DELETE /products/1
   def destroy
