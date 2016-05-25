@@ -10,7 +10,7 @@
     %meta{content: "#{t('copyright0') + Time.now.year.to_s + t('copyright1')}", name: "copyright"}/
     %link{href: "http://customgun.com", rel: "canonical"}/
     %title
-      ="Todd Ramirez | Custom Shop | Store" + (": " + yield(:title) unless |
+      ="Todd Ramirez | Custom Shop | Store" + (" | " + yield(:title) unless |
         yield(:title).blank?).to_s.html_safe |
     = favicon_link_tag 'theme/store_default/favicon.png'
     = javascript_include_tag "application"

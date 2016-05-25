@@ -10,6 +10,15 @@
     = f.label :title
     = f.text_field :title
   .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :price.to_s + " $"
+    = f.number_field :price, :class => 'text_field', :step => 0.01
+  .field
+    = f.label :quantity
+    = f.number_field :quantity
+  .field
     = f.label :manufacturer
     = f.text_field :manufacturer
   .field
@@ -19,45 +28,42 @@
     = f.label :part_number
     = f.text_field :part_number
   .field
-    = f.label :price
-    = f.text_field :price
+    = f.label :material
+    = f.text_field :material
   .field
-    = f.label :quantity
-    = f.number_field :quantity
+    = f.label :caliber.to_s + "/Guage"
+    = f.text_field :caliber
   .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :schematic
-    = f.text_field :schematic
+    = f.label :barrel_length
+    = f.number_field :barrel_length, :class => 'text_field', :step => 0.001
+    inches
   .field
     = f.label :weight
-    = f.text_field :weight
+    = f.number_field :weight, :class => 'text_field', :step => 0.001
+    kg
   .field
     = f.label :height
-    = f.text_field :height
+    = f.number_field :height, :class => 'text_field', :step => 0.1
+    cm
   .field
     = f.label :width
-    = f.text_field :width
+    = f.number_field :width, :class => 'text_field', :step => 0.1
+    cm
   .field
     = f.label :length
-    = f.text_field :length
+    = f.number_field :length, :class => 'text_field', :step => 0.1
+    cm
   .field
     = f.label :tags
     = f.text_field :tags
   .field
-    = f.label :categories
-    = f.text_field :categories
+    = f.label :store.to_s + " Category"
+    = f.select :store, [['Barrels', 'barrrels'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']]
   .field
-    = f.label :exclusive
+    = f.label :exclusive.to_s + " (This item ships by itself)"
     = f.check_box :exclusive
   .field
-    = f.label :store
-    = f.text_field :store
-
-    = f.fields_for :photos do |p|
-      .field
-        = p.label :image
-        = p.file_field :image, :multiple => true, name: "photos[image][]"
+    = f.label :photos
+    = f.file_field :image, :multiple => true, name: "photos[image][]"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => "btn btn-primary"

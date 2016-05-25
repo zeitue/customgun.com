@@ -30,6 +30,7 @@ module ProductsHelper
     buffer = ""
     buffer += pounds.to_s + " lb." unless (pounds == 0)
     buffer += ounces.to_s + " oz." unless (ounces == 0)
+    buffer
   end
 
 end

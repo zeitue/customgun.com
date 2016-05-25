@@ -58,28 +58,52 @@ layout "store"
   def edit
   end
 
-  # POST /products
-  def create
-    @product = Product.new(product_params)
 
-    if @product.save
-      params[:photos]['image'].each do |a|
-        @photo = @product.photos.create!(:image => a, :product_id => @product.id)
-      end
-      redirect_to @product, notice: 'Product was successfully created.'
-    else
-      render :new
-    end
+def create
+  @product = Product.new(product_params)
+  if @product.save
+    save_attachments if params[:photos]
+    redirect_to @product, notice: 'Product was successfully created.'
+  else
+    render :new
   end
+end
+
+
+def update
+  update_attachments if params[:photos]
+  if @product.update(product_params)
+    redirect_to @product, notice: 'Product was successfully updated.'
+  else
+   render :edit
+  end
+end
+
+
+  # POST /products
+#  def create
+#    @product = Product.new(product_params)
+#
+#    if @product.save
+#     if !params[:photos].nil?
+#         params[:photos]['image'].each do |a|
+#        @photo = @product.photos.create!(:image => a, :product_id => @product.id)
+#     end
+#    end
+#      redirect_to @product, notice: 'Product was successfully created.'
+#    else
+#      render :new
+#    end
+#  end
 
   # PATCH/PUT /products/1
-  def update
-    if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
-    else
-      render :edit
-    end
-  end
+#  def update
+#    if @product.update(product_params)
+#      redirect_to @product, notice: 'Product was successfully updated.'
+#    else
+#      render :edit
+#    end
+#  end
 
   # DELETE /products/1
   def destroy
@@ -96,6 +120,20 @@ layout "store"
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, product_attachments_attributes: [:id, :product_id, :image])
+      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length,  product_attachments_attributes: [:id, :product_id, :image])
     end
+
+
+def save_attachments
+  params[:photos]['image'].each do |a|
+  @photo = @product.photos.create!(:image => a, :product_id => @product.id)
+  end
+end
+
+ def update_attachments
+   @product.photos.each(&:destroy) if @product.photos.present?
+   params[:photos]['image'].each do |a|
+  @photo = @product.photos.create!(:image => a, :product_id => @product.id)
+   end
+end
 end

@@ -1,7 +1,8 @@
-%h1 Editing product
+%h1 Editing Product
 
 = render 'form'
 
-= link_to 'Show', @product
+%br
+= link_to 'Show', @product, :class => 'btn btn-primary'
 \|
-= link_to 'Back', products_path
+= link_to 'Back', products_path, :class => 'btn btn-primary'

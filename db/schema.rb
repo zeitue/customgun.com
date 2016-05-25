@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524023250) do
+ActiveRecord::Schema.define(version: 20160524220511) do
 
   create_table "images", force: :cascade do |t|
     t.string   "file_id"
@@ -51,9 +51,12 @@ ActiveRecord::Schema.define(version: 20160524023250) do
     t.string   "tags"
     t.string   "categories"
     t.boolean  "exclusive"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "store"
+    t.string   "caliber"
+    t.string   "material"
+    t.string   "barrel_length"
   end
 
 end
