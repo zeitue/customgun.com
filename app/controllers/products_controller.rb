@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products_grid = initialize_grid(Product.where(:store => "gun_parts"), include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
-    @products = Product.all
+    @grid = initialize_grid(Product, include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
+    #@products = Product.all
   end
 
   def gun_parts
@@ -94,7 +94,7 @@ class ProductsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length,  product_attachments_attributes: [:id, :product_id, :image])
+      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length, :type_field, :style_field,  product_attachments_attributes: [:id, :product_id, :image])
     end
 
 

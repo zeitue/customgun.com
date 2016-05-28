@@ -1,5 +1,5 @@
 <%= define_grid(@gun_cases_grid, hide_submit_button: true, hide_reset_button: true, upper_pagination_panel: true , html: {class: 'table table-striped table-hover table-condensed table-responsive'}) do |g|
-  g.blank_slate content_tag(:div, "No records found", class: 'well')
+  g.blank_slate content_tag(:div, "No products found", class: 'well')
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
@@ -11,8 +11,8 @@
   end
 
 
-  g.column name:  'Type', attribute: 'part_number', detach_with_id: :type_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(PART_NUMBER)").map {|p| [p.part_number.titleize, p.part_number]} do |x|
-  x.part_number.titleize
+  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(TYPE_FIELD)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
+  x.type_field.titleize
   end
 
 

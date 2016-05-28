@@ -1,30 +1,22 @@
-<%= define_grid(@products_grid, hide_submit_button: true, hide_reset_button: true, upper_pagination_panel: true , html: {class: 'table table-striped table-hover table-condensed'}) do |g|
-  g.blank_slate content_tag(:div, "No records found", class: 'well')
+<%= define_grid(@grid, hide_submit_button: true, hide_reset_button: true, upper_pagination_panel: true , html: {class: 'table table-striped table-hover table-condensed'}) do |g|
+  g.blank_slate content_tag(:div, "No products found", class: 'well')
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
   link_to x.title.titleize, x
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "gun_parts").select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
   x.manufacturer.titleize
   end
 
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "gun_parts").select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
-
-
-  g.column name:  'Part Number', attribute: 'part_number', detach_with_id: :part_number_filter do |x|
-  x.part_number.titleize
+  g.column name:  'Category', attribute: 'store', detach_with_id: :category_filter, custom_filter: Product.select("DISTINCT(STORE)").map {|p| [p.store.titleize, p.store]} do |x|
+  x.store.titleize
   end
-
-  g.column name:  'Price', attribute: 'price', detach_with_id: :price_filter, filter_type: :range do |x|
-  number_to_currency x.price
-  end
-
-
 
   g.column   do |product|
     link_to 'Edit', edit_product_path(product), class: "btn btn-primary"

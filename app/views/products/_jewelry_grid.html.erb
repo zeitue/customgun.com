@@ -1,5 +1,5 @@
 <%= define_grid(@jewelry_grid, hide_submit_button: true, hide_reset_button: true, upper_pagination_panel: true , html: {class: 'table table-striped table-hover table-condensed table-responsive'}) do |g|
-  g.blank_slate content_tag(:div, "No records found", class: 'well')
+  g.blank_slate content_tag(:div, "No products found", class: 'well')
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
@@ -7,10 +7,13 @@
   end
 
 
-  g.column name:  'Type', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "jewelry").select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
-  x.model.titleize
+  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "jewelry").select("DISTINCT(TYPE_FIELD)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
+  x.type_field.titleize
   end
 
+  g.column name:  'Style', attribute: 'style_field', detach_with_id: :style_filter, custom_filter: Product.where(:store => "jewelry").select("DISTINCT(STYLE_FIELD)").map {|p| [p.style_field.titleize, p.style_field]} do |x|
+  x.style_field.titleize
+  end
 
  g.column name:  'Material', attribute: 'material', detach_with_id: :material_filter, custom_filter: Product.where(:store => "jewelry").select("DISTINCT(MATERIAL)").map {|p| [p.material.titleize, p.material]} do |x|
   x.material.titleize

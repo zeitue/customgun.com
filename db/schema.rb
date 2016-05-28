@@ -11,25 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524220511) do
-
-  create_table "images", force: :cascade do |t|
-    t.string   "file_id"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "images", ["product_id"], name: "index_images_on_product_id"
+ActiveRecord::Schema.define(version: 20160528054220) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "product_id"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pictures", force: :cascade do |t|
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +42,8 @@ ActiveRecord::Schema.define(version: 20160524220511) do
     t.string   "caliber"
     t.string   "material"
     t.string   "barrel_length"
+    t.string   "type_field"
+    t.string   "style_field"
   end
 
 end

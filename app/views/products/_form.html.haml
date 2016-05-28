@@ -25,8 +25,14 @@
     = f.label :model
     = f.text_field :model
   .field
-    = f.label :part_number.to_s + " or case type" 
+    = f.label :part_number
     = f.text_field :part_number
+  .field
+    = f.label :type_field
+    = f.text_field :type_field
+  .field
+    = f.label :style_field
+    = f.text_field :style_field
   .field
     = f.label :material
     = f.text_field :material

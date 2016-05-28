@@ -1,5 +1,5 @@
 <%= define_grid(@decor_grid, hide_submit_button: true, hide_reset_button: true, upper_pagination_panel: true , html: {class: 'table table-striped table-hover table-condensed table-responsive'}) do |g|
-  g.blank_slate content_tag(:div, "No records found", class: 'well')
+  g.blank_slate content_tag(:div, "No products found", class: 'well')
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|

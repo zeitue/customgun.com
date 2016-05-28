@@ -15,7 +15,13 @@
   .col-md-2
     Type:
   .col-md-10
-    = grid_filter @jewelry_grid, :model_filter
+    = grid_filter @jewelry_grid, :type_filter
+
+.row
+  .col-md-2
+    Style:
+  .col-md-10
+    = grid_filter @jewelry_grid, :style_filter
 
 .row
   .col-md-2

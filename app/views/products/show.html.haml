@@ -45,35 +45,28 @@
           %td= @product.manufacturer.titleize
       -if(!@product.model.empty?)
         %tr
-          -if(@product.store == 'jewelry')
-            %td Type:
-          -else
-            %td Model:
+          %td Model:
           %td= @product.model.titleize
       -if(!@product.part_number.empty?)
         %tr
-          -if(@product.store == 'gun_cases')
-            %td Type:
-          -elsif (@product.store == 'wood')
-            %td Style
-          -else
-            %td Part Number:
+          %td Part Number:
           %td= @product.part_number.titleize
       -if(!@product.material.nil? && !@product.material.empty?)
         %tr
-          -if(@product.store == 'wood')
-            %td Type:
-          -else
-            %td Material:
+          %td Material:
           %td= @product.material.titleize
+      -if(!@product.type_field.nil? && !@product.type_field.empty?)
+        %tr
+          %td Type:
+          %td= @product.type_field.titleize
+      -if(!@product.style_field.nil? && !@product.style_field.empty?)
+        %tr
+          %td Style:
+          %td= @product.style_field.titleize
       -if(!@product.caliber.nil? && !@product.caliber.empty?)
         %tr
           %td Caliber/Gauge:
           %td= @product.caliber
-      -if(!@product.schematic.nil? && !@product.schematic.empty?)
-        %tr
-          %td Schematic:
-          %td= @product.schematic
       -if(!@product.length.nil? && @product.store == 'jewelry')
         %tr
           %td Length:

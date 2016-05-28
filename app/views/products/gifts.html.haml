@@ -17,7 +17,11 @@
     Model:
   .col-md-10
     = grid_filter @gifts_grid, :model_filter
-
+.row
+  .col-md-2
+    Type:
+  .col-md-10
+    = grid_filter @gifts_grid, :type_filter
 .row
   .col-md-2
     Material:
