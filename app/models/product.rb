@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  validates :title, presence: true, uniqueness: true
   include FriendlyId
   friendly_id :url
   has_many :photos
