@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/store/jewlery' => 'products#jewelry', :as => :jewelry
   get '/store/decor' => 'products#decor', :as => :decor
   get '/store/gun-cases' => 'products#gun_cases', :as => :gun_cases
+  get '/store/guns' => 'products#guns', :as => :guns
   resources :products, path: 'store'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

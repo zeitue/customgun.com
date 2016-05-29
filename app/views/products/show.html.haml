@@ -16,19 +16,30 @@
         -count += 1
   .col-xs-6.col-md-4
     %table.table
-      %tr
-        %td Price:
-        %td= number_to_currency @product.price
-      %tr
-        %td Quantity:
-        %td
-          -if (@product.quantity.nil? || @product.quantity == 0)
-            Sold Out
-          -else
-            %select.form-control
-              =options_for_select(1..@product.quantity)
-      %tr
-        %td= link_to "Add to Cart", "#", class: "btn btn-primary"
+      -if !@product.price.nil?
+        %tr
+          %td Price:
+          %td= number_to_currency @product.price
+      -if @product.store == "optics" || @product.store == "guns"
+        %tr
+          %td Contact for more information
+        %tr
+          %td +1-903-768-2948
+          %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
+        %tr
+          %td customgun.tr@gmail.com
+          %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
+      -else
+        %tr
+          %td Quantity:
+          %td
+            -if (@product.quantity.nil? || @product.quantity == 0)
+              Sold Out
+            -else
+              %select.form-control
+                =options_for_select(1..@product.quantity)
+        %tr
+          %td= link_to "Add to Cart", "#", class: "btn btn-primary"
 
 
 
@@ -85,6 +96,6 @@
           %td= weight_as_metric(@product).to_s + " / " + weight_as_imperial(@product).to_s
 
 
-
-= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
+%br
+/= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
 /= link_to 'Back', products_path, class: "btn btn-primary"

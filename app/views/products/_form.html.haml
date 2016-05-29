@@ -5,72 +5,49 @@
       %ul
         - @product.errors.full_messages.each do |msg|
           %li= msg
+  .form-group
+    .field
+      = f.text_field :title, placeholder: "Title", class: "form-control input-lg"
+    .field
+      = f.text_area :description, placeholder: "Description", class: "form-control input-lg"
+    .field
+      = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg"
+    .field
+      = f.number_field :quantity, placeholder: "Quanity", class: "form-control input-lg"
+    .field
+      = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control input-lg"
+    .field
+      = f.text_field :model, placeholder: "Model", class: "form-control input-lg"
+    .field
+      = f.text_field :part_number, placeholder: "Part Number", class: "form-control input-lg"
+    .field
+      = f.text_field :type_field, placeholder: "Type", class: "form-control input-lg"
+    .field
+      = f.text_field :style_field, placeholder: "Style", class: "form-control input-lg"
+    .field
+      = f.text_field :material, placeholder: "Material", class: "form-control input-lg"
+    .field
+      = f.text_field :caliber, placeholder: "Caliber/Gauge", class: "form-control input-lg"
+    .field
+      = f.number_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "Barrel Length in", class: "form-control input-lg"
+    .field
+      = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "Weight kg", class: "form-control input-lg"
+    .field
+      = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "Height cm", class: "form-control input-lg"
+    .field
+      = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "Width cm", class: "form-control input-lg"
+    .field
+      = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "Length cm", class: "form-control input-lg"
+    .field
+      = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control input-lg"
+    .form-group
+      = f.select :store, [['Barrels', 'barrels'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
+    .form-group
+      = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
+    .field.checkbox-inline
+      = f.check_box :exclusive, type: "checkbox"
+      = f.label "This item ships by itself"
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :price.to_s + " $"
-    = f.number_field :price, :class => 'text_field', :step => 0.01
-  .field
-    = f.label :quantity
-    = f.number_field :quantity
-  .field
-    = f.label :manufacturer
-    = f.text_field :manufacturer
-  .field
-    = f.label :model
-    = f.text_field :model
-  .field
-    = f.label :part_number
-    = f.text_field :part_number
-  .field
-    = f.label :type_field
-    = f.text_field :type_field
-  .field
-    = f.label :style_field
-    = f.text_field :style_field
-  .field
-    = f.label :material
-    = f.text_field :material
-  .field
-    = f.label :caliber.to_s + "/Gauge"
-    = f.text_field :caliber
-  .field
-    = f.label :barrel_length
-    = f.number_field :barrel_length, :class => 'text_field', :step => 0.001
-    inches
-  .field
-    = f.label :weight
-    = f.number_field :weight, :class => 'text_field', :step => 0.001
-    kg
-  .field
-    = f.label :height
-    = f.number_field :height, :class => 'text_field', :step => 0.1
-    cm
-  .field
-    = f.label :width
-    = f.number_field :width, :class => 'text_field', :step => 0.1
-    cm
-  .field
-    = f.label :length
-    = f.number_field :length, :class => 'text_field', :step => 0.1
-    cm
-  .field
-    = f.label :tags
-    = f.text_field :tags
-  .field
-    = f.label :store.to_s + " Category"
-    = f.select :store, [['Barrels', 'barrels'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']]
-  .field
-    = f.label :exclusive.to_s + " (This item ships by itself)"
-    = f.check_box :exclusive
-  .field
-    = f.label :photos
-    = f.file_field :image, :multiple => true, name: "photos[image][]"
-  .actions
-  %br
-    = f.submit 'Save', :class => "btn btn-primary"
+    .actions
+    %br
+      = f.submit 'Save', :class => "btn btn-primary"

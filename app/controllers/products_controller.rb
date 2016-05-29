@@ -41,6 +41,10 @@ class ProductsController < ApplicationController
     @gun_cases_grid = initialize_grid(Product.where(:store => "gun_cases"), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
+  def guns
+    @guns_grid = initialize_grid(Product.where(:store => "guns"), order: 'products.title', order_direction: 'asc', per_page: 20)
+  end
+
   # GET /products/1
   def show
     @photos = @product.photos.all
