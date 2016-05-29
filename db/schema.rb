@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528054220) do
+ActiveRecord::Schema.define(version: 20160529045001) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "product_id"
@@ -28,13 +28,11 @@ ActiveRecord::Schema.define(version: 20160528054220) do
     t.float    "price"
     t.integer  "quantity"
     t.text     "description"
-    t.string   "schematic"
     t.float    "weight"
     t.float    "height"
     t.float    "width"
     t.float    "length"
     t.string   "tags"
-    t.string   "categories"
     t.boolean  "exclusive"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -44,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160528054220) do
     t.string   "barrel_length"
     t.string   "type_field"
     t.string   "style_field"
+    t.string   "url"
   end
 
 end

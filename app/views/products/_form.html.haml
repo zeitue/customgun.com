@@ -11,9 +11,13 @@
     .field
       = f.text_area :description, placeholder: "Description", class: "form-control input-lg"
     .field
-      = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg"
+      .input-group
+        %span#price-addon.input-group-addon Price
+        = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "price-addon"
     .field
-      = f.number_field :quantity, placeholder: "Quanity", class: "form-control input-lg"
+      .input-group
+        %span#quantity-addon.input-group-addon Quantity
+        = f.number_field :quantity, placeholder: "1", class: "form-control input-lg","aria-describedby" => "quantity-addon"
     .field
       = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control input-lg"
     .field

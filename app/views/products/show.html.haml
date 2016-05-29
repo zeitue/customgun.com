@@ -2,7 +2,11 @@
 - content_for :head do
   %meta{content: @product.tags, name: "Keywords"}/
   %meta{content: @product.description, name: "Description"}/
-
+- flash.each do |key, value|
+  %div{:class => "alert alert-success"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    = value
 
 %h3.panel= @product.title.titleize
 .row
