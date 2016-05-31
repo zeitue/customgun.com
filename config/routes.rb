@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :photos
+  devise_for :users, path: 'store/users'
+  resources :photos, path: 'store/photos'
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
   get '/store/wood' => 'products#wood', :as => :wood
   get '/store/barrels' => 'products#barrels', :as => :barrels
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get '/store/gun-cases' => 'products#gun_cases', :as => :gun_cases
   get '/store/guns' => 'products#guns', :as => :guns
   resources :products, path: 'store'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

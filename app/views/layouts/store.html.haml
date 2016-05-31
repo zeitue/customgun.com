@@ -23,5 +23,19 @@
 
   %body
   =render :partial => "nav"
-  .container=yield
+  .container
+    .flash
+      - flash.each do |key, value|
+        -if key.to_s == 'notice'
+          %div{:class => "alert bg-success alert-dismissible"}
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+            =  value
+        -else
+          %div{:class => "alert bg-danger alert-dismissible"}
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+            =  value
+
+    =yield
        

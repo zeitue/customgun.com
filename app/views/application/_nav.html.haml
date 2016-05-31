@@ -39,10 +39,22 @@
             %li
               %a{:href => wood_path} Wood
       %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              =current_user.first_name.titleize
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Edit account", edit_user_registration_path
+              %li= link_to "Log out", destroy_user_session_path, :method => :delete
+        -else
+          %li= link_to "Log in", new_user_session_path
         %li
           %a.navbar-brand{:href => "#"}
             .glyphicon.glyphicon-shopping-cart
             .badge 5
+
+
 /        %li.dropdown
 /          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
 /            Dropdown
