@@ -26,6 +26,13 @@ def after_sign_out_path_for(resource_or_scope)
   request.referrer
 end
 
+  def authenticate_admin!
+    authenticate_user!
+
+    unless current_user.admin?
+      redirect_to products_path, alert: "Operation failed: Permission denied"
+    end
+  end
   layout :layout_by_resource
   protected
 

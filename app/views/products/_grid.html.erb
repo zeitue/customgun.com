@@ -3,7 +3,7 @@
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
-  link_to x.title.titleize, x
+   link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) + br() +" Price: " + (number_to_currency x.price).to_s
   end
 
   g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
@@ -19,10 +19,9 @@
   end
 
   g.column   do |product|
-    link_to 'Edit', edit_product_path(product), class: "btn btn-primary"
-  end
-  g.column   do |product|
-    link_to'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
+   link_to( 'Show', product, class: "btn btn-primary btn-block") +
+   link_to( 'Edit', edit_product_path(product), class: "btn btn-primary btn-block")  +
+   link_to('Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary btn-block") 
   end
 
 end -%>

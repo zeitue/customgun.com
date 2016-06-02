@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :products]
   layout "store"
 
 
   # GET /products
   def index
+  end
+
+  def products
     @grid = initialize_grid(Product, include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
     #@products = Product.all
   end
@@ -87,7 +91,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.photos.each do |x| x.destroy end
     @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    redirect_to product_management_path, notice: 'Product was successfully destroyed.'
   end
 
   private

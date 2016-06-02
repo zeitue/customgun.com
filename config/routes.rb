@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users, path: 'store/users'
+  resources :users, path: 'store/users', :only => [:show, :index, :destroy]
+
   resources :photos, path: 'store/photos'
+  get '/store/products' => 'products#products', :as => :product_management
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
   get '/store/wood' => 'products#wood', :as => :wood
   get '/store/barrels' => 'products#barrels', :as => :barrels
