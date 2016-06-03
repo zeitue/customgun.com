@@ -39,7 +39,7 @@
             %li
               %a{:href => wood_path} Wood
       %ul.nav.navbar-nav.navbar-right
-        -if user_signed_in?
+        -if user_signed_in? && !current_user.guest
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               =current_user.first_name.nil? ? "User" : current_user.first_name.titleize
