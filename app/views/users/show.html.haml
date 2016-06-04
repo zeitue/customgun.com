@@ -1,1 +1,7 @@
-=@user.first_name
+- content_for :title, (@user.last_name.nil? || @user.last_name.nil?) ? 'User: ' + @user.email.partition('@').first.titleize : 'User: ' + (@user.first_name.to_s + ' ' + @user.last_name.to_s).titleize
+.page-header
+  -if @user.last_name.nil? || @user.last_name.nil?
+    %h1=@user.email.partition('@').first.titleize
+  -else
+    %h1=(@user.first_name.to_s + ' ' + @user.last_name.to_s).titleize
+=@user.email

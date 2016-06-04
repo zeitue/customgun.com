@@ -17,7 +17,9 @@
         %td= user.id
         %td= (user.first_name.to_s + ' ' +  user.last_name.to_s).titleize
         %td= user.email.downcase
-        %td= link_to "Destroy", user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-primary"
+        %td
+          =link_to "Show", user, class: "btn btn-primary btn-block"
+          =link_to "Destroy", user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-primary btn-block"
 %br
 
 

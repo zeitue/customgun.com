@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
   helper_method :current_user
   layout :layout_by_resource
+  before_action :configure_devise_permitted_parameters, if: :devise_controller?
+
 
 def store_location
 
@@ -106,6 +108,21 @@ end
       "store"
     else
       "application"
+    end
+  end
+
+
+  def configure_devise_permitted_parameters
+    registration_params = [:first_name, :last_name, :email, :address, :password, :password_confirmation]
+
+    if params[:action] == 'update'
+      devise_parameter_sanitizer.for(:account_update) { 
+        |u| u.permit(registration_params << :current_password)
+      }
+    elsif params[:action] == 'create'
+      devise_parameter_sanitizer.for(:sign_up) { 
+        |u| u.permit(registration_params) 
+      }
     end
   end
 

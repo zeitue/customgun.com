@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :index]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :index, :show]
   layout "store"
 def show
   @user = User.find(params[:id])
