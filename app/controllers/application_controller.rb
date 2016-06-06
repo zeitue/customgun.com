@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery
+  protect_from_forgery with: :null_session
   after_filter :store_location
   helper_method :current_user
+  helper_method :current_order
   layout :layout_by_resource
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
@@ -78,6 +79,14 @@ def get_operating_system
     "Unknown"
   end
 end
+
+
+
+
+  def current_order
+    current_user.orders.last
+  end
+
 
   def current_user
     super || guest_user

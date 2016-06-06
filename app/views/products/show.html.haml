@@ -12,36 +12,33 @@
         %label{:for => p.id}= image_tag p.image.thumb, style: 'width:100%;'
         =image_tag p.image.hdpi
         -count += 1
-  .col-xs-6.col-md-4
-    %table.table
+  .col-xs-12.col-sm-6.col-md-4.well
+    = form_for @item, remote: true do |f|
       -if !@product.price.nil?
-        %tr
-          %td Price:
-          %td= number_to_currency @product.price
+        %h4.text-right
+          Price:
+          %span= number_to_currency @product.price 
       -if @product.store == "optics" || @product.store == "guns"
-        %tr
-          %td Contact for more information
-        %tr
-          %td +1-903-768-2948
-          %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
-        %tr
-          %td customgun.tr@gmail.com
-          %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
+        %table.table
+          %tr
+            %td Contact for more information
+          %tr
+            %td +1-903-768-2948
+            %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
+          %tr
+            %td customgun.tr@gmail.com
+            %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
       -else
-        %tr
-          %td Quantity:
-          %td
-            -if (@product.quantity.nil? || @product.quantity == 0)
-              Sold Out
+        %h4.text-right
+          -if !(@product.store == "optics" || @product.store == "guns")
+            -if @product.quantity.to_i >= 1
+              .input-group
+                = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
+                .input-group-btn
+                  = f.hidden_field :product_id, value: @product.id
+                  = f.submit "Add to Cart", class: "btn btn-primary"
             -else
-              %select.form-control
-                =options_for_select(1..@product.quantity)
-        %tr
-          %td= link_to "Add to Cart", "#", class: "btn btn-primary"
-
-
-
-
+              %span Sold Out
 .row
   .panel.panel-default
     .panel-heading Product Description

@@ -54,9 +54,9 @@
         -else
           %li= link_to "Log in", new_user_session_path
         %li
-          %a.navbar-brand{:href => "#"}
+          %a.navbar-brand{:href => cart_path}
             .glyphicon.glyphicon-shopping-cart
-            .badge 5
+            .badge= current_order.quantity
 
 
 /        %li.dropdown

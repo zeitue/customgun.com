@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1
   def show
+    @item = Item.new
     @photos = @product.photos.all
   end
 
