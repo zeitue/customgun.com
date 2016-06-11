@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605035525) do
+ActiveRecord::Schema.define(version: 20160611211421) do
 
   create_table "items", force: :cascade do |t|
     t.integer  "order_id"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160605035525) do
     t.float    "length"
     t.string   "tags"
     t.boolean  "exclusive"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "store"
     t.string   "caliber"
     t.string   "material"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160605035525) do
     t.string   "type_field"
     t.string   "style_field"
     t.string   "url"
+    t.boolean  "active",        default: true
   end
 
   create_table "users", force: :cascade do |t|

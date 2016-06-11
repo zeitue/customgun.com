@@ -14,39 +14,39 @@ class ProductsController < ApplicationController
   end
 
   def gun_parts
-    @gun_parts_grid = initialize_grid(Product.where(:store => "gun_parts"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gun_parts_grid = initialize_grid(Product.where(:store => "gun_parts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def wood
-    @wood_grid = initialize_grid(Product.where(:store => "wood"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @wood_grid = initialize_grid(Product.where(:store => "wood", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def barrels
-    @barrels_grid = initialize_grid(Product.where(:store => "barrels"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @barrels_grid = initialize_grid(Product.where(:store => "barrels", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def optics
-    @optics_grid = initialize_grid(Product.where(:store => "optics"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @optics_grid = initialize_grid(Product.where(:store => "optics", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gifts
-    @gifts_grid = initialize_grid(Product.where(:store => "gifts"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gifts_grid = initialize_grid(Product.where(:store => "gifts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def jewelry
-    @jewelry_grid = initialize_grid(Product.where(:store => "jewelry"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @jewelry_grid = initialize_grid(Product.where(:store => "jewelry", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def decor
-    @decor_grid = initialize_grid(Product.where(:store => "decor"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @decor_grid = initialize_grid(Product.where(:store => "decor", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_cases
-    @gun_cases_grid = initialize_grid(Product.where(:store => "gun_cases"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gun_cases_grid = initialize_grid(Product.where(:store => "gun_cases", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def guns
-    @guns_grid = initialize_grid(Product.where(:store => "guns"), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @guns_grid = initialize_grid(Product.where(:store => "guns", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   # GET /products/1
@@ -103,7 +103,7 @@ class ProductsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length, :type_field, :style_field,  product_attachments_attributes: [:id, :product_id, :image])
+      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length, :type_field, :style_field, :active, product_attachments_attributes: [:id, :product_id, :image])
     end
 
 

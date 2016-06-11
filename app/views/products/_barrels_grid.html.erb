@@ -15,8 +15,8 @@
   x.model.titleize
   end
 
-  g.column name:  'Barrel Length', attribute: 'barrel_length', detach_with_id: :barrel_length_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(BARREL_LENGTH)").map {|p| [((p.barrel_length.to_s + " in.") unless p.barrel_length.nil?), p.barrel_length]} do |x|
-  (x.barrel_length.to_s + " in." ) unless x.barrel_length.nil?
+  g.column name:  'Barrel Length', attribute: 'barrel_length', detach_with_id: :barrel_length_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(BARREL_LENGTH)").map {|p| [((p.barrel_length.to_s + " in.") unless (p.barrel_length.nil? || p.barrel_length.empty?)), p.barrel_length]} do |x|
+  (x.barrel_length.to_s + " in." ) unless (x.barrel_length.nil? || x.barrel_length.empty?)
   end
 
   g.column name:  'Caliber/Gauge', attribute: 'caliber', detach_with_id: :caliber_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(CALIBER)").map {|p| [p.caliber, p.caliber]} do |x|
