@@ -11,7 +11,6 @@ end
 
  def destroy
     @user = User.find(params[:id])
-
     if @user.destroy
         redirect_to users_path, notice: "User deleted."
     end

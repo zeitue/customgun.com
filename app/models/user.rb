@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   after_create :create_cart
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-
+  before_destroy :destroy_orders
 
  def move_to(user)
   todos.update_all(user_id: user.id)
@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
 
   def create_cart
       Order.create(user_id: self.id) 
+  end
+
+  def destroy_orders
+    self.orders.destroy_all
   end
 end

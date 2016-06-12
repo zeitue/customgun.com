@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :items
+  before_destroy :destroy_items
+
   def quantity
     self.items.collect { |oi| oi.valid? ? oi.quantity.to_i : 0 }.sum
   end
@@ -25,5 +27,11 @@ class Order < ActiveRecord::Base
   end
 
 
+
+   private
+
+   def destroy_items
+     self.items.destroy_all   
+   end
 
 end
