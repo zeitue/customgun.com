@@ -1,7 +1,7 @@
 - content_for :title,  "Cart"
 .page-header
   %h1 Cart
--@order.update_prices
+-@order.update_order
 
 -if @order_items.count == 0
   %h2 There are no products in your cart.
@@ -24,8 +24,11 @@
                   .col-md-12.col-sm-12.col-xs-4= f.submit "Update", class: "btn btn-primary btn-block"
                 .col-md-12.col-sm-12.col-xs-4= link_to "Delete", order_item, {  method: :delete, remote: true, class: "btn btn-danger btn-block" }
 
-
 .panel-footer.clearfix
   .pull-right
     = "Subtotal (#{pluralize(@order.quantity, 'item')}): "
     = number_to_currency @order.subtotal
+%p
+.pull-right
+  =link_to "Continue Shopping", products_path, class: "btn btn-primary"
+  =link_to "Checkout", "#", class: "btn btn-primary"

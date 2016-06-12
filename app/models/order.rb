@@ -5,12 +5,17 @@ class Order < ActiveRecord::Base
     self.items.collect { |oi| oi.valid? ? oi.quantity.to_i : 0 }.sum
   end
 
-  def subtotal
-    value = 0.0
+
+  def update_order
+    update_prices
+    update_subtotal
+  end
+
+  def update_subtotal
+    self.subtotal = 0.0
     self.items.each do |item|
-      value += item.price.to_f * item.quantity.to_i
+      self.subtotal += item.price.to_f * item.quantity.to_i
     end
-    value
   end
 
   def update_prices

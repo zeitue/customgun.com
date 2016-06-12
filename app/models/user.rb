@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
   after_create :create_cart
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
 
 
  def move_to(user)

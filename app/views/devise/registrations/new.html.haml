@@ -19,16 +19,12 @@
       = f.email_field :email, class: "form-control input-lg","aria-describedby" => "email-addon"
   .field
     .input-group
-      %span#password-addon.input-group-addon 
-        Password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-      = f.password_field :password, autocomplete: "off", class: "form-control input-lg","aria-describedby" => "password-addon"
+      %span#password-addon.input-group-addon Password
+      = f.password_field :password, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum", class: "form-control input-lg","aria-describedby" => "password-addon"
   .field
     .input-group
-      %span#password-confirmation-addon.input-group-addon= f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg","aria-describedby" => "password-confirmation-addon"
+      %span#password-confirmation-addon.input-group-addon Confirm Password
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "#{@minimum_password_length} characters minimum", class: "form-control input-lg","aria-describedby" => "password-confirmation-addon"
   %br/
   .actions
     = f.submit "Sign up", class: "btn btn-primary btn-block"

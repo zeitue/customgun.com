@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resource :cart, only: [:show], path: 'store/cart'
   resources :items, path: 'store/items'
 
+  devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
 
-  devise_for :users, path: 'store/users'
   resources :users, path: 'store/users', :only => [:show, :index, :destroy]
   resources :photos, path: 'store/photos'
   get '/store/products' => 'products#products', :as => :product_management

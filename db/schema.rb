@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611211421) do
+ActiveRecord::Schema.define(version: 20160611225204) do
 
   create_table "items", force: :cascade do |t|
     t.integer  "order_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20160611211421) do
     t.string   "tracking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "subtotal"
+    t.float    "total"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
