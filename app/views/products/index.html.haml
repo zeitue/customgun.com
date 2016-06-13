@@ -2,3 +2,43 @@
 .page-header
   %h1 Store
 
+.well
+  .row
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), barrels_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), decor_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), gifts_path)
+      %p
+  .row
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), gun_cases_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), gun_parts_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), guns_path)
+      %p
+  .row
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), jewelry_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), optics_path)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .widewrapper=link_to(image_tag("https://placehold.it/1000x450"), wood_path)
+      %p
+
+.panel-header
+  %h2 Featured Products
+.well
+  .row
+    -@products.each do |product|
+      .col-md-4.col-sm-4.col-xs-12
+        =link_to(product.title.titleize, product) + (br() + link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?) + (br() +" Price: " + (number_to_currency product.price).to_s unless product.price.nil?)
+        %p

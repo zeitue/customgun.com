@@ -17,6 +17,14 @@
 @import "wice_grid";
 
 
+.widewrapper {
+  width:100%;
+  }
+.widewrapper > a > img {
+  width:100%;
+}
+
+
 .navbar-nav > li{
   padding-left:0px;
   padding-right:0px;

@@ -6,11 +6,11 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
+    @products = Product.where(:active => true).order("RANDOM()").limit(3)
   end
 
   def products
     @grid = initialize_grid(Product, include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
-    #@products = Product.all
   end
 
   def gun_parts
