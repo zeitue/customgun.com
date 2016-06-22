@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
   layout :layout_by_resource
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
+  before_action :current_user
 
 
 def store_location
@@ -73,6 +74,8 @@ def get_operating_system
     "AROS"
   elsif request.env['HTTP_USER_AGENT'].downcase.match(/haiku/i)
     "Haiku"
+  elsif request.env['HTTP_USER_AGENT'].downcase.match(/dos/i)
+    "DOS"
   elsif request.env['HTTP_USER_AGENT'].downcase.match(/windows/i)
     "Windows"
   else

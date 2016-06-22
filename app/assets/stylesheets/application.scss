@@ -17,6 +17,14 @@
  */
 
 @import "bootstrap";
+.ssl-box{
+    display: inline-block;
+    background: white;
+    padding-top: 1px;
+    padding-bottom: 4px;
+    padding-right: 1px;
+    padding-left: 8px;
+}
 
 #container{
     min-height: 100%;
