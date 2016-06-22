@@ -45,95 +45,10 @@
     #container
       #dash{style: "display: none"}
         %a.close_button{alt: "", onclick: "doDash()", title: "#{t('close_button_text')}"} X
-        .centered
-          %table#social
-            %tr
-              %td
-                #fb-root
-                :javascript
-                  (function(d, s, id) {
-                                   var js, fjs = d.getElementsByTagName(s)[0];
-                                   if (d.getElementById(id)) return;
-                                   js = d.createElement(s); js.id = id;
-                                   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-                                   fjs.parentNode.insertBefore(js, fjs);
-                                 }(document, 'script', 'facebook-jssdk'));
-                .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
-              %td
-                %a.twitter-follow-button{"data-show-count" => "false", href: "https://twitter.com/Todd_Ramirez_CS"} Follow @Todd_Ramirez_CS
-                :javascript
-                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-              %td
-                .g-plusone{"data-annotation" => "bubble", "data-size" => "standard"}
-        %br/
-        .centered
-          %table#actual-table{style: "table-layout: fixed; width: 100%;"}
-            %tr
-              %td
-                = lx('home.png', 'home', 'home' )
-              %td
-                = lx('about.png', 'about', 'about' )
-              %td
-                = lx('contact.png', 'contact', 'contact' )
-              %td
-                = lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' )
-              %td
-                = lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' )
-            %tr
-              %td
-                = lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' )
-              %td
-                = lx('shotguns.png', 'shotguns', 'shotguns' )
-              %td
-                = lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' )
-              %td
-                = lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )
-              %td
-                = lx('finishes.png', 'finishes', 'finishes' )
-            %tr
-              %td
-                = lx('restoration.png', 'restoration', 'restoration' )
-              %td
-                = lx('stock_work.png', 'stock-work', 'stock_work' )
-              %td
-                = lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' )
-              %td
-                = lx('pistols.png', 'pistols', 'pistols' )
-              %td
-                = lx('trophy_room.png', 'trophy-room', 'trophy_room' )
-            %tr
-              %td
-                = lx('engraving.png', 'engraving', 'engraving' )
-              %td
-                = lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' )
-              %td
-                = lx('gun_parts.png', 'gun-parts', 'gun_parts' )
-              %td
-                = lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' )
-              %td
-                = lx('events.png', 'events', 'events' )
-            %tr
-              %td
-                = lx('media.png', 'media', 'media' )
-              %td
-                = lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' )
-              %td
-                = lx('pens.png', 'pens', 'pens' )
-              %td
-                = lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' )
-              %td
-                = lx('key_chains.png', 'key-chains', 'key_chains' )
-            %tr
-              %td
-                = lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' )
+        .centered.hidden-lg.hidden-md.hidden-sm
           %br/
-      #vdash{style: "display: none"}
-        %a.close_button{alt: "", onclick: "doDash()", title: "#{t('close_button_text')}"} X
-        %br/
-        %br/
-        %br/
-        %br/
-        .centered
+          %br/
+          %br/
           %table#actual-table{style: "table-layout: fixed; width: 100%;"}
             %tr
               %td
@@ -196,27 +111,93 @@
                 = lx('key_chains_v.png', 'key-chains', 'key_chains' )
               %td
                 = lx('bracelet_helpers_v.png', 'bracelet-helpers', 'bracelet_helpers' )
+        .centered
+          %table#social
+            %tr
+              %td
+                %a.twitter-follow-button{"data-show-count" => "false", href: "https://twitter.com/Todd_Ramirez_CS"} Follow @Todd_Ramirez_CS
+                :javascript
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+              %td
+                .g-plusone{"data-annotation" => "bubble", "data-size" => "standard"}
+            %tr
+              %td
+                #fb-root
+                :javascript
+                  (function(d, s, id) {
+                                   var js, fjs = d.getElementsByTagName(s)[0];
+                                   if (d.getElementById(id)) return;
+                                   js = d.createElement(s); js.id = id;
+                                   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                                   fjs.parentNode.insertBefore(js, fjs);
+                                 }(document, 'script', 'facebook-jssdk'));
+                .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
+              %td.ssl-box
+                %span#siteseal
+                  %script{:async => "", :src => "https://seal.godaddy.com/getSeal?sealID=bERjnetvpguFSna2k7DLL9afPmLfoRymw8kEzBaZqXNNW35V9rRolmxKgI8h", :type => "text/javascript"}
+        .centered.hidden-xs
           %br/
-          .centered
-            %table#social
-              %tr
-                %td
-                  #fb-root
-                  :javascript
-                    (function(d, s, id) {
-                                       var js, fjs = d.getElementsByTagName(s)[0];
-                                       if (d.getElementById(id)) return;
-                                       js = d.createElement(s); js.id = id;
-                                       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-                                       fjs.parentNode.insertBefore(js, fjs);
-                                     }(document, 'script', 'facebook-jssdk'));
-                  .fb-like{"data-action" => "like", "data-href" => "https://www.facebook.com/pages/Todd-Ramirez-Custom-Shop-LLC/644847572210704", "data-layout" => "button_count", "data-share" => "true", "data-show-faces" => "true"}
-                %td
-                  %a.twitter-follow-button{"data-show-count" => "false", href: "https://twitter.com/Todd_Ramirez_CS"} Follow @Todd_Ramirez_CS
-                  :javascript
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                %td
-                  .g-plusone{"data-annotation" => "bubble", "data-size" => "standard"}
+          %table#actual-table{style: "table-layout: fixed; width: 100%;"}
+            %tr
+              %td
+                = lx('home.png', 'home', 'home' )
+              %td
+                = lx('about.png', 'about', 'about' )
+              %td
+                = lx('contact.png', 'contact', 'contact' )
+              %td
+                = lx('custom_rifles.png', 'custom-rifles', 'custom_rifles' )
+              %td
+                = lx('gunsmithing.png', 'gunsmithing', 'gunsmithing' )
+            %tr
+              %td
+                = lx('gun_fitting.png', 'gun-fitting', 'gun_fitting' )
+              %td
+                = lx('shotguns.png', 'shotguns', 'shotguns' )
+              %td
+                = lx('leather_wrap_pads.png', 'leather-wrap-pads', 'leather_wrap_pads' )
+              %td
+                = lx('synthetic_rifles.png', 'synthetic-rifles', 'synthetic_rifles' )
+              %td
+                = lx('finishes.png', 'finishes', 'finishes' )
+            %tr
+              %td
+                = lx('restoration.png', 'restoration', 'restoration' )
+              %td
+                = lx('stock_work.png', 'stock-work', 'stock_work' )
+              %td
+                = lx('boddington_rifle_project.png', 'boddington-rifle-project', 'boddington_rifle_project' )
+              %td
+                = lx('pistols.png', 'pistols', 'pistols' )
+              %td
+                = lx('trophy_room.png', 'trophy-room', 'trophy_room' )
+            %tr
+              %td
+                = lx('engraving.png', 'engraving', 'engraving' )
+              %td
+                = lx('guns_for_sale.png', 'guns-for-sale', 'guns_for_sale' )
+              %td
+                = lx('gun_parts.png', 'gun-parts', 'gun_parts' )
+              %td
+                = lx('payment_and_shipping.png', 'payment-and-shipping', 'payment_and_shipping_html' )
+              %td
+                = lx('events.png', 'events', 'events' )
+            %tr
+              %td
+                = lx('media.png', 'media', 'media' )
+              %td
+                = lx('taylors_pens_and_gifts.png', 'taylors-pens-and-gifts', 'taylors_pens_and_gifts_html' )
+              %td
+                = lx('pens.png', 'pens', 'pens' )
+              %td
+                = lx('bottle_stoppers.png', 'wine-stoppers', 'wine_stoppers' )
+              %td
+                = lx('key_chains.png', 'key-chains', 'key_chains' )
+            %tr
+              %td
+                = lx('bracelet_helpers.png', 'bracelet-helpers', 'bracelet_helpers' )
+          %br/
           %br/
       #box{style: "display: block"}
         #menu{onclick: "doDash()"}
