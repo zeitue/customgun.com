@@ -42,42 +42,55 @@ end
   end
 
 def get_operating_system
-  if request.env['HTTP_USER_AGENT'].downcase.match(/mac/i)
+  user_agent = request.env['HTTP_USER_AGENT'].downcase;
+  if user_agent.match(/mac/i)
     "Mac"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/ios|iphone|ipad|ipod/i)
+  elsif user_agent.match(/ios|iphone|ipad|ipod/i)
     "iOS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/linux/i)
+  elsif user_agent.match(/linux/i)
     "Linux"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/android/i)
+  elsif user_agent.match(/android/i)
     "Android"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/freebsd/i)
+  elsif user_agent.match(/freebsd/i)
     "FreeBSD"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/openbsd/i)
+  elsif user_agent.match(/openbsd/i)
     "OpenBSD"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/netbsd/i)
+  elsif user_agent.match(/netbsd/i)
     "NetBSD"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/dragonfly/i)
+  elsif user_agent.match(/dragonfly/i)
     "DragonFlyBSD"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/bsd/i)
+  elsif user_agent.match(/bsd/i)
     "BSD"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/solaris/i)
+  elsif user_agent.match(/solaris/i)
     "Solaris"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/sunos/i)
+  elsif user_agent.match(/sunos/i)
     "SunOS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/unix/i)
+  elsif user_agent.match(/unix/i)
     "Unix"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/amigaos/i)
+  elsif user_agent.match(/amigaos/i)
     "AmigaOS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/beos/i)
+  elsif user_agent.match(/beos/i)
     "BeOS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/aros/i)
+  elsif user_agent.match(/aros/i)
     "AROS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/haiku/i)
+  elsif user_agent.match(/haiku/i)
     "Haiku"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/dos/i)
+  elsif user_agent.match(/dos/i)
     "DOS"
-  elsif request.env['HTTP_USER_AGENT'].downcase.match(/windows/i)
+  elsif user_agent.match(/windows/i)
     "Windows"
+  elsif user_agent.match(/java/i)
+    "Java"
+  elsif user_agent.match(/googlebot/i)
+    "GoogleBot"
+  elsif user_agent.match(/baiduspider/i)
+    "BaiduSpider"
+  elsif user_agent.match(/bingbot/i)
+    "BingBot"
+  elsif user_agent.match(/facebook/i)
+    "Facebook"
+  elsif user_agent.match(/domainappender/i)
+    "DomainAppender"
   else
     "Unknown"
   end
@@ -107,7 +120,7 @@ end
 
   def create_guest_user
     user = User.new { |user| user.guest = true }
-    user.email = "guest#{Time.now.to_i.to_s(16)}#{rand(99).to_s(16)}_#{get_operating_system}@customgun.com"
+    user.email = "guest#{Time.now.to_i.to_s(16)}#{rand(99).to_s(16)}_#{get_operating_system.downcase}@customgun.com"
     user.save(:validate => false)
     user
   end

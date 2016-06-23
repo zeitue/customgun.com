@@ -6,7 +6,7 @@ gem 'sqlite3'
 group :assets do
   gem 'uglifier'
 end
-
+gem 'dotenv-rails'
 gem 'haml-rails'
 gem 'passenger', '~> 4.0.60'
 gem 'execjs'
