@@ -38,6 +38,17 @@
               %a{:href => optics_path} Optics
             %li
               %a{:href => wood_path} Wood
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Information
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => privacy_policy_path} Privacy Policy
+            %li
+              %a{:href => return_policy_path} Return Policy
+            %li
+              %a{:href => terms_and_conditions_path} Terms and Conditions
       %ul.nav.navbar-nav.navbar-right
         -if user_signed_in? && !current_user.guest
           %li.dropdown

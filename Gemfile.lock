@@ -183,6 +183,9 @@ GEM
       activerecord (> 3.2)
       coffee-rails (> 3.2)
       kaminari (~> 0.16)
+    yaml_db (0.3.0)
+      rails (>= 3.0, < 4.3)
+      rake (>= 0.8.7)
 
 PLATFORMS
   ruby
@@ -207,6 +210,7 @@ DEPENDENCIES
   therubyracer
   uglifier
   wice_grid
+  yaml_db
 
 BUNDLED WITH
    1.12.5

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/store/decor' => 'products#decor', :as => :decor
   get '/store/gun-cases' => 'products#gun_cases', :as => :gun_cases
   get '/store/guns' => 'products#guns', :as => :guns
+  get '/store/privacy-policy' => 'products#privacy_policy', :as => :privacy_policy
+  get '/store/return-policy' => 'products#return_policy', :as => :return_policy
+  get '/store/terms-and-conditions' => 'products#terms_and_conditions', :as => :terms_and_conditions
   resources :products, path: 'store'
 
   # The priority is based upon order of creation: first created -> highest priority.

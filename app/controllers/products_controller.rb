@@ -49,6 +49,17 @@ class ProductsController < ApplicationController
     @guns_grid = initialize_grid(Product.where(:store => "guns", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
+
+
+  def privacy_policy
+  end
+
+  def return_policy
+  end
+
+  def terms_and_conditions
+  end
+
   # GET /products/1
   def show
     @item = Item.new
