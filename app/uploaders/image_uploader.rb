@@ -33,27 +33,73 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  
 
+  process convert: 'png'
+
+  def filename
+    super.chomp(File.extname(super)) + '.png' if original_filename.present?
+  end
+  
   # Create different versions of your uploaded files:
+
   version :thumb do
-    process :resize_to_fit => [240, 160]
+    process convert: 'png'
+    process :resize_and_pad => [240, 160]
+  end
+
+  version :xxhdpi do
+    process convert: 'png'
+    process :resize_and_pad => [1600, 960]
   end
 
   version :xhdpi do
-    process :resize_to_fit => [nil, 720]
+    process convert: 'png'
+    process :resize_and_pad => [1280, 720]
   end
 
   version :hdpi do
-    process :resize_to_fit => [nil, 480]
+    process convert: 'png'
+    process :resize_and_pad => [800, 480]
   end
 
   version :mdpi do
-    process :resize_to_fit => [nil, 320]
+    process convert: 'png'
+    process :resize_and_pad => [480, 320]
   end
 
   version :ldpi do
-    process :resize_to_fit => [nil, 200]
+    process convert: 'png'
+    process :resize_and_pad => [320, 200]
   end
+
+  version :xxdpi_icon do
+    process convert: 'png'
+    process :resize_and_pad => [144, 144]
+  end
+
+  version :xdpi_icon do
+    process convert: 'png'
+    process :resize_and_pad => [96, 96]
+  end
+
+  version :hdpi_icon do
+    process convert: 'png'
+    process :resize_and_pad => [36, 36]
+  end
+
+  version :mdpi_icon do
+    process convert: 'png'
+    process :resize_and_pad => [72, 72]
+  end
+
+  version :ldpi_icon do
+    process convert: 'png'
+    process :resize_and_pad => [36, 36]
+  end
+
+
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list
