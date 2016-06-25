@@ -7,14 +7,17 @@
           %li= msg
 
   .field
-    = f.label :name
-    = f.text_field :name
+    .input-group
+      %span#name-addon.input-group-addon Name
+      = f.text_field :name, class: "form-control input-lg","aria-describedby" => "name-addon"
   .field
-    = f.label :address_line1
-    = f.text_field :address_line1
+    .input-group
+      %span#address_line1-addon.input-group-addon Address Line 1
+      = f.text_field :address_line1, class: "form-control input-lg","aria-describedby" => "address_line1-addon"
   .field
-    = f.label :address_line2
-    = f.text_field :address_line2
+    .input-group
+      %span#address_line2-addon.input-group-addon Address Line 2
+      = f.text_field :address_line2, class: "form-control input-lg","aria-describedby" => "address_line2-addon"
   .field
     = f.label :country
     = f.text_field :country
@@ -25,10 +28,13 @@
     = f.label :city
     = f.text_field :city
   .field
-    = f.label :zip
-    = f.text_field :zip
+    .input-group
+      %span#zip-addon.input-group-addon Zip
+      = f.text_field :zip, class: "form-control input-lg","aria-describedby" => "zip-addon"
   .field
-    = f.label :phone
-    = f.text_field :phone
+    .input-group
+      %span#phone-addon.input-group-addon Phone
+      = f.text_field :phone, class: "form-control input-lg","aria-describedby" => "phone-addon"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
+%p

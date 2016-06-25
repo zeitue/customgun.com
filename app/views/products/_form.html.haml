@@ -7,7 +7,9 @@
           %li= msg
   .form-group
     .field
-      = f.text_field :title, placeholder: "Title", class: "form-control input-lg"
+      .input-group
+        %span#title-addon.input-group-addon Product Title
+        = f.text_field :title, placeholder: "Title", class: "form-control input-lg","aria-describedby" => "title-addon"
     .field
       = f.text_area :description, placeholder: "Description", class: "form-control input-lg"
     .field
@@ -19,31 +21,57 @@
         %span#quantity-addon.input-group-addon Quantity
         = f.number_field :quantity, placeholder: "1", class: "form-control input-lg","aria-describedby" => "quantity-addon"
     .field
-      = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control input-lg"
+      .input-group
+        %span#manufacturer-addon.input-group-addon Manufacturer
+        = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control input-lg","aria-describedby" => "manufacturer-addon"
     .field
-      = f.text_field :model, placeholder: "Model", class: "form-control input-lg"
+      .input-group
+        %span#model-addon.input-group-addon Model
+        = f.text_field :model, placeholder: "Model", class: "form-control input-lg","aria-describedby" => "model-addon"
     .field
-      = f.text_field :part_number, placeholder: "Part Number", class: "form-control input-lg"
+      .input-group
+        %span#part_number-addon.input-group-addon Part Number
+        = f.text_field :part_number, placeholder: "Part Number", class: "form-control input-lg","aria-describedby" => "part_number-addon"
     .field
-      = f.text_field :type_field, placeholder: "Type", class: "form-control input-lg"
+      .input-group
+        %span#type-addon.input-group-addon Type
+        = f.text_field :type_field, placeholder: "Type", class: "form-control input-lg","aria-describedby" => "type-addon"
     .field
-      = f.text_field :style_field, placeholder: "Style", class: "form-control input-lg"
+      .input-group
+        %span#style-addon.input-group-addon Style
+        = f.text_field :style_field, placeholder: "Style", class: "form-control input-lg","aria-describedby" => "style-addon"
     .field
-      = f.text_field :material, placeholder: "Material", class: "form-control input-lg"
+      .input-group
+        %span#material-addon.input-group-addon Material
+        = f.text_field :material, placeholder: "Material", class: "form-control input-lg","aria-describedby" => "material-addon"
     .field
-      = f.text_field :caliber, placeholder: "Caliber/Gauge", class: "form-control input-lg"
+      .input-group
+        %span#caliber-addon.input-group-addon Caliber/Gauge
+        = f.text_field :caliber, placeholder: "Caliber/Gauge", class: "form-control input-lg","aria-describedby" => "caliber-addon"
     .field
-      = f.number_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "Barrel Length in", class: "form-control input-lg"
+      .input-group
+        %span#barrel-length-addon.input-group-addon Barrel Length
+        = f.number_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "30 in", class: "form-control input-lg","aria-describedby" => "barrel-length-addon"
     .field
-      = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "Weight kg", class: "form-control input-lg"
+      .input-group
+        %span#weight-addon.input-group-addon Weight
+        = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "1 kg", class: "form-control input-lg","aria-describedby" => "weight-addon"
     .field
-      = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "Height cm", class: "form-control input-lg"
+      .input-group
+        %span#height-addon.input-group-addon Height
+        = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control input-lg","aria-describedby" => "height-addon"
     .field
-      = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "Width cm", class: "form-control input-lg"
+      .input-group
+        %span#width-addon.input-group-addon Width
+        = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control input-lg","aria-describedby" => "width-addon"
     .field
-      = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "Length cm", class: "form-control input-lg"
+      .input-group
+        %span#length-addon.input-group-addon Length
+        = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "length-addon"
     .field
-      = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control input-lg"
+      .input-group
+        %span#tags-addon.input-group-addon Tags
+        = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control input-lg","aria-describedby" => "tags-addon"
     .form-group
       = f.select :store, [['Barrels', 'barrels'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
     .form-group

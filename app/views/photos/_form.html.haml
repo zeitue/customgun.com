@@ -7,10 +7,12 @@
           %li= msg
 
   .field
-    = f.label :product_id
-    = f.number_field :product_id
+    .input-group
+      %span#product-id-addon.input-group-addon Product ID
+      = f.number_field :product_id, class: "form-control input-lg","aria-describedby" => "product-id-addon"
   .field
-    = f.label :image
-    = f.file_field :image
+    .form-group
+      = f.file_field :image, class: "form-control input-lg", type: "file"
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => "btn btn-primary"
+%p
