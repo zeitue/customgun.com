@@ -1,0 +1,34 @@
+- content_for :title,  "Address Management"
+.page-header
+  %h1 Address Management
+
+.well.clearfix
+  - @addresses.each do |address|
+    .col-lg-4.col-md-4.col-sm-4.col-xs-12
+      -if !address.name.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12
+            %b=address.name
+      -if !address.address_line1.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1
+      -if !address.address_line2.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2
+      -if !address.city.empty? && !address.state.empty? && !address.zip.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12
+            =address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s
+      -if !address.country.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.country
+      -if !address.phone.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          = link_to 'Edit', edit_address_path(address), class: "btn btn-primary"
+          = link_to 'Delete', address, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
+      %p
+
+= link_to 'Enter a new address', new_address_path, class: "btn btn-primary"

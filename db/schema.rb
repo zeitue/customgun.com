@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611225204) do
+ActiveRecord::Schema.define(version: 20160625061037) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
 
   create_table "items", force: :cascade do |t|
     t.integer  "order_id"
@@ -32,6 +48,8 @@ ActiveRecord::Schema.define(version: 20160611225204) do
     t.datetime "updated_at", null: false
     t.float    "subtotal"
     t.float    "total"
+    t.float    "tax"
+    t.float    "shipping"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
@@ -82,12 +100,6 @@ ActiveRecord::Schema.define(version: 20160611225204) do
     t.string   "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "address"
-    t.string   "country"
-    t.string   "state"
-    t.string   "city"
-    t.string   "zip_code"
-    t.string   "phone"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
