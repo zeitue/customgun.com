@@ -21,7 +21,7 @@ gem 'autoprefixer-rails'
 gem 'wice_grid'
 gem 'devise'
 gem 'yaml_db'
-
+gem 'country_select'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

@@ -21,7 +21,7 @@
             =address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s
       -if !address.country.empty?
         .row
-          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.country
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
       -if !address.phone.empty?
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 

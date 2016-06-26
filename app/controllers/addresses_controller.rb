@@ -25,7 +25,7 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.user_id = current_user.id
     if @address.save
-      redirect_to @address, notice: 'Address was successfully created.'
+      redirect_to addresses_path, notice: 'Address was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1
   def update
     if @address.update(address_params)
-      redirect_to @address, notice: 'Address was successfully updated.'
+      redirect_to addresses_path, notice: 'Address was successfully updated.'
     else
       render :edit
     end

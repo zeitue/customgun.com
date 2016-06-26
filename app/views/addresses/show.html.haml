@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Name:
   = @address.name
@@ -11,7 +9,7 @@
   = @address.address_line2
 %p
   %b Country:
-  = @address.country
+  = ISO3166::Country[@address.country]
 %p
   %b State:
   = @address.state
@@ -26,6 +24,6 @@
   = @address.phone
 
 
-= link_to 'Edit', edit_address_path(@address)
+= link_to 'Edit', edit_address_path(@address), class: 'btn btn-primary'
 \|
-= link_to 'Back', addresses_path
+= link_to 'Back', addresses_path, class: 'btn btn-primary'
