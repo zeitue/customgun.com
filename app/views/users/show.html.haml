@@ -8,12 +8,13 @@
   .panel-heading User Information
   %table.table.panel-body
     -if !(@user.first_name.nil? || @user.first_name.empty?)
-    %tr
-      %td First Name
-      %td= @user.first_name
-    %tr
-      %td Last Name
-      %td= @user.last_name
+      %tr
+        %td First Name
+        %td= @user.first_name
+    -if !(@user.last_name.nil? || @user.last_name.empty?)
+      %tr
+        %td Last Name
+        %td= @user.last_name
     %tr
       %td Email
       %td= @user.email
