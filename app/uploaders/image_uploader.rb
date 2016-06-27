@@ -33,68 +33,55 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  
 
-  process convert: 'png'
 
   def filename
-    super.chomp(File.extname(super)) + '.png' if original_filename.present?
+    super.chomp(File.extname(super)).downcase.parameterize.underscore + '.jpeg' if original_filename.present?
   end
   
   # Create different versions of your uploaded files:
 
   version :thumb do
-    process convert: 'png'
     process :resize_and_pad => [240, 160]
   end
 
   version :xxhdpi do
-    process convert: 'png'
     process :resize_and_pad => [1600, 960]
   end
 
   version :xhdpi do
-    process convert: 'png'
     process :resize_and_pad => [1280, 720]
   end
 
   version :hdpi do
-    process convert: 'png'
     process :resize_and_pad => [800, 480]
   end
 
   version :mdpi do
-    process convert: 'png'
     process :resize_and_pad => [480, 320]
   end
 
   version :ldpi do
-    process convert: 'png'
     process :resize_and_pad => [320, 200]
   end
 
   version :xxdpi_icon do
-    process convert: 'png'
     process :resize_and_pad => [144, 144]
   end
 
   version :xdpi_icon do
-    process convert: 'png'
     process :resize_and_pad => [96, 96]
   end
 
   version :hdpi_icon do
-    process convert: 'png'
     process :resize_and_pad => [36, 36]
   end
 
   version :mdpi_icon do
-    process convert: 'png'
     process :resize_and_pad => [72, 72]
   end
 
   version :ldpi_icon do
-    process convert: 'png'
     process :resize_and_pad => [36, 36]
   end
 
