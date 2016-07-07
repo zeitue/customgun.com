@@ -4,15 +4,21 @@
   %meta{content: @product.description, name: "Description"}/
 %h3.panel= @product.title.titleize
 .row
-  .col-xs-12.col-sm-6.col-md-8
-    .slider
-      -count = 1
-      -@photos.each do |p|
-        %input{:type => "radio", :name => "slide_switch", :id => p.id, :checked => ((count > 1) ? nil : "checked") }
-        %label{:for => p.id}= image_tag p.image.thumb, style: 'width:100%;'
-        =image_tag p.image.hdpi
-        -count += 1
-  .col-xs-12.col-sm-6.col-md-4.well
+  .col-xs-12.col-sm-8.col-md-8
+    -if @photos.count == 1
+      .container-liquid
+        .widewrapper
+          =image_tag @photos.first.image.hdpi
+          %p
+    -else
+      .slider
+        -count = 1
+        -@photos.each do |p|
+          %input{:type => "radio", :name => "slide_switch", :id => p.id, :checked => ((count > 1) ? nil : "checked") }
+          %label{:for => p.id}= image_tag p.image.thumb, style: 'width:100%;'
+          =image_tag p.image.hdpi
+          -count += 1
+  .col-xs-12.col-sm-4.col-md-4.well
     = form_for @item, remote: true do |f|
       -if !@product.price.nil?
         %h4.text-right
