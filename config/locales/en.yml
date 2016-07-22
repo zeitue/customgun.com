@@ -732,6 +732,25 @@ Pistols:  All makes of 1911's and quality maker revolvers.  Example : Colt, Gloc
   Nitre Blue - Screws, Extractor, Extractor Collar<br>
   Border Engraving
   Schmidt & Bender 3 x 12 x 42 Illuminate Scope"
+  custom_rifles_text51: "Premium Built 280 Remington Custom Rifle"
+  custom_rifles_text52_html: "Liberty Engraving<br>
+  Gold Lettering<br>
+  Gold Barrel Bands<br>
+  Color Casing<br>
+  Nitre Bluing<br>
+  Museum Quality English Walnut<br>
+  Square Bridged Mauser Action<br>
+  Skeleton Butt Plate Skeleton Grip Cap"
+  custom_rifles_text53: "375 Premium Rifle"
+  custom_rifles_text54_html: "
+  Square Bridged Mauser Action<br>
+  Turkish Walnut Exhibition Blank<br>
+  Quarter Rib<br>
+  Express Sights<br>
+  Fleur-de-lis Checkering<br>
+  Trap Door Grip Cap<br>
+  Cross Bolts with Engraved with Mosaic Inlays<br>
+  Engraving is Scroll with Gold Lion"
   double_rifles_text0_html: "Double Rifle Work:<br>
   Claw Mounts<br>
   Site Work<br>
@@ -782,6 +801,7 @@ Grip Cap"
   Bolt Knobs<br>
   Classic Style Aluminum Bed"
   synthetic_rifles_text16: "Todd Ramirez's synthetic rifle line is based off of his premium wood rifles. The Syn-Fle rifle can be ordered with the classic or signature synthetic stock and is built on a Winchester action. This rifle can be made for all standard calibers up to 458 Lott. The Tac-Hunter is a rugged, tough and on target rifle built for the long range hunter.  It is built on a Stellar action or a Remington action. They are both asthetically pleasing to the ey.  They consistently shoot 1/2\" or better at 100 yards with factory ammo. Ramirez uses the best components in making his synthetic line of rifles. Super match grade Pac-Nor barrels are used and all actions are blue printed.  Standard bluing or Duracoat finish in a choice of colors: matte black, gray parkerized, matte green, and desert tan are used to finish the metal.  Stock design is with or without a cheek piece and painted to compliment the metal.  All rifles include 3-position safety, custom bottom metal, select action tuning, aluminum blocks bedded, custom trigger work, and jeweled bolts."
+  synthetic_rifles_text17: "Premium 375 Synfle Synthetic Rifle, With Express Sights and Four Round Drop Box"
   signature_rifle_text0: "New American Classic custom rifle available in all standard calibers up to 458 Lott.  The American Classic is built identical to the Premium Signature Rifle.  The only difference is in the stock design.  It is styled American Classic with a full cheek piece and a slightly fuller forearm and a round forend tip."
   signature_rifle_text1: "This American Classic Rifle Is Built On A Winchester Action In Caliber .308"
   signature_rifle_text2: "This rifle has added options of skeleton buttplate and gripcap."
