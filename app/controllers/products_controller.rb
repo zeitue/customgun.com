@@ -50,6 +50,9 @@ class ProductsController < ApplicationController
   end
 
 
+  def custom_parts
+    @custom_parts_grid = initialize_grid(Product.where(:store => "custom_parts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+  end
 
   def privacy_policy
   end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :photos, path: 'store/photos'
   get '/store/products' => 'products#products', :as => :product_management
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
+  get '/store/custom-parts' => 'products#custom_parts', :as => :custom_parts
   get '/store/wood' => 'products#wood', :as => :wood
   get '/store/barrels' => 'products#barrels', :as => :barrels
   get '/store/optics' => 'products#optics', :as => :optics

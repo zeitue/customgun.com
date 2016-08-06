@@ -73,7 +73,7 @@
         %span#tags-addon.input-group-addon Tags
         = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control input-lg","aria-describedby" => "tags-addon"
     .form-group
-      = f.select :store, [['Barrels', 'barrels'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
+      = f.select :store, [['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
     .form-group
       = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
     .field.checkbox-inline
