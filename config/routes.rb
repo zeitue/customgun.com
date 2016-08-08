@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :addresses, path: 'store/users/addresses'
   resource :cart, only: [:show], path: 'store/cart'
   resources :items, path: 'store/items'
-
+  resources :orders, path: 'store/orders'
   devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
   resources :users, path: 'store/users', :only => [:show, :index, :destroy]
   resources :photos, path: 'store/photos'

@@ -11,6 +11,7 @@ class Order < ActiveRecord::Base
   def update_order
     update_prices
     update_subtotal
+    update_total
   end
 
   def update_subtotal
@@ -18,15 +19,21 @@ class Order < ActiveRecord::Base
     self.items.each do |item|
       self.subtotal += item.price.to_f * item.quantity.to_i
     end
+    self.save!
   end
 
   def update_prices
     self.items.each do |item|
       item.price = Product.find(item.product_id).price
+      item.save!
     end
   end
 
 
+  def update_total
+    self.total = self.subtotal.to_f + self.tax.to_f + self.shipping.to_f
+    self.save!
+  end
 
    private
 

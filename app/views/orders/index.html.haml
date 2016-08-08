@@ -1,0 +1,50 @@
+﻿- content_for :title,  "Order Management"
+.page-header
+  %h1 Order Management
+-@orders.reverse_each do |order|
+  .well.clearfix
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .row Order Placed
+        .row= order.updated_at
+        %p
+      .col-md-3.col-sm-6.col-xs-12
+        .row Total
+        .row= number_to_currency order.total
+        %p
+      .col-md-3.col-sm-6.col-xs-12
+        .row Ship to
+        .row
+        %p
+      .col-md-3.col-sm-6.col-xs-12
+        .row
+          = "Order Number ##{"%08X" % order.id}"
+        .row.btn-group{ :style => "width:100%;" }
+          =link_to "Order Details", "#", class: "btn btn-primary", style: "width:50%;" 
+          =link_to "Invoice", "#", class: "btn btn-primary", style: "width:50%;" 
+        %p
+    %p
+    -if order.items.count == 0
+      %h5 Empty Order
+    -else
+      .row
+        .col-md-9.col-sm-9.col-xs-12
+          .row
+            -order.items.each do |item|
+              -if !item.product_id.nil?
+                -product = Product.find(item.product_id)
+                .row
+                  .col-md-4.col-sm-6.col-xs-12
+                    .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?
+                    %p
+                  .col-md-8.col-sm-6.col-xs-12
+                    =link_to(product.title.titleize, product)
+                    %p
+                    = "Price #{number_to_currency item.price}"
+                %p
+        .col-md-3.col-sm-3.col-xs-12
+          .row.btn-group{ :style => "width:100%;" }
+            =link_to "Track", "#", class: "btn btn-primary btn-block"
+            %p
+            =link_to "Cancel", "#", class: "btn btn-danger btn-block"
+            %p
