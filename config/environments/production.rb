@@ -82,7 +82,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'customgun.com' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.sendmail_settings = {
+    arguments:      '-i',
     user_name:      ENV['MAILER_USER_NAME'],
     password:       ENV['MAILER_PASSWORD'],
     address:        ENV['MAILER_ADDRESS'],
@@ -90,5 +91,6 @@ Rails.application.configure do
     port:           ENV['MAILER_PORT'],
     authentication: :login
   }
+
 
 end
