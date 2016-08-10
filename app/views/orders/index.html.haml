@@ -19,7 +19,7 @@
       .col-md-3.col-sm-6.col-xs-12
         .row
           = "Order Number ##{"%08X" % order.id}"
-        .row.btn-group{ :style => "width:100%;" }
+        .row.btn-group-justified{ :style => "width:100%;" }
           =link_to "Order Details", "#", class: "btn btn-primary", style: "width:50%;" 
           =link_to "Invoice", "#", class: "btn btn-primary", style: "width:50%;" 
         %p
@@ -43,8 +43,6 @@
                     = "Price #{number_to_currency item.price}"
                 %p
         .col-md-3.col-sm-3.col-xs-12
-          .row.btn-group{ :style => "width:100%;" }
+          .row{ :style => "width:100%;" }
             =link_to "Track", "#", class: "btn btn-primary btn-block"
-            %p
-            =link_to "Cancel", "#", class: "btn btn-danger btn-block"
-            %p
+

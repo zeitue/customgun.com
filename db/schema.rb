@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808021800) do
+ActiveRecord::Schema.define(version: 20160809064553) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name"
@@ -34,24 +34,26 @@ ActiveRecord::Schema.define(version: 20160808021800) do
     t.integer  "product_id"
     t.integer  "quantity"
     t.float    "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "shipment_id"
   end
 
   add_index "items", ["order_id"], name: "index_items_on_order_id"
   add_index "items", ["product_id"], name: "index_items_on_product_id"
+  add_index "items", ["shipment_id"], name: "index_items_on_shipment_id"
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "tracking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float    "subtotal"
     t.float    "total"
     t.float    "tax"
-    t.float    "shipping"
+    t.integer  "address_id"
   end
 
+  add_index "orders", ["address_id"], name: "index_orders_on_address_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "photos", force: :cascade do |t|
@@ -85,7 +87,18 @@ ActiveRecord::Schema.define(version: 20160808021800) do
     t.string   "style_field"
     t.string   "url"
     t.boolean  "active",        default: true
+    t.string   "shipped_by"
   end
+
+  create_table "shipments", force: :cascade do |t|
+    t.integer  "order_id"
+    t.float    "cost"
+    t.string   "tracking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shipments", ["order_id"], name: "index_shipments_on_order_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

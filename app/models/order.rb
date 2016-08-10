@@ -1,6 +1,8 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :items
+  has_many :shipments
+  has_one :address
   before_destroy :destroy_items
 
   def quantity
@@ -31,7 +33,7 @@ class Order < ActiveRecord::Base
 
 
   def update_total
-    self.total = self.subtotal.to_f + self.tax.to_f + self.shipping.to_f
+    self.total = self.subtotal.to_f + self.tax.to_f
     self.save!
   end
 
