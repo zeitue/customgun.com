@@ -5,6 +5,15 @@ class Order < ActiveRecord::Base
   has_one :address
   before_destroy :destroy_items
 
+  def get_address
+    address = Address.where(id: self.address_id).first
+    if address != nil
+      address
+    else
+      nil
+    end
+  end
+  
   def quantity
     self.items.collect { |oi| oi.valid? ? oi.quantity.to_i : 0 }.sum
   end

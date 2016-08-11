@@ -95,6 +95,10 @@
         %tr
           %td Weight:
           %td= weight_as_metric(@product).to_s + " / " + weight_as_imperial(@product).to_s
+      -if(!@product.shipped_by.nil?)
+        %tr
+          %td Shipped by
+          %td= @product.shipped_by.titleize
 
 
 %br

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809064553) do
+ActiveRecord::Schema.define(version: 20160811053630) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160809064553) do
     t.string   "tracking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "shipped_by"
   end
 
   add_index "shipments", ["order_id"], name: "index_shipments_on_order_id"
