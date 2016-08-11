@@ -2,11 +2,14 @@ Rails.application.routes.draw do
 
   resources :addresses, path: 'store/users/addresses'
   resource :cart, only: [:show], path: 'store/cart'
+  resource :checkout, path: 'store/checkout'
   resources :items, path: 'store/items'
   resources :orders, path: 'store/orders'
   devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
   resources :users, path: 'store/users', :only => [:show, :index, :destroy]
   resources :photos, path: 'store/photos'
+  get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
+  get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
   get '/store/products' => 'products#products', :as => :product_management
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
   get '/store/custom-parts' => 'products#custom_parts', :as => :custom_parts

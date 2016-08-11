@@ -1,6 +1,9 @@
 %h1 Edit address
 
-= render 'form'
+-if params[:address_select]
+  =render 'address_select_form'
+-else
+  = render 'form'
 
 = link_to 'Show', @address, class: 'btn btn-primary'
 \|

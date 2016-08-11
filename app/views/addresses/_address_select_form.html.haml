@@ -1,0 +1,44 @@
+= form_for @address do |f|
+  - if @address.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@address.errors.count, "error")} prohibited this address from being saved:"
+      %ul
+        - @address.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    .input-group
+      %span#name-addon.input-group-addon Name
+      = f.text_field :name, class: "form-control input-lg","aria-describedby" => "name-addon"
+  .field
+    .input-group
+      %span#address_line1-addon.input-group-addon Address Line 1
+      = f.text_field :address_line1, class: "form-control input-lg","aria-describedby" => "address_line1-addon"
+  .field
+    .input-group
+      %span#address_line2-addon.input-group-addon Address Line 2
+      = f.text_field :address_line2, class: "form-control input-lg","aria-describedby" => "address_line2-addon"
+  .field
+    .input-group
+      %span#country-addon.input-group-addon Country
+      = f.country_select :country, { priority_countries: [ "US", "GB", "TW", "JP", "HK", "DE", "CN", "CA"] }, { class: "form-control input-lg","aria-describedby" => "country-addon" }
+  .field
+    .input-group
+      %span#region-addon.input-group-addon State/Province/Principality/Region
+      = f.text_field :state,  class: "form-control input-lg","aria-describedby" => "region-addon"
+  .field
+    .input-group
+      %span#city-addon.input-group-addon City
+      = f.text_field :city,  class: "form-control input-lg","aria-describedby" => "city-addon"
+  .field
+    .input-group
+      %span#zip-addon.input-group-addon Zip
+      = f.text_field :zip, class: "form-control input-lg","aria-describedby" => "zip-addon"
+  .field
+    .input-group
+      %span#phone-addon.input-group-addon Phone
+      = f.text_field :phone, class: "form-control input-lg","aria-describedby" => "phone-addon"
+  .actions
+    %p
+    = f.submit 'Save', name: "address_select", class: 'btn btn-primary'
+%p

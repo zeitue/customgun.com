@@ -2,6 +2,8 @@ class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
   before_action :check_owner, only: [:show, :edit, :update, :destroy]
   layout 'store'
+
+  
   # GET /addresses
   def index
     @addresses = Address.where(user_id: current_user.id)
@@ -25,7 +27,11 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.user_id = current_user.id
     if @address.save
-      redirect_to addresses_path, notice: 'Address was successfully created.'
+      if params[:address_select]
+        redirect_to address_select_path, notice: 'Address was successfully created.'
+      else
+        redirect_to addresses_path, notice: 'Address was successfully created.'
+      end
     else
       render :new
     end
@@ -34,7 +40,11 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1
   def update
     if @address.update(address_params)
-      redirect_to addresses_path, notice: 'Address was successfully updated.'
+      if params[:address_select]
+        redirect_to address_select_path, notice: 'Address was successfully updated.'
+      else
+        redirect_to addresses_path, notice: 'Address was successfully updated.'
+      end
     else
       render :edit
     end
@@ -43,7 +53,11 @@ class AddressesController < ApplicationController
   # DELETE /addresses/1
   def destroy
     @address.destroy
-    redirect_to addresses_url, notice: 'Address was successfully destroyed.'
+    if params[:address_select]
+      redirect_to address_select_path, notice: 'Address was successfully destroyed.'
+    else
+      redirect_to addresses_path, notice: 'Address was successfully destroyed.'
+    end
   end
 
   private
