@@ -46,9 +46,15 @@
             %span.caret
           %ul.dropdown-menu
             %li
+              %a{:href => payment_policy_path} Payment Policy
+            %li
               %a{:href => privacy_policy_path} Privacy Policy
             %li
               %a{:href => return_policy_path} Return Policy
+            %li
+              %a{:href => shipping_policy_path} Shipping Policy
+            %li
+              %a{:href => sales_tax_path} Sales Tax
             %li
               %a{:href => terms_and_conditions_path} Terms and Conditions
       %ul.nav.navbar-nav.navbar-right
@@ -72,5 +78,3 @@
           %a.navbar-brand{:href => cart_path}
             .glyphicon.glyphicon-shopping-cart
             .badge= current_order.quantity
-
-
