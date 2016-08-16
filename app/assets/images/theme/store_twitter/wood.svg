@@ -30,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-705.84104"
+     inkscape:cx="-865.71429"
      inkscape:cy="116.75891"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -59,34 +59,34 @@
      id="layer1"
      transform="translate(0,-602.36216)">
     <g
-       id="g8702">
+       id="g8622">
       <rect
          y="598.79071"
          x="-5.7142944"
-         height="457.14285"
-         width="1011.4286"
+         height="480"
+         width="1022.8572"
          id="rect4849"
          style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
-      <g
-         id="text4684"
-         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:125%;font-family:'Black Ops One';-inkscape-font-specification:'Black Ops One';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate">
-        <path
-           id="path8694"
-           style="font-size:80px"
-           d="m 407.92969,668.37836 5.19531,-21.75782 6.75781,24.60938 -5.58594,20.50781 -15.66406,0 -15.50781,-51.83594 17.1875,0 7.61719,28.47657 z m 36.64062,23.35937 -16.48437,0 -14.21875,-51.83594 17.42187,0 13.28125,51.83594 z m 0.15625,-51.83594 15.74219,0 -14.0625,49.14063 -7.03125,-27.61719 5.35156,-21.52344 z" />
-        <path
-           id="path8696"
-           style="font-size:80px"
-           d="m 509.76562,681.38617 -10.35156,10.35156 -11.5625,0 0,-9.6875 4.29688,0 0,-21.44531 -4.29688,0 0,-10.35156 11.5625,0 10.35156,10.35156 0,20.78125 z m -29.14062,0.66406 4.49219,0 0,9.6875 -11.60157,0 -10.35156,-10.35156 0,-20.78125 10.35156,-10.35156 11.60157,0 0,10.35156 -4.49219,0 0,21.44531 z" />
-        <path
-           id="path8698"
-           style="font-size:80px"
-           d="m 563.82812,681.38617 -10.35156,10.35156 -11.5625,0 0,-9.6875 4.29688,0 0,-21.44531 -4.29688,0 0,-10.35156 11.5625,0 10.35156,10.35156 0,20.78125 z m -29.14062,0.66406 4.49219,0 0,9.6875 -11.60157,0 -10.35156,-10.35156 0,-20.78125 10.35156,-10.35156 11.60157,0 0,10.35156 -4.49219,0 0,21.44531 z" />
-        <path
-           id="path8700"
-           style="font-size:80px"
-           d="m 616.875,634.43304 0,57.30469 -17.26563,0 0,-57.30469 17.26563,0 z m -28.32031,47.61719 8.32031,0 0,5.58594 -4.10156,4.10156 -12.14844,0 -9.33594,-9.33594 0,-22.8125 9.33594,-9.33593 16.25,0 0,10.35156 -8.32031,0 0,21.44531 z" />
-      </g>
+      <path
+         inkscape:connector-curvature="0"
+         d="m 407.92969,668.37836 5.19531,-21.75782 6.75781,24.60938 -5.58594,20.50781 -15.66406,0 -15.50781,-51.83594 17.1875,0 7.61719,28.47657 z m 36.64062,23.35937 -16.48437,0 -14.21875,-51.83594 17.42187,0 13.28125,51.83594 z m 0.15625,-51.83594 15.74219,0 -14.0625,49.14063 -7.03125,-27.61719 5.35156,-21.52344 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;line-height:125%;font-family:'Black Ops One';-inkscape-font-specification:'Black Ops One';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none"
+         id="path8694" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 509.76562,681.38617 -10.35156,10.35156 -11.5625,0 0,-9.6875 4.29688,0 0,-21.44531 -4.29688,0 0,-10.35156 11.5625,0 10.35156,10.35156 0,20.78125 z m -29.14062,0.66406 4.49219,0 0,9.6875 -11.60157,0 -10.35156,-10.35156 0,-20.78125 10.35156,-10.35156 11.60157,0 0,10.35156 -4.49219,0 0,21.44531 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;line-height:125%;font-family:'Black Ops One';-inkscape-font-specification:'Black Ops One';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none"
+         id="path8696" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 563.82812,681.38617 -10.35156,10.35156 -11.5625,0 0,-9.6875 4.29688,0 0,-21.44531 -4.29688,0 0,-10.35156 11.5625,0 10.35156,10.35156 0,20.78125 z m -29.14062,0.66406 4.49219,0 0,9.6875 -11.60157,0 -10.35156,-10.35156 0,-20.78125 10.35156,-10.35156 11.60157,0 0,10.35156 -4.49219,0 0,21.44531 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;line-height:125%;font-family:'Black Ops One';-inkscape-font-specification:'Black Ops One';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none"
+         id="path8698" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 616.875,634.43304 0,57.30469 -17.26563,0 0,-57.30469 17.26563,0 z m -28.32031,47.61719 8.32031,0 0,5.58594 -4.10156,4.10156 -12.14844,0 -9.33594,-9.33594 0,-22.8125 9.33594,-9.33593 16.25,0 0,10.35156 -8.32031,0 0,21.44531 z"
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;line-height:125%;font-family:'Black Ops One';-inkscape-font-specification:'Black Ops One';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none"
+         id="path8700" />
       <image
          width="510.20938"
          height="298.57141"
