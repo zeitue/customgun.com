@@ -7,19 +7,26 @@
           %li= msg
 
   .field
-    = f.label :provider
-    = f.text_field :provider
+    .input-group
+      %span#provider-addon.input-group-addon Provider
+      = f.text_field :provider, placeholder: "Provider", class: "form-control input-lg","aria-describedby" => "provider-addon"
   .field
-    = f.label :length
-    = f.text_field :length
+    .input-group
+      %span#length-addon.input-group-addon Length
+      = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "length-addon"
   .field
-    = f.label :height
-    = f.text_field :height
+    .input-group
+      %span#height-addon.input-group-addon Height
+      = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control input-lg","aria-describedby" => "height-addon"
   .field
-    = f.label :width
-    = f.text_field :width
+    .input-group
+      %span#width-addon.input-group-addon Width
+      = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control input-lg","aria-describedby" => "width-addon"
   .field
-    = f.label :weight
-    = f.text_field :weight
+    .input-group
+      %span#weight-addon.input-group-addon Weight
+      = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "1 kg", class: "form-control input-lg","aria-describedby" => "weight-addon"
+  %p
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => "btn btn-primary"
+%p

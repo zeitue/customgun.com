@@ -68,6 +68,7 @@
               %li= link_to "Address Management", addresses_path
               %li= link_to "Order Management", orders_path
               -if current_user.admin?
+                %li= link_to "Box Management", boxes_path
                 %li= link_to "Product Management", product_management_path
                 %li= link_to "Photo Management", photos_path
                 %li= link_to "User Management", users_path
