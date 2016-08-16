@@ -1,7 +1,7 @@
 ﻿- content_for :title,  "Order Management"
 .page-header
   %h1 Order Management
--@orders.reverse_each do |order|
+-@orders.each do |order|
   .well.clearfix
     .row
       .col-md-3.col-sm-6.col-xs-12
@@ -27,7 +27,7 @@
           =link_to 'Invoice', '#', class: 'btn btn-primary', style: 'width:50%;' 
         %p
     %p
-    -if order.shipments == 0
+    -if order.shipments.count == 0
       %h5 Empty Order
     -else
       -order.shipments.each do |shipment|

@@ -2,8 +2,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :items
   has_many :shipments
+  has_many :shipping_methods
   has_one :address
   before_destroy :destroy_items
+  accepts_nested_attributes_for :shipping_methods
 
   def get_address
     address = Address.where(id: self.address_id).first
@@ -42,14 +44,15 @@ class Order < ActiveRecord::Base
 
 
   def update_total
-    self.total = self.subtotal.to_f + self.tax.to_f
+    self.total = '%.2f' % (self.subtotal.to_f + self.tax.to_f + self.shipping.to_f + 3)
     self.save!
   end
 
    private
 
    def destroy_items
-     self.items.destroy_all   
+     self.items.destroy_all
+     self.shipping_methods.destroy_all
    end
 
 end

@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811053630) do
+ActiveRecord::Schema.define(version: 20160816035006) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "name"
     t.string   "address_line1"
     t.string   "address_line2"
     t.string   "country"
@@ -25,9 +24,26 @@ ActiveRecord::Schema.define(version: 20160811053630) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "prefix"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "suffix"
+    t.string   "fax"
+    t.string   "company"
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+
+  create_table "boxes", force: :cascade do |t|
+    t.string   "provider"
+    t.float    "length"
+    t.float    "height"
+    t.float    "width"
+    t.float    "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.integer  "order_id"
@@ -51,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160811053630) do
     t.float    "total"
     t.float    "tax"
     t.integer  "address_id"
+    t.float    "shipping"
   end
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id"
@@ -92,7 +109,6 @@ ActiveRecord::Schema.define(version: 20160811053630) do
 
   create_table "shipments", force: :cascade do |t|
     t.integer  "order_id"
-    t.float    "cost"
     t.string   "tracking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,6 +116,17 @@ ActiveRecord::Schema.define(version: 20160811053630) do
   end
 
   add_index "shipments", ["order_id"], name: "index_shipments_on_order_id"
+
+  create_table "shipping_methods", force: :cascade do |t|
+    t.integer  "order_id"
+    t.float    "price"
+    t.string   "service_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "cost"
+  end
+
+  add_index "shipping_methods", ["order_id"], name: "index_shipping_methods_on_order_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

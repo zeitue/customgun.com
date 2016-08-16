@@ -1,0 +1,74 @@
+- content_for :title,  "Packaging"
+.page-header
+  %h1 Packaging
+:css
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    border-bottom: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .centered{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+.centered
+  .loader{}
+
+  
+%form{:action => "https://www.eprocessingnetwork.com/cgi-bin/dbe/order.pl",:id => 'form', :method => "POST"}
+  =hidden_field_tag 'ePNAccount', ENV['EPNACCOUNT']
+  =hidden_field_tag 'LogoURL', "https://customgun.com/assets/theme/default/tr.png"
+  %input{:name => "Redirect", :type => "HIDDEN", :value => "1"}/
+  =hidden_field_tag 'ReturnApprovedURL', 'https://customgun.com/store/checkout/approved'
+  =hidden_field_tag 'ReturnDeclinedURL', 'https://customgun.com/store/checkout/disapproved'
+  =hidden_field_tag 'TaxRate', '0.0675'
+  %input{:name => "ApplyTax", :type => "checkbox", :checked => "#{@order.tax != 0.0 ? "check" : ""}", :style => "display: none;"}
+  =hidden_field_tag 'ServiceDesc', 'Service/Convenience Fee'
+  =hidden_field_tag 'ServiceFee', '3'
+  =hidden_field_tag 'BillFirstName', @order.get_address.first_name
+  =hidden_field_tag 'BillLastName', @order.get_address.last_name
+  =hidden_field_tag 'BillAddress', @order.get_address.address_line1
+  =hidden_field_tag 'BillCity', @order.get_address.city.titleize
+  =hidden_field_tag 'BillState', @order.get_address.state_code
+  =hidden_field_tag 'BillCountry', ISO3166::Country[@order.get_address.country]
+  =hidden_field_tag 'BillZip', @order.get_address.zip
+  =hidden_field_tag 'BillPhone', @order.get_address.phone
+  =hidden_field_tag 'BillEMail', current_user.email
+  =hidden_field_tag 'FirstName', @order.get_address.first_name.titleize
+  =hidden_field_tag 'LastName', @order.get_address.last_name.titleize
+  =hidden_field_tag 'Address', (@order.get_address.address_line1.nil? ? @order.get_address.address_line2.titleize : @order.get_address.address_line1.titleize)
+  =hidden_field_tag 'City', @order.get_address.city.titleize
+  =hidden_field_tag 'State', @order.get_address.state_code
+  =hidden_field_tag 'Country', ISO3166::Country[@order.get_address.country]
+  =hidden_field_tag 'Zip', @order.get_address.zip
+  =hidden_field_tag 'Company', @order.get_address.company.titleize
+  =hidden_field_tag 'Phone', @order.get_address.phone
+  =hidden_field_tag 'EMail', current_user.email
+  -@order.items.each do |item|
+    =hidden_field_tag 'ItemQty', item.quantity
+    =hidden_field_tag 'ItemCost', item.price
+    =hidden_field_tag 'ItemDesc', item.product.title.titleize
+  =hidden_field_tag 'Total' , @order.total
+  =submit_tag "",  :style => "display: none;"
+
+:javascript
+  window.onload = function(){
+  document.getElementById('form').submit();
+  }

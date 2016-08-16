@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
     self.part_number = self.part_number.strip.downcase
     self.url = self.title.strip.parameterize
     self.tags = self.tags.strip.downcase
-    self.shipped_by = self.shipped_by.strip.downcase
+    self.shipped_by = self.shipped_by.blank? ? nil : self.shipped_by.strip.downcase
   end
 
 end

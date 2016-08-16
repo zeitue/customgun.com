@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Provider:
+  = @box.provider
+%p
+  %b Length:
+  = @box.length
+%p
+  %b Height:
+  = @box.height
+%p
+  %b Width:
+  = @box.width
+%p
+  %b Weight:
+  = @box.weight
+
+= link_to 'Edit', edit_box_path(@box)
+\|
+= link_to 'Back', boxes_path

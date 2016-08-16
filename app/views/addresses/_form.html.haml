@@ -5,11 +5,26 @@
       %ul
         - @address.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     .input-group
-      %span#name-addon.input-group-addon Name
-      = f.text_field :name, class: "form-control input-lg","aria-describedby" => "name-addon"
+      %span#prefix-addon.input-group-addon Prefix
+      = f.text_field :prefix, class: "form-control input-lg","aria-describedby" => "prefix-addon"
+  .field
+    .input-group
+      %span#first_name-addon.input-group-addon First Name
+      = f.text_field :first_name, class: "form-control input-lg","aria-describedby" => "first_name-addon"
+  .field
+    .input-group
+      %span#middle_name-addon.input-group-addon Middle Name
+      = f.text_field :middle_name, class: "form-control input-lg","aria-describedby" => "middle_name-addon"
+  .field
+    .input-group
+      %span#last_name-addon.input-group-addon Last Name
+      = f.text_field :last_name, class: "form-control input-lg","aria-describedby" => "last_name-addon"
+  .field
+    .input-group
+      %span#suffix-addon.input-group-addon Suffix
+      = f.text_field :suffix, class: "form-control input-lg","aria-describedby" => "suffix-addon"
   .field
     .input-group
       %span#address_line1-addon.input-group-addon Address Line 1
@@ -38,6 +53,14 @@
     .input-group
       %span#phone-addon.input-group-addon Phone
       = f.text_field :phone, class: "form-control input-lg","aria-describedby" => "phone-addon"
+  .field
+    .input-group
+      %span#fax-addon.input-group-addon Fax
+      = f.text_field :fax, class: "form-control input-lg","aria-describedby" => "fax-addon"
+  .field
+    .input-group
+      %span#company-addon.input-group-addon Company
+      = f.text_field :company, class: "form-control input-lg","aria-describedby" => "company-addon"
   .actions
     %p
     = f.submit 'Save', class: 'btn btn-primary'

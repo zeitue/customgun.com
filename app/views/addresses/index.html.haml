@@ -5,26 +5,32 @@
 .well.clearfix
   - @addresses.each do |address|
     .col-lg-4.col-md-4.col-sm-4.col-xs-12
-      -if !address.name.empty?
+      -if !address.first_name.nil? && !address.first_name.empty?
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
             %b=address.name
       -if !address.address_line1.empty?
         .row
-          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1.titleize
       -if !address.address_line2.empty?
         .row
-          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2.titleize
       -if !address.city.empty? && !address.state.empty? && !address.zip.empty?
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
-            =address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s
+            =(address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s).titleize
       -if !address.country.empty?
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
       -if !address.phone.empty?
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+      -if !address.fax.nil? && !address.fax.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Fax: " + address.fax.to_s
+      -if !address.company.nil? && !address.company.empty?
+        .row
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
       .row
         .col-lg-12.col-md-12.col-sm-12.col-xs-12
           = link_to 'Edit', edit_address_path(address), class: "btn btn-primary"

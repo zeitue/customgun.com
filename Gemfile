@@ -23,6 +23,8 @@ gem 'nokogiri', '1.6.7.2'
 gem 'devise'
 gem 'yaml_db'
 gem 'country_select'
+gem 'box_packer'
+gem 'active_shipping'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :boxes, path: 'store/boxes'
   resources :addresses, path: 'store/users/addresses'
   resource :cart, only: [:show], path: 'store/cart'
   resource :checkout, path: 'store/checkout'
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   resources :photos, path: 'store/photos'
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
   get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
+  get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
+  get '/store/checkout/approved' => 'checkouts#approved', :as => :approved
+  get '/store/checkout/disapproved' => 'checkouts#disapproved', :as => :disapproved
   get '/store/products' => 'products#products', :as => :product_management
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
   get '/store/custom-parts' => 'products#custom_parts', :as => :custom_parts

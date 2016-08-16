@@ -15,13 +15,13 @@ class User < ActiveRecord::Base
   todos.update_all(user_id: user.id)
  end
 
-
-
-  private
-
   def create_cart
       Order.create(user_id: self.id) 
   end
+
+  private
+
+
 
   def destroy_associated
     self.orders.destroy_all
