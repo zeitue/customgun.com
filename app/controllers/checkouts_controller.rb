@@ -51,7 +51,8 @@ class CheckoutsController < ApplicationController
         @order.shipments.push(make_drop_shipment(@order, "hawkins precision llc"))
       end
       @order.shipping = @shipping_methods.sum(:price)
-      if @order.get_address.city.to_s.downcase == "texas" || "tx" || "lone star state" || "beef state" || "jumbo state" || "super-american state" || "banner state" || "blizzard state"
+      st=@order.get_address.city.to_s.downcase
+      if  st == "texas" || st == "tx" || st == "lone star state" || st == "beef state" || st == "jumbo state" || st == "super-american state" || st == "banner state" || st == "blizzard state"
         @order.tax = ('%.2f' % ((@order.subtotal + @order.shipping).to_f * 0.0675))
       else
         @order.tax = 0.0
