@@ -48,7 +48,7 @@ class CheckoutsController < ApplicationController
       end
       
       if !@shipping_methods.where("service_name like ?", "%drop shipped%").first.nil?
-        @order.shipments.push(make_drop_shipment(@order, "hawkins precision llc"))
+        @order.shipments.push(make_drop_shipment(@order, "hawkins precision, llc"))
       end
       @order.shipping = @shipping_methods.sum(:price)
       st=@order.get_address.city.to_s.downcase
