@@ -44,17 +44,16 @@
         .row
           .col-md-9.col-sm-9.col-xs-12
             .row
-              -shipment.items.each do |item|
-                -if !item.product_id.nil?
-                  -product = Product.find(item.product_id)
+              -shipment.units.each do |unit|
+                -if !unit.product_id.nil?
                   .row
                     .col-md-4.col-sm-6.col-xs-12
-                      .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?
+                      .widewrapper=link_to(image_tag(unit.product.photos.first.image.thumb), unit.product) unless unit.product.photos.first.nil?
                       %p
                     .col-md-8.col-sm-6.col-xs-12
-                      =link_to(product.title.titleize, product)
+                      =link_to(unit.product.title.titleize, unit.product)
                       %p
-                      = "Price #{number_to_currency item.price}"
+                      = "Price #{number_to_currency unit.price}"
                   %p
           .col-md-3.col-sm-3.col-xs-12
             .row{ :style => "width:100%;" }

@@ -83,7 +83,7 @@ class CheckoutsController < ApplicationController
     shipment = Shipment.new(order_id: order.id, shipped_by: shipper)
     items = order.items.joins(:product).where(products: {shipped_by: shipper})
     items.each do |item|
-      shipment.items.new(product_id: item.product.id,
+      shipment.units.new(product_id: item.product.id,
                          quantity: item.quantity,
                          price: item.product.price)
     end
@@ -105,7 +105,7 @@ class CheckoutsController < ApplicationController
     packed.packings.first.each {|entry| counts[entry.label]+=1 }
     counts.each do |entry|
       product = Product.where(url: entry.first).first
-      shipment.items.new(product_id: product.id,
+      shipment.units.new(product_id: product.id,
                          quantity: entry.last,
                          price: product.price)
     end
