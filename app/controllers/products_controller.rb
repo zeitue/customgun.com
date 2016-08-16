@@ -63,6 +63,16 @@ class ProductsController < ApplicationController
   def terms_and_conditions
   end
 
+  def payment_policy
+  end
+
+  def shipping_policy
+  end
+
+  def sales_tax
+  end
+
+
   # GET /products/1
   def show
     @item = Item.new

@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   get '/store/privacy-policy' => 'products#privacy_policy', :as => :privacy_policy
   get '/store/return-policy' => 'products#return_policy', :as => :return_policy
   get '/store/terms-and-conditions' => 'products#terms_and_conditions', :as => :terms_and_conditions
+  get '/store/payment-policy' => 'products#payment_policy', :as => :payment_policy
+  get '/store/shipping-policy' => 'products#shipping_policy', :as => :shipping_policy
+  get '/store/sales-tax' => 'products#sales_tax', :as => :sales_tax
+
   resources :products, path: 'store'
 
   # The priority is based upon order of creation: first created -> highest priority.
