@@ -9,6 +9,7 @@ class CheckoutsController < ApplicationController
   end
 
   def shipping_select
+    current_order.update_items
     @order = current_order
     @shipping_methods = @order.shipping_methods
     product_ids = @order.items.map{|h| h.product_id}

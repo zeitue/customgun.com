@@ -1,6 +1,7 @@
 - content_for :title,  "Cart"
 .page-header
   %h1 Cart
+-current_order.update_items
 -@order.update_order
 
 -if @order_items.count == 0

@@ -48,6 +48,17 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
+  def update_items
+    self.items.each do |item|
+      if item.product.quantity == 0
+        item.destroy
+      elsif item.product.quantity < item.quantity
+        item.quantity = item.product.quantity
+        item.save!
+      end
+    end
+  end
+
    private
 
    def destroy_items
