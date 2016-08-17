@@ -137,11 +137,17 @@ class CheckoutsController < ApplicationController
   end
   
   def make_packages(provider, items)
+    individual = items.joins(:product).where(products: {exclusive: true})
+    grouped = items.joins(:product).where(products: {exclusive: false})
     packages = []
-    while items.count > 0
-      entry = best_fit(provider, items)
+    individual.each do |item|
+      packages.push(best_fit(provider, [item]))
+    end
+    
+    while grouped.count > 0
+      entry = best_fit(provider, grouped)
       packages.push(entry)
-      items = remove_from(entry, items)
+      grouped = remove_from(entry, grouped)
     end
     packages
   end
