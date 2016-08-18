@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
   has_many :photos
   accepts_nested_attributes_for :photos
   before_validation :default_values
+  before_destroy :destroy_associated
+  
 
   def default_values
     self.title = self.title.strip.downcase
@@ -21,4 +23,8 @@ class Product < ActiveRecord::Base
     self.shipped_by = self.shipped_by.blank? ? nil : self.shipped_by.strip.downcase
   end
 
+
+  def destroy_associated
+    self.photos.destroy_all
+  end
 end

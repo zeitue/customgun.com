@@ -35,6 +35,10 @@ class Order < ActiveRecord::Base
     self.save!
   end
 
+  def total_before_tax
+    self.subtotal.to_f + self.shipping.to_f + 3
+  end
+  
   def update_prices
     self.items.each do |item|
       item.price = Product.find(item.product_id).price
@@ -64,6 +68,7 @@ class Order < ActiveRecord::Base
    def destroy_items
      self.items.destroy_all
      self.shipping_methods.destroy_all
+     self.shipments.destroy_all
    end
 
 end

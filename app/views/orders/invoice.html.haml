@@ -1,0 +1,114 @@
+- content_for :title,  "Invoice"
+:javascript
+  function printdiv(printpage){
+  var headstr = "<html><head><title></title></head><body>";
+  var footstr = "</body>";
+  var newstr = document.all.item(printpage).innerHTML;
+  var oldstr = document.body.innerHTML;
+  document.body.innerHTML = headstr+newstr+footstr;
+  window.print();
+  document.body.innerHTML = oldstr;
+  return false;
+  }
+
+.page-header
+  %h1
+    Invoice
+    .pull-right
+      %input.ipt{:name => "b_print", :onclick => "printdiv('div_print');", :type => "button", :value => " Print ", :class => "btn btn-primary"}/
+  
+#div_print
+  .row
+    .text-center.text-danger
+      %b= "Details for Order #" + ("%08X" % @order.id)
+  %p
+  .row
+    .col-md-6.col-sm-6.col-xs-12
+      .row
+        %h3
+          %b Custom Shop, LLC
+        %p
+      .row
+        %b= "Order Placed: "
+        #{@order.updated_at}
+      .row
+        %b= "Customgun.com order number"
+        = ("%08X" % @order.id)
+      .row
+        %b Order Total
+        =number_to_currency @order.total
+      %p
+    .col-md-5.col-sm-5.col-xs-12.well
+      .row
+        %b Shipping Address
+      -address = @order.get_address
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          -if !address.first_name.nil? && !address.first_name.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= address.name
+          -if !address.address_line1.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1.titleize
+          -if !address.address_line2.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2.titleize
+          -if !address.city.empty? && !address.state.empty? && !address.zip.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                =(address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s).titleize
+          -if !address.country.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
+          -if !address.phone.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+          -if !address.fax.nil? && !address.fax.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Fax: " + address.fax.to_s
+          -if !address.company.nil? && !address.company.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
+            %p
+            %p
+  %table.table-striped.table-hover.table-responsive{style: 'width:100%;'}
+    %thead
+      %td
+        %b Product
+      %td
+        %b Quantity
+      %td
+        %b Price Each
+      %td
+        %b Amount
+    %tbody
+      -@order.items.each do |item|
+        %tr
+          %td= item.product.title.titleize
+          %td= item.quantity
+          %td= number_to_currency item.price
+          %td= number_to_currency(item.quantity*item.price)
+      %tr
+        %td
+          %b Subtotal
+        %td
+        %td
+        %td=number_to_currency @order.subtotal
+      %tr
+        %td
+          %b Shipping & Handling
+        %td
+        %td
+        %td=number_to_currency(@order.shipping + 3)
+      %tr
+        %td
+          %b Tax
+        %td
+        %td
+        %td=number_to_currency @order.tax
+      %tr
+        %td
+          %b Total
+        %td
+        %td
+        %td=number_to_currency @order.total

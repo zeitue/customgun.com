@@ -36,8 +36,8 @@
   =hidden_field_tag 'ePNAccount', ENV['EPNACCOUNT']
   =hidden_field_tag 'LogoURL', "https://customgun.com/assets/theme/default/tr.png"
   %input{:name => "Redirect", :type => "HIDDEN", :value => "1"}/
-  =hidden_field_tag 'ReturnApprovedURL', 'https://customgun.com/store/checkout/approved'
-  =hidden_field_tag 'ReturnDeclinedURL', 'https://customgun.com/store/checkout/disapproved'
+  =hidden_field_tag 'ReturnApprovedURL', 'http://customgun.com/approved'
+  =hidden_field_tag 'ReturnDeclinedURL', 'http://customgun.com/disapproved'
   =hidden_field_tag 'TaxRate', '0.0675'
   %input{:name => "ApplyTax", :type => "checkbox", :checked => "#{@order.tax != 0.0 ? "check" : ""}", :style => "display: none;"}
   =hidden_field_tag 'ServiceDesc', 'Service/Convenience Fee'

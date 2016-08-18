@@ -23,8 +23,8 @@
         .row
           = 'Order Number #' + ("%08X" % order.id)
         .row.btn-group-justified{ :style => "width:100%;" }
-          =link_to 'Order Details', '#', class: 'btn btn-primary', style: 'width:50%;' 
-          =link_to 'Invoice', '#', class: 'btn btn-primary', style: 'width:50%;' 
+          =link_to 'Order Details', order_details_path(order), class: 'btn btn-primary', style: 'width:50%;' 
+          =link_to 'Invoice', order_invoice_path(order), class: 'btn btn-primary', style: 'width:50%;' 
         %p
     %p
     -if order.shipments.count == 0
@@ -52,6 +52,8 @@
                       %p
                     .col-md-8.col-sm-6.col-xs-12
                       =link_to(unit.product.title.titleize, unit.product)
+                      %p
+                      = "Quantity #{unit.quantity}"
                       %p
                       = "Price #{number_to_currency unit.price}"
                   %p

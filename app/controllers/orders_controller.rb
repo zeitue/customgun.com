@@ -5,6 +5,16 @@ class OrdersController < ApplicationController
   def index
     @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
   end
+  def show
+  end
+
+  def invoice
+    @order = set_order
+  end
+
+  def details
+    @order = set_order
+  end
 
   def update
     update_attachments if params[:order][:shipping_methods_attributes]

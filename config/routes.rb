@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
-
-  resources :boxes, path: 'store/boxes'
-  resources :addresses, path: 'store/users/addresses'
-  resource :cart, only: [:show], path: 'store/cart'
-  resource :checkout, path: 'store/checkout'
-  resources :items, path: 'store/items'
-  resources :orders, path: 'store/orders'
-  devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
-  resources :users, path: 'store/users', :only => [:show, :index, :destroy]
-  resources :photos, path: 'store/photos'
+  
+  get '/store/orders/details/:id' => 'orders#details', :as => :order_details
+  get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice                                
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
   get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
   get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
@@ -32,6 +25,15 @@ Rails.application.routes.draw do
   get '/store/shipping-policy' => 'products#shipping_policy', :as => :shipping_policy
   get '/store/sales-tax' => 'products#sales_tax', :as => :sales_tax
 
+  resources :boxes, path: 'store/boxes'
+  resources :addresses, path: 'store/users/addresses'
+  resource :cart, only: [:show], path: 'store/cart'
+  resource :checkout, path: 'store/checkout'
+  resources :items, path: 'store/items'
+  resources :orders, path: 'store/orders'
+  devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
+  resources :users, path: 'store/users', :only => [:show, :index, :destroy]
+  resources :photos, path: 'store/photos'
   resources :products, path: 'store'
 
   # The priority is based upon order of creation: first created -> highest priority.

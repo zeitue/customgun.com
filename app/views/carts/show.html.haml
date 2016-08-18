@@ -32,6 +32,9 @@
 %p
 .pull-right
   =link_to "Continue Shopping", products_path, class: "btn btn-primary"
-  -if @order_items.count != 0 && current_user.admin
-    =link_to "Checkout", address_select_path, class: "btn btn-primary"
+  -if @order_items.count != 0
+    -if !current_user.guest
+      =link_to "Checkout", address_select_path, class: "btn btn-primary"
+    -else
+      .text-danger You require an account to checkout
   %p

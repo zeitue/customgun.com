@@ -1,0 +1,103 @@
+- content_for :title,  "Order Details"
+.page-header
+  %h1 Order Details
+.well.clearfix
+  .row
+    .col-md-4.col-sm-4.col-xs-12
+      .row= "Ordered on #{@order.updated_at}"
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .row= 'Order #'+  ("%08X" % @order.id)
+      %p
+    .col-md-4.col-sm-4.col-xs-12
+      .row= link_to 'View or Print invoice', order_invoice_path(@order), class: 'btn btn-primary', style: 'width:100%;'
+      %p  
+      %p
+  .row
+    .col-md-6.col-sm-6.col-xs-12
+      .row
+        %b Shipping Address
+      -address = @order.get_address
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          -if !address.first_name.nil? && !address.first_name.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= address.name
+          -if !address.address_line1.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1.titleize
+          -if !address.address_line2.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2.titleize
+          -if !address.city.empty? && !address.state.empty? && !address.zip.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                =(address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s).titleize
+          -if !address.country.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
+          -if !address.phone.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+          -if !address.fax.nil? && !address.fax.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Fax: " + address.fax.to_s
+          -if !address.company.nil? && !address.company.empty?
+            .row
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
+            %p
+            %p
+    .col-md-6.col-sm-6.col-xs-12
+      .row
+        %b Order Summery
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = "Item".pluralize(@order.items.count)+  " Subtotal:"
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = number_to_currency @order.subtotal
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          Shipping & Handling:
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = number_to_currency(@order.shipping+3)
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          Total before tax:
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = number_to_currency(@order.total_before_tax)
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          Tax:
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = number_to_currency(@order.tax)
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          %b Grand Total:
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = number_to_currency(@order.total)
+  %p
+  -if @order.shipments.count == 0
+    %h5 Empty Order
+  -else
+    -@order.shipments.each do |shipment|
+      .row
+        .col-md-9.col-sm-9.col-xs-12
+          .row
+            -shipment.units.each do |unit|
+              -if !unit.product_id.nil?
+                .row
+                  .col-md-4.col-sm-6.col-xs-12
+                    .widewrapper=link_to(image_tag(unit.product.photos.first.image.thumb), unit.product) unless unit.product.photos.first.nil?
+                    %p
+                  .col-md-8.col-sm-6.col-xs-12
+                    =link_to(unit.product.title.titleize, unit.product)
+                    %p
+                    = "Quantity #{unit.quantity}"
+                    %p
+                    = "Price #{number_to_currency unit.price}"
+
+                %p
+        .col-md-3.col-sm-3.col-xs-12
+          .row{ :style => "width:100%;" }
+            =link_to "Track", "#", class: "btn btn-primary btn-block"
+

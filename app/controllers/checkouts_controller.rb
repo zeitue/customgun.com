@@ -121,8 +121,8 @@ class CheckoutsController < ApplicationController
     packages
   end
 
-  def make_active_package(pack)
-    ActiveShipping::Package.new((pack.weight_limit-pack.packings.first.remaining_weight)*1000, [pack.dimensions.x,pack.dimensions.y,pack.dimensions.z])
+  def make_active_package(pack) # 1.15 is to give a 15% buffer weight
+    ActiveShipping::Package.new((pack.weight_limit-pack.packings.first.remaining_weight)*1000*1.15, [pack.dimensions.x,pack.dimensions.y,pack.dimensions.z])
   end
   
   def make_active_location(address)
@@ -196,12 +196,12 @@ class CheckoutsController < ApplicationController
 
   def fedex_rates(origin, destination, packages)
     fedex = ActiveShipping::FedEx.new(login: ENV['FEDEX_LOGIN'], password: ENV['FEDEX_PASSWORD'], key: ENV['FEDEX_KEY'], account: ENV['FEDEX_ACCOUNT'])
-    get_rates_from_shipper(fedex, origin, destination, packages)
+    get_rates_from_shipper(fedex, origin, destination, packages).delete_if{|val| (val.service_name.include?("Envelope") || val.service_name.include?("Letter"))}
   end
 
   def usps_rates(origin, destination, packages)
     usps = ActiveShipping::USPS.new(login: ENV['USPS_LOGIN'], password: ENV['USPS_PASSWORD'])
-    get_rates_from_shipper(usps, origin, destination, packages).delete_if{|val| (val.service_name.include?("Media") || val.service_name.include?("Library"))}
+    get_rates_from_shipper(usps, origin, destination, packages).delete_if{|val| (val.service_name.include?("Media") || val.service_name.include?("Library") ||  val.service_name.include?("Envelope") || val.service_name.include?("Letter"))}
   end
 
   def origin

@@ -31,14 +31,14 @@ class Address < ActiveRecord::Base
   
   def state_code
     if self.state.length > 2
-      code = ::States.key(self.state.titleize)
+      puts code = ::States.key(self.state.titleize)
       if !code.nil?
-        code
+        code.upcase
       else
-        self.state
+        self.state.upcase
       end
     else
-      state
+      self.state.upcase
     end
   end
   
