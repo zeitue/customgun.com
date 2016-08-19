@@ -82,10 +82,10 @@
       -if(!@product.length.nil? && @product.store == 'jewelry')
         %tr
           %td Length:
-          %td= @product.length.to_s + " cm. / " + (@product.length/2.54).round(2).to_s + " in."
+          %td= @product.length.to_s + " cm." + " / " + (@product.length/2.54).round(2).to_s + " in."
       -if(!@product.barrel_length.nil? && !@product.barrel_length.empty?)
         %tr
-          %td Berrel Length:
+          %td Barrel Length:
           %td= @product.barrel_length.to_s + " in."
       -if(!@product.height.nil? && !@product.width.nil? && !@product.length.nil?)
         %tr
