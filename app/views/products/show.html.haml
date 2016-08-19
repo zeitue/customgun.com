@@ -48,7 +48,7 @@
 .row
   .panel.panel-default
     .panel-heading Product Description
-    .panel-body= @product.description.gsub(/([a-z])((?:[^.?!]|\.(?=[a-z]))*)/i) { $1.upcase + $2.rstrip }
+    .panel-body= @product.description.gsub(/([a-z])((?:[^.?!]|\.(?=[a-z]))*)/i) { $1.upcase + $2.rstrip }.html_safe
     .panel-heading Product Information
     %table.table.panel-body
       -if(!@product.manufacturer.empty?)
@@ -100,7 +100,9 @@
           %td Shipped by
           %td= @product.shipped_by.titleize
 
-
+-if current_user.admin
+  = link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
+  \|
+  = link_to 'Back', products_path, class: "btn btn-primary"
 %br
-/= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
-/= link_to 'Back', products_path, class: "btn btn-primary"
+%br
