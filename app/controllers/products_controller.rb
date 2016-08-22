@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
   def new_arrivals
     @products = Product.where(:active => true).limit(60).order('created_at DESC')
     @range = @products.last.created_at..@products.first.created_at
-    @new_arrivals_grid = initialize_grid(Product.where(:active => true, :created_at => @range), order: 'products.title', order_direction: 'desc', per_page: 20)
+    @new_arrivals_grid = initialize_grid(Product.where(:active => true, :created_at => @range), order: 'products.created_at', order_direction: 'desc', per_page: 20)
   end
 
   def sale_items
