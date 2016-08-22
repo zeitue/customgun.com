@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+
+
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
   get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice                                
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
   get '/store/payment-policy' => 'products#payment_policy', :as => :payment_policy
   get '/store/shipping-policy' => 'products#shipping_policy', :as => :shipping_policy
   get '/store/sales-tax' => 'products#sales_tax', :as => :sales_tax
+  get '/store/new-arrivals' => 'products#new_arrivals', :as => :new_arrivals
+  get '/store/sale-items' => 'products#sale_items', :as => :sale_items
 
   resources :boxes, path: 'store/boxes'
   resources :addresses, path: 'store/users/addresses'
@@ -41,6 +45,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get 'alchemist-series' => 'alchemist_series#index', :as => :alchemist_series
   get 'about' => 'about#index', :as => :about
   get 'boddington-rifle-project' => 'boddington_rifle_project#index', :as => :boddington_rifle_project
   get 'bracelet-helpers' => 'bracelet_helpers#index', :as => :bracelet_helpers
