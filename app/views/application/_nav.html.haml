@@ -69,13 +69,14 @@
               %span.caret
             %ul.dropdown-menu
               %li= link_to "Edit account", edit_user_registration_path
-              %li= link_to "Address Management", addresses_path
-              %li= link_to "Order Management", orders_path
+              %li= link_to "Address Book", addresses_path
+              %li= link_to "Orders", orders_path
               -if current_user.admin?
-                %li= link_to "Box Management", boxes_path
-                %li= link_to "Product Management", product_management_path
-                %li= link_to "Photo Management", photos_path
-                %li= link_to "User Management", users_path
+                %li= link_to "Boxes", boxes_path
+                %li= link_to "Carts", carts_path
+                %li= link_to "Products", product_management_path
+                %li= link_to "Photos", photos_path
+                %li= link_to "Users", users_path
               %li= link_to "Log out", destroy_user_session_path, :method => :delete
         -else
           %li= link_to "Log in", new_user_session_path

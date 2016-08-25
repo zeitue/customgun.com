@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-
+  get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
   get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice                                
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select

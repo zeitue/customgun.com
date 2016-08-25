@@ -1,6 +1,6 @@
-﻿- content_for :title,  "Order Management"
+﻿- content_for :title,  "Orders"
 .page-header
-  %h1 Order Management
+  %h1 Orders
 -@orders.each do |order|
   .well.clearfix
     .row
@@ -30,15 +30,23 @@
     -if order.shipments.count == 0
       %h5 Empty Order
     -else
-      -order.shipments.each do |shipment|
+      -order.shipments.zip(order.shipping_methods).each do |shipment,shipping_method|
         .row
           .col-md-3.col-sm-6.col-xs-12
             .row Shipped by
             .row
               -if shipment.shipped_by.nil?
-                = 'Custom Shop, LLC'
+                = 'Custom Shop, LLC '
               -else
                 = shipment.shipped_by.titleize
+            %p
+          .col-md-3.col-sm-6.col-xs-12
+            .row Shipping Method
+            .row
+              -if shipment.shipped_by.nil?
+                = (shipping_method.service_name.to_s) unless shipping_method.nil?
+              -else
+                = "Drop Shipped"
             %p
         %p
         .row

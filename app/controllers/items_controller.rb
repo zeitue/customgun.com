@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
       end
       @order.save
     end
+    @order.update_order
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
     @item = @order.items.find(params[:id])
     @item.update_attributes(item_params)
     @items = @order.items
+    @order.update_order
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
@@ -40,6 +42,7 @@ class ItemsController < ApplicationController
     @item = @order.items.find(params[:id])
     @item.destroy
     @items = @order.items
+    @order.update_order
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end

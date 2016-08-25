@@ -1,0 +1,27 @@
+﻿- content_for :title,  "Carts"
+.page-header
+  %h1 Carts
+ 
+-@orders.each do |order|
+  -if !order.nil?
+    .well.clearfix
+      .panel-header
+        %b=link_to order.user.email, order.user
+        %p
+      -order.items.each do |item|
+        -if !item.product_id.nil?
+          .row
+            .col-md-10.col-sm-10.col-xs-12=link_to(item.product.title.titleize, item.product) + (br() + link_to(image_tag(item.product.photos.first.image.thumb), item.product) unless item.product.photos.first.nil?)
+            .col-md-2.col-sm-2.col-xs-12
+              .row
+                Price: 
+                %span=number_to_currency item.product.price
+              .row
+                Quantity:
+                %span=item.quantity
+      %p
+      .panel-footer.clearfix
+        .pull-right
+          = "Subtotal (#{pluralize(order.quantity, 'item')}): "
+          = number_to_currency order.subtotal
+

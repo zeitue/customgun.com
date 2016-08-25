@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   def index
     @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
   end
+  
   def show
+  end
+
+  def carts
+    @orders = User.all.map { |user| user.orders.last unless user.orders.last.items.count == 0}.reverse
   end
 
   def invoice
