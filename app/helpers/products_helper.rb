@@ -25,11 +25,11 @@ module ProductsHelper
 
   def weight_as_imperial(product)
     weight = product.weight * 35.274
-    pounds = (weight / 16).round(0)
-    ounces = (weight % 16).round(0)
+    pounds = (weight / 16)
+    ounces = (weight % 16)
     buffer = ""
-    buffer += pounds.to_s + " lb." unless (pounds == 0)
-    buffer += ounces.to_s + " oz." unless (ounces == 0)
+    (buffer += pounds.round(0).to_s + " lb. ") unless (pounds <= 1)
+    buffer += ounces.round(0).to_s + " oz." unless (ounces == 0)
     buffer
   end
 
