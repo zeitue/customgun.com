@@ -1,5 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :index]
   layout 'store'
   # GET /boxes
   def index

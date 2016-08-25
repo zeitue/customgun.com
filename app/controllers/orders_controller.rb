@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   layout 'store'
   before_action :set_order, only: [:edit, :update]
+  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :carts]
   
   def index
     @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
