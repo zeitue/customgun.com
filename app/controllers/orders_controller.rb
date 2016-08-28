@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
   layout 'store'
   before_action :set_order, only: [:edit, :update]
-  before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :carts]
+  before_action :authenticate_admin!, only: [:new, :edit, :create, :destroy, :carts]
   
   def index
     if current_user.admin
-      @orders = (User.all.map do |user| user.orders[0..-1].map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0) end.compact end.reverse.reject &:empty?).first.reverse
+      @orders = (User.all.map do |user| user.orders.map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order) end.compact end).compact.reject(&:empty?).flatten.reverse
+
     else
       @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
     end
@@ -30,6 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def update
+    check_ownership(@order)
     update_attachments if params[:order][:shipping_methods_attributes]
     if @order.update(order_params)
       if params[:packaging]

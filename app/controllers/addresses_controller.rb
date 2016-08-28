@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
-  before_action :check_owner, only: [:show, :edit, :update, :destroy]
+  #before_action :check_owner, only: [:show, :edit, :update, :destroy]
   layout 'store'
 
   
@@ -11,6 +11,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1
   def show
+    check_ownership(@address)
   end
 
   # GET /addresses/new
@@ -20,12 +21,14 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+    check_ownership(@address)
   end
 
   # POST /addresses
   def create
     @address = Address.new(address_params)
     @address.user_id = current_user.id
+    puts "#########" + params.to_s
     if @address.save
       if params[:address_select]
         redirect_to address_select_path, notice: 'Address was successfully created.'
@@ -39,6 +42,7 @@ class AddressesController < ApplicationController
 
   # PATCH/PUT /addresses/1
   def update
+    check_ownership(@address)
     if @address.update(address_params)
       if params[:address_select]
         redirect_to address_select_path, notice: 'Address was successfully updated.'
@@ -52,6 +56,7 @@ class AddressesController < ApplicationController
 
   # DELETE /addresses/1
   def destroy
+    check_ownership(@@address)
     @address.destroy
     if params[:address_select]
       redirect_to address_select_path, notice: 'Address was successfully destroyed.'
@@ -62,11 +67,11 @@ class AddressesController < ApplicationController
 
   private
 
-    def check_owner
-      if !owns_address?
-        redirect_to products_path, alert: "Operation failed: Permission denied"
-      end
-    end
+    #def check_owner
+     # if !owns_address? || !current_user.admin
+     #   redirect_to products_path, alert: "Operation failed: Permission denied"
+    #  end
+  #  end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_address
