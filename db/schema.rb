@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 20160816183348) do
     t.string   "service_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.float    "cost"
   end
 
   add_index "shipping_methods", ["order_id"], name: "index_shipping_methods_on_order_id"
