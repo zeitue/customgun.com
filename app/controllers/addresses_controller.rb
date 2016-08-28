@@ -28,7 +28,6 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.user_id = current_user.id
-    puts "#########" + params.to_s
     if @address.save
       if params[:address_select]
         redirect_to address_select_path, notice: 'Address was successfully created.'
