@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
+
 
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
-  get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice     
+  get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
   get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
   get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/store/decor' => 'products#decor', :as => :decor
   get '/store/gun-cases' => 'products#gun_cases', :as => :gun_cases
   get '/store/guns' => 'products#guns', :as => :guns
+  get '/store/contact' => 'products#contact', :as => :store_contact
   get '/store/privacy-policy' => 'products#privacy_policy', :as => :privacy_policy
   get '/store/return-policy' => 'products#return_policy', :as => :return_policy
   get '/store/terms-and-conditions' => 'products#terms_and_conditions', :as => :terms_and_conditions

@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
 
   def sale_items
   end
-  
+
   def privacy_policy
   end
 
@@ -82,6 +82,8 @@ class ProductsController < ApplicationController
   def sales_tax
   end
 
+  def contact
+  end
 
   # GET /products/1
   def show
