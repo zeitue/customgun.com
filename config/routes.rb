@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
-  get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice                                
+  get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice     
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
   get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
   get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get '/store/sale-items' => 'products#sale_items', :as => :sale_items
 
   resources :boxes, path: 'store/boxes'
+  resources :shipments, path: 'store/shipments'
   resources :addresses, path: 'store/users/addresses'
   resource :cart, only: [:show], path: 'store/cart'
   resource :checkout, path: 'store/checkout'

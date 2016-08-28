@@ -10,91 +10,97 @@ class ApplicationController < ActionController::Base
   before_action :current_user
 
 
-def store_location
+  def store_location
 
-  return unless request.get? 
-  if (request.path != "/" &&
-      request.path != "/store/users/sign_in" &&
-      request.path != "/store/users/sign_up" &&
-      request.path != "/store/users/password/new" &&
-      request.path != "/store/users/password/edit" &&
-      request.path != "/store/users/confirmation" &&
-      request.path != "/store/users/sign_out" &&
-      !request.xhr?)
-    session[:previous_url] = request.fullpath 
+    return unless request.get? 
+    if (request.path != "/" &&
+        request.path != "/store/users/sign_in" &&
+        request.path != "/store/users/sign_up" &&
+        request.path != "/store/users/password/new" &&
+        request.path != "/store/users/password/edit" &&
+        request.path != "/store/users/confirmation" &&
+        request.path != "/store/users/sign_out" &&
+        !request.xhr?)
+      session[:previous_url] = request.fullpath 
+    end
   end
-end
 
-def after_sign_in_path_for(resource)
-  session[:previous_url] || products_path
-end
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || products_path
+  end
 
-def after_sign_out_path_for(resource_or_scope)
-  request.referrer
-end
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
 
   def authenticate_admin!
     authenticate_user!
-
     unless current_user.admin?
       redirect_to products_path, alert: "Operation failed: Permission denied"
     end
   end
 
-def get_operating_system
-  user_agent = request.env['HTTP_USER_AGENT'].downcase;
-  if user_agent.match(/mac/i)
-    "Mac"
-  elsif user_agent.match(/ios|iphone|ipad|ipod/i)
-    "iOS"
-  elsif user_agent.match(/linux/i)
-    "Linux"
-  elsif user_agent.match(/android/i)
-    "Android"
-  elsif user_agent.match(/freebsd/i)
-    "FreeBSD"
-  elsif user_agent.match(/openbsd/i)
-    "OpenBSD"
-  elsif user_agent.match(/netbsd/i)
-    "NetBSD"
-  elsif user_agent.match(/dragonfly/i)
-    "DragonFlyBSD"
-  elsif user_agent.match(/bsd/i)
-    "BSD"
-  elsif user_agent.match(/solaris/i)
-    "Solaris"
-  elsif user_agent.match(/sunos/i)
-    "SunOS"
-  elsif user_agent.match(/unix/i)
-    "Unix"
-  elsif user_agent.match(/amigaos/i)
-    "AmigaOS"
-  elsif user_agent.match(/beos/i)
-    "BeOS"
-  elsif user_agent.match(/aros/i)
-    "AROS"
-  elsif user_agent.match(/haiku/i)
-    "Haiku"
-  elsif user_agent.match(/dos/i)
-    "DOS"
-  elsif user_agent.match(/windows/i)
-    "Windows"
-  elsif user_agent.match(/java/i)
-    "Java"
-  elsif user_agent.match(/googlebot/i)
-    "GoogleBot"
-  elsif user_agent.match(/baiduspider/i)
-    "BaiduSpider"
-  elsif user_agent.match(/bingbot/i)
-    "BingBot"
-  elsif user_agent.match(/facebook/i)
-    "Facebook"
-  elsif user_agent.match(/domainappender/i)
-    "DomainAppender"
-  else
-    "Unknown"
+
+  def check_ownership(object)
+    unless (current_user.id == object.user.id || current_user.admin?)
+      redirect_to products_path, alert: "Operation failed: Permission denied"
+    end
   end
-end
+
+  def get_operating_system
+    user_agent = request.env['HTTP_USER_AGENT'].downcase;
+    if user_agent.match(/mac/i)
+      "Mac"
+    elsif user_agent.match(/ios|iphone|ipad|ipod/i)
+      "iOS"
+    elsif user_agent.match(/linux/i)
+      "Linux"
+    elsif user_agent.match(/android/i)
+      "Android"
+    elsif user_agent.match(/freebsd/i)
+      "FreeBSD"
+    elsif user_agent.match(/openbsd/i)
+      "OpenBSD"
+    elsif user_agent.match(/netbsd/i)
+      "NetBSD"
+    elsif user_agent.match(/dragonfly/i)
+      "DragonFlyBSD"
+    elsif user_agent.match(/bsd/i)
+      "BSD"
+    elsif user_agent.match(/solaris/i)
+      "Solaris"
+    elsif user_agent.match(/sunos/i)
+      "SunOS"
+    elsif user_agent.match(/unix/i)
+      "Unix"
+    elsif user_agent.match(/amigaos/i)
+      "AmigaOS"
+    elsif user_agent.match(/beos/i)
+      "BeOS"
+    elsif user_agent.match(/aros/i)
+      "AROS"
+    elsif user_agent.match(/haiku/i)
+      "Haiku"
+    elsif user_agent.match(/dos/i)
+      "DOS"
+    elsif user_agent.match(/windows/i)
+      "Windows"
+    elsif user_agent.match(/java/i)
+      "Java"
+    elsif user_agent.match(/googlebot/i)
+      "GoogleBot"
+    elsif user_agent.match(/baiduspider/i)
+      "BaiduSpider"
+    elsif user_agent.match(/bingbot/i)
+      "BingBot"
+    elsif user_agent.match(/facebook/i)
+      "Facebook"
+    elsif user_agent.match(/domainappender/i)
+      "DomainAppender"
+    else
+      user_agent
+    end
+  end
 
 
 

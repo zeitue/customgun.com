@@ -4,10 +4,15 @@ class OrdersController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :carts]
   
   def index
-    @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
+    if current_user.admin
+      @orders = (User.all.map do |user| user.orders[0..-1].map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0) end.compact end.reverse.reject &:empty?).first.reverse
+    else
+      @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
+    end
   end
   
   def show
+    check_ownership(@order)
   end
 
   def carts
@@ -16,10 +21,12 @@ class OrdersController < ApplicationController
 
   def invoice
     @order = set_order
+    check_ownership(@order)
   end
 
   def details
     @order = set_order
+    check_ownership(@order)
   end
 
   def update
@@ -36,6 +43,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    check_ownership(@order)
   end
 
   private

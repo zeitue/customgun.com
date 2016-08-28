@@ -67,5 +67,13 @@
                   %p
           .col-md-3.col-sm-3.col-xs-12
             .row{ :style => "width:100%;" }
-              =link_to "Track", "#", class: "btn btn-primary btn-block"
+              -if shipping_method.service_name.to_s.downcase.include? "usps"
+                -tracking_site = "https://tools.usps.com/go/TrackConfirmAction?tLabels="  + shipment.tracking.to_s
+              -elsif shipping_method.service_name.to_s.downcase.include? "fedex"
+                -tracking_site = "https://www.fedex.com/apps/fedextrack/?tracknumbers="  + shipment.tracking.to_s
+              -else
+                -tracking_site= "#"
+              =link_to "Track", tracking_site.to_s, class: "btn btn-primary btn-block"
+              -if current_user.admin
+                =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
 
