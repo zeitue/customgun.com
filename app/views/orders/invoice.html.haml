@@ -23,30 +23,46 @@
       %b= "Details for Order #" + ("%08X" % @order.id)
   %p
   .row
-    .col-md-6.col-sm-6.col-xs-12
+    .col-md-6.col-sm-6.col-xs-6
       .row
-        %h3
-          %b Custom Shop, LLC
-        %p
+        .col-md-3.col-sm-3.col-xs-6
+          .widewrapper= image_tag 'theme/store_default/tr.svg', size: '128x128'
       .row
-        %b= "Order Placed: "
-        #{@order.updated_at}
+        .col-md-12.col-sm-12.col-xs-12
+          %h4
+            %b Custom Shop, LLC
+          %p
       .row
-        %b= "Customgun.com order number"
-        = ("%08X" % @order.id)
+        .col-md-12.col-sm-12.col-xs-12
+          %b= "Order Placed: "
+          #{@order.updated_at}
       .row
-        %b Order Total
-        =number_to_currency @order.total
+        .col-md-12.col-sm-12.col-xs-12
+          %b= "Customgun.com order number"
+          = ("%08X" % @order.id)
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          %b Email
+          =link_to 'customgun.tr@gmail.com', 'mailto:customgun.tr@gmail.com?Subject=' + 'Order: #' + ("%08X" % @order.id).to_s
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          %b Shipped from
+          7680 N US Highway 69. Alba, TX 75410, United States
+      .row
+        .col-md-12.col-sm-12.col-xs-12
+          %b Order Total
+          =number_to_currency @order.total
       %p
-    .col-md-5.col-sm-5.col-xs-12.well
+    .col-md-6.col-sm-6.col-xs-6.well
       .row
-        %b Shipping Address
-      -address = @order.get_address
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          %b Shipping Address
+          -address = @order.get_address
       .row
         .col-lg-12.col-md-12.col-sm-12.col-xs-12
           -if !address.first_name.nil? && !address.first_name.empty?
             .row
-              .col-lg-12.col-md-12.col-sm-12.col-xs-12= address.name
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12= address.name.to_s + " (" + @order.user.email.to_s + ")"
           -if !address.address_line1.empty?
             .row
               .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1.titleize
@@ -71,6 +87,7 @@
               .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
             %p
             %p
+        
   %table.table-striped.table-hover.table-responsive{style: 'width:100%;'}
     %thead
       %td
