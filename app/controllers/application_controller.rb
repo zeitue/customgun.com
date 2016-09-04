@@ -57,6 +57,8 @@ class ApplicationController < ActionController::Base
       "Linux"
     elsif user_agent.match(/android/i)
       "Android"
+    elsif user_agent.match(/cros/i)
+      "ChromeOS"
     elsif user_agent.match(/freebsd/i)
       "FreeBSD"
     elsif user_agent.match(/openbsd/i)
@@ -97,6 +99,30 @@ class ApplicationController < ActionController::Base
       "Facebook"
     elsif user_agent.match(/domainappender/i)
       "DomainAppender"
+    elsif user_agent.match(/yandex/i)
+      "YandexBot"
+    elsif user_agent.match(/yahoo! slurp/i)
+      "YahooSlurp"
+    elsif user_agent.match(/twitterbot/i)
+      "TwitterBot"
+    elsif user_agent.match(/scrapy/i)
+      "Scrapy"
+    elsif user_agent.match(/msnbot/i)
+      "MSNBot"
+    elsif user_agent.match(/seznambot/i)
+      "SeznamBot"
+    elsif user_agent.match(/pinterest/i)
+      "Pinterest"
+    elsif user_agent.match(/paperlibot/i)
+      "PaperliBot"
+    elsif user_agent.match(/fatbot/i)
+      "FatBot"
+    elsif user_agent.match(/safednsbot/i)
+      "SafeDNSBot"
+    elsif user_agent.match(/istellabot/i)
+      "IstellaBot"
+    elsif user_agent.match(/linkdexbot/i)
+      "LinkdexBot"
     else
       user_agent
     end
