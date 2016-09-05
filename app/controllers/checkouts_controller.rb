@@ -122,7 +122,7 @@ class CheckoutsController < ApplicationController
   end
 
   def make_active_package(pack) # 1.15 is to give a 15% buffer weight
-    ActiveShipping::Package.new((pack.weight_limit-pack.packings.first.remaining_weight)*1000*1.15, [pack.dimensions.x,pack.dimensions.y,pack.dimensions.z])
+    ActiveShipping::Package.new((pack.weight_limit-pack.packings.first.remaining_weight)*1.15, [pack.dimensions.x,pack.dimensions.y,pack.dimensions.z])
   end
   
   def make_active_location(address)
