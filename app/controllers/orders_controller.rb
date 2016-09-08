@@ -32,8 +32,8 @@ class OrdersController < ApplicationController
 
   def update
     check_ownership(@order)
-    update_attachments if params[:order][:shipping_methods_attributes]
     if @order.update(order_params)
+      update_attachments if params[:order][:shipping_methods_attributes]
       if params[:packaging]
         redirect_to packaging_path
       else
@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
     params[:order][:shipping_methods_attributes].each do |a, b, c|
       price = b[:price].partition(' ')[0]
       service_name = eval(b[:price].partition(' ')[2])[:service_name]
-      Order.find(params[:id]).shipping_methods.create!(:service_name => service_name, :price => price, :id => b[:id])
+      Order.find(params[:id]).shipping_methods.create(:service_name => service_name, :price => price, :id => b[:id])
     end
   end
 end

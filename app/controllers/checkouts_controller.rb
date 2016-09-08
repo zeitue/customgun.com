@@ -50,8 +50,8 @@ class CheckoutsController < ApplicationController
       if !@shipping_methods.where("service_name like ?", "%drop shipped%").first.nil?
         @order.shipments.push(make_drop_shipment(@order, "hawkins precision, llc"))
       end
-      @order.shipping = @shipping_methods.sum(:price)
-      st=@order.get_address.city.to_s.downcase
+      @order.shipping = @order.shipping_methods.sum(:price)
+      st=@order.get_address.state.to_s.downcase
       if  st == "texas" || st == "tx" || st == "lone star state" || st == "beef state" || st == "jumbo state" || st == "super-american state" || st == "banner state" || st == "blizzard state"
         @order.tax = ('%.2f' % ((@order.subtotal + @order.shipping).to_f * 0.0675))
       else
@@ -201,7 +201,7 @@ class CheckoutsController < ApplicationController
 
   def usps_rates(origin, destination, packages)
     usps = ActiveShipping::USPS.new(login: ENV['USPS_LOGIN'], password: ENV['USPS_PASSWORD'])
-    get_rates_from_shipper(usps, origin, destination, packages).delete_if{|val| (val.service_name.include?("Media") || val.service_name.include?("Library") ||  val.service_name.include?("Envelope") || val.service_name.include?("Letter"))}
+    get_rates_from_shipper(usps, origin, destination, packages).delete_if{|val| (val.service_name.include?("Media") || val.service_name.include?("Library") ||  val.service_name.include?("Envelope") || val.service_name.include?("Letter") || val.service_name.include?("Parcel"))}
   end
 
   def origin
