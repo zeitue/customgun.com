@@ -36,5 +36,6 @@
     -if !current_user.guest
       =link_to "Checkout", address_select_path, class: "btn btn-primary"
     -else
+      = link_to "Log in / Create account", new_user_session_path, class: "btn btn-primary"
       .text-danger You require an account to checkout
   %p
