@@ -55,7 +55,7 @@ class AddressesController < ApplicationController
 
   # DELETE /addresses/1
   def destroy
-    check_ownership(@@address)
+    check_ownership(@address)
     @address.destroy
     if params[:address_select]
       redirect_to address_select_path, notice: 'Address was successfully destroyed.'
