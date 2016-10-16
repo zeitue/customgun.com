@@ -18,6 +18,10 @@
         = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "price-addon"
     .field
       .input-group
+        %span#sale-price-addon.input-group-addon Sale Price
+        = f.number_field :sale_price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "sale-price-addon"
+    .field
+      .input-group
         %span#quantity-addon.input-group-addon Quantity
         = f.number_field :quantity, placeholder: "1", class: "form-control input-lg","aria-describedby" => "quantity-addon"
     .field
@@ -54,6 +58,60 @@
         = f.text_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "30 in", class: "form-control input-lg","aria-describedby" => "barrel-length-addon"
     .field
       .input-group
+        %span#field_of_view_low_power-addon.input-group-addon Field of view low power
+        = f.number_field :field_of_view_low_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "field_of_view_low_power-addon"
+    .field
+      .input-group
+        %span#field_of_view_high_power-addon.input-group-addon Field of view high power
+        = f.number_field :field_of_view_high_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "field_of_view_high_power-addon"
+    .field
+      .input-group
+        %span#diopter_adjustment-addon.input-group-addon Diopter adjustment
+        = f.text_field :diopter_adjustment, placeholder: "-3.0 / 2.5 dptr.", class: "form-control input-lg","aria-describedby" => "diopter_adjustment-addon"
+    .field
+      .input-group
+        %span#eye_relief-addon.input-group-addon Eye relief
+        = f.number_field :eye_relief, :class => 'text_field', :step => 0.1, placeholder: "100 mm", class: "form-control input-lg","aria-describedby" => "eye_relief-addon"
+    .field
+      .input-group
+        %span#exit_pupil_low_power-addon.input-group-addon Exit pupil low power
+        = f.number_field :exit_pupil_low_power, :class => 'text_field', :step => 0.1, placeholder: "10 mm", class: "form-control input-lg","aria-describedby" => "exit_pupil_low_power-addon"
+    .field
+      .input-group
+        %span#exit_pupil_high_power-addon.input-group-addon Exit pupil high power
+        = f.number_field :exit_pupil_high_power, :class => 'text_field', :step => 0.1, placeholder: "5 mm", class: "form-control input-lg","aria-describedby" => "exit_pupil_high_power-addon"
+    .field
+      .input-group
+        %span#elevation_travel-addon.input-group-addon Elevation travel
+        = f.text_field :elevation_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control input-lg","aria-describedby" => "elevation_travel-addon"
+    .field
+      .input-group
+        %span#windage_travel-addon.input-group-addon Windage travel
+        = f.text_field :windage_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control input-lg","aria-describedby" => "windage_travel-addon"
+    .field
+      .input-group.control-group
+        %span#moa_per_click-addon.input-group-addon MOA per click
+        .form-group
+          = f.number_field :moa_per_click_upper, :class => 'text_field', :step => 0.1, placeholder: "7.5 mm", class: "form-control input-lg","aria-describedby" => "moa_per_click-addon"
+          = f.number_field :moa_per_click_lower, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "moa_per_click-addon"
+    .field
+      .input-group
+        %span#total_travel-addon.input-group-addon Total travel
+        = f.text_field :total_travel, :class => 'text_field', :step => 0.1, placeholder: "±38 MOA", class: "form-control input-lg","aria-describedby" => "total_travel-addon"
+    .field
+      .input-group
+        %span#tube_diameter-addon.input-group-addon Tube diameter
+        = f.number_field :tube_diameter, :class => 'text_field', :step => 0.1, placeholder: "30 mm", class: "form-control input-lg","aria-describedby" => "tube_diameter-addon"
+    .field
+      .input-group
+        %span#position_of_reticle-addon.input-group-addon Position of reticle
+        = f.text_field :position_of_reticle, :class => 'text_field', :step => 0.1, placeholder: "2nd focal plane", class: "form-control input-lg","aria-describedby" => "position_of_reticle-addon"
+    .field
+      .input-group
+        %span#available_reticles-addon.input-group-addon Available reticles
+        = f.text_field :available_reticles, :class => 'text_field', :step => 0.1, placeholder: "type0, type1, typen", class: "form-control input-lg","aria-describedby" => "available_reticles-addon"
+    .field
+      .input-group
         %span#weight-addon.input-group-addon Weight
         = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control input-lg","aria-describedby" => "weight-addon"
     .field
@@ -80,6 +138,12 @@
       = f.select :store, [['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
     .form-group
       = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
+    .field.checkbox-inline
+      = f.check_box :parallax_compensation, type: "checkbox"
+      = f.label "Parallax compensation"
+    .field.checkbox-inline
+      = f.check_box :sale, type: "checkbox"
+      = f.label "This product is on sale"
     .field.checkbox-inline
       = f.check_box :exclusive, type: "checkbox"
       = f.label "This item ships by itself"

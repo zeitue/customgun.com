@@ -23,7 +23,7 @@
       -if !@product.price.nil?
         %h4.text-right
           Price:
-          %span= number_to_currency @product.price 
+          %span= number_to_currency @product.price
       -if @product.store == "optics" || @product.store == "guns"
         %table.table
           %tr
@@ -87,6 +87,63 @@
         %tr
           %td Barrel Length:
           %td= @product.barrel_length.to_s + " in."
+      -if(!@product.field_of_view_low_power.nil? && !(@product.field_of_view_low_power == 0.0))
+        %tr
+          %td Field of view low power
+          %td= m_yd(@product.field_of_view_low_power)
+      -if(!@product.field_of_view_high_power.nil? && !(@product.field_of_view_high_power == 0.0))
+        %tr
+          %td Field of view high power
+          %td= m_yd(@product.field_of_view_high_power)
+      -if(!@product.diopter_adjustment.nil? && !(@product.diopter_adjustment.empty?))
+        %tr
+          %td Diopter adjustment
+          %td= @product.diopter_adjustment
+      -if(!@product.eye_relief.nil? && !(@product.eye_relief == 0.0))
+        %tr
+          %td Eye relief
+          %td= "~" + mm_thou(@product.eye_relief)
+      -if(!@product.exit_pupil_low_power.nil? && !(@product.exit_pupil_low_power == 0.0))
+        %tr
+          %td Exit pupil low power
+          %td= mm_thou(@product.exit_pupil_low_power)
+      -if(!@product.exit_pupil_high_power.nil? && !(@product.exit_pupil_high_power == 0.0))
+        %tr
+          %td Exit pupil high power
+          %td= mm_thou(@product.exit_pupil_high_power)
+      -if(!@product.elevation_travel.nil? && !(@product.elevation_travel.empty?))
+        %tr
+          %td Elevation travel
+          %td= @product.elevation_travel
+
+      -if(!@product.windage_travel.nil? && !(@product.windage_travel.empty?))
+        %tr
+          %td Windage travel
+          %td= @product.windage_travel
+      -if(!@product.moa_per_click_lower.nil? && !(@product.moa_per_click_lower == 0.0) && !@product.moa_per_click_upper.nil? && !(@product.moa_per_click_upper == 0.0))
+        %tr
+          %td MOA per click
+          %td= @product.moa_per_click_upper.to_s + " mm / " +  @product.moa_per_click_lower.to_s + " m. " + (39.3701*@product.moa_per_click_upper).round(1).to_s + " thou / " +  (1.0936*@product.moa_per_click_lower).round(1).to_s + " yd."
+      -if(!@product.total_travel.nil? && !(@product.total_travel.empty?))
+        %tr
+          %td Total travel
+          %td= @product.total_travel
+      -if(@product.parallax_compensation)
+        %tr
+          %td Parrallax compensation
+          %td 50 m to ∞ m
+      -if(!@product.tube_diameter.nil? && !(@product.tube_diameter == 0.0))
+        %tr
+          %td Tube diameter
+          %td= mm_thou(@product.tube_diameter)
+      -if(!@product.position_of_reticle.nil? && !(@product.position_of_reticle.empty?))
+        %tr
+          %td Position of reticle
+          %td= @product.position_of_reticle
+      -if(!@product.available_reticles.nil? && !(@product.available_reticles.empty?))
+        %tr
+          %td Available reticles
+          %td= @product.available_reticles
       -if(!@product.height.nil? && !@product.width.nil? && !@product.length.nil?)
         %tr
           %td Dimensions (L x W x H):

@@ -1,16 +1,25 @@
 module ProductsHelper
+
+  def m_yd(value)
+    value.round(0).to_s + ' m / ' + (value*1.0936).round(0).to_s + ' yd'
+  end
+
+  def mm_thou(value)
+    value.round(1).to_s + ' mm / ' + (value*39.3701).round(1).to_s + ' thou'
+  end
+
   def dimensions_as_m(product)
     buffer = (product.length / 100).to_s + ' x '
     buffer += (product.width / 100).to_s + ' x '
     buffer += (product.height / 100).to_s + " m."
   end
-  
+
   def dimensions_as_cm(product)
     buffer = product.length.to_s + ' x '
     buffer += product.width.to_s + ' x '
     buffer += product.height.to_s + " cm."
   end
-  
+
   def dimensions_as_inches(product)
     buffer = (product.length / 2.54).round(2).to_s + ' x '
     buffer += (product.width / 2.54).round(2).to_s + ' x '

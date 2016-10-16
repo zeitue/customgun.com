@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816183348) do
+ActiveRecord::Schema.define(version: 20161015232459) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20160816183348) do
     t.float    "length"
     t.string   "tags"
     t.boolean  "exclusive"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "store"
     t.string   "caliber"
     t.string   "material"
@@ -103,8 +103,25 @@ ActiveRecord::Schema.define(version: 20160816183348) do
     t.string   "type_field"
     t.string   "style_field"
     t.string   "url"
-    t.boolean  "active",        default: true
+    t.boolean  "active",                   default: true
     t.string   "shipped_by"
+    t.boolean  "sale",                     default: false
+    t.float    "sale_price"
+    t.float    "field_of_view_low_power"
+    t.float    "field_of_view_high_power"
+    t.string   "diopter_adjustment"
+    t.float    "eye_relief"
+    t.float    "exit_pupil_low_power"
+    t.float    "exit_pupil_high_power"
+    t.string   "elevation_travel"
+    t.string   "windage_travel"
+    t.float    "moa_per_click_upper"
+    t.float    "moa_per_click_lower"
+    t.boolean  "parallax_compensation",    default: false
+    t.string   "total_travel"
+    t.float    "tube_diameter"
+    t.string   "position_of_reticle"
+    t.string   "available_reticles"
   end
 
   create_table "shipments", force: :cascade do |t|
@@ -123,6 +140,7 @@ ActiveRecord::Schema.define(version: 20160816183348) do
     t.string   "service_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "cost"
   end
 
   add_index "shipping_methods", ["order_id"], name: "index_shipping_methods_on_order_id"

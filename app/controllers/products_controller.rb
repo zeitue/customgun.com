@@ -139,7 +139,25 @@ class ProductsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def product_params
-      params.require(:product).permit(:title, :manufacturer, :model, :part_number, :price, :quantity, :description, :images, :schematic, :weight, :height, :width, :length, :tags, :categories, :exclusive, :store, :material, :caliber, :barrel_length, :type_field, :style_field, :active, :shipped_by, product_attachments_attributes: [:id, :product_id, :image])
+      params.require(:product).permit(:title, :manufacturer, :model,
+                                      :part_number, :price, :quantity,
+                                      :description, :images, :schematic,
+                                      :weight, :height, :width, :length, :tags,
+                                      :categories, :exclusive, :store, :material,
+                                      :caliber, :barrel_length, :type_field,
+                                      :style_field, :active, :shipped_by, :sale,
+                                      :sale_price, :field_of_view_low_power,
+                                      :field_of_view_high_power,
+                                      :diopter_adjustment, :eye_relief,
+                                      :exit_pupil_low_power,
+                                      :exit_pupil_high_power, :elevation_travel,
+                                      :windage_travel, :moa_per_click_upper,
+                                      :moa_per_click_lower,
+                                      :parallax_compensation, :total_travel,
+                                      :tube_diameter, :position_of_reticle,
+                                      :available_reticles,
+                                      product_attachments_attributes:
+                                        [:id, :product_id, :image])
     end
 
 
