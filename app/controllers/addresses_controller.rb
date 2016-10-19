@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   #before_action :check_owner, only: [:show, :edit, :update, :destroy]
   layout 'store'
 
-  
+
   # GET /addresses
   def index
     @addresses = Address.where(user_id: current_user.id)
