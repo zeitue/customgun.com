@@ -36,19 +36,19 @@ class Order < ActiveRecord::Base
   end
 
   def total_before_tax
-    self.subtotal.to_f + self.shipping.to_f + 3
+    self.subtotal.to_f + self.shipping.to_f + (0.20 * self.shipping.to_f)
   end
-  
+
   def update_prices
     self.items.each do |item|
-      item.price = Product.find(item.product_id).price
+      item.price = Product.find(item.product_id).get_price
       item.save!
     end
   end
 
 
   def update_total
-    self.total = '%.2f' % (self.subtotal.to_f + self.tax.to_f + self.shipping.to_f + 3)
+    self.total = '%.2f' % (self.subtotal.to_f + self.tax.to_f + self.shipping.to_f + (0.20 * self.shipping.to_f))
     self.save!
   end
 

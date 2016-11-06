@@ -87,7 +87,7 @@
               .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
             %p
             %p
-        
+
   %table.table-striped.table-hover.table-responsive{style: 'width:100%;'}
     %thead
       %td
@@ -116,7 +116,7 @@
           %b Shipping & Handling
         %td
         %td
-        %td=number_to_currency(@order.shipping + 3)
+        %td=number_to_currency(@order.shipping.to_f + @order.shipping.to_f*0.20)
       %tr
         %td
           %b Tax

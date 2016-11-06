@@ -23,7 +23,7 @@
       -if !@product.price.nil?
         %h4.text-right
           Price:
-          %span= number_to_currency @product.price
+          %span= number_to_currency @product.get_price
       -if @product.store == "optics" || @product.store == "guns"
         %table.table
           %tr

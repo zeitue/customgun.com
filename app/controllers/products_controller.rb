@@ -62,6 +62,7 @@ class ProductsController < ApplicationController
   end
 
   def sale_items
+    @sales_grid = initialize_grid(Product.where(:sale => true, :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def privacy_policy

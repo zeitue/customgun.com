@@ -29,16 +29,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="125.90115"
-     inkscape:cy="348.16197"
+     inkscape:cx="619.86575"
+     inkscape:cy="99.664443"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="1029"
      inkscape:window-x="1920"
-     inkscape:window-y="29"
+     inkscape:window-y="25"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -109,5 +109,43 @@
            d="m 694.27734,650.25336 6.91407,0 0,14.64843 19.6875,0 8.98437,9.0625 0,8.08594 -9.64844,9.6875 -7.61718,0 0,-15.66406 -18.67188,0 -8.98437,-8.63281 0,-7.89063 9.33593,-9.29687 z m 7.92969,33.86718 7.65625,0 0,7.61719 -17.77344,-0.0391 -7.1875,-8.51563 0,-3.32031 17.30469,0 0,4.25781 z m 10.39063,-26.25 -8.67188,0 0,-7.61718 18.35938,0 6.17187,6.17187 0,4.6875 -15.85937,0 0,-3.24219 z" />
       </g>
     </g>
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#0000cd;fill-opacity:1;stroke:none;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3345"
+       sodipodi:sides="16"
+       sodipodi:cx="500"
+       sodipodi:cy="859.36218"
+       sodipodi:r1="165.26595"
+       sodipodi:r2="82.632973"
+       sodipodi:arg1="0.77522902"
+       sodipodi:arg2="0.97157856"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 618.04298,975.02846 -71.43826,-47.42987 18.18921,83.79841 -47.84972,-71.15774 -15.26363,84.38034 -16.97649,-84.05247 -46.3927,72.11607 16.48124,-84.15092 -70.45891,48.87288 47.42987,-71.43825 -83.79839,18.1892 71.15772,-47.84972 -84.38032,-15.26362 84.05245,-16.9765 -72.11611,-46.3927 84.15097,16.48124 -48.87289,-70.4589 71.43826,47.42986 -18.18921,-83.79839 47.84972,71.15772 15.26363,-84.38032 16.97649,84.05246 46.3927,-72.11612 -16.48124,84.15097 70.45891,-48.87289 -47.42987,71.43826 83.79839,-18.1892 -71.15772,47.84972 84.38032,15.26362 -84.05245,16.9765 72.11611,46.39269 -84.15097,-16.48124 z"
+       inkscape:transform-center-x="-0.00096144815"
+       inkscape:transform-center-y="-0.0077098624"
+       transform="matrix(2.6656838,0,0,1,-832.8419,0)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;line-height:125%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="365.06421"
+       y="901.02216"
+       id="text3347"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3349"
+         x="365.06421"
+         y="901.02216"
+         style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:120px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Medium Italic'">Sale!</tspan></text>
+    <rect
+       style="opacity:1;fill:#f5f5f5;fill-opacity:1;stroke:none;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3351"
+       width="343.45187"
+       height="13.131984"
+       x="287.67883"
+       y="879.06451"
+       transform="matrix(0.99892311,-0.04639631,0.04639631,0.99892311,0,0)" />
   </g>
 </svg>

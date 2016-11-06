@@ -3,7 +3,7 @@
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
-  link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) + br() +" Price: " + (number_to_currency x.price).to_s
+  link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) + br() +" Price: " + (number_to_currency x.get_price).to_s
   end
 
 

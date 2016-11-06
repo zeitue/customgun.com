@@ -19,7 +19,7 @@ class CheckoutsController < ApplicationController
     Rails.cache.delete(:usps_packed)
 
     @items = @order.items.joins(:product).where(products: {shipped_by: nil})
-    if @items.count > 0 
+    if @items.count > 0
       @fedex_packed = make_packages("fedex",@items)
       @usps_packed = make_packages("usps",@items)
       @usps_packages = make_active_packages(@usps_packed)
@@ -46,7 +46,7 @@ class CheckoutsController < ApplicationController
         packed = Rails.cache.read(:usps_packed)
         make_shipments(@order, packed).each {|shipment| @order.shipments.push(shipment)}
       end
-      
+
       if !@shipping_methods.where("service_name like ?", "%drop shipped%").first.nil?
         @order.shipments.push(make_drop_shipment(@order, "hawkins precision, llc"))
       end
@@ -86,11 +86,11 @@ class CheckoutsController < ApplicationController
     items.each do |item|
       shipment.units.new(product_id: item.product.id,
                          quantity: item.quantity,
-                         price: item.product.price)
+                         price: item.product.get_price)
     end
     shipment
   end
-  
+
   def make_shipments(order, packed)
     shipments = []
     packed.each do |entry|
@@ -99,20 +99,20 @@ class CheckoutsController < ApplicationController
     shipments
   end
 
-  
+
   def make_shipment(order, packed)
     shipment = Shipment.new(order_id: order.id)
-    counts = Hash.new(0) 
+    counts = Hash.new(0)
     packed.packings.first.each {|entry| counts[entry.label]+=1 }
     counts.each do |entry|
       product = Product.where(url: entry.first).first
       shipment.units.new(product_id: product.id,
                          quantity: entry.last,
-                         price: product.price)
+                         price: product.get_price)
     end
     shipment
   end
-  
+
   def make_active_packages(packed)
     packages = []
     packed.each do |pack|
@@ -135,7 +135,7 @@ class CheckoutsController < ApplicationController
                                  city: address.city,
                                  zip: address.zip)
   end
-  
+
   def make_packages(provider, items)
     individual = items.joins(:product).where(products: {exclusive: true})
     grouped = items.joins(:product).where(products: {exclusive: false})
@@ -143,7 +143,7 @@ class CheckoutsController < ApplicationController
     individual.each do |item|
       packages.push(best_fit(provider, [item]))
     end
-    
+
     while grouped.count > 0
       entry = best_fit(provider, grouped)
       packages.push(entry)
@@ -151,7 +151,7 @@ class CheckoutsController < ApplicationController
     end
     packages
   end
-  
+
   def remove_from(entry, items)
     items_list = items.dup
     entry.packings.first.each do |package|
@@ -183,7 +183,7 @@ class CheckoutsController < ApplicationController
       items.each do |item|
         add_item [item.product.width, item.product.height, item.product.length], label: item.product.url, weight: item.product.weight, quantity: item.quantity
       end
-      pack! 
+      pack!
     end
   end
 
