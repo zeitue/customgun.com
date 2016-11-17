@@ -75,8 +75,22 @@ en:
   home_text7: "Check Out the New Rifles on Custom Rifle Page"
 
 
-  alchemist_series_text0: "Coming soon"
-
+  alchemist_series_text1: "Avani - Alchemist Warrior Rifle"
+  alchemist_series_text2: "Ember - Alchemist Warrior Rifle"
+  alchemist_series_text3: "Ember - Alchemist Warrior Rifle"
+  alchemist_series_text4: "Ember - Dallas Safari Club Special Alchemist Warrior Rifle"
+  alchemist_series_text5: "Zephyr - Alchemist Warrior Rifle"
+  alchemist_series_text6: "Ember - Alchemist Warrior Rifle with Winchester 70 Action ControlRound Feed with Match Grade Fluted Barrel"
+  alchemist_series_text7_html: "Todd Ramirez, Premium Rifle Builder is introducing the new Alchemist Warrior Rifle Series.  Warriors of yesterday, bestowing the lessons of their era; preision, stealth, and wisdom, each of these values incarnated into the very fabrication of the alchemist series. Rifles crafted of the very elements themselves, such care and passion poured into the smallest details, and each infused with the likeness of the olden warriors.  Avani warrior of earth; wood and carbon, the embodiment of his love and strength for his lands, is realized in the Avani rifle; a sleek high end wood rifle that is equipped with a carbon fiber barrel.  Ember warrior of fire; forged within the inner sparks of oblivion, by the ash and coal of an everelasting flame.  The Ember is an all around rifle that has options of a sporter or tactical stock and a stainless steel or carbon barrel.  Zephyr warrior of wind; wisdom and grace, the makings of a soul transcends into the long range rifle with the option of tactical stock or chassi.  The Ember and Zephyr rifles can be designed with base paint or custom paint up to five colors.  The Avani rifle can be designed with American Classic or European, using Turkish walnut stock blank with ebony forend tip.  Alchemist Warrior Rifles were built and designed with the same quality as Todd Ramirez's premium rifle line with the same craftsmanship at an affordable price.  When designing these rifles the goal was to make them unique, beautiful and be accurate to 1/4 moa.
+  <br>
+  <br>
+  Concept, Character and Story design by Tessa Ramirez
+  <br>
+  Rifle designs by Todd Ramirez"
+  alchemist_series_text8_html: "Avani Warrior Rifle is a lightweight rifle.  It is built with Turkish Walnut wood, handcrafted by Todd Ramirez, in a stalker tyle pattern with shadow line cheek piece.  Long open grip with two screw custom grip cap. It has a sculpted forearm with ebony tip, custom swivels and pad.  Wood finished is satin oil finish.  It is checkered in a point pattern at 22 l.p.i. It sports custom bottom metal is pillar bedded .010 barrel gap precision inletting.  All Avani rifles are custom built to clients dimensions of length of pull, cast and drop.  This rifle is lightweight and weighs in about six pounds.  It is built on an aftermarket Remington action.  It is available in both short and long action.  Stock design can be European or American Classic.  Barrel used is a Proof Carbon match grade barrel or stainless super match."
+  alchemist_series_text9_html: "Ember Warrior Rifle is a lightweight all around long range hunting rifle, it is suitable for long range tactical use.  Rifle can be built on Stiller action or control round feed action.  We use Pacnor super match grade fluted barrel or a Proof match grade carbon barrel.  Stock style available is light sporting stock or light tactical stock.  Rifle can be designed with base paint color or custom paint job up to five colors."
+  alchemist_series_text10_html: "Dallas Safari Club Life Members Breakfast Auction Gun.  This rifle was built exclusively for the Dallas Safari Club 2017 Adventures Convention.  6.5 Creedmore designed after the Ember Warrior rifle series.  This rifle has a blue printed action, match grade barrel, model 40 syle stock, painted with Riptile pattern including the scope four colors. Engraved with DSC Adventures 2017, Ember, Makers Name.  Outfitted in a Boyt double gun case"
+  alchemist_series_text11_html: "Zephyr Warrior is a long range tactical rifle.  It's is built on a blue printed Remington action or a Stiller action. Rifle is available in all calibers up to 338 Lapua.  This rifle is available with a chassi or McMillan tac stock.  Zephyr rifle can be designed in a base color or custom painted up to five colors."
 
   contact_text0: "Email: customgun.tr@gmail.com"
   contact_text1_html: "Mailing Address:<br><br>
@@ -755,6 +769,7 @@ Pistols:  All makes of 1911's and quality maker revolvers.  Example : Colt, Gloc
   Trap Door Grip Cap<br>
   Cross Bolts with Engraved with Mosaic Inlays<br>
   Engraving is Scroll with Gold Lion"
+  custom_rifles_text55: "30.06 Premium Rifle with Exhibition Turkish Walnut wood"
   double_rifles_text0_html: "Double Rifle Work:<br>
   Claw Mounts<br>
   Site Work<br>
@@ -806,6 +821,7 @@ Grip Cap"
   Classic Style Aluminum Bed"
   synthetic_rifles_text16: "Todd Ramirez's synthetic rifle line is based off of his premium wood rifles. The Syn-Fle rifle can be ordered with the classic or signature synthetic stock and is built on a Winchester action. This rifle can be made for all standard calibers up to 458 Lott. The Tac-Hunter is a rugged, tough and on target rifle built for the long range hunter.  It is built on a Stellar action or a Remington action. They are both asthetically pleasing to the ey.  They consistently shoot 1/2\" or better at 100 yards with factory ammo. Ramirez uses the best components in making his synthetic line of rifles. Super match grade Pac-Nor barrels are used and all actions are blue printed.  Standard bluing or Duracoat finish in a choice of colors: matte black, gray parkerized, matte green, and desert tan are used to finish the metal.  Stock design is with or without a cheek piece and painted to compliment the metal.  All rifles include 3-position safety, custom bottom metal, select action tuning, aluminum blocks bedded, custom trigger work, and jeweled bolts."
   synthetic_rifles_text17: "Premium 375 Synfle Synthetic Rifle, With Express Sights and Four Round Drop Box"
+  synthetic_rifles_text18: "338 Win Mag Synfle Synthetic Rifle" 
   signature_rifle_text0: "New American Classic custom rifle available in all standard calibers up to 458 Lott.  The American Classic is built identical to the Premium Signature Rifle.  The only difference is in the stock design.  It is styled American Classic with a full cheek piece and a slightly fuller forearm and a round forend tip."
   signature_rifle_text1: "This American Classic Rifle Is Built On A Winchester Action In Caliber .308"
   signature_rifle_text2: "This rifle has added options of skeleton buttplate and gripcap."
@@ -1055,4 +1071,13 @@ available in all standard calibers up to 458 Lott"
   Beretta SO10 engraved by L. Casari, Brand New Never Fired with Case. $83,000<br><br>
   Pair of ASEL’s, D. Zanetti is the engraver, Brand New, Never Fired with Case. $63,000"
 
-  pistol_text0: "Coming Soon"
+  pistol_text0: "Glock 45 customized 40 cal."
+  pistol_text1: "Fully customoized 9mm Glock"
+  pistol_text2: "Custom painted Sig 380"
+  pistol_text3: "Custom 1911 with custom paint"
+  pistol_text4: "Custom 1911 full build with custom paint"
+  pistol_text5: "1911 P12 full custom build with custom paint"
+  pistol_text6_html: "Custom Paint Duracoat one color $175.00<br>
+  Custom Paint Duracoat two colors $200.00<br>
+Custom Paint Jobs with Duracoat, by quote <br>
+Have an idea give us a call and we will see what we can do."
