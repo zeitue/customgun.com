@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get 'alchemist-series' => 'alchemist_series#index', :as => :alchemist_series
+  get 'alchemist-series/avani.odt' => 'alchemist_series#download_avani', :as => :avani
+  get 'alchemist-series/ember.odt' => 'alchemist_series#download_ember', :as => :ember
+  get 'alchemist-series/zephyr.odt' => 'alchemist_series#download_zephyr', :as => :zephyr
   get 'about' => 'about#index', :as => :about
   get 'boddington-rifle-project' => 'boddington_rifle_project#index', :as => :boddington_rifle_project
   get 'bracelet-helpers' => 'bracelet_helpers#index', :as => :bracelet_helpers

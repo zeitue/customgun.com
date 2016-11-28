@@ -2,7 +2,6 @@ class Address < ActiveRecord::Base
   belongs_to :user
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-    
   validate :address_line
   validates :country, :presence => true
   validates :state, :presence => true
@@ -28,7 +27,7 @@ class Address < ActiveRecord::Base
     self.zip = self.zip.strip.downcase
   end
 
-  
+
   def state_code
     if self.state.length > 2
       puts code = ::States.key(self.state.titleize)
@@ -41,7 +40,7 @@ class Address < ActiveRecord::Base
       self.state.upcase
     end
   end
-  
+
   def address_line
     unless !address_line1.empty? or !address_line2.empty?
       errors.add(:base, "At least one address line must be supplied")

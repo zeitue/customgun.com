@@ -41,7 +41,7 @@ class CheckoutsController < ApplicationController
       @order.shipments = []
       if !@shipping_methods.where("service_name like ?", "%fedex%").first.nil?
         packed = Rails.cache.read(:fedex_packed)
-        make_shipments(@order, packed).each {|shipment| @order.shipments.push(shipment)}      
+        make_shipments(@order, packed).each {|shipment| @order.shipments.push(shipment)}
       elsif !@shipping_methods.where("service_name like ?", "%usps%").first.nil?
         packed = Rails.cache.read(:usps_packed)
         make_shipments(@order, packed).each {|shipment| @order.shipments.push(shipment)}
