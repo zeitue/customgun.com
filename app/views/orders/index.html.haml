@@ -72,7 +72,7 @@
               -elsif shipping_method.service_name.to_s.downcase.include? "fedex"
                 -tracking_site = "https://www.fedex.com/apps/fedextrack/?tracknumbers="  + shipment.tracking.to_s
               -else
-                -tracking_site= "#"
+                -tracking_site= shipment.tracking.to_s
               =link_to "Track", tracking_site.to_s, class: "btn btn-primary btn-block"
               -if current_user.admin
                 =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"

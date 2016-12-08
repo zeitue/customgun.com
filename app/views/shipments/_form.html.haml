@@ -8,8 +8,8 @@
 
   .field
     .input-group
-      %span#tracking-addon.input-group-addon Tracking Number
-      = f.text_field :tracking, placeholder: "Tracking number", class: "form-control input-lg","aria-describedby" => "tracking-addon"
+      %span#tracking-addon.input-group-addon Tracking Number/URL
+      = f.text_field :tracking, placeholder: "Tracking number or URL for drop shipped", class: "form-control input-lg","aria-describedby" => "tracking-addon"
   %p
   .actions
     = f.submit 'Save', :class => "btn btn-primary"
