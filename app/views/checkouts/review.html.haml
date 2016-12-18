@@ -1,0 +1,119 @@
+- content_for :title,  "Review your order"
+.page-header
+  %h1 Review your order
+=form_for @order do |f|
+  .row
+    .col-lg-8.col-md-8.col-sm-12.col-xs-12
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          .panel.panel-default
+            .panel-body
+              %b Shipping Address
+              -address = @order.get_address
+              .row
+                .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                  -if !address.first_name.nil? && !address.first_name.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12= address.name
+                  -if !address.address_line1.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line1.titleize
+                  -if !address.address_line2.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.address_line2.titleize
+                  -if !address.city.empty? && !address.state.empty? && !address.zip.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                        =(address.city.to_s + ', ' + address.state.to_s + ' ' + address.zip.to_s).titleize
+                  -if !address.country.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
+                  -if !address.phone.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+                  -if !address.fax.nil? && !address.fax.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Fax: " + address.fax.to_s
+                  -if !address.company.nil? && !address.company.empty?
+                    .row
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12=address.company.to_s.titleize
+                    %p
+                    %p
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          .panel.panel-default
+            .panel-body
+              .row
+                .col-lg-12
+                  %b
+                    Comment
+                  %p
+                  .field= f.text_area :comment, class: 'form-control input'
+              %p
+              -@order.items.each do |unit|
+                .row
+                  .col-lg-4
+                    .widewrapper=image_tag(unit.product.photos.first.image.thumb) unless unit.product.photos.first.nil?
+                  .col-lg-8
+                    %h4
+                      %b
+                        =unit.product.title.titleize
+                    %p
+                      .text-danger
+                        %b
+                          = "Price #{number_to_currency unit.price}"
+                    %p
+                    %b
+                      = "Quantity #{unit.quantity}"
+                %p
+
+
+    .col-lg-4.col-md-4.col-sm-12.col-xs-12
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          .panel.panel-default
+            .panel-body
+              .row
+                .col-lg-12
+                  .action
+                    =f.submit 'Place your order', name: "packaging", class: 'btn btn-primary btn-block'
+                  %p
+                  %p
+                    By placing your order, you agree to customgun.com's
+                    = link_to('payment policy', payment_policy_path, :target => '_blank') + ', '
+                    = link_to('privacy policy', privacy_policy_path, :target => '_blank') + ', '
+                    = link_to('return policy', return_policy_path, :target => '_blank') + ', and '
+                    = link_to('shipping policy', shipping_policy_path, :target => '_blank') + '.'
+              .row
+                .col-lg-12
+                  %b Order Summary
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  ="Items (#{@order.quantity}):"
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .pull-right= number_to_currency @order.cost
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  Shipping & handling:
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .pull-right= number_to_currency @order.shipping_and_handling
+              %hr
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  Total before tax:
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .pull-right= number_to_currency @order.total_before_tax
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  Tax to be collected:
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .pull-right= number_to_currency @order.tax
+              %hr
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .text-danger
+                    %b Order Total:
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  .pull-right
+                    .text-danger
+                      %b= number_to_currency @order.total

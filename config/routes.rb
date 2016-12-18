@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice
   get '/store/checkout/address-select' => 'checkouts#address_select', :as => :address_select
   get '/store/checkout/shipping-select' => 'checkouts#shipping_select', :as => :shipping_select
+  get '/store/checkout/review' => 'checkouts#review', :as => :review
+  get '/store/checkout/process-order' => 'checkouts#process_order', :as => :process_order
   get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
   get '/store/checkout/approved' => 'checkouts#approved', :as => :approved
   get '/store/checkout/disapproved' => 'checkouts#disapproved', :as => :disapproved

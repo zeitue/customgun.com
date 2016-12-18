@@ -76,4 +76,7 @@
               =link_to "Track", tracking_site.to_s, class: "btn btn-primary btn-block"
               -if current_user.admin
                 =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
-
+        -if !order.comment.empty?
+          .row
+            %p
+              ="Comment: #{order.comment}"

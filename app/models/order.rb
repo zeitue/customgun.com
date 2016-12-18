@@ -15,11 +15,18 @@ class Order < ActiveRecord::Base
       nil
     end
   end
-  
+
   def quantity
     self.items.collect { |oi| oi.valid? ? oi.quantity.to_i : 0 }.sum
   end
 
+  def cost
+    self.items.collect { |oi| oi.valid? ? oi.price.to_i : 0 }.sum
+  end
+
+  def shipping_and_handling
+    self.shipping.to_f + (0.20 * self.shipping.to_f)
+  end
 
   def update_order
     update_prices

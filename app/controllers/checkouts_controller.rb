@@ -32,8 +32,11 @@ class CheckoutsController < ApplicationController
     end
   end
 
+  def review
+    @order = current_order
+  end
 
-  def packaging
+  def process_order
     @order = current_order
     @shipping_methods = @order.shipping_methods
     if @shipping_methods.count > 0
@@ -60,8 +63,12 @@ class CheckoutsController < ApplicationController
       @order.save
       @order.update_order
     end
+    redirect_to review_path
   end
 
+  def packaging
+    @order = current_order
+  end
 
   def approved
     @order = current_order

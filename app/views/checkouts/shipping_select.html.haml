@@ -5,7 +5,7 @@
   .row
     .pull-right
       .action
-        = f.submit 'Continue', name: "packaging", :class => "btn btn-primary"
+        = f.submit 'Continue', name: "process_order", :class => "btn btn-primary"
   -@shippers.zip(@order.shipping_methods).each do |shipper, shipping_method|
     .row
       .col-md-6.col-sm-6.col-xs-6
@@ -48,4 +48,4 @@
   .row
     .pull-right
       .action
-        = f.submit 'Continue', name: "packaging", :class => "btn btn-primary"
+        = f.submit 'Continue', name: "process_order", :class => "btn btn-primary"

@@ -12,12 +12,12 @@
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
-  
+
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
   }
-  
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -31,7 +31,7 @@
 .centered
   .loader{}
 
-  
+
 %form{:action => "https://www.eprocessingnetwork.com/cgi-bin/dbe/order.pl",:id => 'form', :method => "POST"}
   =hidden_field_tag 'ePNAccount', ENV['EPNACCOUNT']
   =hidden_field_tag 'LogoURL', "https://customgun.com/assets/theme/default/tr.png"
@@ -40,8 +40,6 @@
   =hidden_field_tag 'ReturnDeclinedURL', 'http://customgun.com/disapproved'
   =hidden_field_tag 'TaxRate', '0.0675'
   %input{:name => "ApplyTax", :type => "checkbox", :checked => "#{@order.tax != 0.0 ? "check" : ""}", :style => "display: none;"}
-  =hidden_field_tag 'ServiceDesc', 'Service/Convenience Fee'
-  =hidden_field_tag 'ServiceFee', '3'
   =hidden_field_tag 'BillFirstName', @order.get_address.first_name
   =hidden_field_tag 'BillLastName', @order.get_address.last_name
   =hidden_field_tag 'BillAddress', @order.get_address.address_line1

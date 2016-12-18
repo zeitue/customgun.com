@@ -2,16 +2,16 @@ class OrdersController < ApplicationController
   layout 'store'
   before_action :set_order, only: [:edit, :update]
   before_action :authenticate_admin!, only: [:new, :edit, :create, :destroy, :carts]
-  
+
   def index
     if current_user.admin
-      @orders = (User.all.map do |user| user.orders.map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order) end.compact end).compact.reject(&:empty?).flatten.reverse
+      @orders = (User.all.map do |user| user.orders.map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order) end.compact end).compact.reject(&:empty?).flatten.sort_by(&:updated_at).reverse
 
     else
-      @orders = current_user.orders.sort_by(&:id).reverse.drop(1)
+      @orders = current_user.orders.sort_by(&:updated_at).reverse.drop(1)
     end
   end
-  
+
   def show
     check_ownership(@order)
   end
@@ -34,7 +34,9 @@ class OrdersController < ApplicationController
     check_ownership(@order)
     if @order.update(order_params)
       update_attachments if params[:order][:shipping_methods_attributes]
-      if params[:packaging]
+      if params[:process_order]
+        redirect_to process_order_path
+      elsif params[:packaging]
         redirect_to packaging_path
       else
         redirect_to shipping_select_path
@@ -51,7 +53,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, shipping_methods_attributes: [:id, :service_name, :price ])
+    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, :comment, shipping_methods_attributes: [:id, :service_name, :price ])
   end
 
   # Use callbacks to share common setup or constraints between actions.
