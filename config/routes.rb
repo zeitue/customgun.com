@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
   get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice
@@ -39,8 +37,8 @@ Rails.application.routes.draw do
   resource :checkout, path: 'store/checkout'
   resources :items, path: 'store/items'
   resources :orders, path: 'store/orders'
-  devise_for :users, path: 'store/users', :controllers => { registrations: 'registrations' }
-  resources :users, path: 'store/users', :only => [:show, :index, :destroy]
+  devise_for :users, path: 'store/users', controllers: { registrations: 'registrations' }
+  resources :users, path: 'store/users', only: [:show, :index, :destroy]
   resources :photos, path: 'store/photos'
   resources :products, path: 'store'
 
@@ -80,7 +78,6 @@ Rails.application.routes.draw do
   get 'taylors-pens-and-gifts' => 'taylors_pens_and_gifts#index', :as => :taylors_pens_and_gifts
   get 'trophy-room' => 'trophy_room#index', :as => :trophy_room
   get 'wine-stoppers' => 'wine_stoppers#index', :as => :wine_stoppers
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

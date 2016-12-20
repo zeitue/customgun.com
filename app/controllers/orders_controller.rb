@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin
-      @orders = (User.all.map do |user| user.orders.map  do |order| order unless (order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order) end.compact end).compact.reject(&:empty?).flatten.sort_by(&:updated_at).reverse
+      @orders = (User.all.map { |user| user.orders.map { |order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:updated_at).reverse
 
     else
       @orders = current_user.orders.sort_by(&:updated_at).reverse.drop(1)
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def carts
-    @orders = User.all.map { |user| user.orders.last unless user.orders.last.items.count == 0}.reverse
+    @orders = User.all.map { |user| user.orders.last unless user.orders.last.items.count == 0 }.reverse
   end
 
   def invoice
@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, :comment, shipping_methods_attributes: [:id, :service_name, :price ])
+    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, :comment, shipping_methods_attributes: [:id, :service_name, :price])
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -63,10 +63,10 @@ class OrdersController < ApplicationController
 
   def update_attachments
     Order.find(params[:id]).shipping_methods.each(&:destroy) if Order.find(params[:id]).shipping_methods.present?
-    params[:order][:shipping_methods_attributes].each do |a, b, c|
+    params[:order][:shipping_methods_attributes].each do |_a, b, _c|
       price = b[:price].partition(' ')[0]
       service_name = eval(b[:price].partition(' ')[2])[:service_name]
-      Order.find(params[:id]).shipping_methods.create(:service_name => service_name, :price => price, :id => b[:id])
+      Order.find(params[:id]).shipping_methods.create(service_name: service_name, price: price, id: b[:id])
     end
   end
 end

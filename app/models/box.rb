@@ -1,7 +1,7 @@
 class Box < ActiveRecord::Base
-    before_validation :default_values
+  before_validation :default_values
 
   def default_values
-    self.provider = self.provider.strip.downcase
+    self.provider = provider.strip.downcase
   end
 end

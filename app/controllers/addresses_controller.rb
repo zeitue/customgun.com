@@ -1,8 +1,7 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
-  #before_action :check_owner, only: [:show, :edit, :update, :destroy]
+  # before_action :check_owner, only: [:show, :edit, :update, :destroy]
   layout 'store'
-
 
   # GET /addresses
   def index
@@ -66,24 +65,23 @@ class AddressesController < ApplicationController
 
   private
 
-    #def check_owner
-     # if !owns_address? || !current_user.admin
-     #   redirect_to products_path, alert: "Operation failed: Permission denied"
-    #  end
+  # def check_owner
+  # if !owns_address? || !current_user.admin
+  #   redirect_to products_path, alert: "Operation failed: Permission denied"
+  #  end
   #  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address
-      @address = Address.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_address
+    @address = Address.find(params[:id])
+  end
 
-    def owns_address?
-      @address.user_id == current_user.id
-    end
+  def owns_address?
+    @address.user_id == current_user.id
+  end
 
-
-    # Only allow a trusted parameter "white list" through.
-    def address_params
-      params.require(:address).permit(:prefix, :first_name, :middle_name, :last_name, :suffix, :address_line1, :address_line2, :country, :state, :city, :zip, :phone, :fax, :company, :user_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def address_params
+    params.require(:address).permit(:prefix, :first_name, :middle_name, :last_name, :suffix, :address_line1, :address_line2, :country, :state, :city, :zip, :phone, :fax, :company, :user_id)
+  end
 end

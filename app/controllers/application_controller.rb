@@ -9,132 +9,125 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
   before_action :current_user
 
-
   def store_location
-
     return unless request.get?
-    if (request.path != "/" &&
-        request.path != "/store/users/sign_in" &&
-        request.path != "/store/users/sign_up" &&
-        request.path != "/store/users/password/new" &&
-        request.path != "/store/users/password/edit" &&
-        request.path != "/store/users/confirmation" &&
-        request.path != "/store/users/sign_out" &&
-        !request.xhr?)
-      session[:previous_url] = request.fullpath 
+    if request.path != '/' &&
+       request.path != '/store/users/sign_in' &&
+       request.path != '/store/users/sign_up' &&
+       request.path != '/store/users/password/new' &&
+       request.path != '/store/users/password/edit' &&
+       request.path != '/store/users/confirmation' &&
+       request.path != '/store/users/sign_out' &&
+       !request.xhr?
+      session[:previous_url] = request.fullpath
     end
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     session[:previous_url] || products_path
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     request.referrer
   end
 
   def authenticate_admin!
     authenticate_user!
     unless current_user.admin?
-      redirect_to products_path, alert: "Operation failed: Permission denied"
+      redirect_to products_path, alert: 'Operation failed: Permission denied'
     end
   end
 
-
   def check_ownership(object)
-    unless (current_user.id == object.user.id || current_user.admin?)
-      redirect_to products_path, alert: "Operation failed: Permission denied"
+    unless current_user.id == object.user.id || current_user.admin?
+      redirect_to products_path, alert: 'Operation failed: Permission denied'
     end
   end
 
   def get_operating_system
-    user_agent = request.env['HTTP_USER_AGENT'].downcase;
-    if user_agent.match(/mac/i)
-      "Mac"
-    elsif user_agent.match(/ios|iphone|ipad|ipod/i)
-      "iOS"
-    elsif user_agent.match(/linux/i)
-      "Linux"
-    elsif user_agent.match(/android/i)
-      "Android"
-    elsif user_agent.match(/cros/i)
-      "ChromeOS"
-    elsif user_agent.match(/freebsd/i)
-      "FreeBSD"
-    elsif user_agent.match(/openbsd/i)
-      "OpenBSD"
-    elsif user_agent.match(/netbsd/i)
-      "NetBSD"
-    elsif user_agent.match(/dragonfly/i)
-      "DragonFlyBSD"
-    elsif user_agent.match(/bsd/i)
-      "BSD"
-    elsif user_agent.match(/solaris/i)
-      "Solaris"
-    elsif user_agent.match(/sunos/i)
-      "SunOS"
-    elsif user_agent.match(/unix/i)
-      "Unix"
-    elsif user_agent.match(/amigaos/i)
-      "AmigaOS"
-    elsif user_agent.match(/beos/i)
-      "BeOS"
-    elsif user_agent.match(/aros/i)
-      "AROS"
-    elsif user_agent.match(/haiku/i)
-      "Haiku"
-    elsif user_agent.match(/dos/i)
-      "DOS"
-    elsif user_agent.match(/windows/i)
-      "Windows"
-    elsif user_agent.match(/java/i)
-      "Java"
-    elsif user_agent.match(/googlebot/i)
-      "GoogleBot"
-    elsif user_agent.match(/baiduspider/i)
-      "BaiduSpider"
-    elsif user_agent.match(/bingbot/i)
-      "BingBot"
-    elsif user_agent.match(/facebook/i)
-      "Facebook"
-    elsif user_agent.match(/domainappender/i)
-      "DomainAppender"
-    elsif user_agent.match(/yandex/i)
-      "YandexBot"
-    elsif user_agent.match(/yahoo! slurp/i)
-      "YahooSlurp"
-    elsif user_agent.match(/twitterbot/i)
-      "TwitterBot"
-    elsif user_agent.match(/scrapy/i)
-      "Scrapy"
-    elsif user_agent.match(/msnbot/i)
-      "MSNBot"
-    elsif user_agent.match(/seznambot/i)
-      "SeznamBot"
-    elsif user_agent.match(/pinterest/i)
-      "Pinterest"
-    elsif user_agent.match(/paperlibot/i)
-      "PaperliBot"
-    elsif user_agent.match(/fatbot/i)
-      "FatBot"
-    elsif user_agent.match(/safednsbot/i)
-      "SafeDNSBot"
-    elsif user_agent.match(/istellabot/i)
-      "IstellaBot"
-    elsif user_agent.match(/linkdexbot/i)
-      "LinkdexBot"
+    user_agent = request.env['HTTP_USER_AGENT'].downcase
+    if user_agent =~ /mac/i
+      'Mac'
+    elsif user_agent =~ /ios|iphone|ipad|ipod/i
+      'iOS'
+    elsif user_agent =~ /linux/i
+      'Linux'
+    elsif user_agent =~ /android/i
+      'Android'
+    elsif user_agent =~ /cros/i
+      'ChromeOS'
+    elsif user_agent =~ /freebsd/i
+      'FreeBSD'
+    elsif user_agent =~ /openbsd/i
+      'OpenBSD'
+    elsif user_agent =~ /netbsd/i
+      'NetBSD'
+    elsif user_agent =~ /dragonfly/i
+      'DragonFlyBSD'
+    elsif user_agent =~ /bsd/i
+      'BSD'
+    elsif user_agent =~ /solaris/i
+      'Solaris'
+    elsif user_agent =~ /sunos/i
+      'SunOS'
+    elsif user_agent =~ /unix/i
+      'Unix'
+    elsif user_agent =~ /amigaos/i
+      'AmigaOS'
+    elsif user_agent =~ /beos/i
+      'BeOS'
+    elsif user_agent =~ /aros/i
+      'AROS'
+    elsif user_agent =~ /haiku/i
+      'Haiku'
+    elsif user_agent =~ /dos/i
+      'DOS'
+    elsif user_agent =~ /windows/i
+      'Windows'
+    elsif user_agent =~ /java/i
+      'Java'
+    elsif user_agent =~ /googlebot/i
+      'GoogleBot'
+    elsif user_agent =~ /baiduspider/i
+      'BaiduSpider'
+    elsif user_agent =~ /bingbot/i
+      'BingBot'
+    elsif user_agent =~ /facebook/i
+      'Facebook'
+    elsif user_agent =~ /domainappender/i
+      'DomainAppender'
+    elsif user_agent =~ /yandex/i
+      'YandexBot'
+    elsif user_agent =~ /yahoo! slurp/i
+      'YahooSlurp'
+    elsif user_agent =~ /twitterbot/i
+      'TwitterBot'
+    elsif user_agent =~ /scrapy/i
+      'Scrapy'
+    elsif user_agent =~ /msnbot/i
+      'MSNBot'
+    elsif user_agent =~ /seznambot/i
+      'SeznamBot'
+    elsif user_agent =~ /pinterest/i
+      'Pinterest'
+    elsif user_agent =~ /paperlibot/i
+      'PaperliBot'
+    elsif user_agent =~ /fatbot/i
+      'FatBot'
+    elsif user_agent =~ /safednsbot/i
+      'SafeDNSBot'
+    elsif user_agent =~ /istellabot/i
+      'IstellaBot'
+    elsif user_agent =~ /linkdexbot/i
+      'LinkdexBot'
     else
       user_agent
     end
   end
 
-
-
-
   def current_order
     current_user.orders.last
   end
-
 
   def current_user
     super || guest_user
@@ -153,34 +146,31 @@ class ApplicationController < ActionController::Base
   def create_guest_user
     user = User.new { |user| user.guest = true }
     user.email = "guest#{Time.now.to_i.to_s(16)}#{rand(99).to_s(16)}_#{get_operating_system.downcase}@customgun.com"
-    user.save(:validate => false)
+    user.save(validate: false)
     user
   end
-
 
   protected
 
   def layout_by_resource
     if devise_controller?
-      "store"
+      'store'
     else
-      "application"
+      'application'
     end
   end
-
 
   def configure_devise_permitted_parameters
     registration_params = [:first_name, :last_name, :email, :password, :password_confirmation]
 
     if params[:action] == 'update'
-      devise_parameter_sanitizer.for(:account_update) {
-        |u| u.permit(registration_params << :current_password)
-      }
+      devise_parameter_sanitizer.for(:account_update) do |u|
+        u.permit(registration_params << :current_password)
+      end
     elsif params[:action] == 'create'
-      devise_parameter_sanitizer.for(:sign_up) {
-        |u| u.permit(registration_params)
-      }
+      devise_parameter_sanitizer.for(:sign_up) do |u|
+        u.permit(registration_params)
+      end
     end
   end
-
 end

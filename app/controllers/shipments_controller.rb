@@ -42,13 +42,14 @@ class ShipmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shipment
-      @shipment = Shipment.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def shipment_params
-      params.require(:shipment).permit(:tracking)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shipment
+    @shipment = Shipment.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def shipment_params
+    params.require(:shipment).permit(:tracking)
+  end
 end

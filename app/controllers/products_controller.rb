@@ -1,68 +1,65 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :products]
-  layout "store"
-
+  layout 'store'
 
   # GET /products
   def index
-    @products = Product.where(:active => true).order("RANDOM()").limit(3)
+    @products = Product.where(active: true).order('RANDOM()').limit(3)
   end
 
   def products
-    @grid = initialize_grid(Product, include: :photos ,order: 'products.title', order_direction: 'asc', per_page: 20)
+    @grid = initialize_grid(Product, include: :photos, order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_parts
-    @gun_parts_grid = initialize_grid(Product.where(:store => "gun_parts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gun_parts_grid = initialize_grid(Product.where(store: 'gun_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def wood
-    @wood_grid = initialize_grid(Product.where(:store => "wood", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @wood_grid = initialize_grid(Product.where(store: 'wood', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def barrels
-    @barrels_grid = initialize_grid(Product.where(:store => "barrels", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @barrels_grid = initialize_grid(Product.where(store: 'barrels', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def optics
-    @optics_grid = initialize_grid(Product.where(:store => "optics", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @optics_grid = initialize_grid(Product.where(store: 'optics', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gifts
-    @gifts_grid = initialize_grid(Product.where(:store => "gifts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gifts_grid = initialize_grid(Product.where(store: 'gifts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def jewelry
-    @jewelry_grid = initialize_grid(Product.where(:store => "jewelry", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @jewelry_grid = initialize_grid(Product.where(store: 'jewelry', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def decor
-    @decor_grid = initialize_grid(Product.where(:store => "decor", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @decor_grid = initialize_grid(Product.where(store: 'decor', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_cases
-    @gun_cases_grid = initialize_grid(Product.where(:store => "gun_cases", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @gun_cases_grid = initialize_grid(Product.where(store: 'gun_cases', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def guns
-    @guns_grid = initialize_grid(Product.where(:store => "guns", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @guns_grid = initialize_grid(Product.where(store: 'guns', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
-
 
   def custom_parts
-    @custom_parts_grid = initialize_grid(Product.where(:store => "custom_parts", :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @custom_parts_grid = initialize_grid(Product.where(store: 'custom_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
-
   def new_arrivals
-    @products = Product.where(:active => true).limit(60).order('created_at DESC')
+    @products = Product.where(active: true).limit(60).order('created_at DESC')
     @range = @products.last.created_at..@products.first.created_at
-    @new_arrivals_grid = initialize_grid(Product.where(:active => true, :created_at => @range), order: 'products.created_at', order_direction: 'desc', per_page: 20)
+    @new_arrivals_grid = initialize_grid(Product.where(active: true, created_at: @range), order: 'products.created_at', order_direction: 'desc', per_page: 20)
   end
 
   def sale_items
-    @sales_grid = initialize_grid(Product.where(:sale => true, :active => true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    @sales_grid = initialize_grid(Product.where(sale: true, active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def privacy_policy
@@ -119,59 +116,57 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
-     render :edit
+      render :edit
     end
   end
 
-
-
   # DELETE /products/1
   def destroy
-    @product.photos.each do |x| x.destroy end
+    @product.photos.each(&:destroy)
     @product.destroy
     redirect_to product_management_path, notice: 'Product was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.friendly.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def product_params
-      params.require(:product).permit(:title, :manufacturer, :model,
-                                      :part_number, :price, :quantity,
-                                      :description, :images, :schematic,
-                                      :weight, :height, :width, :length, :tags,
-                                      :categories, :exclusive, :store, :material,
-                                      :caliber, :barrel_length, :type_field,
-                                      :style_field, :active, :shipped_by, :sale,
-                                      :sale_price, :field_of_view_low_power,
-                                      :field_of_view_high_power,
-                                      :diopter_adjustment, :eye_relief,
-                                      :exit_pupil_low_power,
-                                      :exit_pupil_high_power, :elevation_travel,
-                                      :windage_travel, :moa_per_click_upper,
-                                      :moa_per_click_lower,
-                                      :parallax_compensation, :total_travel,
-                                      :tube_diameter, :position_of_reticle,
-                                      :available_reticles,
-                                      product_attachments_attributes:
-                                        [:id, :product_id, :image])
-    end
-
-
-def save_attachments
-  params[:photos]['image'].each do |a|
-  @photo = @product.photos.create!(:image => a, :product_id => @product.id)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.friendly.find(params[:id])
   end
-end
 
- def update_attachments
-   @product.photos.each(&:destroy) if @product.photos.present?
-   params[:photos]['image'].each do |a|
-  @photo = @product.photos.create!(:image => a, :product_id => @product.id)
-   end
-end
+  # Only allow a trusted parameter "white list" through.
+  def product_params
+    params.require(:product).permit(:title, :manufacturer, :model,
+                                    :part_number, :price, :quantity,
+                                    :description, :images, :schematic,
+                                    :weight, :height, :width, :length, :tags,
+                                    :categories, :exclusive, :store, :material,
+                                    :caliber, :barrel_length, :type_field,
+                                    :style_field, :active, :shipped_by, :sale,
+                                    :sale_price, :field_of_view_low_power,
+                                    :field_of_view_high_power,
+                                    :diopter_adjustment, :eye_relief,
+                                    :exit_pupil_low_power,
+                                    :exit_pupil_high_power, :elevation_travel,
+                                    :windage_travel, :moa_per_click_upper,
+                                    :moa_per_click_lower,
+                                    :parallax_compensation, :total_travel,
+                                    :tube_diameter, :position_of_reticle,
+                                    :available_reticles,
+                                    product_attachments_attributes:
+                                      [:id, :product_id, :image])
+  end
+
+  def save_attachments
+    params[:photos]['image'].each do |a|
+      @photo = @product.photos.create!(image: a, product_id: @product.id)
+    end
+  end
+
+  def update_attachments
+    @product.photos.each(&:destroy) if @product.photos.present?
+    params[:photos]['image'].each do |a|
+      @photo = @product.photos.create!(image: a, product_id: @product.id)
+    end
+ end
 end

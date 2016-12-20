@@ -19,22 +19,21 @@ class ItemsController < ApplicationController
     end
     @order.update_order
     respond_to do |format|
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
-    flash[:notice] = "Item was added to your shopping cart."
+    flash[:notice] = 'Item was added to your shopping cart.'
   end
 
   def update
-
     @order = current_order
     @item = @order.items.find(params[:id])
     @item.update_attributes(item_params)
     @items = @order.items
     @order.update_order
     respond_to do |format|
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
-    flash[:notice] = "Item quantity was updated in your shopping cart."
+    flash[:notice] = 'Item quantity was updated in your shopping cart.'
   end
 
   def destroy
@@ -44,12 +43,13 @@ class ItemsController < ApplicationController
     @items = @order.items
     @order.update_order
     respond_to do |format|
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
-    flash[:notice] = "Item was removed from your shopping cart."
+    flash[:notice] = 'Item was removed from your shopping cart.'
   end
 
-private
+  private
+
   def item_params
     params.require(:item).permit(:quantity, :product_id)
   end

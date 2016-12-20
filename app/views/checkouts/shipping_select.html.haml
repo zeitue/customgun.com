@@ -27,20 +27,22 @@
         %h3 Choose a delivery option
         =f.fields_for :shipping_methods, shipping_method do |ff|
           -if shipper.nil?
-            -@usps.each_with_index do |s, i|
-              .field
-                -if i > 0
-                  = ff.radio_button :price, [(s.price.to_f/100),:service_name => s.service_name],
-                  {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
-                -else
-                  = ff.radio_button :price,[(s.price.to_f/100),:service_name => s.service_name],
-                  {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?  || !@order.shipping_methods.where('service_name like ?', "%usps%" || "%fedex%").nil?}
-                = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
-            -@fedex.each_with_index do |s, i|
-              .field
-                = ff.radio_button :price, [(s.price.to_f/100), :service_name => s.service_name],
-                {:checked => !Order.where(id: current_order.id).first.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
-                = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
+            -if @usps
+              -@usps.each_with_index do |s, i|
+                .field
+                  -if i > 0
+                    = ff.radio_button :price, [(s.price.to_f/100),:service_name => s.service_name],
+                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
+                  -else
+                    = ff.radio_button :price,[(s.price.to_f/100),:service_name => s.service_name],
+                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?  || !@order.shipping_methods.where('service_name like ?', "%usps%" || "%fedex%").nil?}
+                  = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
+            -if @fedex
+              -@fedex.each_with_index do |s, i|
+                .field
+                  = ff.radio_button :price, [(s.price.to_f/100), :service_name => s.service_name],
+                  {:checked => !Order.where(id: current_order.id).first.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
+                  = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
           -else
             .field
               = ff.radio_button :price, [15.00, :service_name => "Drop Shipped"], {:checked => true}
