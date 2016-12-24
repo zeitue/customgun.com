@@ -39,4 +39,12 @@ class Product < ActiveRecord::Base
       price
     end
   end
+
+  def get_savings
+    price - sale_price
+  end
+
+  def get_percent_saved
+    ((price - sale_price) / price * 100).round(2)
+  end
 end

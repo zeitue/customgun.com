@@ -1,4 +1,4 @@
-- content_for :title,  @product.store.to_s.gsub('_', ' ').titleize + ": " + @product.title.to_s.titleize
+- content_for :title, @product.store.to_s.gsub('_', ' ').titleize + ": " + @product.title.to_s.titleize
 - content_for :head do
   %meta{content: @product.tags, name: "Keywords"}/
   %meta{content: @product.description, name: "Description"}/
@@ -21,9 +21,23 @@
   .col-xs-12.col-sm-4.col-md-4.well
     = form_for @item, remote: true do |f|
       -if !@product.price.nil?
-        %h4.text-right
-          Price:
-          %span= number_to_currency @product.get_price
+        %h4
+          %table.table
+            -if @product.sale
+              %tr
+                %td.text-right Price:
+                %td
+                  %s= "#{number_to_currency @product.price}"
+              %tr
+                %td.text-right.text-danger Sale:
+                %td.text-danger="#{number_to_currency @product.sale_price}"
+              %tr
+              %td.text-right You Save:
+              %td.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
+            -else
+              %tr
+                %td Price:
+                %td= number_to_currency @product.get_price
       -if @product.store == "optics" || @product.store == "guns"
         %table.table
           %tr
