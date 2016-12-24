@@ -49,7 +49,7 @@ class Product < ActiveRecord::Base
   end
 
   def update_on_sale
-    if Time.now > self.sale_end
+    if self.sale_end && Time.now > self.sale_end
       self.sale = false;
       self.save!
     end

@@ -34,7 +34,7 @@
               %tr
                 %td.text-right You Save:
                 %td.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
-              -if @product.sale_end > Time.now
+              -if @product.sale_end && @product.sale_end > Time.now
                 %tr
                   %td{style: "vertical-align: middle;"}
                     .text-right Sale Ends:
@@ -182,7 +182,7 @@
   = link_to 'Back', :back, class: "btn btn-primary"
 %br
 %br
--if @product.sale_end > Time.now
+-if @product.sale_end && @product.sale_end > Time.now
   :javascript
     var saleEnd = new Date("#{@product.sale_end.year}",
     "#{@product.sale_end.month-1}", "#{@product.sale_end.day}",
