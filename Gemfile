@@ -25,6 +25,9 @@ gem 'yaml_db'
 gem 'country_select'
 gem 'box_packer'
 gem 'active_shipping'
+gem 'jquery-countdown-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

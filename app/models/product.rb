@@ -47,4 +47,11 @@ class Product < ActiveRecord::Base
   def get_percent_saved
     ((price - sale_price) / price * 100).round(2)
   end
+
+  def update_on_sale
+    if Time.now > self.sale_end
+      self.sale = false;
+      self.save!
+    end
+  end
 end

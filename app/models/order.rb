@@ -44,7 +44,9 @@ class Order < ActiveRecord::Base
 
   def update_prices
     items.each do |item|
-      item.price = Product.find(item.product_id).get_price
+      product = Product.find(item.product_id)
+      product.update_on_sale
+      item.price = product.get_price
       item.save!
     end
   end

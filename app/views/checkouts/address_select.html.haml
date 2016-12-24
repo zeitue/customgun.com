@@ -1,7 +1,7 @@
 - content_for :title,  "Select shipping address"
 .page-header
   %h1 Select a shipping address
-
+-@order.update_order
 .panel-panel-default
   .panel-body
     - @addresses.each do |address|

@@ -3,7 +3,8 @@
 
 
   g.column name:  'Product', attribute: 'title', detach_with_id: :title_filter do |x|
-   link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) + br() +" Price: " + (number_to_currency x.get_price).to_s
+    link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) +
+    br() + 'Price: ' + (x.sale ? "<s>#{(number_to_currency x.price).to_s}</s><div class='text-danger'>Sale: #{(number_to_currency x.sale_price).to_s}</div>".html_safe : (number_to_currency x.price).to_s)
   end
 
   g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:active => true, :sale => true).select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|

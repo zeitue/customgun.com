@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :products]
+  before_action :update_on_sale, only: [:show]
   layout 'store'
 
   # GET /products
@@ -83,6 +84,10 @@ class ProductsController < ApplicationController
   def contact
   end
 
+  def update_on_sale
+    @product.update_on_sale
+  end
+
   # GET /products/1
   def show
     @item = Item.new
@@ -153,6 +158,7 @@ class ProductsController < ApplicationController
                                     :parallax_compensation, :total_travel,
                                     :tube_diameter, :position_of_reticle,
                                     :available_reticles,
+                                    :sale_end,
                                     product_attachments_attributes:
                                       [:id, :product_id, :image])
   end

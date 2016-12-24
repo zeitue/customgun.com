@@ -32,8 +32,13 @@
                 %td.text-right.text-danger Sale:
                 %td.text-danger="#{number_to_currency @product.sale_price}"
               %tr
-              %td.text-right You Save:
-              %td.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
+                %td.text-right You Save:
+                %td.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
+              -if @product.sale_end > Time.now
+                %tr
+                  %td{style: "vertical-align: middle;"}
+                    .text-right Sale Ends:
+                  %td#defaultCountdown
             -else
               %tr
                 %td Price:
@@ -177,3 +182,17 @@
   = link_to 'Back', :back, class: "btn btn-primary"
 %br
 %br
+-if @product.sale_end > Time.now
+  :javascript
+    var saleEnd = new Date("#{@product.sale_end.year}",
+    "#{@product.sale_end.month-1}", "#{@product.sale_end.day}",
+    "#{@product.sale_end.hour}", "#{@product.sale_end.min}");
+    $('#defaultCountdown').countdown({until: saleEnd, compact: true,
+    expiryUrl: "#{product_url @product}",
+    format: 'HM'});
+
+    $('#removeCountdown').click(function() {
+    var destroy = $(this).text() === 'Remove';
+    $(this).text(destroy ? 'Re-attach' : 'Remove');
+    $('#defaultCountdown').countdown(destroy ? 'destroy' : {until: saleEnd});
+    });

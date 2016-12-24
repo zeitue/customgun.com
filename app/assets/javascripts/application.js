@@ -19,5 +19,7 @@
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require tether
 //= require bootstrap
+//= require jquery.countdown
 //= require wice_grid
-
+//= require moment
+//= require bootstrap-datetimepicker

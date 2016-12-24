@@ -21,6 +21,8 @@
         %span#sale-price-addon.input-group-addon Sale Price
         = f.number_field :sale_price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "sale-price-addon"
     .field
+      = f.datetime_select :sale_end, :class => 'text_field'
+    .field
       .input-group
         %span#quantity-addon.input-group-addon Quantity
         = f.number_field :quantity, placeholder: "1", class: "form-control input-lg","aria-describedby" => "quantity-addon"

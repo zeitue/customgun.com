@@ -14,7 +14,7 @@
         .row
           .col-md-8.col-sm-8.col-xs-12=link_to(@product.title.titleize, @product) + (br() + link_to(image_tag(@product.photos.first.image.thumb), @product) unless @product.photos.first.nil?)
           .col-md-2.col-sm-2.col-xs-12
-            Price: 
+            Price:
             %span=number_to_currency @product.get_price
           .col-md-2.col-sm-2.col-xs-12
             = form_for order_item, remote: true do |f|
