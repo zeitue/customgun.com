@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224015431) do
+ActiveRecord::Schema.define(version: 20161226073020) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20161224015431) do
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+
+  create_table "authentications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "boxes", force: :cascade do |t|
     t.string   "provider"
@@ -169,8 +177,6 @@ ActiveRecord::Schema.define(version: 20161224015431) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
@@ -179,6 +185,7 @@ ActiveRecord::Schema.define(version: 20161224015431) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

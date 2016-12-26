@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :authentications
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
   get '/store/orders/invoice/:id' => 'orders#invoice', :as => :order_invoice
@@ -37,10 +39,12 @@ Rails.application.routes.draw do
   resource :checkout, path: 'store/checkout'
   resources :items, path: 'store/items'
   resources :orders, path: 'store/orders'
-  devise_for :users, path: 'store/users', controllers: { registrations: 'registrations' }
+  devise_for :users, path: 'store/users', controllers: { registrations: 'registrations', confirmations: 'confirmations' }
   resources :users, path: 'store/users', only: [:show, :index, :destroy]
   resources :photos, path: 'store/photos'
   resources :products, path: 'store'
+  match '/auth/:provider/callback' => 'authentications#create', via: [:get, :post]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

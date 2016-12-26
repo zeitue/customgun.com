@@ -15,7 +15,7 @@
     - @users.each do |user|
       %tr
         %td= user.id
-        %td= (user.first_name.to_s + ' ' +  user.last_name.to_s).titleize
+        %td= user.name.titleize unless user.name.nil?
         %td= user.email.downcase
         %td
           =link_to "Show", user, class: "btn btn-primary btn-block"
