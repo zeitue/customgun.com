@@ -4,21 +4,21 @@
   %meta{content: @product.description, name: "Description"}/
 %h3.panel= @product.title.titleize
 .row
-  .col-xs-12.col-sm-8.col-md-8
+  .col-xs-12.col-sm-8.col-md-8.col-lg-8
     -if @photos.count == 1
       .container-liquid
         .widewrapper
-          =image_tag @photos.first.image.hdpi
+          = link_to(image_tag(@photos.first.image.hdpi.url), @photos.first.image.xxhdpi.url, :class => 'image', 'data-fancybox-group' => 'product')
           %p
     -else
-      .slider
-        -count = 1
-        -@photos.each do |p|
-          %input{:type => "radio", :name => "slide_switch", :id => p.id, :checked => ((count > 1) ? nil : "checked") }
-          %label{:for => p.id}= image_tag p.image.thumb, style: 'width:100%;'
-          =image_tag p.image.hdpi
-          -count += 1
-  .col-xs-12.col-sm-4.col-md-4.well
+      -@photos.each_slice(3) do |p|
+        .row
+          -p.each do |photo|
+            .col-lg-4.col-sm-4.col-md-4.col-xs-4
+              .widewrapper
+                = link_to(image_tag(photo.image.thumb.url), photo.image.xxhdpi.url, :class => 'image', 'data-fancybox-group' => 'product')
+          %p
+  .col-lg-4.col-xs-12.col-sm-4.col-md-4.well
     = form_for @item, remote: true do |f|
       -if !@product.price.nil?
         %h4
@@ -196,3 +196,14 @@
     $(this).text(destroy ? 'Re-attach' : 'Remove');
     $('#defaultCountdown').countdown(destroy ? 'destroy' : {until: saleEnd});
     });
+
+:javascript
+  $('a.image').fancybox({
+  padding: 0,
+  showNavArrows: true,
+  helpers: {
+  overlay: {
+  locked: false
+  }
+  }
+  });
