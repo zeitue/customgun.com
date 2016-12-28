@@ -43,27 +43,27 @@
               %tr
                 %td Price:
                 %td= number_to_currency @product.get_price
-      -if @product.store == "optics" || @product.store == "guns"
-        %table.table
-          %tr
-            %td Contact for more information
-          %tr
-            %td +1-903-768-2948
-            %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
-          %tr
-            %td customgun.tr@gmail.com
-            %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
-      -else
-        %h4.text-right
-          -if !(@product.store == "optics" || @product.store == "guns")
-            -if @product.quantity.to_i >= 1
-              .input-group
-                = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
-                .input-group-btn
-                  = f.hidden_field :product_id, value: @product.id
-                  = f.submit "Add to Cart", class: "btn btn-primary"
+            -if @product.store == "optics" || @product.store == "guns"
+              %tr
+                %td Contact for more information
+                %td
+              %tr
+                %td +1-903-768-2948
+                %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
+              %tr
+                %td customgun.tr@gmail.com
+                %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
             -else
-              %span Sold Out
+              %h4.text-right
+                -if !(@product.store == "optics" || @product.store == "guns")
+                  -if @product.quantity.to_i >= 1
+                    .input-group
+                      = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
+                      .input-group-btn
+                        = f.hidden_field :product_id, value: @product.id
+                        = f.submit "Add to Cart", class: "btn btn-primary"
+                  -else
+                    %span Sold Out
 .row
   .panel.panel-default
     .panel-heading Product Description
