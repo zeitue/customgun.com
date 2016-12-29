@@ -67,11 +67,12 @@
         -if user_signed_in? && !current_user.guest
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              =current_user.first_name.nil? ? "User" : current_user.first_name.titleize
+              =current_user.name.nil? ? "User" : current_user.name.titleize
               %span.caret
             %ul.dropdown-menu
               %li= link_to "Edit account", edit_user_registration_path
               %li= link_to "Address Book", addresses_path
+              %li= link_to 'Authentications', authentications_path
               %li= link_to "Orders", orders_path
               -if current_user.admin?
                 %li= link_to "Boxes", boxes_path

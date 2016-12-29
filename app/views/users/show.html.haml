@@ -1,20 +1,16 @@
-- content_for :title, (@user.last_name.nil? || @user.last_name.nil?) ? 'User: ' + @user.email.partition('@').first.titleize : 'User: ' + (@user.first_name.to_s + ' ' + @user.last_name.to_s).titleize
+- content_for :title, @user.name.nil? ? 'User: ' + @user.email.partition('@').first.titleize : 'User: ' + @user.name.titleize
 .page-header
-  -if @user.last_name.nil? || @user.last_name.nil?
+  -if @user.name.nil?
     %h1=@user.email.partition('@').first.titleize
   -else
-    %h1=(@user.first_name.to_s + ' ' + @user.last_name.to_s).titleize
+    %h1=@user.name.to_s.titleize
 .panel.panel-default
   .panel-heading User Information
   %table.table.panel-body
-    -if !(@user.first_name.nil? || @user.first_name.empty?)
+    -if !(@user.name.nil? || @user.name.empty?)
       %tr
-        %td First Name
-        %td= @user.first_name
-    -if !(@user.last_name.nil? || @user.last_name.empty?)
-      %tr
-        %td Last Name
-        %td= @user.last_name
+        %td Name
+        %td= @user.name
     %tr
       %td Email
       %td= @user.email

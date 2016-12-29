@@ -4,12 +4,8 @@
   = devise_error_messages!
   .field
     .input-group
-      %span#first-name-addon.input-group-addon First Name
-      = f.text_field :first_name, autofocus: true, class: "form-control input-lg","aria-describedby" => "first-name-addon"
-  .field
-    .input-group
-      %span#last-name-addon.input-group-addon Last Name
-      = f.text_field :last_name, class: "form-control input-lg","aria-describedby" => "last-name-addon"
+      %span#name-addon.input-group-addon Name
+      = f.text_field :name, class: "form-control input-lg","aria-describedby" => "name-addon"
   .field
     .input-group
       %span#email-addon.input-group-addon Email
