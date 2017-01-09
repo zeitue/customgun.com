@@ -40,8 +40,12 @@
             -if @fedex
               -@fedex.each_with_index do |s, i|
                 .field
-                  = ff.radio_button :price, [(s.price.to_f/100), :service_name => s.service_name],
-                  {:checked => !Order.where(id: current_order.id).first.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
+                  - if i > 0
+                    = ff.radio_button :price, [(s.price.to_f/100), :service_name => s.service_name],
+                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
+                  - else
+                    = ff.radio_button :price,[(s.price.to_f/100),:service_name => s.service_name],
+                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?  || (!@order.shipping_methods.where('service_name like ?', "%usps%" || "%fedex%").nil?  && @usps.nil?)}
                   = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
           -else
             .field
