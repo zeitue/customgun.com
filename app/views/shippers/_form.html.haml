@@ -1,0 +1,46 @@
+= form_for @shipper do |f|
+  - if @shipper.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@shipper.errors.count, "error")} prohibited this shipper from being saved:"
+      %ul
+        - @shipper.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    .field
+      .input-group
+        %span#name-addon.input-group-addon Name
+        = f.text_field :name, placeholder: 'Name', class: 'form-control input-lg','aria-describedby' => 'name-addon'
+    .field
+      .input-group
+        %span#name-addon.input-group-addon Company Name
+        = f.text_field :company_name, placeholder: 'Company Name', class: 'form-control input-lg','aria-describedby' => 'company-name-addon'
+    .input-group
+      %span#scheme-addon.input-group-addon Scheme
+      = f.select :scheme, [['Calculated', 0], ['Flat Rate', 1], ['Digital', 2]], {}, { :class => 'form-control input-lg','aria-describedby' => 'scheme-addon' }
+    .field
+      .input-group
+        %span#price-addon.input-group-addon Price
+        = f.number_field :price, :step => 0.01, placeholder: '$0.00', class: 'form-control input-lg','aria-describedby' => 'price-addon'
+    .field
+      .input-group
+        %span#handling-fee-addon.input-group-addon Handling Fee
+        = f.number_field :handling_fee, :step => 0.01, placeholder: '$0.00', class: 'form-control input-lg','aria-describedby' => 'price-addon'
+    .field
+      .input-group
+        %span#up-charge-rate-addon.input-group-addon Up Charge Rate
+        = f.number_field :up_charge_rate, :step => 0.01, placeholder: '$0.00', class: 'form-control input-lg','aria-describedby' => 'up-charge-rate-addon'
+    .input-group
+      %span#address-addon.input-group-addon Address
+      = f.collection_select :address_id, current_user.addresses, :id, :display,{}, {:class => 'form-control input-lg','aria-describedby' => 'address-addon'}
+    %p
+    .field.checkbox-inline
+      = f.check_box :usps
+      = f.label(:usps, 'USPS')
+    .field.checkbox-inline
+      = f.check_box :fedex
+      = f.label :fedex
+    .field.checkbox-inline
+      = f.check_box :ups
+      = f.label(:ups, 'UPS')
+    .actions
+      = f.submit 'Save', :class => 'btn btn-primary'

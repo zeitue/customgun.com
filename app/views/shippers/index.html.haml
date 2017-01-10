@@ -1,0 +1,64 @@
+- content_for :title,  "Shippers"
+.page-header
+  %h1 Shippers
+
+- @shippers.each do |shipper|
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = link_to '', edit_shipper_path(shipper), class: 'btn btn-block btn-primary glyphicon glyphicon-edit'
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = link_to '', shipper, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-block btn-danger glyphicon glyphicon-trash'
+          %p
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          %b
+            = shipper.name
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          .pull-right
+            %b
+              = shipper.company_name
+    .panel-body
+      .row
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          %b USPS
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          %b Fedex
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          %b UPS
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          %b Scheme
+      .row
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          = check_box_tag "shipper_#{shipper.id}", "#{shipper.usps}", shipper.usps?, disabled: "#{shipper.usps?}"
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          = check_box_tag "shipper_#{shipper.id}", "#{shipper.fedex}", shipper.fedex?, disabled: "#{shipper.fedex?}"
+        .col-lg-2.col-md-2.col-sm-2.col-xs-2
+          = check_box_tag "shipper_#{shipper.id}", "#{shipper.ups}", shipper.ups?, disabled: "#{shipper.ups?}"
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          = shipper.scheme_name
+      .row
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          %b Price
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          %b Handling Fee
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          %b Up Charge Rate
+      .row
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          = number_to_currency shipper.price
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          = number_to_currency shipper.handling_fee
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          = number_to_currency shipper.up_charge_rate
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          %b
+            Address
+      .row
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          = shipper.address.display
+
+
+= link_to 'New Shipper', new_shipper_path, class: 'btn btn-primary'

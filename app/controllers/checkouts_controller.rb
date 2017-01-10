@@ -165,8 +165,6 @@ class CheckoutsController < ApplicationController
 
   def remove_from(entry, items)
     items_list = items.dup
-    puts items_list
-    puts entry
     if entry
       entry.packings.first.each do |package|
         if items_list.each do |item|

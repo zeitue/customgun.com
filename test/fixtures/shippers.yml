@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  company_name: MyString
+  scheme: 1
+  price: 1.5
+  handling_fee: 1.5
+  up_charge_rate: 1.5
+  address_id: 
+  usps: false
+  fedex: false
+  ups: false
+
+two:
+  name: MyString
+  company_name: MyString
+  scheme: 1
+  price: 1.5
+  handling_fee: 1.5
+  up_charge_rate: 1.5
+  address_id: 
+  usps: false
+  fedex: false
+  ups: false

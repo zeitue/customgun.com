@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @shipper.name
+%p
+  %b Company name:
+  = @shipper.company_name
+%p
+  %b Scheme:
+  = @shipper.scheme
+%p
+  %b Price:
+  = @shipper.price
+%p
+  %b Handling fee:
+  = @shipper.handling_fee
+%p
+  %b Up charge rate:
+  = @shipper.up_charge_rate
+%p
+  %b Address:
+  = @shipper.address
+%p
+  %b Usps:
+  = @shipper.usps
+%p
+  %b Fedex:
+  = @shipper.fedex
+%p
+  %b Ups:
+  = @shipper.ups
+
+= link_to 'Edit', edit_shipper_path(@shipper)
+\|
+= link_to 'Back', shippers_path

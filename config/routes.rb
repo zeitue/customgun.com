@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :shippers, path: 'store/shippers'
   resources :authentications
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
