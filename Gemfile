@@ -1,11 +1,24 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
-gem 'sqlite3', '1.3.11'
+
+group :production do
+  gem 'mysql2', '0.3.17'
+end
+
+group :development, :test do
+  gem 'html2haml'
+  gem 'sqlite3', '1.3.11'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 group :assets do
   gem 'uglifier'
 end
+
 gem 'dotenv-rails'
 gem 'haml-rails'
 gem 'passenger', '~> 4.0.60'
@@ -34,10 +47,3 @@ gem 'omniauth-facebook'
 gem 'omniauth-openid'
 gem 'authbuttons-rails'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
-
-group :development, :test do
-  gem 'html2haml'
-end
