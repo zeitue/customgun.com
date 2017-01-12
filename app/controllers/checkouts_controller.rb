@@ -67,9 +67,9 @@ class CheckoutsController < ApplicationController
       @shipping_information.each do |shipper, packed|
         if shipper.scheme == 0
           if @shipping_methods[i].service_name.downcase.include? 'fedex'
-            make_shipments(@order, packed.find {|p| !p.empty? && p.first.label == 'fedex'}).each { |shipment| @order.shipments.push(shipment) }
+            make_shipments(@order, shipper, packed.find {|p| !p.empty? && p.first.label == 'fedex'}).each { |shipment| @order.shipments.push(shipment) }
           elsif @shipping_methods[i].service_name.downcase.include? 'usps'
-            make_shipments(@order, packed.find {|p| !p.empty? && p.first.label == 'usps'}).each { |shipment| @order.shipments.push(shipment) }
+            make_shipments(@order, shipper, packed.find {|p| !p.empty? && p.first.label == 'usps'}).each { |shipment| @order.shipments.push(shipment) }
           end
         elsif shipper.scheme == 1
           @order.shipments.push(make_pack_shipment(@order, shipper))
@@ -122,16 +122,16 @@ class CheckoutsController < ApplicationController
     shipment
   end
 
-  def make_shipments(_order, packed)
+  def make_shipments(order, shipper, packed)
     shipments = []
     packed.each do |entry|
-      shipments.push(make_shipment(@order, entry))
+      shipments.push(make_shipment(order, shipper, entry))
     end
     shipments
   end
 
-  def make_shipment(order, packed)
-    shipment = Shipment.new(order_id: order.id)
+  def make_shipment(order, shipper, packed)
+    shipment = Shipment.new(order_id: order.id, shipped_by: shipper.company_name)
     counts = Hash.new(0)
     packed.packings.first.each { |entry| counts[entry.label] += 1 }
     counts.each do |entry|

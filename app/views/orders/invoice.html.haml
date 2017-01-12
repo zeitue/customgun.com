@@ -35,7 +35,7 @@
       .row
         .col-md-12.col-sm-12.col-xs-12
           %b= "Order Placed: "
-          #{@order.updated_at}
+          #{l @order.updated_at, format: :long}
       .row
         .col-md-12.col-sm-12.col-xs-12
           %b= "Customgun.com order number"
@@ -46,7 +46,7 @@
           =link_to 'customgun.tr@gmail.com', 'mailto:customgun.tr@gmail.com?Subject=' + 'Order: #' + ("%08X" % @order.id).to_s
       .row
         .col-md-12.col-sm-12.col-xs-12
-          %b Shipped from
+          %b Located at
           7680 N US Highway 69. Alba, TX 75410, United States
       .row
         .col-md-12.col-sm-12.col-xs-12
@@ -116,7 +116,7 @@
           %b Shipping & Handling
         %td
         %td
-        %td=number_to_currency(@order.shipping.to_f + @order.shipping.to_f*0.20)
+        %td=number_to_currency(@order.shipping_and_handling)
       %tr
         %td
           %b Tax

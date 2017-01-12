@@ -25,8 +25,8 @@
         .row
           = 'Order Number #' + ("%08X" % order.id)
         .row.btn-group-justified{ :style => "width:100%;" }
-          =link_to 'Order Details', order_details_path(order), class: 'btn btn-primary', style: 'width:50%;' 
-          =link_to 'Invoice', order_invoice_path(order), class: 'btn btn-primary', style: 'width:50%;' 
+          =link_to 'Order Details', order_details_path(order), class: 'btn btn-primary', style: 'width:50%;'
+          =link_to 'Invoice', order_invoice_path(order), class: 'btn btn-primary', style: 'width:50%;'
         %p
     %p
     -if order.shipments.count == 0
@@ -37,18 +37,13 @@
           .col-md-3.col-sm-6.col-xs-12
             .row Shipped by
             .row
-              -if shipment.shipped_by.nil?
-                = 'Custom Shop, LLC '
-              -else
-                = shipment.shipped_by.titleize
+              = shipment.shipped_by.to_s.titleize
             %p
           .col-md-3.col-sm-6.col-xs-12
             .row Shipping Method
             .row
-              -if shipment.shipped_by.nil?
-                = (shipping_method.service_name.to_s) unless shipping_method.nil?
-              -else
-                = "Drop Shipped"
+              = (shipping_method.service_name.to_s) unless shipping_method.nil?
+
             %p
         %p
         .row
@@ -70,12 +65,11 @@
           .col-md-3.col-sm-3.col-xs-12
             .row{ :style => "width:100%;" }
               -if shipping_method.service_name.to_s.downcase.include? "usps"
-                -tracking_site = "https://tools.usps.com/go/TrackConfirmAction?tLabels="  + shipment.tracking.to_s
+                =link_to "Track", "https://tools.usps.com/go/TrackConfirmAction?tLabels="  + shipment.tracking.to_s, class: "btn btn-primary btn-block"
               -elsif shipping_method.service_name.to_s.downcase.include? "fedex"
-                -tracking_site = "https://www.fedex.com/apps/fedextrack/?tracknumbers="  + shipment.tracking.to_s
-              -else
-                -tracking_site= shipment.tracking.to_s
-              =link_to "Track", tracking_site.to_s, class: "btn btn-primary btn-block"
+                =link_to "Track", "https://www.fedex.com/apps/fedextrack/?tracknumbers="  + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+              -elsif shipping_method.service_name.to_s.downcase.include? "download"
+                =link_to "Download", shipment.tracking.to_s, class: "btn btn-primary btn-block"
               -if current_user.admin
                 =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
         -if !order.comment.empty?
