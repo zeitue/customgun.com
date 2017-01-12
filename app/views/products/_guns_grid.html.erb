@@ -7,24 +7,24 @@
     'Price: ' + (x.sale ? "<s>#{(number_to_currency x.price).to_s}</s><div class='text-danger'>Sale: #{(number_to_currency x.sale_price).to_s}</div>".html_safe : (number_to_currency x.price).to_s)
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
   x.manufacturer.titleize
   end
 
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(model)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
 
-  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(TYPE_FIELD)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
+  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(type_field)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
   x.type_field.titleize
   end
 
-  g.column name:  'Caliber', attribute: 'caliber', detach_with_id: :caliber_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(CALIBER)").map {|p| [p.caliber.titleize, p.caliber]} do |x|
+  g.column name:  'Caliber', attribute: 'caliber', detach_with_id: :caliber_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(caliber)").map {|p| [p.caliber.titleize, p.caliber]} do |x|
   x.caliber.titleize
   end
 
-  g.column name:  'Material', attribute: 'material', detach_with_id: :material_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(MATERIAL)").map {|p| [p.material.titleize, p.material]} do |x|
+  g.column name:  'Material', attribute: 'material', detach_with_id: :material_filter, custom_filter: Product.where(:store => "guns").select("DISTINCT(material)").map {|p| [p.material.titleize, p.material]} do |x|
   x.material.titleize
   end
 

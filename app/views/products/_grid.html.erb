@@ -6,15 +6,15 @@
    link_to(x.title.titleize, x) + (br() + link_to(image_tag(x.photos.first.image.thumb), x) unless x.photos.first.nil?) + br() +" Price: " + (number_to_currency x.get_price).to_s
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
   x.manufacturer.titleize
   end
 
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.select("DISTINCT(model)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
-  g.column name:  'Category', attribute: 'store', detach_with_id: :category_filter, custom_filter: Product.select("DISTINCT(STORE)").map {|p| [p.store.titleize, p.store]} do |x|
+  g.column name:  'Category', attribute: 'store', detach_with_id: :category_filter, custom_filter: Product.select("DISTINCT(store)").map {|p| [p.store.titleize, p.store]} do |x|
   x.store.titleize
   end
 

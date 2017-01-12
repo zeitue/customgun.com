@@ -7,20 +7,20 @@
     'Price: ' + (x.sale ? "<s>#{(number_to_currency x.price).to_s}</s><div class='text-danger'>Sale: #{(number_to_currency x.sale_price).to_s}</div>".html_safe : (number_to_currency x.price).to_s)
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
   x.manufacturer.titleize
   end
 
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(model)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
 
-  g.column name:  'Barrel Length', attribute: 'barrel_length', detach_with_id: :barrel_length_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(BARREL_LENGTH)").map {|p| [((p.barrel_length.to_s + " in.") unless (p.barrel_length.nil? || p.barrel_length.empty?)), p.barrel_length]} do |x|
+  g.column name:  'Barrel Length', attribute: 'barrel_length', detach_with_id: :barrel_length_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(barrel_length)").map {|p| [((p.barrel_length.to_s + " in.") unless (p.barrel_length.nil? || p.barrel_length.empty?)), p.barrel_length]} do |x|
   (x.barrel_length.to_s + " in." ) unless (x.barrel_length.nil? || x.barrel_length.empty?)
   end
 
-  g.column name:  'Caliber/Gauge', attribute: 'caliber', detach_with_id: :caliber_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(CALIBER)").map {|p| [p.caliber, p.caliber]} do |x|
+  g.column name:  'Caliber/Gauge', attribute: 'caliber', detach_with_id: :caliber_filter, custom_filter: Product.where(:store => "barrels").select("DISTINCT(caliber)").map {|p| [p.caliber, p.caliber]} do |x|
   x.caliber
   end
 

@@ -7,16 +7,16 @@
     'Price: ' + (x.sale ? "<s>#{(number_to_currency x.price).to_s}</s><div class='text-danger'>Sale: #{(number_to_currency x.sale_price).to_s}</div>".html_safe : (number_to_currency x.price).to_s)
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(MANUFACTURER)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
   x.manufacturer.titleize
   end
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(model)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
 
 
- g.column name:  'Material', attribute: 'material', detach_with_id: :material_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(MATERIAL)").map {|p| [p.material.titleize, p.material]} do |x|
+ g.column name:  'Material', attribute: 'material', detach_with_id: :material_filter, custom_filter: Product.where(:store => "decor").select("DISTINCT(material)").map {|p| [p.material.titleize, p.material]} do |x|
   x.material.titleize
   end
 
