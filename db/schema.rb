@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110014432) do
+ActiveRecord::Schema.define(version: 20170110074057) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -132,7 +132,10 @@ ActiveRecord::Schema.define(version: 20170110014432) do
     t.string   "position_of_reticle"
     t.string   "available_reticles"
     t.datetime "sale_end"
+    t.integer  "shipper_id"
   end
+
+  add_index "products", ["shipper_id"], name: "index_products_on_shipper_id"
 
   create_table "shipments", force: :cascade do |t|
     t.integer  "order_id"

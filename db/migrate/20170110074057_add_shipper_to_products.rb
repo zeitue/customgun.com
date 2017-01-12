@@ -1,0 +1,5 @@
+class AddShipperToProducts < ActiveRecord::Migration
+  def change
+    add_reference :products, :shipper, index: true, foreign_key: true
+  end
+end

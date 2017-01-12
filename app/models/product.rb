@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :photos
   before_validation :default_values
   before_destroy :destroy_associated
+  belongs_to :shipper
+  validates_presence_of :shipper
 
   def default_values
     self.title = title.to_s.strip.downcase

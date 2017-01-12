@@ -3,7 +3,7 @@
   %h1 Review your order
 =form_for @order do |f|
   .row
-    .col-lg-8.col-md-8.col-sm-12.col-xs-12
+    .col-lg-8.col-md-8.col-sm-8.col-xs-12
       .row
         .col-lg-12.col-md-12.col-sm-12.col-xs-12
           .panel.panel-default
@@ -30,7 +30,7 @@
                       .col-lg-12.col-md-12.col-sm-12.col-xs-12=ISO3166::Country[address.country]
                   -if !address.phone.empty?
                     .row
-                      .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s 
+                      .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Phone: " + address.phone.to_s
                   -if !address.fax.nil? && !address.fax.empty?
                     .row
                       .col-lg-12.col-md-12.col-sm-12.col-xs-12= "Fax: " + address.fax.to_s
@@ -68,7 +68,7 @@
                 %p
 
 
-    .col-lg-4.col-md-4.col-sm-12.col-xs-12
+    .col-lg-4.col-md-4.col-sm-4.col-xs-12
       .row
         .col-lg-12.col-md-12.col-sm-12.col-xs-12
           .panel.panel-default
@@ -76,7 +76,7 @@
               .row
                 .col-lg-12
                   .action
-                    =f.submit 'Place your order', name: "packaging", class: 'btn btn-primary btn-block'
+                    =f.submit 'Continue', name: "packaging", class: 'btn btn-primary btn-block'
                   %p
                   %p
                     By placing your order, you agree to customgun.com's

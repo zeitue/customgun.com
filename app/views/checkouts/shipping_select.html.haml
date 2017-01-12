@@ -6,14 +6,14 @@
     .pull-right
       .action
         = f.submit 'Continue', name: "process_order", :class => "btn btn-primary"
-  -@shippers.zip(@order.shipping_methods).each do |shipper, shipping_method|
+  -@shipping_information.each do |shipper, shipping_method, packed, rates|
     .row
       .col-md-6.col-sm-6.col-xs-6
         .row
-          %h4= "Shipping from #{shipper.nil? ? "Custom Shop, LLC" : shipper.titleize}"
+          %h4= "Shipping from #{shipper.company_name unless shipper.nil?}"
         .row= "Shipping to #{@order.get_address.display}"
         %p
-        -@order.items.joins(:product).where(products: {shipped_by: shipper}).each do |item|
+        -@order.items.joins(:product).where(products: {shipper_id: shipper.id}).each do |item|
           -if !item.product_id.nil?
             -product = Product.find(item.product_id)
             .row
@@ -26,31 +26,36 @@
       .col-md-6.col-sm-6.col-xs-6
         %h3 Choose a delivery option
         =f.fields_for :shipping_methods, shipping_method do |ff|
-          -if shipper.nil?
-            -if @usps
-              -@usps.each_with_index do |s, i|
+          -if shipper.scheme == 0
+            -if rates
+              - rates.flatten!(1)
+              - rates.each_with_index do |s, i|
+                - price =s.price.to_f / 100 + shipper.handling_fee.to_f + s.price.to_f / 100 * shipper.up_charge_rate.to_f
                 .field
-                  -if i > 0
-                    = ff.radio_button :price, [(s.price.to_f/100),:service_name => s.service_name],
-                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
+                  -if i == 0
+                    = ff.radio_button :price, [price,:service_name => s.service_name], :checked => true
                   -else
-                    = ff.radio_button :price,[(s.price.to_f/100),:service_name => s.service_name],
-                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?  || !@order.shipping_methods.where('service_name like ?', "%usps%" || "%fedex%").nil?}
-                  = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
-            -if @fedex
-              -@fedex.each_with_index do |s, i|
-                .field
-                  - if i > 0
-                    = ff.radio_button :price, [(s.price.to_f/100), :service_name => s.service_name],
-                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?}
-                  - else
-                    = ff.radio_button :price,[(s.price.to_f/100),:service_name => s.service_name],
-                    {:checked => !@order.shipping_methods.where(:service_name =>  s.service_name).first.nil?  || (!@order.shipping_methods.where('service_name like ?', "%usps%" || "%fedex%").nil?  && @usps.nil?)}
-                  = "#{number_to_currency(s.price.to_f / 100)} - #{s.service_name}"
-          -else
+                    = ff.radio_button :price,[price,:service_name => s.service_name], :checked => false
+                  = "#{number_to_currency(price)} - #{s.service_name}"
+          -elsif shipper.scheme == 1
+            - price = shipper.price.to_f + shipper.handling_fee.to_f
+            -if shipper.usps
+              .field
+                = ff.radio_button :price, [price,:service_name => 'USPS Flat Rate'], :checked => true
+                = "#{number_to_currency(price)} - USPS Flat Rate"
+            -if shipper.fedex
+              .field
+                = ff.radio_button :price, [price,:service_name => 'Fedex Flat Rate'], :checked => true
+                = "#{number_to_currency(price)} - Fedex Flat Rate"
+            -if shipper.ups
+              .field
+                = ff.radio_button :price, [price,:service_name => 'UPS Flat Rate'], :checked => true
+                = "#{number_to_currency(price)} - UPS Flat Rate"
+          -elsif shipper.scheme == 2
             .field
-              = ff.radio_button :price, [15.00, :service_name => "Drop Shipped"], {:checked => true}
-              = "#{number_to_currency(15.00)} - Drop Shipped"
+              - price = shipper.price.to_f + shipper.handling_fee.to_f
+              = ff.radio_button :price, [price,:service_name => 'Digital Download'], :checked => true
+              = "#{number_to_currency(price)} - Digital Download"
   .row
     .pull-right
       .action

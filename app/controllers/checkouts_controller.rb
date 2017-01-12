@@ -12,29 +12,44 @@ class CheckoutsController < ApplicationController
     @order = current_order
     @shipping_methods = @order.shipping_methods
     product_ids = @order.items.map(&:product_id)
-    @shippers = Product.where(id: product_ids).uniq.pluck(:shipped_by).sort_by { |i| [i ? 1 : 0, i] }
+    @shippers = Shipper.where(id: Product.where(id: product_ids).uniq.pluck(:shipper_id).sort_by { |i| [i ? 1 : 0, i] })
     @shippers.count.times { @order.shipping_methods.build }
-    Rails.cache.delete(:fedex_packed)
-    Rails.cache.delete(:usps_packed)
+    @packed = []
+    @rates = []
+    destination = make_active_location(@order.get_address)
+    @shippers.each do |shipper|
+      if shipper.scheme == 0
+        pack = []
+        rate = []
+        @items = @order.items.joins(:product).where(products: { shipper_id: shipper.id })
+        if @items.count > 0
 
-    @items = @order.items.joins(:product).where(products: { shipped_by: nil })
-    if @items.count > 0
-      @fedex_packed = make_packages('fedex', @items)
-      @usps_packed = make_packages('usps', @items)
-      @destination = make_active_location(@order.get_address)
-      puts @fedex_packed
-      puts "!!!!#{@usps_packed}"
-      if !@fedex_packed.include? nil
-        @fedex_packages = make_active_packages(@fedex_packed)
-        Rails.cache.write(:fedex_packed, @fedex_packed)
-        @fedex = fedex_rates(origin, @destination, @fedex_packages)
-      end
-      if !@usps_packed.include? nil
-        @usps_packages = make_active_packages(@usps_packed)
-        Rails.cache.write(:usps_packed, @usps_packed)
-        @usps = usps_rates(origin, @destination, @usps_packages)
+          if shipper.usps
+            usps_packed = make_packages('usps', @items)
+            pack.push((usps_packed.include? nil) ? [] : usps_packed)
+            if !usps_packed.include? nil
+              usps_packages = make_active_packages(usps_packed)
+              rate.push(usps_rates(origin, destination, usps_packages))
+            end
+          end
+
+          if shipper.fedex
+            fedex_packed = make_packages('fedex', @items)
+            pack.push((fedex_packed.include? nil) ? [] : fedex_packed)
+            if !fedex_packed.include? nil
+              fedex_packages = make_active_packages(fedex_packed)
+              rate.push(fedex_rates(origin, destination, fedex_packages))
+            end
+          end
+
+        end
+        @rates.push(rate)
+        @packed.push(pack)
       end
     end
+    @shipping_information = @shippers.zip(@order.shipping_methods, @packed, @rates)
+    Rails.cache.delete(:shipping_information)
+    Rails.cache.write(:shipping_information, @shippers.zip(@packed))
   end
 
   def review
@@ -47,16 +62,21 @@ class CheckoutsController < ApplicationController
     if @shipping_methods.count > 0
       @order.shipments.destroy_all
       @order.shipments = []
-      if !@shipping_methods.where('service_name like ?', '%fedex%').first.nil?
-        packed = Rails.cache.read(:fedex_packed)
-        make_shipments(@order, packed).each { |shipment| @order.shipments.push(shipment) }
-      elsif !@shipping_methods.where('service_name like ?', '%usps%').first.nil?
-        packed = Rails.cache.read(:usps_packed)
-        make_shipments(@order, packed).each { |shipment| @order.shipments.push(shipment) }
-      end
-
-      unless @shipping_methods.where('service_name like ?', '%drop shipped%').first.nil?
-        @order.shipments.push(make_drop_shipment(@order, 'hawkins precision, llc'))
+      @shipping_information = Rails.cache.read(:shipping_information)
+      i = 0
+      @shipping_information.each do |shipper, packed|
+        if shipper.scheme == 0
+          if @shipping_methods[i].service_name.downcase.include? 'fedex'
+            make_shipments(@order, packed.find {|p| !p.empty? && p.first.label == 'fedex'}).each { |shipment| @order.shipments.push(shipment) }
+          elsif @shipping_methods[i].service_name.downcase.include? 'usps'
+            make_shipments(@order, packed.find {|p| !p.empty? && p.first.label == 'usps'}).each { |shipment| @order.shipments.push(shipment) }
+          end
+        elsif shipper.scheme == 1
+          @order.shipments.push(make_pack_shipment(@order, shipper))
+        elsif shipper.scheme == 2
+          @order.shipments.push(make_pack_shipment(@order, shipper))
+        end
+        i += 1
       end
       @order.shipping = @order.shipping_methods.sum(:price)
       st = @order.get_address.state.to_s.downcase
@@ -91,9 +111,9 @@ class CheckoutsController < ApplicationController
 
   private
 
-  def make_drop_shipment(order, shipper)
-    shipment = Shipment.new(order_id: order.id, shipped_by: shipper)
-    items = order.items.joins(:product).where(products: { shipped_by: shipper })
+  def make_pack_shipment(order, shipper)
+    shipment = Shipment.new(order_id: order.id, shipped_by: shipper.company_name)
+    items = order.items.joins(:product).where(products: { shipper_id: shipper.id })
     items.each do |item|
       shipment.units.new(product_id: item.product.id,
                          quantity: item.quantity,

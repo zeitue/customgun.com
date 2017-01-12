@@ -21,7 +21,7 @@ class Order < ActiveRecord::Base
   end
 
   def shipping_and_handling
-    shipping.to_f + (0.20 * shipping.to_f)
+    shipping.to_f
   end
 
   def update_order
@@ -39,7 +39,7 @@ class Order < ActiveRecord::Base
   end
 
   def total_before_tax
-    self.subtotal.to_f + shipping.to_f + (0.20 * shipping.to_f)
+    self.subtotal.to_f + shipping.to_f
   end
 
   def update_prices
@@ -52,7 +52,7 @@ class Order < ActiveRecord::Base
   end
 
   def update_total
-    self.total = '%.2f' % (self.subtotal.to_f + tax.to_f + shipping.to_f + (0.20 * shipping.to_f))
+    self.total = '%.2f' % (self.subtotal.to_f + tax.to_f + shipping.to_f)
     save!
   end
 
