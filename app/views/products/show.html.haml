@@ -171,10 +171,10 @@
         %tr
           %td Weight:
           %td= weight_as_metric(@product).to_s + " / " + weight_as_imperial(@product).to_s
-      -if(!@product.shipped_by.nil?)
+      -if(!@product.shipper.nil?)
         %tr
           %td Shipped by
-          %td= @product.shipped_by.titleize
+          %td= @product.shipper.company_name
 
 -if current_user.admin
   = link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"

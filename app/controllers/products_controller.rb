@@ -159,6 +159,7 @@ class ProductsController < ApplicationController
                                     :tube_diameter, :position_of_reticle,
                                     :available_reticles,
                                     :sale_end,
+                                    :shipper_id,
                                     product_attachments_attributes:
                                       [:id, :product_id, :image])
   end
