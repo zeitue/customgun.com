@@ -8,11 +8,11 @@
   end
 
 
-  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:active => true, :created_at => @range).select("DISTINCT(MODEL)").map {|p| [p.model.titleize, p.model]} do |x|
+  g.column name:  'Model', attribute: 'model', detach_with_id: :model_filter, custom_filter: Product.where(:active => true, :created_at => @range).select("DISTINCT(model)").map {|p| [p.model.titleize, p.model]} do |x|
   x.model.titleize
   end
 
-  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:active => true, :created_at => @range).select("DISTINCT(TYPE_FIELD)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
+  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:active => true, :created_at => @range).select("DISTINCT(type_field)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
   x.type_field.titleize
   end
 
