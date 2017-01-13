@@ -5,10 +5,10 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin
-      @orders = Kaminari.paginate_array((User.all.map { |user| user.orders.map { |order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:updated_at).reverse).page(params[:page]).per(8)
+      @orders = Kaminari.paginate_array((User.all.map { |user| user.orders.map { |order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
 
     else
-      @orders = current_user.orders.sort_by(&:updated_at).reverse.drop(1).page(params[:page]).per(8)
+      @orders = current_user.orders.sort_by(&:ordered_on).reverse.drop(1).page(params[:page]).per(8)
     end
   end
 
