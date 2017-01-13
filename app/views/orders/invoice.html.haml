@@ -35,7 +35,7 @@
       .row
         .col-md-12.col-sm-12.col-xs-12
           %b= "Order Placed: "
-          #{l @order.updated_at, format: :long}
+          #{l @order.ordered_on, format: :long}
       .row
         .col-md-12.col-sm-12.col-xs-12
           %b= "Customgun.com order number"

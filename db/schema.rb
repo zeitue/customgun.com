@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110074057) do
+ActiveRecord::Schema.define(version: 20170113045551) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -69,14 +69,15 @@ ActiveRecord::Schema.define(version: 20170110074057) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float    "subtotal"
     t.float    "total"
     t.float    "tax"
     t.integer  "address_id"
     t.float    "shipping"
-    t.text     "comment",    default: ""
+    t.text     "comment"
+    t.datetime "ordered_on"
   end
 
   add_index "orders", ["address_id"], name: "index_orders_on_address_id"

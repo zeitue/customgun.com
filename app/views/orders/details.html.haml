@@ -4,7 +4,7 @@
 .well.clearfix
   .row
     .col-md-4.col-sm-4.col-xs-12
-      .row= "Ordered on #{l @order.updated_at, format: :long}"
+      .row= "Ordered on #{l @order.ordered_on, format: :long}"
       %p
     .col-md-4.col-sm-4.col-xs-12
       .row= 'Order #'+  ("%08X" % @order.id)

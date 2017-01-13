@@ -85,6 +85,7 @@ class CheckoutsController < ApplicationController
       else
         @order.tax = 0.0
       end
+      @order.ordered_on = DateTime.now
       @order.save
       @order.update_order
     end
