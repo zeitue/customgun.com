@@ -86,7 +86,7 @@ class CheckoutsController < ApplicationController
         @order.tax = 0.0
       end
       @order.ordered_on = DateTime.now
-      @order.save
+      @order.save!
       @order.update_order
     end
     redirect_to review_path

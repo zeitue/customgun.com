@@ -72,7 +72,7 @@
                 =link_to "Download", shipment.tracking.to_s, class: "btn btn-primary btn-block"
               -if current_user.admin
                 =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
-        -if !order.comment.empty?
+        -if !order.comment.nil? && !order.comment.empty?
           .row
             %p
               ="Comment: #{order.comment}"
