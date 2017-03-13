@@ -38,10 +38,10 @@ class Product < ActiveRecord::Base
   end
 
   def shipping_constraint
-    unless self.shipping_height >= self.height &&
-           self.shipping_width  >= self.width  &&
-           self.shipping_length >= self.length &&
-           self.shipping_weight >= self.weight
+    unless self.shipping_height.to_f >= self.height.to_f &&
+           self.shipping_width.to_f  >= self.width.to_f  &&
+           self.shipping_length.to_f >= self.length.to_f &&
+           self.shipping_weight.to_f >= self.weight.to_f
       errors.add(:base, 'It is not possible to place a larger object inside a smaller object')
     end
   end
