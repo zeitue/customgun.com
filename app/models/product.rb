@@ -3,12 +3,15 @@ class Product < ActiveRecord::Base
   friendly_id :url
   validates :title, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true
+  validates_presence_of :shipper
+  validate :shipping_constraint
   has_many :photos
   accepts_nested_attributes_for :photos
   before_validation :default_values
   before_destroy :destroy_associated
   belongs_to :shipper
-  validates_presence_of :shipper
+
+
 
   def default_values
     self.title = title.to_s.strip.downcase
@@ -34,6 +37,15 @@ class Product < ActiveRecord::Base
     photos.destroy_all
   end
 
+  def shipping_constraint
+    unless self.shipping_height >= self.height &&
+           self.shipping_width  >= self.width  &&
+           self.shipping_length >= self.length &&
+           self.shipping_weight >= self.weight
+      errors.add(:base, 'It is not possible to place a larger object inside a smaller object')
+    end
+  end
+
   def get_price
     if sale
       sale_price
@@ -53,6 +65,7 @@ class Product < ActiveRecord::Base
   def update_on_sale
     if self.sale_end && Time.now > self.sale_end
       self.sale = false;
+      self.sale_end = nil
       self.save!
     end
   end

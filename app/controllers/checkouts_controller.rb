@@ -17,7 +17,9 @@ class CheckoutsController < ApplicationController
     @packed = []
     @rates = []
     destination = make_active_location(@order.get_address)
+
     @shippers.each do |shipper|
+      origin = make_active_location(shipper.address)
       if shipper.scheme == 0
         pack = []
         rate = []
@@ -39,6 +41,15 @@ class CheckoutsController < ApplicationController
             if !fedex_packed.include? nil
               fedex_packages = make_active_packages(fedex_packed)
               rate.push(fedex_rates(origin, destination, fedex_packages))
+            end
+          end
+
+          if shipper.ups
+            ups_packed = make_packages('ups', @items)
+            pack.push((ups_packed.include? nil) ? [] : ups_packed)
+            if !ups_packed.include? nil
+              ups_packages = make_active_packages(ups_packed)
+              rate.push(ups_rates(origin, destination, ups_packages))
             end
           end
 
@@ -70,6 +81,8 @@ class CheckoutsController < ApplicationController
             make_shipments(@order, shipper, packed.find {|p| !p.empty? && p.first.label == 'fedex'}).each { |shipment| @order.shipments.push(shipment) }
           elsif @shipping_methods[i].service_name.downcase.include? 'usps'
             make_shipments(@order, shipper, packed.find {|p| !p.empty? && p.first.label == 'usps'}).each { |shipment| @order.shipments.push(shipment) }
+          elsif @shipping_methods[i].service_name.downcase.include? 'ups'
+            make_shipments(@order, shipper, packed.find {|p| !p.empty? && p.first.label == 'ups'}).each { |shipment| @order.shipments.push(shipment) }
           end
         elsif shipper.scheme == 1
           @order.shipments.push(make_pack_shipment(@order, shipper))
@@ -124,6 +137,8 @@ class CheckoutsController < ApplicationController
   end
 
   def make_shipments(order, shipper, packed)
+    puts '***********************'
+    puts packed
     shipments = []
     packed.each do |entry|
       shipments.push(make_shipment(order, shipper, entry))
@@ -153,7 +168,10 @@ class CheckoutsController < ApplicationController
   end
 
   def make_active_package(pack) # 1.15 is to give a 15% buffer weight
-    ActiveShipping::Package.new((pack.weight_limit - pack.packings.first.remaining_weight) * 1.15, [pack.dimensions.x, pack.dimensions.y, pack.dimensions.z])
+    products = [];
+    pack.packings.first.each {|e| products.push(e.label)}
+    insurance = Product.where(:url => products).sum(:price)
+    ActiveShipping::Package.new((pack.weight_limit - pack.packings.first.remaining_weight) * 1.15, [pack.dimensions.x, pack.dimensions.y, pack.dimensions.z], value: insurance, currency: 'USD', insurance_price: insurance, insured_price: insurance)
   end
 
   def make_active_location(address)
@@ -168,8 +186,9 @@ class CheckoutsController < ApplicationController
   end
 
   def make_packages(provider, items)
-    individual = items.joins(:product).where(products: { exclusive: true })
-    grouped = items.joins(:product).where(products: { exclusive: false })
+    individual = items.joins(:product).where(products: { exclusive: true, has_box: false })
+    grouped = items.joins(:product).where(products: { exclusive: false, has_box: false })
+    selfpacked = items.joins(:product).where(products: { has_box: true })
     packages = []
     individual.each do |item|
       entry = best_fit(provider, [item])
@@ -181,8 +200,21 @@ class CheckoutsController < ApplicationController
       packages.push(entry)
       grouped = remove_from(entry, grouped)
     end
+
+    selfpacked.each do |spack|
+      packages.push(spackup(provider, spack))
+    end
     packages
   end
+
+
+  def spackup(provider, item)
+    BoxPacker.container [item.product.shipping_width, item.product.shipping_height, item.product.shipping_length], label: provider, weight_limit: item.product.shipping_weight do
+      add_item [item.product.shipping_width, item.product.shipping_height, item.product.shipping_length], label: item.product.url, weight: item.product.shipping_weight, quantity: item.quantity
+      pack!
+    end
+  end
+
 
   def remove_from(entry, items)
     items_list = items.dup
@@ -217,7 +249,7 @@ class CheckoutsController < ApplicationController
   def packup(box, items)
     BoxPacker.container [box.width, box.height, box.length], label: box.provider, weight_limit: box.weight do
       items.each do |item|
-        add_item [item.product.width, item.product.height, item.product.length], label: item.product.url, weight: item.product.weight, quantity: item.quantity
+        add_item [item.product.shipping_width, item.product.shipping_height, item.product.shipping_length], label: item.product.url, weight: item.product.shipping_weight, quantity: item.quantity
       end
       pack!
     end
@@ -236,16 +268,6 @@ class CheckoutsController < ApplicationController
   def usps_rates(origin, destination, packages)
     usps = ActiveShipping::USPS.new(login: ENV['USPS_LOGIN'], password: ENV['USPS_PASSWORD'])
     get_rates_from_shipper(usps, origin, destination, packages).delete_if { |val| (val.service_name.include?('Media') || val.service_name.include?('Library') || val.service_name.include?('Envelope') || val.service_name.include?('Letter') || val.service_name.include?('Parcel')) }
-  end
-
-  def origin
-    ActiveShipping::Location.new(company_name: 'Custom Shop, LLC',
-                                 address1: '7680 N US. HWY 69',
-                                 phone: '1-903-768-2498',
-                                 country: 'US',
-                                 state: 'Texas',
-                                 city: 'Alba',
-                                 zip: '75410')
   end
 
   def check?(service)

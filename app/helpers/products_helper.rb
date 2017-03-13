@@ -14,30 +14,30 @@ module ProductsHelper
     buffer
   end
 
-  def dimensions_as_cm(product)
-    buffer = product.length.to_s + ' x '
-    buffer += product.width.to_s + ' x '
-    buffer += product.height.to_s + ' cm.'
+  def dimensions_as_cm(length, width, height)
+    buffer = length.to_s + ' x '
+    buffer += width.to_s + ' x '
+    buffer += height.to_s + ' cm.'
     buffer
   end
 
-  def dimensions_as_inches(product)
-    buffer = (product.length / 2.54).round(2).to_s + ' x '
-    buffer += (product.width / 2.54).round(2).to_s + ' x '
-    buffer += (product.height / 2.54).round(2).to_s + ' in.'
+  def dimensions_as_inches(length, width, height)
+    buffer = (length / 2.54).round(2).to_s + ' x '
+    buffer += (width / 2.54).round(2).to_s + ' x '
+    buffer += (height / 2.54).round(2).to_s + ' in.'
     buffer
   end
 
-  def weight_as_metric(product)
-    if product.weight < 1000
-      product.weight.to_s + ' g.'
+  def weight_as_metric(weight)
+    if weight < 1000
+      weight.to_s + ' g.'
     else
-      (product.weight / 1000).round(0).to_s + ' kg.'
+      (weight / 1000).round(0).to_s + ' kg.'
     end
   end
 
-  def weight_as_imperial(product)
-    weight = (((product.weight / 1000) * 35.274) / 16)
+  def weight_as_imperial(weight)
+    weight = (((weight / 1000) * 35.274) / 16)
     pounds = weight.floor
     weight -= pounds
 

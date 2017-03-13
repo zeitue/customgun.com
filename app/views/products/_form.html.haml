@@ -130,6 +130,22 @@
         = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "length-addon"
     .field
       .input-group
+        %span#shipping_weight-addon.input-group-addon Shipping Weight
+        = f.number_field :shipping_weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control input-lg","aria-describedby" => "shipping_weight-addon"
+    .field
+      .input-group
+        %span#shipping_height-addon.input-group-addon Shipping Height
+        = f.number_field :shipping_height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control input-lg","aria-describedby" => "shipping_height-addon"
+    .field
+      .input-group
+        %span#shipping_width-addon.input-group-addon Shipping Width
+        = f.number_field :shipping_width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control input-lg","aria-describedby" => "shipping_width-addon"
+    .field
+      .input-group
+        %span#shipping_length-addon.input-group-addon Shipping Length
+        = f.number_field :shipping_length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "shipping_length-addon"
+    .field
+      .input-group
         %span#shipped-by-addon.input-group-addon Shipped by
         = f.collection_select :shipper_id, Shipper.all, :id, :name,{}, {:class => 'form-control input-lg','aria-describedby' => 'shipped-by-addon'}
     .field
@@ -141,17 +157,21 @@
     .form-group
       = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
     .field.checkbox-inline
-      = f.check_box :parallax_compensation, type: "checkbox"
-      = f.label "Parallax compensation"
-    .field.checkbox-inline
-      = f.check_box :sale, type: "checkbox"
-      = f.label "This product is on sale"
+      = f.check_box :has_box, type: "checkbox"
+      = f.label "This item ships in its box"
     .field.checkbox-inline
       = f.check_box :exclusive, type: "checkbox"
       = f.label "This item ships by itself"
     .field.checkbox-inline
+      = f.check_box :sale, type: "checkbox"
+      = f.label "This product is on sale"
+    .field.checkbox-inline
       = f.check_box :active, type: "checkbox"
       = f.label "This product shows in the store"
+    .field.checkbox-inline
+      = f.check_box :parallax_compensation, type: "checkbox"
+      = f.label "Parallax compensation"
+
 
     .actions
     %br

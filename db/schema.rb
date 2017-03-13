@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113045551) do
+ActiveRecord::Schema.define(version: 20170313005524) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line1"
@@ -134,6 +134,11 @@ ActiveRecord::Schema.define(version: 20170113045551) do
     t.string   "available_reticles"
     t.datetime "sale_end"
     t.integer  "shipper_id"
+    t.boolean  "has_box",                  default: false
+    t.float    "shipping_height",          default: 0.0
+    t.float    "shipping_width",           default: 0.0
+    t.float    "shipping_length",          default: 0.0
+    t.float    "shipping_weight",          default: 0.0
   end
 
   add_index "products", ["shipper_id"], name: "index_products_on_shipper_id"
