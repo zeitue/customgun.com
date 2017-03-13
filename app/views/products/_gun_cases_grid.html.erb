@@ -7,12 +7,12 @@
     'Price: ' + (x.sale ? "<s>#{(number_to_currency x.price).to_s}</s><div class='text-danger'>Sale: #{(number_to_currency x.sale_price).to_s}</div>".html_safe : (number_to_currency x.price).to_s)
   end
 
-  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]} do |x|
+  g.column name:  'Manufacturer', attribute: 'manufacturer', detach_with_id: :manufacturer_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(manufacturer)").map {|p| [p.manufacturer.titleize, p.manufacturer]}.sort do |x|
   x.manufacturer.titleize
   end
 
 
-  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(type_field)").map {|p| [p.type_field.titleize, p.type_field]} do |x|
+  g.column name:  'Type', attribute: 'type_field', detach_with_id: :type_filter, custom_filter: Product.where(:store => "gun_cases").select("DISTINCT(type_field)").map {|p| [p.type_field.titleize, p.type_field]}.sort do |x|
   x.type_field.titleize
   end
 
