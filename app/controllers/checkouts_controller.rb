@@ -17,9 +17,11 @@ class CheckoutsController < ApplicationController
     @packed = []
     @rates = []
     destination = make_active_location(@order.get_address)
+    destination_ups = make_active_location_ups(@order.get_address)
 
     @shippers.each do |shipper|
       origin = make_active_location(shipper.address)
+      origin_ups = make_active_location_ups(shipper.address)
       if shipper.scheme == 0
         pack = []
         rate = []
@@ -49,7 +51,7 @@ class CheckoutsController < ApplicationController
             pack.push((ups_packed.include? nil) ? [] : ups_packed)
             if !ups_packed.include? nil
               ups_packages = make_active_packages(ups_packed)
-              rate.push(ups_rates(origin, destination, ups_packages))
+              rate.push(ups_rates(origin_ups, destination_ups, ups_packages))
             end
           end
 
@@ -137,8 +139,6 @@ class CheckoutsController < ApplicationController
   end
 
   def make_shipments(order, shipper, packed)
-    puts '***********************'
-    puts packed
     shipments = []
     packed.each do |entry|
       shipments.push(make_shipment(order, shipper, entry))
@@ -181,6 +181,16 @@ class CheckoutsController < ApplicationController
                                  phone: address.phone,
                                  country: address.country,
                                  state: address.state,
+                                 city: address.city,
+                                 zip: address.zip)
+  end
+
+  def make_active_location_ups(address)
+    ActiveShipping::Location.new(name: address.prefix.to_s + ' ' + address.first_name.to_s + ' ' + address.middle_name.to_s + address.last_name.to_s + ' ' + address.suffix.to_s,
+                                 address1: address.address_line1,
+                                 address2: address.address_line2,
+                                 phone: address.phone,
+                                 country: address.country,
                                  city: address.city,
                                  zip: address.zip)
   end
@@ -268,6 +278,11 @@ class CheckoutsController < ApplicationController
   def usps_rates(origin, destination, packages)
     usps = ActiveShipping::USPS.new(login: ENV['USPS_LOGIN'], password: ENV['USPS_PASSWORD'])
     get_rates_from_shipper(usps, origin, destination, packages).delete_if { |val| (val.service_name.include?('Media') || val.service_name.include?('Library') || val.service_name.include?('Envelope') || val.service_name.include?('Letter') || val.service_name.include?('Parcel')) }
+  end
+
+  def ups_rates(origin, destination, packages)
+    ups = ActiveShipping::UPS.new(login: ENV['UPS_LOGIN'], password: ENV['UPS_PASSWORD'], key: ENV['UPS_KEY'], :origin_account => ENV['UPS_LOGIN'])
+    get_rates_from_shipper(ups, origin, destination, packages)
   end
 
   def check?(service)
