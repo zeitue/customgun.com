@@ -165,12 +165,20 @@
           %td= @product.available_reticles
       -if(!@product.height.nil? && !@product.width.nil? && !@product.length.nil?)
         %tr
-          %td Dimensions (L x W x H):
-          %td= dimensions_as_cm(@product) + " / " + dimensions_as_inches(@product)
+          %td Product Dimensions (L x W x H):
+          %td= dimensions_as_cm(@product.length, @product.width, @product.height) + " / " + dimensions_as_inches(@product.length, @product.width, @product.height)
       -if(!@product.weight.nil?)
         %tr
-          %td Weight:
-          %td= weight_as_metric(@product).to_s + " / " + weight_as_imperial(@product).to_s
+          %td Product Weight:
+          %td= weight_as_metric(@product.weight).to_s + " / " + weight_as_imperial(@product.weight).to_s
+      -if(!@product.shipping_height.nil? && !@product.shipping_width.nil? && !@product.shipping_length.nil?)
+        %tr
+          %td Shipping Dimensions (L x W x H):
+          %td= dimensions_as_cm(@product.shipping_length, @product.shipping_width, @product.shipping_height) + " / " + dimensions_as_inches(@product.shipping_length, @product.shipping_width, @product.shipping_height)
+      -if(!@product.shipping_weight.nil?)
+        %tr
+          %td Shipping Weight:
+          %td= weight_as_metric(@product.shipping_weight).to_s + " / " + weight_as_imperial(@product.shipping_weight).to_s
       -if(!@product.shipper.nil?)
         %tr
           %td Shipped by
