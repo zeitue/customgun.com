@@ -140,7 +140,6 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.3.17)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.5.1)
@@ -288,7 +287,6 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   momentjs-rails (>= 2.9.0)
-  mysql2 (= 0.3.17)
   nokogiri (= 1.6.7.2)
   omniauth
   omniauth-facebook
