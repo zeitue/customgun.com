@@ -9,6 +9,9 @@ end
 group :development, :test do
   gem 'html2haml'
   gem 'sqlite3', '1.3.11'
+  gem 'tilt', '~> 1.4.1'
+  gem 'taps'
+  gem 'squasher', '>= 0.3.0'
 end
 
 source 'https://rails-assets.org' do
@@ -21,7 +24,6 @@ end
 
 gem 'dotenv-rails'
 gem 'haml-rails'
-gem 'passenger', '~> 4.0.60'
 gem 'execjs'
 gem 'therubyracer', '0.12.2'
 gem 'jquery-rails'
@@ -46,4 +48,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
 gem 'authbuttons-rails'
-
+gem 'pg'
+gem 'unicorn'
