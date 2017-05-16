@@ -19,7 +19,10 @@
 @import "wice_grid";
 @import "jquery.countdown";
 
-
+#SearchParameters.in,
+#SearchParameters.collapsing {
+    display: block!important;
+}
 
 .widewrapper {
   width:100%;

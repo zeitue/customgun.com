@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.order(:id).page(params[:page]).per(8)
   end
 
   def destroy

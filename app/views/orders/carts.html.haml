@@ -1,7 +1,8 @@
 ﻿- content_for :title,  "Carts"
 .page-header
   %h1 Carts
- 
+
+= paginate @orders
 -@orders.each do |order|
   -if !order.nil?
     .well.clearfix
@@ -14,7 +15,7 @@
             .col-md-10.col-sm-10.col-xs-12=link_to(item.product.title.titleize, item.product) + (br() + link_to(image_tag(item.product.photos.first.image.thumb), item.product) unless item.product.photos.first.nil?)
             .col-md-2.col-sm-2.col-xs-12
               .row
-                Price: 
+                Price:
                 %span=number_to_currency item.product.get_price
               .row
                 Quantity:
@@ -25,3 +26,6 @@
           = "Subtotal (#{pluralize(order.quantity, 'item')}): "
           = number_to_currency order.subtotal
 
+.row
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+    = paginate @orders

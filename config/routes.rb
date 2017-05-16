@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/store/checkout/packaging' => 'checkouts#packaging', :as => :packaging
   get '/store/checkout/approved' => 'checkouts#approved', :as => :approved
   get '/store/checkout/disapproved' => 'checkouts#disapproved', :as => :disapproved
+  get '/store/main' => 'products#main', :as => :store_main
   get '/store/products' => 'products#products', :as => :product_management
   get '/store/gun-parts' => 'products#gun_parts', :as => :gunparts
   get '/store/custom-parts' => 'products#custom_parts', :as => :custom_parts

@@ -2,24 +2,54 @@
 .page-header
   %h1 Users
 
-%table.table.table-hover
-  %thead
-    %tr
-      %th ID
-      %th Name
-      %th Email
-      %th
+= paginate @users
+-@users.each do |user|
+  .row
+    .panel.panel-default
+      .panel-heading
+        .row
+          .col-md-4.col-sm-4.col-xs-4.col-xs-4
+            = "##{('%08X' % user.id)}"
+          .col-md-4.col-sm-4.col-xs-4.col-xs-4
+            =link_to "Show", user, class: "btn btn-primary btn-block"
+          .col-md-4.col-sm-4.col-xs-4.col-xs-4
+            =link_to "Destroy", user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-primary btn-block btn-danger"
+      .panel-body
+        .row
+          .col-md-12.col-sm-12.col-xs-12.col-xs-12
+            = "Name #{user.name.nil? ? 'Guest' : user.name.titleize}"
+        .row
+          .col-md-12.col-sm-12.col-xs-12.col-xs-12
+            = "Email #{user.email.downcase}"
+        .row
+          .col-md-6.col-sm-6.col-xs-6.col-xs-6
+            = "Number of orders #{user.orders.count.to_i > 1 ? user.orders.count.to_i - 1 : 'None'}"
+          .col-md-6.col-sm-6.col-xs-6.col-xs-6
+            = "Amount spent $#{user.orders.order(:updated_at).limit(user.orders.count - 1).sum('total')}"
+        .row
+          .col-md-6.col-sm-6.col-xs-6.col-xs-6
+            = "Account Type #{user.admin == true ? 'Admin' : (user.guest == true ? 'Guest' : 'User')}"
+          .col-md-3.col-sm-3.col-xs-3.col-xs-3
+            .row
+              .col-md-12.col-sm-12.col-xs-12.col-xs-12
+                = "Facebook"
+            .row
+              .col-md-12.col-sm-12.col-xs-12.col-xs-12
+                = check_box_tag "#{'F'+user.id.to_s}", true, user.authentications.where(provider: 'facebook').count > 0, class: 'checkbox disabled'
+          .col-md-3.col-sm-3.col-xs-3.col-xs-3
+            .row
+              .col-md-12.col-sm-12.col-xs-12.col-xs-12
+                = "Twitter"
+            .row
+              .col-md-12.col-sm-12.col-xs-12.col-xs-12
+                = check_box_tag "#{'F'+user.id.to_s}", true, user.authentications.where(provider: 'twitter').count > 0, class: 'checkbox disabled'
+        .row
+          .col-md-6.col-sm-6.col-xs-6.col-xs-6
+            = "Last signed in from #{user.last_sign_in_ip}"
+          .col-md-6.col-sm-6.col-xs-6.col-xs-6
+            ="Last signed in on #{l user.updated_at, format: :long}"
 
 
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.id
-        %td= user.name.titleize unless user.name.nil?
-        %td= user.email.downcase
-        %td
-          =link_to "Show", user, class: "btn btn-primary btn-block"
-          =link_to "Destroy", user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-primary btn-block"
-%br
-
-
+.row
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+    = paginate @users

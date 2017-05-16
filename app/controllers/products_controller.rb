@@ -6,61 +6,85 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.where(active: true).order('RANDOM()').limit(3)
+    @products = Product.where('active = ? or active = ?', true, !current_user.admin)
+    filtering_params(params).each do |key, value|
+      @products = @products.public_send(key, value) if value.present?
+    end
+    @no_page = @products
+    @products = Kaminari.paginate_array(@products).page(params[:page]).per(15)
   end
 
+
+  def main
+    @products = Product.where(active: true).order('RANDOM()').limit(3)
+  end
+  
+
   def products
-    @grid = initialize_grid(Product, include: :photos, order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url
+    #@grid = initialize_grid(Product, include: :photos, order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_parts
-    @gun_parts_grid = initialize_grid(Product.where(store: 'gun_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'gun_parts')
+    #@gun_parts_grid = initialize_grid(Product.where(store: 'gun_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def wood
-    @wood_grid = initialize_grid(Product.where(store: 'wood', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'wood')
+    #@wood_grid = initialize_grid(Product.where(store: 'wood', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def barrels
-    @barrels_grid = initialize_grid(Product.where(store: 'barrels', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'barrels')
+    #@barrels_grid = initialize_grid(Product.where(store: 'barrels', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def optics
-    @optics_grid = initialize_grid(Product.where(store: 'optics', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'optics')
+    #@optics_grid = initialize_grid(Product.where(store: 'optics', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gifts
-    @gifts_grid = initialize_grid(Product.where(store: 'gifts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'gifts')
+    #@gifts_grid = initialize_grid(Product.where(store: 'gifts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def jewelry
-    @jewelry_grid = initialize_grid(Product.where(store: 'jewelry', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'jewelry')
+    #@jewelry_grid = initialize_grid(Product.where(store: 'jewelry', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def decor
-    @decor_grid = initialize_grid(Product.where(store: 'decor', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'decor')
+    #@decor_grid = initialize_grid(Product.where(store: 'decor', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def gun_cases
-    @gun_cases_grid = initialize_grid(Product.where(store: 'gun_cases', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'gun_cases')
+    #@gun_cases_grid = initialize_grid(Product.where(store: 'gun_cases', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def guns
-    @guns_grid = initialize_grid(Product.where(store: 'guns', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'guns')
+    #@guns_grid = initialize_grid(Product.where(store: 'guns', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def custom_parts
-    @custom_parts_grid = initialize_grid(Product.where(store: 'custom_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:department => 'custom_parts')
+    #@custom_parts_grid = initialize_grid(Product.where(store: 'custom_parts', active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def new_arrivals
-    @products = Product.where(active: true).limit(60).order('created_at DESC')
-    @range = @products.last.created_at..@products.first.created_at
-    @new_arrivals_grid = initialize_grid(Product.where(active: true, created_at: @range), order: 'products.created_at', order_direction: 'desc', per_page: 20)
+    redirect_to products_url(:qorder => 't')
+    #@products = Product.where(active: true).limit(60).order('created_at DESC')
+    #@range = @products.last.created_at..@products.first.created_at
+    #@new_arrivals_grid = initialize_grid(Product.where(active: true, created_at: @range), order: 'products.created_at', order_direction: 'desc', per_page: 20)
   end
 
   def sale_items
-    @sales_grid = initialize_grid(Product.where(sale: true, active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
+    redirect_to products_url(:qsale => 't')
+    #@sales_grid = initialize_grid(Product.where(sale: true, active: true), order: 'products.title', order_direction: 'asc', per_page: 20)
   end
 
   def privacy_policy
@@ -86,6 +110,17 @@ class ProductsController < ApplicationController
 
   def update_on_sale
     @product.update_on_sale
+  end
+
+  def filtering_params(params)
+    params.slice(:department, :search, :qmodel, :qmanufacturer, :qpart_number,
+                 :qmaterial, :qcaliber, :qbarrel_length, :qtype_field,
+                 :qstyle_field, :qfield_of_view_low_power, :qsale,
+                 :qfield_of_view_high_power, :qdiopter_adjustment, :qeye_relief,
+                 :qexit_pupil_low_power,:qexit_pupil_high_power,
+                 :qelevation_travel, :qwindage_travel, :qmoa_per_click_upper,
+                 :qmoa_per_click_lower, :qparallax_compensation, :qtotal_travel,
+                 :qtube_diameter, :qposition_of_reticle, :qavailable_reticles)
   end
 
   # GET /products/1

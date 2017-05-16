@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin
-      @orders = Kaminari.paginate_array((User.all.map { |user| user.orders.map { |order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
+      @orders = Kaminari.paginate_array((User.all.map {|user| user.orders.map {|order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
 
     else
       @orders =  Kaminari.paginate_array(current_user.orders.where('ordered_on IS NOT NULL').sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def carts
-    @orders = User.all.map { |user| user.orders.last unless user.orders.last.items.count == 0 }.reverse
+    @orders = Kaminari.paginate_array((User.all.map {|user| user.orders.last unless user.orders.last.items.count == 0}).compact.flatten.sort_by(&:updated_at).reverse).page(params[:page]).per(8)
   end
 
   def invoice

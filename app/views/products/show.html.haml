@@ -2,6 +2,7 @@
 - content_for :head do
   %meta{content: @product.tags, name: "Keywords"}/
   %meta{content: @product.description, name: "Description"}/
+
 %h3.panel= @product.title.titleize
 .row
   .col-xs-12.col-sm-8.col-md-8.col-lg-8

@@ -1,54 +1,108 @@
-.page-header
-  %h1 Store
 
-.well
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/barrels.png"), barrels_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/custom_parts.png"), custom_parts_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/decor.png"), decor_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gifts.png"), gifts_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gun_cases.png"), gun_cases_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gun_parts.png"), gunparts_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/guns.png"), guns_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/jewelry.png"), jewelry_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/new_arrivals.png"), new_arrivals_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/optics.png"), optics_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/sale_items.png"), sale_items_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/wood.png"), wood_path)
-      %p
-.panel-header
-  %h2 Featured Products
-.well
-  .row
-    -@products.each do |product|
-      .col-md-4.col-sm-4.col-xs-12
-        =link_to(product.title.titleize, product) + |
-          (br() + link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?) + |
-          (br() +" Price: " + (number_to_currency product.price).to_s unless product.price.nil?) |
-        %p
+= form_tag(products_path, :method => "get", id: "search-form") do
+  .input-group
+    = text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control'
+    .input-group-btn= submit_tag "Search", :name => nil, class: 'btn btn-default btn-primary'
+  = select_tag :department, options_for_select([['All', ''], ['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], :selected=>params[:department]), {class: 'form-control'}
+  = hidden_field_tag :qsale, params[:qsale]
+  = hidden_field_tag :qorder, params[:qorder]
+%br
+%button.btn.btn-primary.btn-block.visible-xs.visible-sm{"data-target" => "#SearchParameters", "data-toggle" => "collapse"} Filters
+
+=  paginate @products
+
+
+%br
+.row
+  .col-md-3.col-sm-12.col-xs-12.col-lg-3
+    -if current_user.admin
+      .col-md-12.col-sm-12.col-xs-12.col-lg-12
+        = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-block'
+        %br
+
+    -#%button.btn.btn-primary.btn-block{"data-target" => "#filters", "data-toggle" => "collapse", :type => "button"} Filter
+    -##filters.collapse
+    -#%button.btn.btn-default.btn-block.visible-xs.visible-sm.hidden-md.hidden-lg{"data-target" => "#filter", "data-toggle" => "collapse", id: "filter_button"} Filters
+
+    -##filter.collapse.in
+    #SearchParameters.hidden-xs.hidden-sm.col-md-12.col-lg-12.SearchParameters
+      = form_tag(products_path, :method => "get", id: "select-form") do
+        = hidden_field_tag :search, params[:search]
+        = hidden_field_tag :department, params[:department]
+        = hidden_field_tag :qsale, params[:qsale]
+        = hidden_field_tag :qorder, params[:qorder]
+        = submit_tag "Apply", :name => nil, class: 'btn btn-default btn-primary btn-block'
+        - qmaterial_opt = [['Material', '']] + @no_page.collect{|p| [p.material.upcase, p.material]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qmanufacturer_opt = [['Manufacturer', '']] + @no_page.collect{|p| [p.manufacturer.upcase, p.manufacturer]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qmodel_opt = [['Model', '']] + @no_page.collect{|p| [p.model.upcase, p.model]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qpart_number_opt = [['Part Number', '']] + @no_page.collect{|p| [p.part_number.upcase, p.part_number]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qtype_opt = [['Type', '']] + @no_page.collect{|p| [p.type_field.upcase, p.type_field]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qstyle_opt = [['Style', '']] + @no_page.collect{|p| [p.style_field.upcase, p.style_field]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qcaliber_opt = [['Caliber', '']] + @no_page.collect{|p| [p.caliber.upcase, p.caliber]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qbarrel_length_opt = [['Barrel Length', '']] + @no_page.collect{|p| [p.barrel_length.upcase, p.barrel_length]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qfield_of_view_high_power_opt = [['Field Of View High Power', '']] + @no_page.collect{|p| [p.field_of_view_high_power.to_f, p.field_of_view_high_power.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qfield_of_view_low_power_opt = [['Field Of View Low Power', '']] + @no_page.collect{|p| [p.field_of_view_low_power.to_f, p.field_of_view_low_power.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qelevation_travel_opt = [['Elevation Travel', '']] + @no_page.collect{|p| [p.elevation_travel.upcase, p.elevation_travel]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qwindage_travel_opt = [['Windage Travel', '']] + @no_page.collect{|p| [p.windage_travel.upcase, p.windage_travel]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qdiopter_adjustment_opt = [['Diopter Adjustment', '']] + @no_page.collect{|p| [p.diopter_adjustment.upcase, p.diopter_adjustment]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qtotal_travel_opt = [['Total Travel', '']] + @no_page.collect{|p| [p.total_travel.upcase, p.total_travel]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qposition_of_reticle_opt = [['Position Of Reticle', '']] + @no_page.collect{|p| [p.position_of_reticle.upcase, p.position_of_reticle]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qavailable_reticles_opt = [['Available Reticles', '']] + @no_page.collect{|p| [p.available_reticles.upcase, p.available_reticles]}.uniq.sort.reject{|v| v == ["", ""]}
+        - qparallax_compensation_opt = [['Parallax Compensation', '']] + @no_page.collect{|p| [p.parallax_compensation ? 'Yes' : 'No', p.parallax_compensation]}.uniq.sort
+        - qeye_relief_opt = [['Eye Relief', '']] + @no_page.collect{|p| [p.eye_relief, p.eye_relief]}.reject{|v| v == [nil, nil]}.uniq.sort
+        - qexit_pupil_high_power_opt = [['Exit Pupil High Power', '']] + @no_page.collect{|p| [p.exit_pupil_high_power.to_f, p.exit_pupil_high_power.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qexit_pupil_low_power_opt = [['Exit Pupil Low Power', '']] + @no_page.collect{|p| [p.exit_pupil_low_power.to_f, p.exit_pupil_low_power.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qmoa_per_click_upper_opt = [['MOA Per Click Upper', '']] + @no_page.collect{|p| [p.moa_per_click_upper.to_f, p.moa_per_click_upper.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qmoa_per_click_lower_opt = [['MOA Per Click Lower', '']] + @no_page.collect{|p| [p.moa_per_click_lower.to_f, p.moa_per_click_lower.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        - qtube_diameter_opt = [['Tube Diameter', '']] + @no_page.collect{|p| [p.tube_diameter.to_f, p.tube_diameter.to_f]}.uniq.sort.reject{|v| v == [0.0, 0.0]}
+        = select_tag :qmanufacturer, options_for_select(qmanufacturer_opt, :selected=>params[:qmanufacturer]), {class: 'form-control'} if qmanufacturer_opt.count > 1
+        = select_tag :qmodel, options_for_select(qmodel_opt, :selected=>params[:qmodel]), {class: 'form-control'} if qmodel_opt.count > 1
+        = select_tag :qmaterial, options_for_select(qmaterial_opt, :selected=>params[:qmaterial]), {class: 'form-control'} if qmaterial_opt.count > 1
+        = select_tag :qpart_number, options_for_select(qpart_number_opt, :selected=>params[:qpart_number]), {class: 'form-control'} if qpart_number_opt.count > 1
+        = select_tag :qtype_field, options_for_select(qtype_opt, :selected=>params[:qtype_field]), {class: 'form-control'} if qtype_opt.count > 1
+        = select_tag :qstyle_field, options_for_select(qstyle_opt, :selected=>params[:qstyle_field]), {class: 'form-control'} if qstyle_opt.count > 1
+        = select_tag :qcaliber, options_for_select(qcaliber_opt, :selected=>params[:qcaliber]), {class: 'form-control'} if qcaliber_opt.count > 1
+        = select_tag :qbarrel_length, options_for_select(qbarrel_length_opt, :selected=>params[:qbarrel_length]), {class: 'form-control'} if qbarrel_length_opt.count > 1
+        = select_tag :qfield_of_view_high_power, options_for_select(qfield_of_view_high_power_opt, :selected=>params[:qfield_of_view_high_power]), {class: 'form-control'} if qfield_of_view_high_power_opt.count > 1
+        = select_tag :qfield_of_view_low_power, options_for_select(qfield_of_view_low_power_opt, :selected=>params[:qfield_of_view_low_power]), {class: 'form-control'} if qfield_of_view_low_power_opt.count > 1
+        = select_tag :qelevation_travel, options_for_select(qelevation_travel_opt, :selected=>params[:qelevation_travel]), {class: 'form-control'} if qelevation_travel_opt.count > 1
+        = select_tag :qwindage_travel, options_for_select(qwindage_travel_opt, :selected=>params[:qwindage_travel]), {class: 'form-control'} if qwindage_travel_opt.count > 1
+        = select_tag :qtotal_travel, options_for_select(qtotal_travel_opt, :selected=>params[:qtotal_travel]), {class: 'form-control'} if qtotal_travel_opt.count > 1
+        = select_tag :qposition_of_reticle, options_for_select(qposition_of_reticle_opt, :selected=>params[:qposition_of_reticle]), {class: 'form-control'} if qposition_of_reticle_opt.count > 1
+        = select_tag :qavailable_reticles, options_for_select(qavailable_reticles_opt, :selected=>params[:qavailable_reticles]), {class: 'form-control'} if qavailable_reticles_opt.count > 1
+        = select_tag :qdiopter_adjustment, options_for_select(qdiopter_adjustment_opt, :selected=>params[:qdiopter_adjustment]), {class: 'form-control'} if qdiopter_adjustment_opt.count > 1
+        = select_tag :qparallax_compensation, options_for_select(qparallax_compensation_opt, :selected=>params[:qparallax_compensation]), {class: 'form-control'} if qparallax_compensation_opt.count > 2
+        = select_tag :qeye_relief, options_for_select(qeye_relief_opt, :selected=>params[:qeye_relief]), {class: 'form-control'} if qeye_relief_opt.count > 1
+        = select_tag :qexit_pupil_high_power, options_for_select(qexit_pupil_high_power_opt, :selected=>params[:qexit_pupil_high_power]), {class: 'form-control'} if qexit_pupil_high_power_opt.count> 1
+        = select_tag :qexit_pupil_low_power, options_for_select(qexit_pupil_low_power_opt, :selected=>params[:qexit_pupil_low_power]), {class: 'form-control'} if qexit_pupil_low_power_opt.count > 1
+        = select_tag :qmoa_per_click_upper, options_for_select(qmoa_per_click_upper_opt, :selected=>params[:qmoa_per_click_upper]), {class: 'form-control'} if qmoa_per_click_upper_opt.count > 1
+        = select_tag :qmoa_per_click_lower, options_for_select(qmoa_per_click_lower_opt, :selected=>params[:qmoa_per_click_lower]), {class: 'form-control'} if qmoa_per_click_lower_opt.count > 1
+        = select_tag :qtube_diameter, options_for_select(qtube_diameter_opt, :selected=>params[:qtube_diameter]), {class: 'form-control'} if qtube_diameter_opt.count > 1
+        = submit_tag "Apply", :name => nil, class: 'btn btn-default btn-primary btn-block'
+
+
+  .col-md-9.col-sm-12.col-xs-12.col-lg-9
+    .well
+      -@products.in_groups_of(3, false).each do |group|
+        .row
+          -group.each do |product|
+            .col-md-4.col-sm-4.col-xs-4.col-lg-4
+              .row
+                .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                  .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?
+              .row
+                .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                  =link_to(product.title.titleize, product)
+              .row
+                .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                  = ('Price: ' + (product.sale ? "<s><div class='text-muted'>#{(number_to_currency product.price).to_s}</div></s><div class='text-success'>Sale: #{(number_to_currency product.sale_price).to_s}</div>".html_safe : (number_to_currency product.price).to_s)).html_safe
+              .row
+                .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                  .text-danger= 'Sold out' if product.quantity <= 0
+              -if current_user.admin
+                .row
+                  .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                    = link_to( 'Edit', edit_product_path(product), class: "btn btn-primary btn-block")
+                    = link_to('Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger btn-block")
+            %p
+=  paginate @products
