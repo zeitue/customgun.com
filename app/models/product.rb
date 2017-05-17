@@ -175,7 +175,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.qorder(value)
-    if value = 't'
+    if value == 't'
       order('created_at DESC')
     end
   end

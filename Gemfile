@@ -21,6 +21,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'kaminari'
 gem 'dotenv-rails'
 gem 'haml-rails'
 gem 'execjs'

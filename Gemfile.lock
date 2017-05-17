@@ -115,6 +115,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (1.5.6)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.11.0)
     libv8 (3.16.14.19)
     loofah (2.0.3)
@@ -267,6 +270,7 @@ DEPENDENCIES
   html2haml
   jquery-countdown-rails
   jquery-rails
+  kaminari
   mini_magick
   momentjs-rails
   nokogiri
