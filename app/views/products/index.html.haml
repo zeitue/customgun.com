@@ -7,18 +7,25 @@
   = hidden_field_tag :qsale, params[:qsale]
   = hidden_field_tag :qorder, params[:qorder]
 %br
-%button.btn.btn-primary.btn-block.visible-xs.visible-sm{"data-target" => "#SearchParameters", "data-toggle" => "collapse"} Filters
-
 =  paginate @products
-
-
 %br
+-if current_user.admin
+  .col-md-12.col-sm-12.col-xs-12.col-lg-12
+    = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-block'
+    %br
+.col-md-12.col-sm-12.col-xs-12.col-lg-12
+  -if @products.count < 1
+    = form_tag(products_path, :method => "get", id: "select-form") do
+      = hidden_field_tag :search, params[:search]
+      = hidden_field_tag :department, params[:department]
+      = hidden_field_tag :qsale, params[:qsale]
+      = hidden_field_tag :qorder, params[:qorder]
+      = submit_tag "Clear Filters", :name => nil, class: 'btn btn-default btn-primary btn-block'
+  -else
+    %button.btn.btn-primary.btn-block.visible-xs.visible-sm{"data-target" => "#SearchParameters", "data-toggle" => "collapse"} Filters
+  %br
 .row
   .col-md-3.col-sm-12.col-xs-12.col-lg-3
-    -if current_user.admin
-      .col-md-12.col-sm-12.col-xs-12.col-lg-12
-        = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-block'
-        %br
 
     -#%button.btn.btn-primary.btn-block{"data-target" => "#filters", "data-toggle" => "collapse", :type => "button"} Filter
     -##filters.collapse
@@ -83,6 +90,11 @@
 
   .col-md-9.col-sm-12.col-xs-12.col-lg-9
     .well
+      -if @products.count < 1
+        .row
+          .col-md-12.col-sm-12.col-xs-12.col-lg-12
+            %center
+              .text-danger No Products found matching this criteria
       -@products.in_groups_of(3, false).each do |group|
         .row
           -group.each do |product|

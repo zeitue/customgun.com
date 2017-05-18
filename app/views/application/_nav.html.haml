@@ -7,14 +7,14 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => products_path}=image_tag('theme/store_default/tr.svg', :title => 'Store Home Page', :alt => 'TR', :style => 'height:20px;display:inline;')
+      %a.navbar-brand{:href => store_main_path}=image_tag('theme/store_default/tr.svg', :title => 'Store Home Page', :alt => 'TR', :style => 'height:20px;display:inline;')
     / Collect the nav links, forms, and other content for toggling
     #navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
           %a{:href => store_main_path} Store
         %li
-          %a{:href => home_path} Home
+          %a{:href => home_path} Custom Shop - Home
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Departments
@@ -44,6 +44,29 @@
               %a{:href => sale_items_path} Sale Items
             %li
               %a{:href => wood_path} Wood
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Services
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => finishes_path} Finishes
+            %li
+              %a{:href => gun_fitting_path} Gun Fitting
+            %li
+              %a{:href => gunsmithing_path} Gun Smithing
+            %li
+              %a{:href => leather_wrap_pads_path} Leather Wrap Pads
+            %li
+              %a{:href => pistols_path} Pistols Work
+            %li
+              %a{:href => restoration_path} Restoration
+            %li
+              %a{:href => shotguns_path} Shotgun Work
+            %li
+              %a{:href => stock_work_path} Stock Work
+
+
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Information
