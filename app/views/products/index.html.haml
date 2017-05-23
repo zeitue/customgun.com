@@ -9,11 +9,8 @@
 %br
 =  paginate @products
 
-
-
 .row
   .col-md-3.col-sm-12.col-xs-12.col-lg-3
-    %br
     -if current_user.admin
       .col-md-12.col-lg-12= link_to 'New Product', new_product_path, class: 'btn btn-primary btn-block'
     -if @products.count < 1
@@ -23,13 +20,14 @@
         = hidden_field_tag :qsale, params[:qsale]
         = hidden_field_tag :qorder, params[:qorder]
         .col-md-12.col-lg-12
-          %br
+          %br.visible-xs.visible-sm
           = submit_tag "Clear Filters", :name => nil, class: 'btn btn-default btn-primary btn-block'
+          %br.visible-xs.visible-sm
     -else
       .col-md-12.col-lg-12
-        %br
+        %br.visible-xs.visible-sm
         %button.btn.btn-primary.btn-block.visible-xs.visible-sm{"data-target" => "#SearchParameters", "data-toggle" => "collapse"} Filters
-    %br
+        %br.visible-xs.visible-sm
     -#%button.btn.btn-primary.btn-block{"data-target" => "#filters", "data-toggle" => "collapse", :type => "button"} Filter
     -##filters.collapse
     -#%button.btn.btn-default.btn-block.visible-xs.visible-sm.hidden-md.hidden-lg{"data-target" => "#filter", "data-toggle" => "collapse", id: "filter_button"} Filters
@@ -37,6 +35,12 @@
     -##filter.collapse.in
     -if @products.count > 0
       #SearchParameters.hidden-xs.hidden-sm.col-md-12.col-lg-12.SearchParameters
+        = form_tag(products_path, :method => "get", id: "select-form-clear") do
+          = hidden_field_tag :search, params[:search]
+          = hidden_field_tag :department, params[:department]
+          = hidden_field_tag :qsale, params[:qsale]
+          = hidden_field_tag :qorder, params[:qorder]
+          = submit_tag "Clear", :name => nil, class: 'btn btn-default btn-danger btn-block'
         = form_tag(products_path, :method => "get", id: "select-form") do
           = hidden_field_tag :search, params[:search]
           = hidden_field_tag :department, params[:department]
@@ -90,6 +94,13 @@
           = select_tag :qmoa_per_click_lower, options_for_select(qmoa_per_click_lower_opt, :selected=>params[:qmoa_per_click_lower]), {class: 'form-control'} if qmoa_per_click_lower_opt.count > 1
           = select_tag :qtube_diameter, options_for_select(qtube_diameter_opt, :selected=>params[:qtube_diameter]), {class: 'form-control'} if qtube_diameter_opt.count > 1
           = submit_tag "Apply", :name => nil, class: 'btn btn-default btn-primary btn-block'
+        = form_tag(products_path, :method => "get", id: "select-form-clear") do
+          = hidden_field_tag :search, params[:search]
+          = hidden_field_tag :department, params[:department]
+          = hidden_field_tag :qsale, params[:qsale]
+          = hidden_field_tag :qorder, params[:qorder]
+          = submit_tag "Clear", :name => nil, class: 'btn btn-default btn-danger btn-block'
+        %br
 
 
   .col-md-9.col-sm-12.col-xs-12.col-lg-9

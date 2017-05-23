@@ -71,7 +71,8 @@ class Product < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    s = search.to_s.strip.downcase
+    where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
   end
 
   def self.department(value)
