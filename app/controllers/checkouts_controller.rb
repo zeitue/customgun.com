@@ -5,11 +5,19 @@ class CheckoutsController < ApplicationController
     @addresses = Address.where(user_id: current_user.id)
     @address = Address.new
     @order = current_order
+    @order.phase = 2
+    @order.save!
   end
 
   def shipping_select
     current_order.update_items
     @order = current_order
+    if @order.phase == 2
+      @order.phase = 3
+      @order.save!
+    else
+      redirect_to address_select_path
+    end
     @shipping_methods = @order.shipping_methods
     product_ids = @order.items.map(&:product_id)
     @shippers = Shipper.where(id: Product.where(id: product_ids).uniq.pluck(:shipper_id).sort_by { |i| [i ? 1 : 0, i] })
@@ -67,6 +75,9 @@ class CheckoutsController < ApplicationController
 
   def review
     @order = current_order
+    if @order.phase != 4
+      redirect_to address_select_path
+    end
   end
 
   def process_order
@@ -101,6 +112,7 @@ class CheckoutsController < ApplicationController
         @order.tax = 0.0
       end
       @order.ordered_on = DateTime.now
+      @order.phase = 4
       @order.save!
       @order.update_order
     end
@@ -109,10 +121,14 @@ class CheckoutsController < ApplicationController
 
   def packaging
     @order = current_order
+    @order.phase = 5
+    @order.save!
   end
 
   def approved
     @order = current_order
+    @order.phase = 6
+    @order.save!
     if @order.items.count > 0
       @order.items.each do |item|
         item.product.quantity -= item.quantity

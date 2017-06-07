@@ -5,8 +5,10 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin
-      @orders = Kaminari.paginate_array((User.all.map {|user| user.orders.map {|order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
-
+      @orders = Kaminari.paginate_array(Order.where(phase: 6).order('ordered_on DESC')).page(params[:page]).per(8)
+    # (User.all.map {|user| user.orders.map {|order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse
+    # For update
+    # (User.all.map {|user| user.orders.map {|order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse.each {|e| e.update_attributes(phase: 6) }
     else
       @orders =  Kaminari.paginate_array(current_user.orders.where('ordered_on IS NOT NULL').sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
     end
@@ -53,7 +55,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, :comment, :ordered_on, shipping_methods_attributes: [:id, :service_name, :price])
+    params.require(:order).permit(:user_id, :subtotal, :total, :tax, :address_id, :comment, :ordered_on, :phase, shipping_methods_attributes: [:id, :service_name, :price])
   end
 
   # Use callbacks to share common setup or constraints between actions.
