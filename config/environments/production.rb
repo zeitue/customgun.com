@@ -77,18 +77,29 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   # devise mailer support
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.perform_deliveries = true
+  #config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'customgun.com' }
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.sendmail_settings = {
-    arguments:      '-i',
-    user_name:      ENV['MAILER_USER_NAME'],
-    password:       ENV['MAILER_PASSWORD'],
-    address:        ENV['MAILER_ADDRESS'],
-    domain:         'customgun.com',
-    port:           ENV['MAILER_PORT'],
-    authentication: :login
+  #config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.delivery_method = :sendmail
+  #config.action_mailer.sendmail_settings = {
+  #  arguments:      '-i',
+  #  user_name:      ENV['MAILER_USER_NAME'],
+  #  password:       ENV['MAILER_PASSWORD'],
+  #  address:        ENV['MAILER_ADDRESS'],
+  #  domain:         'customgun.com',
+  #  port:           ENV['MAILER_PORT'],
+  #  authentication: :login
+  #}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => ENV['MAILER_ADDRESS'],
+    :port           => ENV['MAILER_PORT'],
+    :authentication => :login,
+    :user_name      => ENV['MAILER_USER_NAME'],
+    :password       => ENV['MAILER_PASSWORD'],
+    :domain         => 'customgun.com',
+    :enable_starttls_auto => true
   }
 end
