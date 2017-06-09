@@ -116,16 +116,17 @@
             .col-md-4.col-sm-4.col-xs-4.col-lg-4
               .row
                 .col-md-12.col-sm-12.col-xs-12.col-lg-12
-                  .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?
+                  .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.count == 0 || product.photos.first.nil?
               .row
                 .col-md-12.col-sm-12.col-xs-12.col-lg-12
                   =link_to(product.title.titleize, product)
+              -if !product.price.nil?
+                .row
+                  .col-md-12.col-sm-12.col-xs-12.col-lg-12
+                    = ('Price: ' + (product.sale ? "<s><div class='text-muted'>#{(number_to_currency product.price).to_s}</div></s><div class='text-success'>Sale: #{(number_to_currency product.sale_price).to_s}</div>".html_safe : (number_to_currency product.price).to_s)).html_safe
               .row
                 .col-md-12.col-sm-12.col-xs-12.col-lg-12
-                  = ('Price: ' + (product.sale ? "<s><div class='text-muted'>#{(number_to_currency product.price).to_s}</div></s><div class='text-success'>Sale: #{(number_to_currency product.sale_price).to_s}</div>".html_safe : (number_to_currency product.price).to_s)).html_safe
-              .row
-                .col-md-12.col-sm-12.col-xs-12.col-lg-12
-                  .text-danger= 'Sold out' if product.quantity <= 0
+                  .text-danger= 'Sold out' if product.quantity.to_i <= 0
               -if current_user.admin
                 .row
                   .col-md-12.col-sm-12.col-xs-12.col-lg-12

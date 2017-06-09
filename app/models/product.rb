@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   friendly_id :url
   validates :title, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true
+  validates :price, presence: true
+  validates :quantity, presence: true
   validates_presence_of :shipper
   validate :shipping_constraint
   has_many :photos
