@@ -10,8 +10,8 @@
       .input-group
         %span#title-addon.input-group-addon Product Title
         = f.text_field :title, placeholder: "Title", class: "form-control input-lg","aria-describedby" => "title-addon"
-    .field
-      = f.text_area :description, placeholder: "Description", class: "form-control input-lg"
+    .from-group
+      = f.trix_editor :description, placeholder: "Description"
     .field
       .input-group
         %span#price-addon.input-group-addon Price

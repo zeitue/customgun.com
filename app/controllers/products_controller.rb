@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = Product.where('active = ? or active = ?', true, !current_user.admin)
+    @products = @products.order('created_at desc') if params[:qorder]
     filtering_params(params).each do |key, value|
       @products = @products.public_send(key, value) if value.present?
     end
@@ -18,7 +19,6 @@ class ProductsController < ApplicationController
   def main
     @products = Product.where(active: true).order('RANDOM()').limit(3)
   end
-  
 
   def products
     redirect_to products_url

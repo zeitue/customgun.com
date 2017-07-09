@@ -22,3 +22,5 @@
 //= require jquery.countdown
 //= require moment
 //= require bootstrap-datetimepicker
+//= require trix
+
