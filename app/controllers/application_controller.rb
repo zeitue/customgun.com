@@ -146,6 +146,7 @@ class ApplicationController < ActionController::Base
   def create_guest_user
     user = User.new { |user| user.guest = true }
     user.email = "guest#{Time.now.to_i.to_s(16)}#{rand(99).to_s(16)}_#{get_operating_system.downcase}@customgun.com"
+    user.skip_confirmation!
     user.save(validate: false)
     user
   end
