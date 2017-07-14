@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     # For update
     # (User.all.map {|user| user.orders.map {|order| order unless order.items.count == 0 || order.shipping_methods.count == 0 || user.orders.last == order }.compact }).compact.reject(&:empty?).flatten.sort_by(&:ordered_on).reverse.each {|e| e.update_attributes(phase: 6) }
     else
-      @orders =  Kaminari.paginate_array(current_user.orders.where('ordered_on IS NOT NULL').sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
+      @orders =  Kaminari.paginate_array(current_user.orders.where('ordered_on IS NOT NULL and phase = 6').sort_by(&:ordered_on).reverse).page(params[:page]).per(8)
     end
   end
 
