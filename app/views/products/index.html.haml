@@ -1,4 +1,4 @@
-
+.page-header
 = form_tag(products_path, :method => "get", id: "search-form") do
   .input-group
     = text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control'

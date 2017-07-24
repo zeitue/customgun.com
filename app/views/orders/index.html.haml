@@ -100,8 +100,9 @@
                     =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
           -if !order.comment.nil? && !order.comment.empty?
             .row
-              %p
-                ="Comment: #{order.comment}"
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                %p
+                  ="Comment: #{order.comment}"
 .row
   .col-lg-12.col-md-12.col-sm-12.col-xs-12
     = paginate @orders
