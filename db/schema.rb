@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607213509) do
+ActiveRecord::Schema.define(version: 20170724221540) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line1"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170607213509) do
     t.text "comment"
     t.datetime "ordered_on"
     t.integer "phase", default: 0
+    t.boolean "voided", default: false, null: false
+    t.integer "items_count", default: 0, null: false
     t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

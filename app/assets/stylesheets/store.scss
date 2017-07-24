@@ -15,7 +15,9 @@
  *= require trix
  */
 @import "bootstrap-sprockets";
+@import "bootswatch/darkly/variables";
 @import "bootstrap";
+@import "bootswatch/darkly/bootswatch";
 @import 'bootstrap-datetimepicker';
 @import "jquery.countdown";
 

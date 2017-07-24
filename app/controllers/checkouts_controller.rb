@@ -127,15 +127,18 @@ class CheckoutsController < ApplicationController
 
   def approved
     @order = current_order
-    @order.phase = 6
-    @order.save!
-    if @order.items.count > 0
-      @order.items.each do |item|
-        item.product.quantity -= item.quantity
-        item.product.save
+    if @order.phase == 5
+      @order.phase = 6
+      @order.save!
+      if @order.items.count > 0
+        @order.items.each do |item|
+          item.product.quantity -= item.quantity
+          item.product.save
+        end
+        current_user.create_cart
       end
-      current_user.create_cart
     end
+
   end
 
   def disapproved

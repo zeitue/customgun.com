@@ -4,7 +4,7 @@
 
 = paginate @orders
 -@orders.each do |order|
-  -if !order.nil?
+  -if order
     .well.clearfix
       .panel-header
         %b=link_to order.user.email, order.user

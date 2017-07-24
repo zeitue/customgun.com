@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
     end
     super
   end
+
+  def cart
+    self.orders.last
+  end
 end

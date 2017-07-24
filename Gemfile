@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'trix'
+gem 'bootswatch-rails'
 gem 'kaminari'
 gem 'dotenv-rails'
 gem 'haml-rails'

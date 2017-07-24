@@ -19,7 +19,8 @@ class OrdersController < ApplicationController
   end
 
   def carts
-    @orders = Kaminari.paginate_array((User.all.map {|user| user.orders.last unless user.orders.last.items.count == 0}).compact.flatten.sort_by(&:updated_at).reverse).page(params[:page]).per(8)
+    #@orders = Kaminari.paginate_array((User.all.map {|user| user.orders.last unless user.orders.last.items.count == 0}).compact.flatten.sort_by(&:updated_at).reverse).page(params[:page]).per(8)
+    @orders = Kaminari.paginate_array(Order.carts).page(params[:page]).per(8)
   end
 
   def invoice

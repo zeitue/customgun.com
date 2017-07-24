@@ -57,6 +57,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap3-datetimepicker-rails (4.17.47)
       momentjs-rails (>= 2.8.1)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     box_packer (1.2.3)
       rasem (~> 0.6)
     builder (3.2.3)
@@ -261,6 +263,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   bootstrap3-datetimepicker-rails
+  bootswatch-rails
   box_packer (= 1.2.3)
   carrierwave
   country_select
@@ -293,4 +296,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

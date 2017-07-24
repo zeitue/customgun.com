@@ -6,6 +6,9 @@ class Order < ActiveRecord::Base
   has_one :address
   before_destroy :destroy_items
   accepts_nested_attributes_for :shipping_methods
+  scope :carts, ->(){
+    Order.where('items_count > ? and phase < ?', 0, 6).order('updated_at DESC')
+  }
 
   def get_address
     address = Address.where(id: address_id).first
@@ -67,6 +70,9 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def any_items?
+    self.items_count > 0
+  end
   private
 
   def destroy_items
@@ -74,4 +80,6 @@ class Order < ActiveRecord::Base
     shipping_methods.destroy_all
     shipments.destroy_all
   end
+
+
 end
