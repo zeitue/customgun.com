@@ -90,6 +90,8 @@ GEM
     execjs (2.7.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     friendly_id (5.2.1)
       activerecord (>= 4.0.0)
     globalid (0.4.0)
@@ -270,6 +272,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   execjs
+  font-awesome-sass
   friendly_id
   haml-rails
   html2haml

@@ -68,7 +68,7 @@
 .row
   .panel.panel-default
     .panel-heading Product Description
-    .panel-body= @product.description.gsub(/([a-z])((?:[^.?!]|\.(?=[a-z]))*)/i) { $1.upcase + $2.rstrip }.html_safe
+    .panel-body= @product.description.html_safe
     .panel-heading Product Information
     %table.table.panel-body
       -if(!@product.manufacturer.empty?)

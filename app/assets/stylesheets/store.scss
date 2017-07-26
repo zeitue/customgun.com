@@ -20,6 +20,8 @@
 @import "bootswatch/darkly/bootswatch";
 @import 'bootstrap-datetimepicker';
 @import "jquery.countdown";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 #SearchParameters.in,
 #SearchParameters.collapsing {
@@ -201,4 +203,16 @@ body { padding-top: 70px; }
     border-radius: 3px;
     background-color: lightgray;
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
+}
+
+.icon.code, .icon.list.bullets, .icon.list.numbers, .icon.nesting-level.increase{
+    background: white;
+}
+
+.icon.undo, .icon.redo, .icon.nesting-level.decrease{
+    background: white;
+}
+
+.icon.bold, .icon.italic, .icon.strike, .icon.link, .icon.heading-1, .icon.quote {
+    background: white;
 }
