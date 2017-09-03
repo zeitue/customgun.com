@@ -10,7 +10,7 @@
       .container-liquid
         .widewrapper
           = link_to(image_tag(@photos.first.image.hdpi.url), @photos.first.image.xxhdpi.url, :class => 'image', 'data-fancybox-group' => 'product')
-          %p
+          %br
     -else
       -@photos.each_slice(3) do |p|
         .row
@@ -18,53 +18,64 @@
             .col-lg-4.col-sm-4.col-md-4.col-xs-4
               .widewrapper
                 = link_to(image_tag(photo.image.thumb.url), photo.image.xxhdpi.url, :class => 'image', 'data-fancybox-group' => 'product')
-          %p
+        %br
   .col-lg-4.col-xs-12.col-sm-4.col-md-4.well
     = form_for @item, remote: true do |f|
-      -if !@product.price.nil?
-        %h4
-          %table.table
-            -if @product.sale
-              %tr
-                %td.text-right Price:
-                %td
-                  %s= "#{number_to_currency @product.price}"
-              %tr
-                %td.text-right.text-danger Sale:
-                %td.text-danger="#{number_to_currency @product.sale_price}"
-              %tr
-                %td.text-right You Save:
-                %td.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
-              -if @product.sale_end && @product.sale_end > Time.now
-                %tr
-                  %td{style: "vertical-align: middle;"}
-                    .text-right Sale Ends:
-                  %td#defaultCountdown
-            -else
-              %tr
-                %td Price:
-                %td= number_to_currency @product.get_price
-            -if @product.store == "optics" || @product.store == "guns"
-              %tr
-                %td Contact for more information
-                %td
-              %tr
-                %td +1-903-768-2948
-                %td= link_to "Call", "tel:+19037682948", class: "btn btn-primary"
-              %tr
-                %td customgun.tr@gmail.com
-                %td= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary"
-            -else
-              %h4.text-right
-                -if !(@product.store == "optics" || @product.store == "guns")
-                  -if @product.quantity.to_i >= 1
-                    .input-group
-                      = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
-                      .input-group-btn
-                        = f.hidden_field :product_id, value: @product.id
-                        = f.submit "Add to Cart", class: "btn btn-primary"
-                  -else
-                    %span Sold Out
+      .row
+        .col-lg-12.col-md-12.col-xs-12.col-sm-12
+          %h4.text-right
+            -if !(@product.store == "optics" || @product.store == "guns")
+              -if @product.quantity.to_i >= 1
+                .input-group
+                  = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
+                  .input-group-btn
+                    = f.hidden_field :product_id, value: @product.id
+                    = f.submit "Add to Cart", class: "btn btn-primary"
+              -else
+                %span Sold Out
+      -if @product.price
+        .row
+          .col-lg-6.col-md-6.col-xs-6.col-sm-6
+            %h4 Price:
+          .col-lg-6.col-md-6.col-xs-6.col-sm-6
+            .pull-right
+              -if @product.sale
+                %h4
+                  %s
+                    .text-muted= number_to_currency @product.get_price
+              -else
+                %h4= number_to_currency @product.get_price
+        -if @product.sale
+          .row
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              %h4.text-danger Sale:
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              .pull-right
+                %h4.text-danger=number_to_currency @product.sale_price
+          .row
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              %h4 You Save:
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              .pull-right
+                %h4.text-danger= "#{number_to_currency @product.get_savings} (#{@product.get_percent_saved}%)"
+          .row{style: "vertical-align: middle;"}
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              %h4 Sale Ends:
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6
+              #defaultCountdown
+        -if @product.store == "optics" || @product.store == "guns"
+          .row
+            .col-lg-12.col-md-12.col-xs-12.col-sm-12
+              Contact for more information
+          %br
+          .row
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6 +1-903-768-2948
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6= link_to "Call", "tel:+19037682948", class: "btn btn-primary btn-block"
+          %br
+          .row
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6 customgun.tr@gmail.com
+            .col-lg-6.col-md-6.col-xs-6.col-sm-6= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary btn-block"
+
 .row
   .panel.panel-default
     .panel-heading Product Description
