@@ -10,7 +10,7 @@
       .container-liquid
         .widewrapper
           = link_to(image_tag(@photos.first.image.hdpi.url), @photos.first.image.xxhdpi.url, :class => 'image', 'data-fancybox-group' => 'product')
-          %br
+        %br
     -else
       -@photos.each_slice(3) do |p|
         .row
@@ -42,9 +42,9 @@
               -if @product.sale
                 %h4
                   %s
-                    .text-muted= number_to_currency @product.get_price
+                    .text-muted= number_to_currency @product.price
               -else
-                %h4= number_to_currency @product.get_price
+                %h4= number_to_currency @product.price
         -if @product.sale
           .row
             .col-lg-6.col-md-6.col-xs-6.col-sm-6

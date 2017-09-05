@@ -44,11 +44,8 @@
 .panel-header
   %h2 Featured Products
 .well
-  .row
-    -@products.each do |product|
-      .col-md-4.col-sm-4.col-xs-12
-        =link_to(product.title.titleize, product)
-        %br
-        .widewrapper= link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.first.nil?
-        = " Price: " + (number_to_currency product.price).to_s unless product.price.nil?
-        %p
+  =render :partial => 'entries', :locals => {products: @products}
+:javascript
+  $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+  });
