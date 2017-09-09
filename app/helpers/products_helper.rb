@@ -69,4 +69,21 @@ module ProductsHelper
 
     buffer
   end
+
+  def get_shipping_phase(order)
+    case order.phase
+    when 0
+      "Initial"
+    when 2
+      "Address Selection"
+    when 3
+      "Shipping Selection"
+    when 4
+      "Order Review"
+    when 5
+      "Payment Processing"
+    else
+      "Initial"
+    end
+  end
 end

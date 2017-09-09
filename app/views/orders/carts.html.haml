@@ -5,22 +5,29 @@
 = paginate @orders
 -@orders.each do |order|
   -if order
-    .well.clearfix
-      .panel-header
+    .panel.panel-default
+      .panel-heading
         %b=link_to order.user.email, order.user
-        %p
-      -order.items.each do |item|
-        -if !item.product_id.nil?
-          .row
-            .col-md-10.col-sm-10.col-xs-12=link_to(item.product.title.titleize, item.product) + (br() + link_to(image_tag(item.product.photos.first.image.thumb), item.product) unless item.product.photos.first.nil?)
-            .col-md-2.col-sm-2.col-xs-12
-              .row
-                Price:
-                %span=number_to_currency item.product.get_price
-              .row
-                Quantity:
-                %span=item.quantity
-      %p
+        .pull-right= get_shipping_phase(order)
+      .panel-body
+        -order.items.each do |item|
+          -if !item.product_id.nil?
+            .row
+              .col-md-10.col-sm-10.col-xs-12
+                .row
+                  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                    = link_to(item.product.title.titleize, item.product)
+                .row
+                  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                    = link_to(image_tag(item.product.photos.first.image.thumb), item.product) unless item.product.photos.first.nil?
+              .col-md-2.col-sm-2.col-xs-12
+                .row
+                  Price:
+                  %span=number_to_currency item.product.get_price
+                .row
+                  Quantity:
+                  %span=item.quantity
+        %br
       .panel-footer.clearfix
         .pull-right
           = "Subtotal (#{pluralize(order.quantity, 'item')}): "
