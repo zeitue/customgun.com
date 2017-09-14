@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724221540) do
+ActiveRecord::Schema.define(version: 20170914204612) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_line1"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20170724221540) do
     t.float "shipping_width", default: 0.0
     t.float "shipping_length", default: 0.0
     t.float "shipping_weight", default: 0.0
+    t.boolean "compressible", default: false, null: false
     t.index ["shipper_id"], name: "index_products_on_shipper_id"
   end
 

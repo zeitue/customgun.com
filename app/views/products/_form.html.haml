@@ -158,6 +158,9 @@
     .form-group
       = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
     .field.checkbox-inline
+      = f.check_box :compressible, type: "checkbox"
+      = f.label "Compressible"
+    .field.checkbox-inline
       = f.check_box :has_box, type: "checkbox"
       = f.label "This item ships in its box"
     .field.checkbox-inline

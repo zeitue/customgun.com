@@ -197,6 +197,7 @@ class ProductsController < ApplicationController
                                     :shipper_id, :has_box,
                                     :shipping_height, :shipping_width,
                                     :shipping_length, :shipping_weight,
+                                    :compressible,
                                     product_attachments_attributes:
                                       [:id, :product_id, :image])
   end
