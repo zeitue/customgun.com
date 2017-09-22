@@ -296,7 +296,7 @@ class CheckoutsController < ApplicationController
 
   def usps_rates(origin, destination, packages)
     usps = ActiveShipping::USPS.new(login: ENV['USPS_LOGIN'], password: ENV['USPS_PASSWORD'])
-    get_rates_from_shipper(usps, origin, destination, packages).delete_if { |val| (val.service_name.include?('Media') || val.service_name.include?('Library') || val.service_name.include?('Envelope') || val.service_name.include?('Letter') || val.service_name.include?('Parcel')) }
+    get_rates_from_shipper(usps, origin, destination, packages).delete_if { |val| (val.service_name.include?('Media') || val.service_name.include?('Library') || val.service_name.include?('Envelope') || val.service_name.include?('Letter') || val.service_name.include?('Parcel') || val.service_name.include?('Retail')) }
   end
 
   def ups_rates(origin, destination, packages)
