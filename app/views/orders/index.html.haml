@@ -91,9 +91,11 @@
               .row
                 .col-lg-12.col-md-12.col-xs-12.col-sm-12
                   -if shipping_method.service_name.to_s.downcase.include? "usps"
-                    =link_to "Track", "https://tools.usps.com/go/TrackConfirmAction?tLabels="  + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                    =link_to "Track", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
                   -elsif shipping_method.service_name.to_s.downcase.include? "fedex"
-                    =link_to "Track", "https://www.fedex.com/apps/fedextrack/?tracknumbers="  + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                    =link_to "Track", "https://www.fedex.com/apps/fedextrack/?tracknumbers=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                  -elsif shipping_method.service_name.to_s.downcase.include? "ups"
+                    =link_to "Track", "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
                   -elsif shipping_method.service_name.to_s.downcase.include? "download"
                     =link_to "Download", shipment.tracking.to_s, class: "btn btn-primary btn-block"
                   -if current_user.admin
