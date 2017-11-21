@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy, :index]
   # GET /photos
   def index
-    @photos = Photo.all
+    @photos = Kaminari.paginate_array(Photo.all).page(params[:page]).per(12)
   end
 
   # GET /photos/1

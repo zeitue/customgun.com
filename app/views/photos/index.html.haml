@@ -3,22 +3,29 @@
   %h1 Photos
 = link_to 'New Photo', new_photo_path, :class => "btn btn-primary"
 %br
-%table.table.table-hover
-  %thead
-    %tr
-      %th ID
-      %th Product
-      %th Image
-      %th
-  %tbody
-    - @photos.each do |photo|
-      %tr
-        %td= photo.product_id
-        %td= Product.where(id: photo.product_id).first.title.titleize unless Product.where(id: photo.product_id).first.nil?
-        %td= link_to image_tag(photo.image.thumb), photo
-        %td
-          = link_to 'Show', photo, :class => "btn btn-primary btn-block"
-          = link_to 'Edit', edit_photo_path(photo), :class => "btn btn-primary btn-block"
-          = link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-primary btn-block"
-
-
+%br
+- @photos.in_groups_of(3, false).each do |group|
+  .row
+    -group.each do |photo|
+      .col-md-4.col-sm-4.col-xs-4.col-lg-4
+        .row
+          .col-md-12.col-sm-12.col-xs-12.col-lg-12
+            .widewrapper= link_to image_tag(photo.image.thumb), photo
+            %br
+        .row
+          .col-md-12.col-sm-12.col-xs-12.col-lg-12
+            .truncate=link_to photo.product.title.titleize, photo.product, title: photo.product.title.titleize, 'data-toggle' => 'tooltip', 'data-placement' => 'top'
+        -if current_user.admin
+          .row
+            .col-md-12.col-sm-12.col-xs-12.col-lg-12
+              %br
+              = link_to 'Edit', edit_photo_path(photo), :class => "btn btn-primary btn-block"
+              = link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger btn-block"
+        %br
+.row
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+    = paginate @photos
+:javascript
+  $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+  });

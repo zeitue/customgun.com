@@ -23,7 +23,11 @@
           .col-md-12.col-sm-12.col-xs-12.col-lg-12
             -if product.quantity.to_i <= 0
               .text-danger= 'Sold out'
+              %br
             -else
+              %br
+              %br
+            - if !product.sale
               %br
         -if current_user.admin
           .row

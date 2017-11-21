@@ -6,7 +6,7 @@
 %p
   %b Product:
   = Product.where(id: @photo.product_id).first.title.titleize unless Product.where(id: @photo.product_id).first.nil?
-  = image_tag @photo.image.hdpi, :style => "max-width: 100%;"
+  .widewapper= image_tag @photo.image.hdpi
 
 = link_to 'Edit', edit_photo_path(@photo), :class => "btn btn-primary"
 \|

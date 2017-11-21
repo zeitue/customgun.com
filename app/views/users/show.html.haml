@@ -14,3 +14,6 @@
     %tr
       %td Email
       %td= @user.email
+%h2 Orders
+-@orders.each do |order|
+  = render :partial => 'orders/order', :locals => {order: order}

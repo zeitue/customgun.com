@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   layout 'store'
   def show
     @user = User.find(params[:id])
+    @orders = @user.orders.where('ordered_on IS NOT NULL and phase = 6').sort_by(&:ordered_on).reverse
   end
 
   def index

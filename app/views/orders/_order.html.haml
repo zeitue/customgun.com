@@ -1,0 +1,101 @@
+.panel
+  .panel-heading.clearfix{class: order.voided ? "panel-danger" : "panel-success"}
+    .pull-left= 'Order Number #' + ("%08X" % order.id)
+    .pull-right= 'Voided' if order.voided
+  .panel-body
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            Order Placed
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            = l order.ordered_on, format: :long
+      .col-md-3.col-sm-6.col-xs-12
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            Total
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            = number_to_currency order.total
+      .col-md-3.col-sm-6.col-xs-12
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            Ship to
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            - address = order.get_address
+            -if !address.nil?
+              =link_to address.name, address
+      .col-md-3.col-sm-6.col-xs-12
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+        .row
+          .col-lg-12.col-md-12.col-xs-12.col-sm-12
+            .btn-group-justified
+              =link_to 'Order Details', order_details_path(order), class: 'btn btn-primary'
+              =link_to 'Invoice', order_invoice_path(order), class: 'btn btn-primary'
+    %br
+    -if order.shipments.count == 0
+      %h5 Empty Order
+    -else
+      -order.shipments.zip(order.shipping_methods).each do |shipment,shipping_method|
+        .row
+          .col-md-3.col-sm-6.col-xs-12
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                Shipped by
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                = shipment.shipped_by.to_s.titleize
+          .col-md-3.col-sm-6.col-xs-12
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                Shipping Method
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                = (shipping_method.service_name.to_s) unless shipping_method.nil?
+          .col-md-3.col-sm-6.col-xs-12
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                Ordered by
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                - if current_user == order.user
+                  = link_to current_user.name, edit_user_registration_path
+                -else
+                  = link_to order.user.name, order.user
+        %br
+        .row
+          .col-md-9.col-sm-9.col-xs-12
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                -shipment.units.each do |unit|
+                  -if !unit.product_id.nil?
+                    .row
+                      .col-md-4.col-sm-6.col-xs-12.col-lg-4
+                        .widewrapper=link_to(image_tag(unit.product.photos.first.image.thumb), unit.product) unless unit.product.photos.first.nil?
+                      .col-md-8.col-sm-6.col-xs-12.col-lg-8
+                        =link_to(unit.product.title.titleize, unit.product)
+                        %br
+                        = "Quantity #{unit.quantity}"
+                        %br
+                        = "Price #{number_to_currency unit.price}"
+                    %br
+          .col-md-3.col-sm-3.col-xs-12
+            .row
+              .col-lg-12.col-md-12.col-xs-12.col-sm-12
+                -if shipping_method.service_name.to_s.downcase.include? "usps"
+                  =link_to "Track", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                -elsif shipping_method.service_name.to_s.downcase.include? "fedex"
+                  =link_to "Track", "https://www.fedex.com/apps/fedextrack/?tracknumbers=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                -elsif shipping_method.service_name.to_s.downcase.include? "ups"
+                  =link_to "Track", "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=" + shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                -elsif shipping_method.service_name.to_s.downcase.include? "download"
+                  =link_to "Download", shipment.tracking.to_s, class: "btn btn-primary btn-block"
+                -if current_user.admin
+                  =link_to "Edit", edit_shipment_path(shipment), class: "btn btn-primary btn-block"
+        -if !order.comment.nil? && !order.comment.empty?
+          .row
+            .col-lg-12.col-md-12.col-xs-12.col-sm-12
+              ="Comment: #{order.comment}"

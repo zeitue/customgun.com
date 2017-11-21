@@ -148,7 +148,7 @@
     .field
       .input-group
         %span#shipped-by-addon.input-group-addon Shipped by
-        = f.collection_select :shipper_id, Shipper.all, :id, :name,{}, {:class => 'form-control input-lg','aria-describedby' => 'shipped-by-addon'}
+        = f.collection_select :shipper_id, Shipper.order(:id), :id, :name,{}, {:class => 'form-control input-lg','aria-describedby' => 'shipped-by-addon'}
     .field
       .input-group
         %span#tags-addon.input-group-addon Tags
