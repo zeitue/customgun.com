@@ -217,7 +217,7 @@ body { padding-top: 70px; }
     background: white;
 }
 
-@media (min-width: 750px) and (max-width: 1035px) {
+@media (max-width: 1035px) {
     .navbar-nav .open .dropdown-menu {
         position: static;
         float: none;
