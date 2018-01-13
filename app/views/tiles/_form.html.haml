@@ -1,0 +1,33 @@
+= form_for @tile do |f|
+  - if @tile.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tile.errors.count, "error")} prohibited this tile from being saved:"
+      %ul
+        - @tile.errors.full_messages.each do |message|
+          %li= message
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :text
+    = f.text_field :text, class: 'form-control'
+  .form-group
+    = f.label :url
+    = f.text_field :url, class: 'form-control'
+  .form-group
+    = f.label :group
+    = f.text_field :group, class: 'form-control'
+  .form-group
+    = f.label :image
+    .input-group
+      %span.input-group-btn
+        %span.btn.btn-default{:onclick => "$(this).parent().find('input[type=file]').click();"}
+          = icon('file-image-o')
+        = f.file_field :image, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;"
+      %span.form-control
+  .form-group
+    = f.label :show
+    = f.check_box :show
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'

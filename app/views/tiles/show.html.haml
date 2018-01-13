@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @tile.title
+%p
+  %b Text:
+  = @tile.text
+%p
+  %b Url:
+  = @tile.url
+%p
+  %b Group:
+  = @tile.group
+%p
+  %b Image:
+  = @tile.image
+%p
+  %b Show:
+  = @tile.show
+
+= link_to 'Edit', edit_tile_path(@tile), class: 'btn btn-primary'
+\|
+= link_to 'Back', tiles_path, class: 'btn btn-primary'

@@ -12,12 +12,14 @@ class ProductsController < ApplicationController
       @products = @products.public_send(key, value) if value.present?
     end
     @no_page = @products
-    @products = Kaminari.paginate_array(@products).page(params[:page]).per(15)
+    @products = Kaminari.paginate_array(@products).page(params[:page]).per(16)
   end
 
 
   def main
-    @products = Product.where(active: true).order('RANDOM()').limit(3)
+    @primary = Tile.where(show: true, group: "primary")
+    @tiles = Tile.where.not(show: false, group: "primary").group_by(&:group)
+    @products = Product.where(active: true).order('RANDOM()').limit(4)
   end
 
   def products

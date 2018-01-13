@@ -1,48 +1,88 @@
+- unless @primary.empty?
+  #mainCarousel.carousel.slide{"data-ride" => "carousel", style:" background: white; width: 100%;"}
+    %ol.carousel-indicators
+      - @primary.each_with_index do |p, i|
+        %li{"data-slide-to" => i, "data-target" => "#mainCarousel", class: "#{'active' if i == 0}"}
+    .carousel-inner
+      - @primary.each_with_index do |p, i|
+        .item{class: "#{'active' if i == 0}"}
+          %a{:href => p.url}
+            %img{:alt => "#{p.title}",
+                 :src => p.image.blank? ? "http://via.placeholder.com/1200x450" : p.image,
+                 :style => "width:100%;"}/
+            .carousel-caption
+              %b= p.title
+              %p= p.text
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#mainCarousel"}
+      %span.glyphicon.glyphicon-chevron-left
+      %span.sr-only Previous
+    %a.right.carousel-control{"data-slide" => "next", :href => "#mainCarousel"}
+      %span.glyphicon.glyphicon-chevron-right
+      %span.sr-only Next
+- @tiles.each do |group, tile_group|
+  .page-header
+    %center
+      %h2="《#{group}》"
+  .well
+    - tile_group.in_groups_of(4, false).each do |tiles|
+      -if tiles.count == 2
+        - scale = "col-lg-6 col-md-6 col-sm-6 col-xs-6"
+      -elsif tiles.count == 3
+        - scale = "col-lg-4 col-md-4 col-sm-4 col-xs-6"
+      -else
+        - scale = "col-lg-3 col-md-3 col-sm-3 col-xs-6"
+      .row
+        -tiles.each do |tile|
+          %div{class: scale}
+            .widewrapper=link_to(image_tag(tile.image.blank? ? "http://via.placeholder.com/350x350" : tile.image), tile.url)
+            %br
+/.row
+/  .col-md-4.col-sm-4.col-xs-12
+/    .widewrapper=link_to(image_tag("theme/store_default/barrels.png"), barrels_path)
+/    %br
+/  .col-md-4.col-sm-4.col-xs-12
+/    .widewrapper=link_to(image_tag("theme/store_default/custom_parts.png"), custom_parts_path)
+/    %br
+/  .col-md-4.col-sm-4.col-xs-12
+/    .widewrapper=link_to(image_tag("theme/store_default/decor.png"), decor_path)
+/    %br
+/.page-header
+/  %h1 Store
+/.well
+/
+/  .row
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/gifts.png"), gifts_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/gun_cases.png"), gun_cases_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/gun_parts.png"), gunparts_path)
+/      %p
+/  .row
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/guns.png"), guns_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/jewelry.png"), jewelry_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/new_arrivals.png"), new_arrivals_path)
+/      %p
+/  .row
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/optics.png"), optics_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/sale_items.png"), sale_items_path)
+/      %p
+/    .col-md-4.col-sm-4.col-xs-12
+/      .widewrapper=link_to(image_tag("theme/store_default/wood.png"), wood_path)
+/      %p
 .page-header
-  %h1 Store
-.well
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/barrels.png"), barrels_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/custom_parts.png"), custom_parts_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/decor.png"), decor_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gifts.png"), gifts_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gun_cases.png"), gun_cases_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/gun_parts.png"), gunparts_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/guns.png"), guns_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/jewelry.png"), jewelry_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/new_arrivals.png"), new_arrivals_path)
-      %p
-  .row
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/optics.png"), optics_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/sale_items.png"), sale_items_path)
-      %p
-    .col-md-4.col-sm-4.col-xs-12
-      .widewrapper=link_to(image_tag("theme/store_default/wood.png"), wood_path)
-      %p
-.panel-header
-  %h2 Featured Products
+  %center
+    %h2 《Featured Products》
 .well
   =render :partial => 'entries', :locals => {products: @products}
 :javascript

@@ -1,0 +1,38 @@
+- content_for :title,  "Tiles"
+.page-header
+  %h1 Tiles
+= link_to 'New Tile', new_tile_path, class: 'btn btn-primary'
+%br
+%table.table.table-hover
+  %thead
+    %tr
+      %th Title
+      %th Text
+      %th Url
+      %th Group
+      %th Image
+      %th Show
+      %th
+
+
+  %tbody
+    - @tiles.each do |tile|
+      %tr
+        %td= tile.title
+        %td= tile.text
+        %td= tile.url
+        %td= tile.group
+        %td
+          -if tile.image.blank?
+            .widewrapper= image_tag("http://via.placeholder.com/128x128")
+          -else
+            .widewrapper= image_tag(tile.image)
+
+        %td= tile.show
+        %td
+          = link_to 'Show', tile, :class => "btn btn-primary btn-block"
+          = link_to 'Edit', edit_tile_path(tile), :class => "btn btn-primary btn-block"
+          = link_to 'Destroy', tile, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-block"
+
+%br
+

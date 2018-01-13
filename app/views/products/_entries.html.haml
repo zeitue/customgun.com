@@ -1,7 +1,7 @@
--products.in_groups_of(3, false).each do |group|
+-products.in_groups_of(4, false).each do |group|
   .row
     -group.each do |product|
-      .col-md-4.col-sm-4.col-xs-4.col-lg-4
+      .col-md-3.col-sm-3.col-xs-6.col-lg-3
         .row
           .col-md-12.col-sm-12.col-xs-12.col-lg-12
             .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.count == 0 || product.photos.first.nil?

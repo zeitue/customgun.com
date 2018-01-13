@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tiles, path: 'store/tiles'
   resources :shippers, path: 'store/shippers'
   resources :authentications
   get '/store/orders/carts' => 'orders#carts', :as => :carts
