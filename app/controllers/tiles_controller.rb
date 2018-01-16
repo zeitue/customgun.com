@@ -5,7 +5,7 @@ class TilesController < ApplicationController
   layout 'store'
   # GET /tiles
   def index
-    @tiles = Tile.all
+    @tiles = Tile.all.order(:major, :minor)
   end
 
   # GET /tiles/1
@@ -55,6 +55,6 @@ class TilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tile_params
-      params.require(:tile).permit(:title, :text, :url, :group, :image, :show)
+      params.require(:tile).permit(:title, :text, :url, :group, :major, :minor, :image, :show)
     end
 end

@@ -22,7 +22,7 @@
 - @tiles.each do |group, tile_group|
   .page-header
     %center
-      %h2="《#{group}》"
+      %h3="《#{group.to_s.titleize}》"
   .well
     - tile_group.in_groups_of(4, false).each do |tiles|
       -if tiles.count == 2
@@ -82,7 +82,7 @@
 /      %p
 .page-header
   %center
-    %h2 《Featured Products》
+    %h3 《Featured Products》
 .well
   =render :partial => 'entries', :locals => {products: @products}
 :javascript

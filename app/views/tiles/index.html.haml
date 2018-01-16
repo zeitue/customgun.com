@@ -10,6 +10,8 @@
       %th Text
       %th Url
       %th Group
+      %td Major
+      %td Minor
       %th Image
       %th Show
       %th
@@ -22,6 +24,8 @@
         %td= tile.text
         %td= tile.url
         %td= tile.group
+        %td= tile.major
+        %td= tile.minor
         %td
           -if tile.image.blank?
             .widewrapper= image_tag("http://via.placeholder.com/128x128")

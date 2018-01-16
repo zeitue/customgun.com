@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
 
 
   def main
-    @primary = Tile.where(show: true, group: "primary")
-    @tiles = Tile.where.not(show: false, group: "primary").group_by(&:group)
+    @primary = Tile.where(show: true, group: "primary").order(:major, :minor)
+    @tiles = Tile.where.not(show: false, group: "primary").order(:major, :minor).group_by(&:group)
     @products = Product.where(active: true).order('RANDOM()').limit(4)
   end
 
