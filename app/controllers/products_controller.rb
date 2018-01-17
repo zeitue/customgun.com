@@ -144,6 +144,9 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     @product = Product.new(product_params)
+    unless params[:new_store].empty?
+      @product.store = params[:new_store]
+    end
     if @product.save
       save_attachments if params[:photos]
       redirect_to @product, notice: 'Product was successfully created.'
@@ -155,6 +158,9 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     update_attachments if params[:photos]
+    unless params[:new_store].empty?
+      params[:product][:store] = params[:new_store]
+    end
     if @product.update(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
@@ -200,6 +206,7 @@ class ProductsController < ApplicationController
                                     :shipping_height, :shipping_width,
                                     :shipping_length, :shipping_weight,
                                     :compressible,
+                                    :new_store,
                                     product_attachments_attributes:
                                       [:id, :product_id, :image])
   end

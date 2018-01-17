@@ -11,6 +11,7 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :photos
   before_validation :default_values
   before_destroy :destroy_associated
+  before_save :clean_up
   belongs_to :shipper
 
 
@@ -34,6 +35,11 @@ class Product < ActiveRecord::Base
     self.position_of_reticle = position_of_reticle.to_s.strip.downcase
     self.available_reticles = available_reticles.to_s.strip.downcase
   end
+
+  def clean_up
+    self.store = store.to_s.strip.downcase.parameterize.gsub('-', '_')
+  end
+
 
   def destroy_associated
     photos.destroy_all

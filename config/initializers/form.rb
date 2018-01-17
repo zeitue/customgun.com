@@ -10,7 +10,7 @@ module ActionView
         formatted_date = existing_date.to_date.strftime("%F") if existing_date.present?
         @template.content_tag(:div, :class => "input-group", :id => "#{method}") do
           @template.content_tag(:span, @template.content_tag(:span, "", :class => "glyphicon glyphicon-calendar") ,:class => "input-group-addon") +
-          text_field(method, :value => formatted_date, :class => "form-control input-lg datepicker", :"data-date-format" => "YYYY-MM-DD") +
+          text_field(method, :value => formatted_date, :class => "form-control datepicker", :"data-date-format" => "YYYY-MM-DD") +
             @template.javascript_tag("  $(function () {$('##{method}').datetimepicker({locale: '#{locale}'});});")
         end
       end
@@ -24,7 +24,7 @@ module ActionView
         formatted_time = existing_time.to_time.strftime("%F %I:%M %p") if existing_time.present?
         @template.content_tag(:div, :class => "input-group", :id => "#{method}") do
           @template.content_tag(:span, @template.content_tag(:span, "", :class => "glyphicon glyphicon-calendar") ,:class => "input-group-addon") +
-          text_field(method, :value => formatted_time, :class => "form-control input-lg datetimepicker", :"data-date-format" => "YYYY-MM-DD hh:mm A") +
+          text_field(method, :value => formatted_time, :class => "form-control datetimepicker", :"data-date-format" => "YYYY-MM-DD hh:mm A") +
           @template.javascript_tag("  $(function () {$('##{method}').datetimepicker({locale: '#{locale}'});});")
         end
       end

@@ -3,7 +3,7 @@
   .input-group
     = text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control'
     .input-group-btn= submit_tag "Search", :name => nil, class: 'btn btn-default btn-primary'
-  = select_tag :department, options_for_select([['All', ''], ['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], :selected=>params[:department]), {class: 'form-control'}
+  = select_tag :department, options_for_select([['All', '']] + Product.distinct.pluck(:store).sort.map { |c| [c.titleize, c] }, :selected=>params[:department]), {class: 'form-control'}
   = hidden_field_tag :qsale, params[:qsale]
   = hidden_field_tag :qorder, params[:qorder]
 %br

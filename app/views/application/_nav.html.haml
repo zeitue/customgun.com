@@ -23,34 +23,41 @@
             %li
               %a{:href => products_path} All
             %li
-              %a{:href => barrels_path} Barrels
-            %li
-              %a{:href => custom_parts_path} Custom Parts
-            %li
-              %a{:href => decor_path} Décor
-            %li
-              %a{:href => gifts_path} Gifts
-            %li
-              %a{:href => gun_cases_path} Gun Cases
-            %li
-              %a{:href => gunparts_path} Gun Parts
-            %li
-              %a{:href => guns_path} Guns
-            %li
-              %a{:href => jewelry_path} Jewelry
-            %li
               %a{:href => new_arrivals_path} New Arrivals
-            %li
-              %a{:href => optics_path} Optics
             %li
               %a{:href => sale_items_path} Sale Items
             %li
-              %a{:href => wood_path} Wood
+              .divider{role: 'separator'}
+            - Product.distinct.pluck(:store).sort.map do |c|
+              %li
+                %a{:href => products_path(department: c)}= c.titleize
+            /%li
+            /  %a{:href => barrels_path} Barrels
+            /%li
+            /  %a{:href => custom_parts_path} Custom Parts
+            /%li
+            /  %a{:href => decor_path} Décor
+            /%li
+            /  %a{:href => gifts_path} Gifts
+            /%li
+            /  %a{:href => gun_cases_path} Gun Cases
+            /%li
+            /  %a{:href => gunparts_path} Gun Parts
+            /%li
+            /  %a{:href => guns_path} Guns
+            /%li
+            /  %a{:href => jewelry_path} Jewelry
+            /%li
+            /  %a{:href => optics_path} Optics
+            /%li
+            /  %a{:href => wood_path} Wood
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Gunsmithing Services
             %span.caret
           %ul.dropdown-menu
+            %li
+              %a{:href => engraving_path} Engraving
             %li
               %a{:href => finishes_path} Finishes
             %li

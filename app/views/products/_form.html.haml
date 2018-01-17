@@ -9,154 +9,158 @@
     .field
       .input-group
         %span#title-addon.input-group-addon Product Title
-        = f.text_field :title, placeholder: "Title", class: "form-control input-lg","aria-describedby" => "title-addon"
+        = f.text_field :title, placeholder: "Title", class: "form-control","aria-describedby" => "title-addon"
     .from-group
       .panel-footer
         = f.trix_editor :description, placeholder: "Description"
     .field
       .input-group
         %span#price-addon.input-group-addon Price
-        = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "price-addon"
+        = f.number_field :price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control","aria-describedby" => "price-addon"
     .field
       .input-group
         %span#sale-price-addon.input-group-addon Sale Price
-        = f.number_field :sale_price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control input-lg","aria-describedby" => "sale-price-addon"
+        = f.number_field :sale_price, :class => 'text_field', :step => 0.01, placeholder: "$0.00", class: "form-control","aria-describedby" => "sale-price-addon"
     .field
       = f.datetime_select :sale_end, :class => 'text_field'
     .field
       .input-group
         %span#quantity-addon.input-group-addon Quantity
-        = f.number_field :quantity, placeholder: "1", class: "form-control input-lg","aria-describedby" => "quantity-addon"
+        = f.number_field :quantity, placeholder: "1", class: "form-control","aria-describedby" => "quantity-addon"
     .field
       .input-group
         %span#manufacturer-addon.input-group-addon Manufacturer
-        = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control input-lg","aria-describedby" => "manufacturer-addon"
+        = f.text_field :manufacturer, placeholder: "Manufacturer", class: "form-control","aria-describedby" => "manufacturer-addon"
     .field
       .input-group
         %span#model-addon.input-group-addon Model
-        = f.text_field :model, placeholder: "Model", class: "form-control input-lg","aria-describedby" => "model-addon"
+        = f.text_field :model, placeholder: "Model", class: "form-control","aria-describedby" => "model-addon"
     .field
       .input-group
         %span#part_number-addon.input-group-addon Part Number
-        = f.text_field :part_number, placeholder: "Part Number", class: "form-control input-lg","aria-describedby" => "part_number-addon"
+        = f.text_field :part_number, placeholder: "Part Number", class: "form-control","aria-describedby" => "part_number-addon"
     .field
       .input-group
         %span#type-addon.input-group-addon Type
-        = f.text_field :type_field, placeholder: "Type", class: "form-control input-lg","aria-describedby" => "type-addon"
+        = f.text_field :type_field, placeholder: "Type", class: "form-control","aria-describedby" => "type-addon"
     .field
       .input-group
         %span#style-addon.input-group-addon Style
-        = f.text_field :style_field, placeholder: "Style", class: "form-control input-lg","aria-describedby" => "style-addon"
+        = f.text_field :style_field, placeholder: "Style", class: "form-control","aria-describedby" => "style-addon"
     .field
       .input-group
         %span#material-addon.input-group-addon Material
-        = f.text_field :material, placeholder: "Material", class: "form-control input-lg","aria-describedby" => "material-addon"
+        = f.text_field :material, placeholder: "Material", class: "form-control","aria-describedby" => "material-addon"
     .field
       .input-group
         %span#caliber-addon.input-group-addon Caliber/Gauge
-        = f.text_field :caliber, placeholder: "Caliber/Gauge", class: "form-control input-lg","aria-describedby" => "caliber-addon"
+        = f.text_field :caliber, placeholder: "Caliber/Gauge", class: "form-control","aria-describedby" => "caliber-addon"
     .field
       .input-group
         %span#barrel-length-addon.input-group-addon Barrel Length
-        = f.text_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "30 in", class: "form-control input-lg","aria-describedby" => "barrel-length-addon"
+        = f.text_field :barrel_length, :class => 'text_field', :step => 0.001, placeholder: "30 in", class: "form-control","aria-describedby" => "barrel-length-addon"
     .field
       .input-group
         %span#field_of_view_low_power-addon.input-group-addon Field of view low power
-        = f.number_field :field_of_view_low_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "field_of_view_low_power-addon"
+        = f.number_field :field_of_view_low_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control","aria-describedby" => "field_of_view_low_power-addon"
     .field
       .input-group
         %span#field_of_view_high_power-addon.input-group-addon Field of view high power
-        = f.number_field :field_of_view_high_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "field_of_view_high_power-addon"
+        = f.number_field :field_of_view_high_power, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control","aria-describedby" => "field_of_view_high_power-addon"
     .field
       .input-group
         %span#diopter_adjustment-addon.input-group-addon Diopter adjustment
-        = f.text_field :diopter_adjustment, placeholder: "-3.0 / 2.5 dptr.", class: "form-control input-lg","aria-describedby" => "diopter_adjustment-addon"
+        = f.text_field :diopter_adjustment, placeholder: "-3.0 / 2.5 dptr.", class: "form-control","aria-describedby" => "diopter_adjustment-addon"
     .field
       .input-group
         %span#eye_relief-addon.input-group-addon Eye relief
-        = f.number_field :eye_relief, :class => 'text_field', :step => 0.1, placeholder: "100 mm", class: "form-control input-lg","aria-describedby" => "eye_relief-addon"
+        = f.number_field :eye_relief, :class => 'text_field', :step => 0.1, placeholder: "100 mm", class: "form-control","aria-describedby" => "eye_relief-addon"
     .field
       .input-group
         %span#exit_pupil_low_power-addon.input-group-addon Exit pupil low power
-        = f.number_field :exit_pupil_low_power, :class => 'text_field', :step => 0.1, placeholder: "10 mm", class: "form-control input-lg","aria-describedby" => "exit_pupil_low_power-addon"
+        = f.number_field :exit_pupil_low_power, :class => 'text_field', :step => 0.1, placeholder: "10 mm", class: "form-control","aria-describedby" => "exit_pupil_low_power-addon"
     .field
       .input-group
         %span#exit_pupil_high_power-addon.input-group-addon Exit pupil high power
-        = f.number_field :exit_pupil_high_power, :class => 'text_field', :step => 0.1, placeholder: "5 mm", class: "form-control input-lg","aria-describedby" => "exit_pupil_high_power-addon"
+        = f.number_field :exit_pupil_high_power, :class => 'text_field', :step => 0.1, placeholder: "5 mm", class: "form-control","aria-describedby" => "exit_pupil_high_power-addon"
     .field
       .input-group
         %span#elevation_travel-addon.input-group-addon Elevation travel
-        = f.text_field :elevation_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control input-lg","aria-describedby" => "elevation_travel-addon"
+        = f.text_field :elevation_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control","aria-describedby" => "elevation_travel-addon"
     .field
       .input-group
         %span#windage_travel-addon.input-group-addon Windage travel
-        = f.text_field :windage_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control input-lg","aria-describedby" => "windage_travel-addon"
+        = f.text_field :windage_travel, :class => 'text_field', :step => 0.1, placeholder: "≥ 1/4 MOA", class: "form-control","aria-describedby" => "windage_travel-addon"
     .field
       .input-group.control-group
         %span#moa_per_click-addon.input-group-addon MOA per click
         .form-group
-          = f.number_field :moa_per_click_upper, :class => 'text_field', :step => 0.1, placeholder: "7.5 mm", class: "form-control input-lg","aria-describedby" => "moa_per_click-addon"
-          = f.number_field :moa_per_click_lower, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control input-lg","aria-describedby" => "moa_per_click-addon"
+          = f.number_field :moa_per_click_upper, :class => 'text_field', :step => 0.1, placeholder: "7.5 mm", class: "form-control","aria-describedby" => "moa_per_click-addon"
+          = f.number_field :moa_per_click_lower, :class => 'text_field', :step => 0.1, placeholder: "100 m", class: "form-control","aria-describedby" => "moa_per_click-addon"
     .field
       .input-group
         %span#total_travel-addon.input-group-addon Total travel
-        = f.text_field :total_travel, :class => 'text_field', :step => 0.1, placeholder: "±38 MOA", class: "form-control input-lg","aria-describedby" => "total_travel-addon"
+        = f.text_field :total_travel, :class => 'text_field', :step => 0.1, placeholder: "±38 MOA", class: "form-control","aria-describedby" => "total_travel-addon"
     .field
       .input-group
         %span#tube_diameter-addon.input-group-addon Tube diameter
-        = f.number_field :tube_diameter, :class => 'text_field', :step => 0.1, placeholder: "30 mm", class: "form-control input-lg","aria-describedby" => "tube_diameter-addon"
+        = f.number_field :tube_diameter, :class => 'text_field', :step => 0.1, placeholder: "30 mm", class: "form-control","aria-describedby" => "tube_diameter-addon"
     .field
       .input-group
         %span#position_of_reticle-addon.input-group-addon Position of reticle
-        = f.text_field :position_of_reticle, :class => 'text_field', :step => 0.1, placeholder: "2nd focal plane", class: "form-control input-lg","aria-describedby" => "position_of_reticle-addon"
+        = f.text_field :position_of_reticle, :class => 'text_field', :step => 0.1, placeholder: "2nd focal plane", class: "form-control","aria-describedby" => "position_of_reticle-addon"
     .field
       .input-group
         %span#available_reticles-addon.input-group-addon Available reticles
-        = f.text_field :available_reticles, :class => 'text_field', :step => 0.1, placeholder: "type0, type1, typen", class: "form-control input-lg","aria-describedby" => "available_reticles-addon"
+        = f.text_field :available_reticles, :class => 'text_field', :step => 0.1, placeholder: "type0, type1, typen", class: "form-control","aria-describedby" => "available_reticles-addon"
     .field
       .input-group
         %span#weight-addon.input-group-addon Weight
-        = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control input-lg","aria-describedby" => "weight-addon"
+        = f.number_field :weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control","aria-describedby" => "weight-addon"
     .field
       .input-group
         %span#height-addon.input-group-addon Height
-        = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control input-lg","aria-describedby" => "height-addon"
+        = f.number_field :height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control","aria-describedby" => "height-addon"
     .field
       .input-group
         %span#width-addon.input-group-addon Width
-        = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control input-lg","aria-describedby" => "width-addon"
+        = f.number_field :width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control","aria-describedby" => "width-addon"
     .field
       .input-group
         %span#length-addon.input-group-addon Length
-        = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "length-addon"
+        = f.number_field :length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control","aria-describedby" => "length-addon"
     .field
       .input-group
         %span#shipping_weight-addon.input-group-addon Shipping Weight
-        = f.number_field :shipping_weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control input-lg","aria-describedby" => "shipping_weight-addon"
+        = f.number_field :shipping_weight, :class => 'text_field', :step => 0.001, placeholder: "1000 g", class: "form-control","aria-describedby" => "shipping_weight-addon"
     .field
       .input-group
         %span#shipping_height-addon.input-group-addon Shipping Height
-        = f.number_field :shipping_height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control input-lg","aria-describedby" => "shipping_height-addon"
+        = f.number_field :shipping_height, :class => 'text_field', :step => 0.1, placeholder: "2 cm", class: "form-control","aria-describedby" => "shipping_height-addon"
     .field
       .input-group
         %span#shipping_width-addon.input-group-addon Shipping Width
-        = f.number_field :shipping_width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control input-lg","aria-describedby" => "shipping_width-addon"
+        = f.number_field :shipping_width, :class => 'text_field', :step => 0.1, placeholder: "3 cm", class: "form-control","aria-describedby" => "shipping_width-addon"
     .field
       .input-group
         %span#shipping_length-addon.input-group-addon Shipping Length
-        = f.number_field :shipping_length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control input-lg","aria-describedby" => "shipping_length-addon"
+        = f.number_field :shipping_length, :class => 'text_field', :step => 0.1, placeholder: "5 cm", class: "form-control","aria-describedby" => "shipping_length-addon"
     .field
       .input-group
         %span#shipped-by-addon.input-group-addon Shipped by
-        = f.collection_select :shipper_id, Shipper.order(:id), :id, :name,{}, {:class => 'form-control input-lg','aria-describedby' => 'shipped-by-addon'}
+        = f.collection_select :shipper_id, Shipper.order(:id), :id, :name,{}, {:class => 'form-control','aria-describedby' => 'shipped-by-addon'}
     .field
       .input-group
         %span#tags-addon.input-group-addon Tags
-        = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control input-lg","aria-describedby" => "tags-addon"
+        = f.text_field :tags, placeholder: "tag0, tag1, tag2, tagn", class: "form-control","aria-describedby" => "tags-addon"
     .form-group
-      = f.select :store, [['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']], {}, { :class => 'form-control input-lg' }
+      = label_tag :new_store
+      = text_field_tag :new_store, nil, class: "form-control", placeholder: "new_department_name_separated_by_underscores"
     .form-group
-      = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control input-lg", type: "file"
+      = f.select :store, options_for_select(Product.distinct.pluck(:store).sort.map { |c| [c.titleize, c] }, (@product.store unless @product.new_record?)), {}, { :class => 'form-control' }
+      / [['Barrels', 'barrels'], ['Custom Parts', 'custom_parts'], ['Décor','decor'], ['Gifts', 'gifts'], ['Gun Cases', 'gun_cases'], ['Gun Parts', 'gun_parts'], ['Guns', 'guns'], ['Jewelry', 'jewelry'], ['Optics', 'optics'], ['Wood', 'wood']]
+    .form-group
+      = f.file_field :image, :multiple => true, name: "photos[image][]", class: "form-control", type: "file"
     .field.checkbox-inline
       = f.check_box :compressible, type: "checkbox"
       = f.label "Compressible"
@@ -175,8 +179,6 @@
     .field.checkbox-inline
       = f.check_box :parallax_compensation, type: "checkbox"
       = f.label "Parallax compensation"
-
-
     .actions
     %br
       = f.submit 'Save', :class => "btn btn-primary"
