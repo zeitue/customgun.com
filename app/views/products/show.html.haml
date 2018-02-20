@@ -75,7 +75,15 @@
           .row
             .col-lg-6.col-md-6.col-xs-6.col-sm-6 customgun.tr@gmail.com
             .col-lg-6.col-md-6.col-xs-6.col-sm-6= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary btn-block"
-
+    %br
+    .row
+      .col-lg-6
+        %a.twitter-share-button{"data-size" => "large", :href => "https://twitter.com/intent/tweet?original_referer=#{request.original_url.parameterize}&via=Todd_Ramirez_CS"} Tweet
+      .col-lg-6
+        .pull-right
+          %a{:href => "https://telegram.me/share/url?url=#{request.original_url.parameterize}", :target => "_blank", :title => "Share On Telegram", :class => 'btn btn-info btn-xs', :style => "height: 28px;"}
+            =icon('telegram')
+            Telegram
 .row
   .panel.panel-default
     .panel-heading Product Description
@@ -227,3 +235,18 @@
   }
   }
   });
+:javascript
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
