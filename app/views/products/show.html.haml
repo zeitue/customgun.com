@@ -77,9 +77,9 @@
             .col-lg-6.col-md-6.col-xs-6.col-sm-6= link_to "Email", "mailto:customgun.tr@gmail.com", class: "btn btn-primary btn-block"
     %br
     .row
-      .col-lg-6
+      .col-lg-6.col-md-6.col-xs-6.col-sm-6
         %a.twitter-share-button{"data-size" => "large", :href => "https://twitter.com/intent/tweet?original_referer=#{request.original_url.parameterize}&via=Todd_Ramirez_CS"} Tweet
-      .col-lg-6
+      .col-lg-6.col-md-6.col-xs-6.col-sm-6
         .pull-right
           %a{:href => "https://telegram.me/share/url?url=#{request.original_url.parameterize}", :target => "_blank", :title => "Share On Telegram", :class => 'btn btn-info btn-xs', :style => "height: 28px;"}
             =icon('telegram')
