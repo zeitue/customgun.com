@@ -1,6 +1,6 @@
 .panel
   .panel-heading.clearfix{class: order.voided ? "panel-danger" : "panel-success"}
-    .pull-left= 'Order Number #' + ("%08X" % order.id)
+    .pull-left= 'Order Number #' + ("%016X" % order.id)
     .pull-right= 'Voided' if order.voided
   .panel-body
     .row

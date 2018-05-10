@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   layout 'store'
-  before_action :set_order, only: [:edit, :update]
+  before_action :set_order, only: [:edit, :update, :invoice, :print]
   before_action :authenticate_admin!, only: [:new, :edit, :create, :destroy, :carts]
 
   def index
@@ -24,7 +24,11 @@ class OrdersController < ApplicationController
   end
 
   def invoice
-    @order = set_order
+    check_ownership(@order)
+  end
+
+  def print
+    render :layout => false
     check_ownership(@order)
   end
 

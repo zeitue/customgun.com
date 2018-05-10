@@ -15,12 +15,14 @@
   %h1
     Invoice
     .pull-right
-      %input.ipt{:name => "b_print", :onclick => "printdiv('div_print');", :type => "button", :value => " Print ", :class => "btn btn-primary"}/
+      = link_to(order_print_path(@order), :class => "btn btn-primary", target: :_blank) do
+        = icon('print')
+      //%input.ipt{:name => "b_print", :onclick => "printdiv('div_print');", :type => "button", :value => " Print ", :class => "btn btn-primary"}/
 
 #div_print
   .row
     .text-center.text-danger
-      %b= "Details for Order #" + ("%08X" % @order.id)
+      %b= "Details for Order #" + ("%016X" % @order.id)
   %p
   .row
     .col-md-6.col-sm-6.col-xs-6
