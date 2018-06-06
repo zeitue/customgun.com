@@ -80,8 +80,21 @@ class Product < ActiveRecord::Base
   end
 
   def self.search(search)
-    s = search.to_s.strip.downcase
-    where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
+    ss = search.to_s.strip.downcase
+    v = nil
+    if ss.start_with?("'") && ss.ends_with?("'")
+      s = ss[1..-2]
+      where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
+    else
+      ss.split.each do |s|
+        if v
+          v = v + where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
+        else
+          v = where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
+        end
+      end
+      v.uniq
+    end
   end
 
   def self.department(value)

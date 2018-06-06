@@ -1,7 +1,7 @@
 .page-header
 = form_tag(products_path, :method => "get", id: "search-form") do
   .input-group
-    = text_field_tag :search, params[:search], placeholder: "Search Products", class: 'form-control'
+    = text_field_tag :search, params[:search], placeholder: "Single keywords or use single quotes for multiple keywords", class: 'form-control'
     .input-group-btn= submit_tag "Search", :name => nil, class: 'btn btn-default btn-primary'
   = select_tag :department, options_for_select([['All', '']] + Product.distinct.pluck(:store).sort.map { |c| [c.titleize, c] }, :selected=>params[:department]), {class: 'form-control'}
   = hidden_field_tag :qsale, params[:qsale]
