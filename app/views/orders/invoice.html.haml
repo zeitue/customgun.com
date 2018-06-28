@@ -16,7 +16,7 @@
     Invoice
     .pull-right
       = link_to(order_print_path(@order), :class => "btn btn-primary", target: :_blank) do
-        = icon('print')
+        = icon('fas', 'print')
       //%input.ipt{:name => "b_print", :onclick => "printdiv('div_print');", :type => "button", :value => " Print ", :class => "btn btn-primary"}/
 
 #div_print

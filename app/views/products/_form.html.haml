@@ -181,4 +181,5 @@
       = f.label "Parallax compensation"
     .actions
     %br
-      = f.submit 'Save', :class => "btn btn-primary"
+      = f.button(:class => "btn btn-primary") do
+        = icon('fas', 'save')

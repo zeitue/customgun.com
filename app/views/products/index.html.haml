@@ -2,7 +2,9 @@
 = form_tag(products_path, :method => "get", id: "search-form") do
   .input-group
     = text_field_tag :search, params[:search], placeholder: "Single keywords or use single quotes for multiple keywords", class: 'form-control'
-    .input-group-btn= submit_tag "Search", :name => nil, class: 'btn btn-default btn-primary'
+    .input-group-btn
+      = button_tag(:type => 'submit', class: 'btn btn-default btn-primary') do
+        = icon('fas', 'search')
   = select_tag :department, options_for_select([['All', '']] + Product.distinct.pluck(:store).sort.map { |c| [c.titleize, c] }, :selected=>params[:department]), {class: 'form-control'}
   = hidden_field_tag :qsale, params[:qsale]
   = hidden_field_tag :qorder, params[:qorder]
@@ -10,7 +12,10 @@
 .row
   .col-md-3.col-sm-12.col-xs-12.col-lg-3
     -if current_user.admin
-      .col-md-12.col-lg-12= link_to 'New Product', new_product_path, class: 'btn btn-primary btn-block'
+      .col-md-12.col-lg-12
+        = link_to(new_product_path, class: 'btn btn-primary btn-block') do
+          = icon('fas', 'plus')
+          Add Product
     -if @products.count < 1
       = form_tag(products_path, :method => "get", id: "select-form") do
         = hidden_field_tag :search, params[:search]
@@ -19,7 +24,9 @@
         = hidden_field_tag :qorder, params[:qorder]
         .col-md-12.col-lg-12
           %br.visible-xs.visible-sm
-          = submit_tag "Clear Filters", :name => nil, class: 'btn btn-default btn-primary btn-block'
+          = button_tag(:type => 'submit', class: 'btn btn-default btn-primary btn-block') do
+            = icon('fas', 'eraser')
+            Clear Filters
           %br.visible-xs.visible-sm
     -else
       .col-md-12.col-lg-12
@@ -38,13 +45,17 @@
           = hidden_field_tag :department, params[:department]
           = hidden_field_tag :qsale, params[:qsale]
           = hidden_field_tag :qorder, params[:qorder]
-          = submit_tag "Clear", :name => nil, class: 'btn btn-default btn-danger btn-block'
+          = button_tag(:type => 'submit', class: 'btn btn-default btn-danger btn-block') do
+            = icon('fas', 'eraser')
+            Clear
         = form_tag(products_path, :method => "get", id: "select-form") do
           = hidden_field_tag :search, params[:search]
           = hidden_field_tag :department, params[:department]
           = hidden_field_tag :qsale, params[:qsale]
           = hidden_field_tag :qorder, params[:qorder]
-          = submit_tag "Apply", :name => nil, class: 'btn btn-default btn-primary btn-block'
+          = button_tag(:type => 'submit', class: 'btn btn-default btn-primary btn-block') do
+            = icon('fas', 'save')
+            Apply
           - qmaterial_opt = [['Material', '']] + @no_page.collect{|p| [p.material.upcase, p.material]}.uniq.sort.reject{|v| v == ["", ""]}
           - qmanufacturer_opt = [['Manufacturer', '']] + @no_page.collect{|p| [p.manufacturer.upcase, p.manufacturer]}.uniq.sort.reject{|v| v == ["", ""]}
           - qmodel_opt = [['Model', '']] + @no_page.collect{|p| [p.model.upcase, p.model]}.uniq.sort.reject{|v| v == ["", ""]}
@@ -91,13 +102,17 @@
           = select_tag :qmoa_per_click_upper, options_for_select(qmoa_per_click_upper_opt, :selected=>params[:qmoa_per_click_upper]), {class: 'form-control'} if qmoa_per_click_upper_opt.count > 1
           = select_tag :qmoa_per_click_lower, options_for_select(qmoa_per_click_lower_opt, :selected=>params[:qmoa_per_click_lower]), {class: 'form-control'} if qmoa_per_click_lower_opt.count > 1
           = select_tag :qtube_diameter, options_for_select(qtube_diameter_opt, :selected=>params[:qtube_diameter]), {class: 'form-control'} if qtube_diameter_opt.count > 1
-          = submit_tag "Apply", :name => nil, class: 'btn btn-default btn-primary btn-block'
+          = button_tag(:type => 'submit', class: 'btn btn-default btn-primary btn-block') do
+            = icon('fas', 'save')
+            Apply
         = form_tag(products_path, :method => "get", id: "select-form-clear") do
           = hidden_field_tag :search, params[:search]
           = hidden_field_tag :department, params[:department]
           = hidden_field_tag :qsale, params[:qsale]
           = hidden_field_tag :qorder, params[:qorder]
-          = submit_tag "Clear", :name => nil, class: 'btn btn-default btn-danger btn-block'
+          = button_tag(:type => 'submit', class: 'btn btn-default btn-danger btn-block') do
+            = icon('fas', 'eraser')
+            Clear
         %br
 
 

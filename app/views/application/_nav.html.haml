@@ -99,7 +99,7 @@
         -if user_signed_in? && !current_user.guest
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              =icon('user')
+              =icon('fas','user')
               %span.caret
             %ul.dropdown-menu
               %li= link_to current_user.name.titleize, edit_user_registration_path
@@ -120,5 +120,5 @@
           %li= link_to "Log in", new_user_session_path
         %li
           %a.navbar-brand{:href => cart_path}
-            .glyphicon.glyphicon-shopping-cart
+            = icon('fas', 'shopping-cart')
             .badge= current_order.quantity

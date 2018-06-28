@@ -30,7 +30,9 @@
                   = f.select :quantity, options_for_select(1..@product.quantity), {}, class: "form-control"
                   .input-group-btn
                     = f.hidden_field :product_id, value: @product.id
-                    = f.submit "Add to Cart", class: "btn btn-primary"
+                    = f.button(class: "btn btn-primary") do
+                      = icon('fas', 'cart-plus')
+                      Add to Cart
               -else
                 %span Sold Out
       -if @product.price
@@ -82,7 +84,7 @@
       .col-lg-6.col-md-6.col-xs-6.col-sm-6
         .pull-right
           %a{:href => "https://telegram.me/share/url?url=#{request.original_url.parameterize}", :target => "_blank", :title => "Share On Telegram", :class => 'btn btn-info btn-xs', :style => "height: 28px;"}
-            =icon('telegram')
+            =icon('fab', 'telegram')
             Telegram
 .row
   .panel.panel-default
@@ -205,9 +207,12 @@
           %td= @product.shipper.company_name
 
 -if current_user.admin
-  = link_to 'Edit', edit_product_path(@product), class: "btn btn-primary"
+  = link_to(edit_product_path(@product), class: "btn btn-primary") do
+    = icon('fas', 'edit')
   \|
-  = link_to 'Back', :back, class: "btn btn-primary"
+  = link_to(:back, :class => 'btn btn-primary') do
+    = icon('fas', 'arrow-left')
+
 %br
 %br
 -if @product.sale_end && @product.sale_end > Time.now

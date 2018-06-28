@@ -3,6 +3,8 @@
 = render 'form'
 
 %br
-= link_to 'Show', @product, :class => 'btn btn-primary'
+= link_to(@product, :class => 'btn btn-primary') do
+  = icon('fas', 'eye')
 \|
-= link_to 'Back', :back, :class => 'btn btn-primary'
+= link_to(:back, :class => 'btn btn-primary') do
+  = icon('fas', 'arrow-left')

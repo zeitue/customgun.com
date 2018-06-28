@@ -4,7 +4,10 @@
       .col-md-3.col-sm-3.col-xs-6.col-lg-3
         .row
           .col-md-12.col-sm-12.col-xs-12.col-lg-12
-            .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product) unless product.photos.count == 0 || product.photos.first.nil?
+            -if product.photos.count == 0 || product.photos.first.nil?
+              .widewrapper=link_to(image_tag('placeholder.jpeg'), product)
+            -else
+              .widewrapper=link_to(image_tag(product.photos.first.image.thumb), product)
         .row
           .col-md-12.col-sm-12.col-xs-12.col-lg-12
             .truncate=link_to product.title.titleize, product, title: product.title.titleize, 'data-toggle' => 'tooltip', 'data-placement' => 'top'
@@ -32,6 +35,8 @@
         -if current_user.admin
           .row
             .col-md-12.col-sm-12.col-xs-12.col-lg-12
-              = link_to( 'Edit', edit_product_path(product), class: "btn btn-primary btn-block")
-              = link_to('Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger btn-block")
+              = link_to(edit_product_path(product), class: "btn btn-primary btn-block") do
+                = icon('fas', 'edit')
+              = link_to(product, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger btn-block") do
+                = icon('fas', 'trash')
               %br
