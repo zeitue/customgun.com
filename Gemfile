@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails'
 
 group :production do
-  gem 'pg'
   gem 'unicorn'
 end
 
@@ -50,3 +49,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-openid'
 gem 'authbuttons-rails'
 gem 'font-awesome-sass'
+gem 'pg'
