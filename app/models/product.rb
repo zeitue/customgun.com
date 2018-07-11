@@ -86,14 +86,8 @@ class Product < ActiveRecord::Base
       s = ss[1..-2]
       where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
     else
-      ss.split.each do |s|
-        if v
-          v = v + where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
-        else
-          v = where("title LIKE ? OR model LIKE ? OR manufacturer LIKE ? OR part_number LIKE ?", "%#{s}%", "%#{s}%", "%#{s}%", "%#{s}%")
-        end
-      end
-      v.uniq
+      terms = ss.split.map {|val| "%#{val}%" }
+      where("title ILIKE ANY ( array[?] ) OR model ILIKE ANY ( array[?] ) OR manufacturer ILIKE ANY ( array[?] ) OR part_number ILIKE ANY ( array[?] )", terms, terms, terms, terms)
     end
   end
 
