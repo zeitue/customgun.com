@@ -12,37 +12,40 @@
 
 ActiveRecord::Schema.define(version: 20180116212743) do
 
-  create_table "addresses", force: :cascade do |t|
-    t.string "address_line1"
-    t.string "address_line2"
-    t.string "country"
-    t.string "state"
-    t.string "city"
-    t.string "zip"
-    t.string "phone"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "addresses", id: :serial, force: :cascade do |t|
+    t.text "address_line1"
+    t.text "address_line2"
+    t.text "country"
+    t.text "state"
+    t.text "city"
+    t.text "zip"
+    t.text "phone"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "prefix"
-    t.string "first_name"
-    t.string "middle_name"
-    t.string "last_name"
-    t.string "suffix"
-    t.string "fax"
-    t.string "company"
+    t.text "prefix"
+    t.text "first_name"
+    t.text "middle_name"
+    t.text "last_name"
+    t.text "suffix"
+    t.text "fax"
+    t.text "company"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "authentications", force: :cascade do |t|
+  create_table "authentications", id: :serial, force: :cascade do |t|
     t.integer "user_id"
-    t.string "provider"
-    t.string "uid"
+    t.text "provider"
+    t.text "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "boxes", force: :cascade do |t|
-    t.string "provider"
+  create_table "boxes", id: :serial, force: :cascade do |t|
+    t.text "provider"
     t.float "length"
     t.float "height"
     t.float "width"
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :serial, force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
     t.integer "quantity"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.index ["shipment_id"], name: "index_items_on_shipment_id"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,18 +85,18 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "photos", id: :serial, force: :cascade do |t|
     t.integer "product_id"
-    t.string "image"
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "title"
-    t.string "manufacturer"
-    t.string "model"
-    t.string "part_number"
+  create_table "products", id: :serial, force: :cascade do |t|
+    t.text "title"
+    t.text "manufacturer"
+    t.text "model"
+    t.text "part_number"
     t.float "price"
     t.integer "quantity"
     t.text "description"
@@ -101,36 +104,36 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.float "height"
     t.float "width"
     t.float "length"
-    t.string "tags"
+    t.text "tags"
     t.boolean "exclusive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "store"
-    t.string "caliber"
-    t.string "material"
-    t.string "barrel_length"
-    t.string "type_field"
-    t.string "style_field"
-    t.string "url"
+    t.text "store"
+    t.text "caliber"
+    t.text "material"
+    t.text "barrel_length"
+    t.text "type_field"
+    t.text "style_field"
+    t.text "url"
     t.boolean "active", default: true
-    t.string "shipped_by"
+    t.text "shipped_by"
     t.boolean "sale", default: false
     t.float "sale_price"
     t.float "field_of_view_low_power"
     t.float "field_of_view_high_power"
-    t.string "diopter_adjustment"
+    t.text "diopter_adjustment"
     t.float "eye_relief"
     t.float "exit_pupil_low_power"
     t.float "exit_pupil_high_power"
-    t.string "elevation_travel"
-    t.string "windage_travel"
+    t.text "elevation_travel"
+    t.text "windage_travel"
     t.float "moa_per_click_upper"
     t.float "moa_per_click_lower"
     t.boolean "parallax_compensation", default: false
-    t.string "total_travel"
+    t.text "total_travel"
     t.float "tube_diameter"
-    t.string "position_of_reticle"
-    t.string "available_reticles"
+    t.text "position_of_reticle"
+    t.text "available_reticles"
     t.datetime "sale_end"
     t.integer "shipper_id"
     t.boolean "has_box", default: false
@@ -142,18 +145,18 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.index ["shipper_id"], name: "index_products_on_shipper_id"
   end
 
-  create_table "shipments", force: :cascade do |t|
+  create_table "shipments", id: :serial, force: :cascade do |t|
     t.integer "order_id"
-    t.string "tracking"
+    t.text "tracking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "shipped_by"
+    t.text "shipped_by"
     t.index ["order_id"], name: "index_shipments_on_order_id"
   end
 
-  create_table "shippers", force: :cascade do |t|
-    t.string "name", default: ""
-    t.string "company_name", default: ""
+  create_table "shippers", id: :serial, force: :cascade do |t|
+    t.text "name", default: ""
+    t.text "company_name", default: ""
     t.integer "scheme", default: 0
     t.float "price", default: 0.0
     t.float "handling_fee", default: 0.0
@@ -167,10 +170,10 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.index ["address_id"], name: "index_shippers_on_address_id"
   end
 
-  create_table "shipping_methods", force: :cascade do |t|
+  create_table "shipping_methods", id: :serial, force: :cascade do |t|
     t.integer "order_id"
     t.float "price"
-    t.string "service_name"
+    t.text "service_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_shipping_methods_on_order_id"
@@ -189,7 +192,7 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.integer "minor"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "units", id: :serial, force: :cascade do |t|
     t.integer "shipment_id"
     t.integer "product_id"
     t.integer "quantity"
@@ -200,26 +203,26 @@ ActiveRecord::Schema.define(version: 20180116212743) do
     t.index ["shipment_id"], name: "index_units_on_shipment_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.text "email"
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.text "current_sign_in_ip"
+    t.text "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.boolean "guest"
-    t.string "confirmation_token"
+    t.text "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.string "name"
+    t.text "unconfirmed_email"
+    t.text "name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
