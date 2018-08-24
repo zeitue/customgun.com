@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :tiles, path: 'store/tiles'
-  resources :shippers, path: 'store/shippers'
+  resources :tiles, path: '/store/tiles'
+  resources :shippers, path: '/store/shippers'
   resources :authentications
   get '/store/orders/carts' => 'orders#carts', :as => :carts
   get '/store/orders/details/:id' => 'orders#details', :as => :order_details
@@ -36,17 +36,17 @@ Rails.application.routes.draw do
   get '/store/new-arrivals' => 'products#new_arrivals', :as => :new_arrivals
   get '/store/sale-items' => 'products#sale_items', :as => :sale_items
 
-  resources :boxes, path: 'store/boxes'
-  resources :shipments, path: 'store/shipments'
-  resources :addresses, path: 'store/users/addresses'
-  resource :cart, only: [:show], path: 'store/cart'
-  resource :checkout, path: 'store/checkout'
-  resources :items, path: 'store/items'
-  resources :orders, path: 'store/orders'
-  devise_for :users, path: 'store/users', controllers: { registrations: 'registrations', confirmations: 'confirmations' }
-  resources :users, path: 'store/users', only: [:show, :index, :destroy]
-  resources :photos, path: 'store/photos'
-  resources :products, path: 'store'
+  resources :boxes, path: '/store/boxes'
+  resources :shipments, path: '/store/shipments'
+  resources :addresses, path: '/store/users/addresses'
+  resource :cart, only: [:show], path: '/store/cart'
+  resource :checkout, path: '/store/checkout'
+  resources :items, path: '/store/items'
+  resources :orders, path: '/store/orders'
+  devise_for :users, path: '/store/users', controllers: { registrations: 'registrations', confirmations: 'confirmations' }
+  resources :users, path: '/store/users', only: [:show, :index, :destroy]
+  resources :photos, path: '/store/photos'
+  resources :products, path: '/store'
   match '/auth/:provider/callback' => 'authentications#create', via: [:get, :post]
 
 
@@ -54,38 +54,37 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-  get 'alchemist-series' => 'alchemist_series#index', :as => :alchemist_series
-  get 'alchemist-series/avani.odt' => 'alchemist_series#download_avani', :as => :avani
-  get 'alchemist-series/ember.odt' => 'alchemist_series#download_ember', :as => :ember
-  get 'alchemist-series/zephyr.odt' => 'alchemist_series#download_zephyr', :as => :zephyr
-  get 'about' => 'about#index', :as => :about
-  get 'boddington-rifle-project' => 'boddington_rifle_project#index', :as => :boddington_rifle_project
-  get 'bracelet-helpers' => 'bracelet_helpers#index', :as => :bracelet_helpers
-  get 'contact' => 'contact#index', :as => :contact
-  get 'custom-rifles' => 'custom_rifles#index', :as => :custom_rifles
-  get 'engraving' => 'engraving#index', :as => :engraving
-  get 'events' => 'events#index', :as => :events
-  get 'finishes' => 'finishes#index', :as => :finishes
-  get 'gun-fitting' => 'gun_fitting#index', :as => :gun_fitting
-  get 'gun-parts' => 'gun_parts#index', :as => :gun_parts
-  get 'guns-for-sale' => 'guns_for_sale#index', :as => :guns_for_sale
-  get 'gunsmithing' => 'gunsmithing#index', :as => :gunsmithing
-  get 'home' => 'home#index', :as => :home
-  get 'key-chains' => 'key_chains#index', :as => :key_chains
-  get 'layouts' => 'layouts#index', :as => :layouts
-  get 'leather-wrap-pads' => 'leather_wrap_pads#index', :as => :leather_wrap_pads
-  get 'media' => 'media#index', :as => :media
-  get 'payment-and-shipping' => 'payment_and_shipping#index', :as => :payment_and_shipping
-  get 'pistols' => 'pistols#index', :as => :pistols
-  get 'pens' => 'pens#index', :as => :pens
-  get 'restoration' => 'restoration#index', :as => :restoration
-  get 'shotguns' => 'shotguns#index', :as => :shotguns
-  get 'stock-work' => 'stock_work#index', :as => :stock_work
-  get 'synthetic-rifles' => 'synthetic_rifles#index', :as => :synthetic_rifles
-  get 'taylors-pens-and-gifts' => 'taylors_pens_and_gifts#index', :as => :taylors_pens_and_gifts
-  get 'trophy-room' => 'trophy_room#index', :as => :trophy_room
-  get 'wine-stoppers' => 'wine_stoppers#index', :as => :wine_stoppers
+  root 'showcase#home'
+  get '/alchemist-series/avani.odt' => 'showcase#download_avani', :as => :avani
+  get '/alchemist-series/ember.odt' => 'showcase#download_ember', :as => :ember
+  get '/alchemist-series/zephyr.odt' => 'showcase#download_zephyr', :as => :zephyr
+  get '/alchemist-series' => 'showcase#alchemist_series', :as => :alchemist_series
+  get '/about' => 'showcase#about', :as => :about
+  get '/boddington-rifle-project' => 'showcase#boddington_rifle_project', :as => :boddington_rifle_project
+  get '/bracelet-helpers' => 'showcase#bracelet_helpers', :as => :bracelet_helpers
+  get '/contact' => 'showcase#contact', :as => :contact
+  get '/custom-rifles' => 'showcase#custom_rifles', :as => :custom_rifles
+  get '/engraving' => 'showcase#engraving', :as => :engraving
+  get '/events' => 'showcase#events', :as => :events
+  get '/finishes' => 'showcase#finishes', :as => :finishes
+  get '/gun-fitting' => 'showcase#gun_fitting', :as => :gun_fitting
+  get '/gun-parts' => 'showcase#gun_parts', :as => :gun_parts
+  get '/guns-for-sale' => 'showcase#guns_for_sale', :as => :guns_for_sale
+  get '/gunsmithing' => 'showcase#gunsmithing', :as => :gunsmithing
+  get '/home' => 'showcase#home', :as => :home
+  get '/key-chains' => 'showcase#key_chains', :as => :key_chains
+  get '/leather-wrap-pads' => 'showcase#leather_wrap_pads', :as => :leather_wrap_pads
+  get '/media' => 'showcase#media', :as => :media
+  get '/payment-and-shipping' => 'showcase#payment_and_shipping', :as => :payment_and_shipping
+  get '/pistols' => 'showcase#pistols', :as => :pistols
+  get '/pens' => 'showcase#pens', :as => :pens
+  get '/restoration' => 'showcase#restoration', :as => :restoration
+  get '/shotguns' => 'showcase#shotguns', :as => :shotguns
+  get '/stock-work' => 'showcase#stock_work', :as => :stock_work
+  get '/synthetic-rifles' => 'showcase#synthetic_rifles', :as => :synthetic_rifles
+  get '/taylors-pens-and-gifts' => 'showcase#taylors_pens_and_gifts', :as => :taylors_pens_and_gifts
+  get '/trophy-room' => 'showcase#trophy_room', :as => :trophy_room
+  get '/wine-stoppers' => 'showcase#wine_stoppers', :as => :wine_stoppers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
