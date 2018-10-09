@@ -91,7 +91,7 @@ en:
   alchemist_series_text9_html: "Ember Warrior Rifle is a lightweight all around long range hunting rifle, it is suitable for long range tactical use.  Rifle can be built on Stiller action or control round feed action.  We use Pacnor super match grade fluted barrel or a Proof match grade carbon barrel.  Stock style available is light sporting stock or light tactical stock.  Rifle can be designed with base paint color or custom paint job up to five colors."
   alchemist_series_text10_html: "Dallas Safari Club Life Members Breakfast Auction Gun.  This rifle was built exclusively for the Dallas Safari Club 2017 Adventures Convention.  6.5 Creedmore designed after the Ember Warrior rifle series.  This rifle has a blue printed action, match grade barrel, model 40 syle stock, painted with Riptile pattern including the scope four colors. Engraved with DSC Adventures 2017, Ember, Makers Name.  Outfitted in a Boyt double gun case"
   alchemist_series_text11_html: "Zephyr Warrior is a long range tactical rifle.  It's is built on a blue printed Remington action or a Stiller action. Rifle is available in all calibers up to 338 Lapua.  This rifle is available with a chassi or McMillan tac stock.  Zephyr rifle can be designed in a base color or custom painted up to five colors."
-
+  alchemist_series_text12: "Alchemist Warrior Series Avani With American Classic Stock"
   contact_text0: "Email: customgun.tr@gmail.com"
   contact_text1_html: "Mailing Address:<br><br>
   Custom Shop, LLC<br>
@@ -104,10 +104,10 @@ en:
   about_text0: "Todd Ramirez has been a full-time gun-maker since 1980. He began his education in gun-smithing at Colorado School of Trades, expanded that knowledge while apprenticing under an English gunsmith, and has been perfecting his craft for thirty years. For nine years, Todd also worked for Beretta Gun Company, doing  premium gun-smithing, stock making, and gun fitting for the Galleries. Todd is a one-man operation, building six to ten rifles a year in his shop. They're all high quality and one of a kind, built on Mauser actions in caliber up to 505 Gibbs and Winchester Model 70 action in caliber up to 458 Lott. The wood used is exhibition to museum quality. Built with the finest craftsmanship in the world, Todd's rifles reflect English or American Classic style, with clean lines and elegance, as well as a perfect balance between wood and metal. His specialty is his highly polished oil finish, which makes his rifles truly unique and unmatched in beauty. Each rifle is fine tuned to meet customer's specifications, desires, and dimensions. The rifles aren't only aesthetically beautiful, designed for fit and functionality, they are accurate as well. Craig Boddington has shot on four continents with his Ramirez rifle and says, “My Todd Ramirez 7x57 is by far the nicest rifle I've ever owned . . . and to my thinking it's designed and built the way a fine bolt action rifle should be. In the field it's a joy to carry, and it handles like a dream. It has not yet failed me, and I'm sure it never will.” Whether you are building a rifle to hunt elk, plains games or specifically for dangerous game, you will always be right on target. Todd is one of the best Master Gunsmiths, with a thorough knowledge of the finest American and Europeans rifles, shotguns, and double rifles. For all your gun-smithing needs, including restoration, stock making, stock fitting, and specialty items such as leather wrap pads."
 
 
-  events_text0_html: "Dallas Safari Club 2018 Adventure Convention<br>Kay Bailey Hutchison Convention Center - Halls C,D,E & F<br>January 4-7, 2018"
-  events_text1: "Booth #4332"
-  events_text2_html: "Safari Club International<br>2018 Annual Hunters' Convention<br>Las Vegas Convention Center, Las Vegas, Nevada<br>January 31 to February 3, 2018"
-  events_text3: "Booth #3922"
+  events_text0_html: "Dallas Safari Club 2019 Adventure Convention<br>Kay Bailey Hutchison Convention Center - Halls C,D,E & F<br>January 17-20, 2019"
+  events_text1: "Booth #4132"
+  events_text2_html: "Safari Club International<br>2019 Annual Hunters' Convention<br>Reno Sparks Convention Center, Reno, Nevada<br>January 9-12, 2019"
+  events_text3: "Booth: We are opting out of 2019 SCI Show. SEE YOU NEXT YEAR"
 
 
   leather_wrap_pads_text0_html: "Leather Wrap Pads<br>Choice of Colors:<br>Brown<br>Chocolate Brown<br>Black<br>Saddle Tan<br>Burgundy"
@@ -144,6 +144,7 @@ en:
   trophy_room_text11: "2GW's Trophies taken with a 300 win. mag.  &  375  Rifles  built by Todd Ramirez"
   trophy_room_text12: "Weaver's Trophies, shot with his 375 built by Todd Ramirez"
   trophy_room_text13: "Welcome to our trophy room of our customers' trophies that were taken with custom rifles built by Todd."
+  trophy_room_text14: "Corrigan's Trophies taken in Alaska with his 338, built by Todd Ramriez "
   boddington_trophy_text0: "Craig's Trophies shot with his 7 x 57 built by Todd Ramirez"
   boddington_trophy_text1: "All Quotes by Craig"
   boddington_trophy_text2: "\"Checking Zero in Nambia\""
@@ -951,6 +952,11 @@ available in all standard calibers up to 458 Lott"
   restoration_text14: "Restocked, Color Cased, Reblued, Regulated, Action Tightened."
   restoration_text15: "Restored Anshutz, 1927 Drilling 16 ga. and 8 x 57 cal."
   restoration_text16: "Colt 1878 Double Barrel 12 ga. Hammer Gun"
+  restoration_text17: "Winchester 21, Legacy Project. This is a Complete Restoration of a Winchester 21, 20 gauge Shotgun. It is Stocked with Turkish Walnut Wood. It has  a Beavertail Forearm, High Gloss Oil Finish, Leather Wrapped Pad, Engraving and Initials"
+  restoration_text18: "Preparing Metal for Engraving and Rebluing on this Winchester 21 Restoration Project"
+  restoration_text19: "Winchester 21 Restoration Project Metal and Wood"
+  restoration_text20: "Winchester 21 Stock Job Before the Work"
+  restoration_text21: "Winchester 21, Restocked and Tested Out in the Field"
   stock_work_text0: "ASL 20 Ga. Prince of Wales Shotgun  -  Restocked, Restored Metal"
   stock_work_text1: "Ruger # 1 Restocking Job"
   stock_work_text2: "Labor only  - Wood is an Additional Charge"
